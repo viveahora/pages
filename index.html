@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reto Bucher | Coaching – Vive Ahora</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #1e2533;
+      --white: #ffffff;
+      --teal: #2a7fb5;
+      --teal-dark: #1e6a9a;
+      --gold: #b89030;
+      --gold-dark: #9a7828;
+      --gray-light: #f5f6f7;
+      --gray-mid: #888;
+      --gray-border: #dde1e7;
+      --text-dark: #1a1f2b;
+      --font: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--text-dark); background: var(--white); overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--black); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; color: var(--white); font-size: 17px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+    .nav-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-link { color: var(--white); text-decoration: none; font-size: 15px; font-weight: 500; opacity: 0.8; transition: opacity 0.2s; }
+    .nav-link:hover { opacity: 1; }
+    .nav-cta { background: var(--teal); color: var(--white); border: none; border-radius: 50px; padding: 10px 22px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--teal-dark); }
+
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; padding: 120px 60px 80px; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #1a2030 0%, #1e2840 35%, #243050 65%, #1a2030 100%); z-index: 0; }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); }
+    .hero-bg::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 55%; background: linear-gradient(to top right, rgba(42,127,181,0.2) 0%, transparent 55%); }
+    .hero-glow { position: absolute; top: 20%; right: 15%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(184,144,48,0.15) 0%, transparent 70%); z-index: 0; }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+    .section-label { display: flex; align-items: center; gap: 10px; color: var(--white); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 20px; opacity: 0.9; }
+    .section-label .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .section-label.dark { color: var(--black); }
+    .section-label.dark .dot { background: var(--gold); }
+    .hero h1 { font-size: clamp(44px, 6vw, 82px); font-weight: 900; color: var(--white); line-height: 1.03; margin-bottom: 24px; letter-spacing: -0.025em; }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero p { font-size: 18px; color: rgba(255,255,255,0.82); line-height: 1.65; max-width: 560px; margin-bottom: 36px; }
+    .hero-badge { position: absolute; bottom: 80px; right: 60px; background: rgba(0,0,0,0.75); border: 1px solid rgba(184,144,48,0.35); border-radius: 14px; padding: 28px 32px; text-align: center; z-index: 1; backdrop-filter: blur(12px); }
+    .hero-badge span { display: block; color: rgba(255,255,255,0.65); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+    .hero-badge strong { display: block; color: var(--gold); font-size: 15px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.4; }
+
+    .btn-primary { display: inline-block; background: var(--teal); color: var(--white); border: 2px solid var(--teal); border-radius: 50px; padding: 16px 32px; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.25s; }
+    .btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+    .btn-white { display: inline-block; background: var(--white); color: var(--black); border: 2px solid var(--white); border-radius: 50px; padding: 16px 32px; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.25s; }
+    .btn-white:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+    .intro { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
+    .intro h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
+    .intro h2 span { color: var(--gold); }
+    .intro-text p { font-size: 17px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    .intro-methods { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .method-tag { background: var(--gray-light); border: 1px solid var(--gray-border); border-radius: 50px; padding: 8px 18px; font-size: 13px; font-weight: 700; color: var(--text-dark); letter-spacing: 0.03em; }
+
+    .tags-section { overflow: hidden; padding: 0 0 60px; border-bottom: 1px solid var(--gray-border); }
+    .tags-track { display: flex; animation: scrollLeft 22s linear infinite; width: max-content; }
+    .tags-track:hover { animation-play-state: paused; }
+    @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .tag-item { display: flex; align-items: center; gap: 16px; padding: 20px 40px; font-size: 16px; font-weight: 700; white-space: nowrap; color: var(--black); text-transform: uppercase; letter-spacing: 0.05em; }
+    .tag-item .tag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+
+    .image-cards { display: grid; grid-template-columns: repeat(5, 1fr); height: 340px; overflow: hidden; }
+    .image-card { position: relative; overflow: hidden; cursor: pointer; }
+    .image-card:hover .image-card-bg { transform: scale(1.06); }
+    .image-card-bg { width: 100%; height: 100%; transition: transform 0.4s ease; }
+    .card-grad-1 { background: linear-gradient(135deg, #1a2030, #2a7fb5); }
+    .card-grad-2 { background: linear-gradient(135deg, #1e2840, #1e6a9a); }
+    .card-grad-3 { background: linear-gradient(135deg, #2a2010, #b89030); }
+    .card-grad-4 { background: linear-gradient(135deg, #1a2030, #3a5f8a); }
+    .card-grad-5 { background: linear-gradient(135deg, #2a200a, #c4a030); }
+    .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 60%); display: flex; align-items: flex-end; padding: 24px; }
+    .card-overlay span { color: var(--white); font-size: 17px; font-weight: 800; line-height: 1.25; }
+
+    .about-strip { background: var(--black); padding: 80px 60px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+    .about-strip-text h2 { font-size: clamp(30px, 3.5vw, 46px); font-weight: 900; color: var(--white); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 24px; }
+    .about-strip-text h2 em { font-style: normal; color: var(--gold); }
+    .about-strip-text p { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 16px; }
+    .about-strip-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .stat-box { border: 1px solid rgba(184,144,48,0.3); border-radius: 14px; padding: 28px 24px; text-align: center; }
+    .stat-box strong { display: block; font-size: 42px; font-weight: 900; color: var(--gold); letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px; }
+    .stat-box span { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; line-height: 1.4; }
+
+    .benefits { padding: 100px 60px; text-align: center; }
+    .benefits-label { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 20px; color: var(--black); }
+    .benefits-label .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
+    .benefits h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 16px; }
+    .benefits h2 em { font-style: normal; color: var(--gold); }
+    .benefits > p { font-size: 17px; color: #555; max-width: 560px; margin: 0 auto 60px; line-height: 1.65; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; text-align: left; }
+    .benefit-card { padding: 32px; border-radius: 16px; background: var(--gray-light); border: 1px solid transparent; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .benefit-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(42,127,181,0.12); border-color: rgba(42,127,181,0.25); }
+    .benefit-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--white); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
+    .benefit-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 12px; line-height: 1.25; }
+    .benefit-card p { font-size: 15px; color: #555; line-height: 1.7; }
+
+    .methods { background: var(--gray-light); padding: 100px 60px; }
+    .methods-inner { max-width: 1100px; margin: 0 auto; }
+    .methods h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .methods > .methods-inner > p { font-size: 17px; color: #555; margin-bottom: 56px; max-width: 560px; line-height: 1.65; }
+    .methods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .method-card { background: var(--white); border-radius: 16px; padding: 36px 32px; border: 1px solid var(--gray-border); transition: box-shadow 0.2s, border-color 0.2s; }
+    .method-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); border-color: var(--teal); }
+    .method-number { font-size: 48px; font-weight: 900; color: rgba(184,144,48,0.2); line-height: 1; margin-bottom: 12px; letter-spacing: -0.03em; }
+    .method-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 14px; color: var(--black); }
+    .method-card p { font-size: 15px; color: #555; line-height: 1.7; }
+
+    .cta-banner { background: var(--teal); padding: 72px 80px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .cta-banner h2 { font-size: clamp(24px, 3.2vw, 40px); font-weight: 900; color: var(--white); max-width: 520px; line-height: 1.18; }
+    .cta-banner-right { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+    .cta-banner-right p { color: rgba(255,255,255,0.88); font-size: 16px; text-align: right; max-width: 280px; line-height: 1.55; }
+
+    .testimonials { padding: 100px 60px; }
+    .testimonials-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; }
+    .testimonials-header h2 { font-size: clamp(34px, 4.5vw, 56px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+    .testimonials-header h2 em { font-style: normal; color: var(--gold); }
+    .testimonials-nav { display: flex; gap: 12px; }
+    .nav-arrow { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--black); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; font-size: 18px; }
+    .nav-arrow:hover { background: var(--teal); border-color: var(--teal); color: var(--white); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card { border-radius: 18px; overflow: hidden; background: var(--gray-light); border: 1px solid var(--gray-border); transition: box-shadow 0.2s; }
+    .testimonial-card:hover { box-shadow: 0 12px 40px rgba(42,127,181,0.12); }
+    .testimonial-photo-placeholder { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+    .ph-1 { background: linear-gradient(135deg, #1e2840, #2a7fb5); }
+    .ph-2 { background: linear-gradient(135deg, #1a2030, #1e6a9a); }
+    .ph-3 { background: linear-gradient(135deg, #2a2010, #b89030); }
+    .testimonial-body { padding: 28px 24px; }
+    .stars { color: var(--gold); font-size: 16px; margin-bottom: 12px; letter-spacing: 2px; }
+    .testimonial-body blockquote { font-size: 16px; font-weight: 600; line-height: 1.6; color: var(--text-dark); margin-bottom: 16px; font-style: normal; }
+    .testimonial-body cite { font-size: 14px; color: var(--gray-mid); font-style: normal; font-weight: 500; }
+
+    .faq { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1.7fr; gap: 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
+    .faq-left .section-label { margin-bottom: 20px; }
+    .faq-left h2 { font-size: clamp(32px, 4vw, 50px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 24px; }
+    .faq-left p { font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 32px; }
+    .faq-left a { color: var(--teal); font-size: 15px; font-weight: 700; text-decoration: none; }
+    .faq-left a:hover { text-decoration: underline; }
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--gray-border); }
+    .faq-question { width: 100%; background: none; border: none; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; text-align: left; font-size: 17px; font-weight: 600; cursor: pointer; color: var(--black); gap: 16px; }
+    .faq-question:hover { color: var(--teal); }
+    .faq-chevron { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; border: 2px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: transform 0.3s, background 0.2s, color 0.2s; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--teal); border-color: var(--teal); color: var(--white); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-answer { max-height: 400px; }
+    .faq-answer p { padding: 0 0 22px; font-size: 15px; color: #555; line-height: 1.75; }
+
+    .final-cta { position: relative; min-height: 520px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 60px; overflow: hidden; }
+    .final-cta-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #151c2a 0%, #1e2840 50%, #151c2a 100%); }
+    .final-cta-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(42,127,181,0.18) 0%, transparent 70%); }
+    .final-cta-content { position: relative; z-index: 1; }
+    .final-cta-content h2 { font-size: clamp(30px, 5vw, 60px); font-weight: 900; color: var(--white); margin-bottom: 20px; letter-spacing: -0.025em; max-width: 720px; line-height: 1.1; }
+    .final-cta-content h2 em { font-style: normal; color: var(--gold); }
+    .final-cta-content p { font-size: 18px; color: rgba(255,255,255,0.72); margin-bottom: 36px; max-width: 500px; line-height: 1.65; }
+    .final-cta-contact { margin-top: 28px; font-size: 15px; color: rgba(255,255,255,0.5); }
+    .final-cta-contact a { color: var(--gold); text-decoration: none; font-weight: 600; }
+
+    footer { background: var(--black); color: var(--white); padding: 60px 60px 40px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; gap: 40px; flex-wrap: wrap; }
+    .footer-logo { font-size: 17px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .footer-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+    .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.45); font-style: italic; letter-spacing: 0.04em; }
+    .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 1000px) {
+      .about-strip { grid-template-columns: 1fr; padding: 60px 30px; }
+      .about-strip-stats { grid-template-columns: 1fr 1fr; }
+      .methods-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .hero { padding: 100px 30px 60px; }
+      .hero-badge, .hero-glow { display: none; }
+      .intro { grid-template-columns: 1fr; gap: 32px; padding: 60px 30px; }
+      .image-cards { grid-template-columns: repeat(2, 1fr); height: auto; }
+      .image-card { height: 180px; }
+      .benefits { padding: 60px 30px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .methods { padding: 60px 30px; }
+      .cta-banner { flex-direction: column; padding: 48px 30px; }
+      .cta-banner-right { align-items: flex-start; }
+      .cta-banner-right p { text-align: left; }
+      .testimonials { padding: 60px 30px; }
+      .testimonials-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .faq { grid-template-columns: 1fr; gap: 40px; padding: 60px 30px; }
+      .final-cta { padding: 80px 30px; }
+      footer { padding: 48px 30px 32px; }
+      .footer-top { flex-direction: column; }
+      .footer-links { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="#"><span class="nav-logo-dot"></span> Reto Bucher</a>
+    <div class="nav-right">
+      <a class="nav-link" href="#methoden">Methoden</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-cta" href="#termin">Erstgespräch buchen</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="section-label"><span class="dot"></span> Coaching · PSYCH-K · Hypnose</div>
+      <h1>Lebe jetzt.<br /><em>Verändere</em><br />dein Leben.</h1>
+      <p>Mit systemischem Coaching, PSYCH-K und Hypnose begleite ich dich dabei, einschränkende Überzeugungen aufzulösen, innere Klarheit zu gewinnen und die Veränderungen zu schaffen, nach denen du dich wirklich sehnst.</p>
+      <a class="btn-primary" href="#termin">Kostenloses Erstgespräch vereinbaren</a>
+    </div>
+    <div class="hero-badge"><span>vive ahora</span><strong>Lebe<br />jetzt</strong></div>
+  </section>
+
+  <section>
+    <div class="intro">
+      <div><h2>Nachhaltige Veränderung beginnt <span>von innen</span></h2></div>
+      <div class="intro-text">
+        <p>Viele Menschen wissen, was sie wollen – aber irgendetwas hält sie zurück. Alte Muster, Glaubenssätze, die seit Jahren im Unterbewusstsein verankert sind, oder fehlende Klarheit über den nächsten Schritt. Genau hier setze ich an.</p>
+        <p>Als zertifizierter Coach begleite ich dich mit bewährten Methoden, die weit über reines Gespräch hinausgehen: Wir arbeiten auf der Ebene, auf der echte Veränderung entsteht – im Körper, im Geist und in deinen Überzeugungen.</p>
+        <div class="intro-methods">
+          <span class="method-tag">Systemisches Coaching</span>
+          <span class="method-tag">PSYCH-K</span>
+          <span class="method-tag">Hypnose</span>
+          <span class="method-tag">Lebensberatung</span>
+          <span class="method-tag">NLP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tags-section">
+    <div class="tags-track">
+      <div class="tag-item"><span class="tag-dot"></span> Glaubenssätze verändern</div>
+      <div class="tag-item"><span class="tag-dot"></span> Mehr Lebensfreude</div>
+      <div class="tag-item"><span class="tag-dot"></span> Berufliche Klarheit</div>
+      <div class="tag-item"><span class="tag-dot"></span> Tiefe Entspannung</div>
+      <div class="tag-item"><span class="tag-dot"></span> Beziehungen stärken</div>
+      <div class="tag-item"><span class="tag-dot"></span> Stress abbauen</div>
+      <div class="tag-item"><span class="tag-dot"></span> Ziele erreichen</div>
+      <div class="tag-item"><span class="tag-dot"></span> Innere Freiheit</div>
+      <div class="tag-item"><span class="tag-dot"></span> Glaubenssätze verändern</div>
+      <div class="tag-item"><span class="tag-dot"></span> Mehr Lebensfreude</div>
+      <div class="tag-item"><span class="tag-dot"></span> Berufliche Klarheit</div>
+      <div class="tag-item"><span class="tag-dot"></span> Tiefe Entspannung</div>
+      <div class="tag-item"><span class="tag-dot"></span> Beziehungen stärken</div>
+      <div class="tag-item"><span class="tag-dot"></span> Stress abbauen</div>
+      <div class="tag-item"><span class="tag-dot"></span> Ziele erreichen</div>
+      <div class="tag-item"><span class="tag-dot"></span> Innere Freiheit</div>
+    </div>
+  </div>
+
+  <div class="image-cards">
+    <div class="image-card"><div class="image-card-bg card-grad-1"></div><div class="card-overlay"><span>Innere Klarheit</span></div></div>
+    <div class="image-card"><div class="image-card-bg card-grad-2"></div><div class="card-overlay"><span>Beruf &amp; Karriere</span></div></div>
+    <div class="image-card"><div class="image-card-bg card-grad-3"></div><div class="card-overlay"><span>Beziehungen</span></div></div>
+    <div class="image-card"><div class="image-card-bg card-grad-4"></div><div class="card-overlay"><span>Gesundheit &amp; Wohlbefinden</span></div></div>
+    <div class="image-card"><div class="image-card-bg card-grad-5"></div><div class="card-overlay"><span>Persönlichkeit &amp; Wachstum</span></div></div>
+  </div>
+
+  <section class="about-strip">
+    <div class="about-strip-text">
+      <h2>Hinter <em>vive ahora</em> steckt<br />eine klare Überzeugung</h2>
+      <p>„Vive ahora“ – lebe jetzt. Nicht irgendwann, nicht wenn die Umstände stimmen. Echte Veränderung passiert im gegenwärtigen Moment. Als Coach begleite ich Menschen dabei, nicht nur Ziele zu formulieren, sondern die inneren Muster zu verändern, die sie bisher daran gehindert haben, diese zu leben.</p>
+      <p>Ich verbinde modernste Methoden wie PSYCH-K und Hypnose mit systemischem Denken und einer tiefen Überzeugung: Du hast alles, was du brauchst – manchmal braucht es nur jemanden, der dir hilft, es zu entdecken.</p>
+    </div>
+    <div class="about-strip-stats">
+      <div class="stat-box"><strong>100+</strong><span>begleitete Klienten</span></div>
+      <div class="stat-box"><strong>3</strong><span>bewährte Methoden</span></div>
+      <div class="stat-box"><strong>1:1</strong><span>persönliche Begleitung</span></div>
+      <div class="stat-box"><strong>CHF 0</strong><span>Erstgespräch kostenlos</span></div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="benefits-label"><span class="dot"></span> Was du gewinnst</div>
+    <h2>Durchbrechen. Befreien.<br /><em>Wachsen.</em></h2>
+    <p>Jeder Mensch ist einzigartig. Doch diese sechs Bereiche verändern sich bei fast allen Klienten durch die Zusammenarbeit mit mir.</p>
+    <div class="benefits-grid">
+      <div class="benefit-card"><div class="benefit-icon">🎯</div><h3>Klarheit über deine Richtung</h3><p>Du erkennst, was du wirklich willst – und was dich bisher davon abgehalten hat. Mit Klarheit entsteht Entschlossenheit.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">🧠</div><h3>Limitierende Glaubenssätze auflösen</h3><p>Mit PSYCH-K und Hypnose arbeiten wir direkt im Unterbewusstsein, wo Überzeugungen verankert sind – und verändern sie nachhaltig.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">💼</div><h3>Berufliche Erfüllung finden</h3><p>Ob Neuorientierung, Führungsrolle oder unternehmerischer Schritt – du entwickelst Klarheit und den Mut, den nächsten Schritt zu gehen.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">❤️</div><h3>Tiefere Beziehungen erleben</h3><p>Kommunikation, Vertrauen und Nähe – in Partnerschaft, Familie und Freundschaft. Gesunde Beziehungen beginnen bei dir selbst.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">🌿</div><h3>Mehr Lebensfreude &amp; Energie</h3><p>Stress, innere Unruhe und Erschöpfung weichen einer neuen Leichtigkeit. Du lebst mehr im Einklang mit dir selbst.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">🗺️</div><h3>Einen klaren Plan für die Zukunft</h3><p>Aus dem Coaching gehst du nicht nur mit Einsichten, sondern mit konkreten nächsten Schritten – die du wirklich umsetzt.</p></div>
+    </div>
+  </section>
+
+  <section class="methods" id="methoden">
+    <div class="methods-inner">
+      <div class="section-label dark"><span class="dot"></span> Meine Methoden</div>
+      <h2>Wie wir gemeinsam arbeiten</h2>
+      <p>Ich setze auf Methoden, die nicht nur an der Oberfläche kratzen, sondern echte, dauerhafte Veränderung bewirken.</p>
+      <div class="methods-grid">
+        <div class="method-card"><div class="method-number">01</div><h3>Systemisches Coaching</h3><p>Im systemischen Coaching betrachten wir deine Situation ganzheitlich – Muster, Beziehungen, Rollen und Ressourcen. Durch gezielte Fragen und Perspektivwechsel entstehen neue Handlungsmöglichkeiten, die du vorher nicht gesehen hast. Du wirst nicht geführt, sondern befähigt, eigene Antworten zu finden.</p></div>
+        <div class="method-card"><div class="method-number">02</div><h3>PSYCH-K</h3><p>PSYCH-K ist eine wissenschaftlich fundierte Methode zur Veränderung einschränkender Glaubenssätze auf der Ebene des Unterbewusstseins. In einfachen, aber kraftvollen Prozessen werden negative Überzeugungen durch förderliche ersetzt – schnell, nachhaltig und ohne langes Analysieren. Die Ergebnisse sind oft verblüffend direkt.</p></div>
+        <div class="method-card"><div class="method-number">03</div><h3>Hypnose</h3><p>Hypnose ermöglicht einen direkten Zugang zum Unterbewusstsein, wo tief verwurzelte Muster, Ängste und Blockaden gespeichert sind. In einem Zustand tiefer Entspannung können alte Programme umprogrammiert werden. Hypnose ist sicher, respektvoll und wirkt dort, wo andere Methoden an ihre Grenzen stossen.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" id="termin">
+    <h2>Starte mit einem kostenlosen 30-minütigen Erstgespräch</h2>
+    <div class="cta-banner-right">
+      <p>Kein Druck, keine Verpflichtung. Wir schauen gemeinsam, ob wir zueinanderpassen und welche Richtung dein Weg nehmen soll.</p>
+      <a class="btn-white" href="mailto:info@vive-ahora.ch">Jetzt Termin vereinbaren</a>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="testimonials-header">
+      <h2>Was Klienten<br /><em>über mich sagen</em></h2>
+      <div class="testimonials-nav">
+        <button class="nav-arrow" onclick="slideTestimonials(-1)" aria-label="Zurück">&#8592;</button>
+        <button class="nav-arrow" onclick="slideTestimonials(1)" aria-label="Weiter">&#8594;</button>
+      </div>
+    </div>
+    <div class="testimonials-grid" id="testimonialsGrid">
+      <div class="testimonial-card"><div class="testimonial-photo-placeholder ph-1">👨‍💼</div><div class="testimonial-body"><div class="stars">★★★★★</div><blockquote>„Ich hätte nie gedacht, dass sich so viel in so kurzer Zeit verändern kann. Nach unserer Arbeit mit PSYCH-K war ein Glaubenssatz, der mich jahrelang begleitet hatte, einfach weg. Ich kann es kaum beschreiben – aber ich fühle es.“</blockquote><cite>Markus T., Unternehmer, Zürich</cite></div></div>
+      <div class="testimonial-card"><div class="testimonial-photo-placeholder ph-2">👩‍🏫</div><div class="testimonial-body"><div class="stars">★★★★★</div><blockquote>„Reto hat mir geholfen, endlich die Klarheit zu finden, die ich gesucht habe. Seine ruhige, empathische Art schafft einen Raum, in dem ich mich wirklich öffnen konnte. Das Coaching war ein Wendepunkt in meinem Leben.“</blockquote><cite>Sandra M., Lehrerin, Bern</cite></div></div>
+      <div class="testimonial-card"><div class="testimonial-photo-placeholder ph-3">👨‍💻</div><div class="testimonial-body"><div class="stars">★★★★★</div><blockquote>„Die Hypnosesitzung war eine der intensivsten und heilsamsten Erfahrungen meines Lebens. Reto begleitet professionell und einfühlsam. Meine Lebensqualität hat sich seitdem deutlich verbessert.“</blockquote><cite>Daniel K., IT-Berater, Basel</cite></div></div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="faq-left">
+      <div class="section-label dark"><span class="dot"></span> Häufige Fragen</div>
+      <h2>Du hast Fragen. Ich habe Antworten.</h2>
+      <p>Hier findest du Antworten auf die häufigsten Fragen rund um das Coaching, die Methoden und den Ablauf.</p>
+      <a href="mailto:info@vive-ahora.ch">Weitere Fragen? Schreib mir →</a>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Was passiert beim kostenlosen Erstgespräch?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Das Erstgespräch dauert rund 30 Minuten und ist vollständig kostenlos und unverbindlich. Wir lernen uns kennen, sprechen über deine aktuelle Situation und deine Ziele, und ich erkläre dir, wie eine Zusammenarbeit aussehen könnte. Am Ende entscheidest du, ob du weitermachen möchtest – ohne Druck.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Wie unterscheidet sich PSYCH-K von klassischem Coaching?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Klassisches Coaching arbeitet oft auf der bewussten Ebene – durch Gespräch, Reflexion und Planung. PSYCH-K geht tiefer: Es verändert Glaubenssätze direkt im Unterbewusstsein, wo ca. 95% unserer Entscheidungen und Reaktionen entstehen. Das macht es besonders effektiv bei hartnäckigen Mustern, die sich durch Gespräch allein nicht auflösen lassen.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Ist Hypnose sicher? Verliere ich die Kontrolle?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Hypnose ist völlig sicher. Du verlierst zu keinem Zeitpunkt die Kontrolle – du bist immer bewusst und kannst das Gespräch jederzeit beenden. Der Hypnosezustand ähnelt einem tiefen Entspannungszustand, wie du ihn vielleicht kurz vor dem Einschlafen kennst. Niemand kann in Hypnose zu etwas gezwungen werden, was er nicht will.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Für wen ist das Coaching geeignet?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Coaching ist für Menschen, die wissen, dass mehr möglich ist – und bereit sind, dafür etwas zu verändern. Es gibt keine spezifische Zielgruppe: Ob berufliche Neuorientierung, Beziehungsfragen, innere Blockaden oder das Gefühl, nicht wirklich zu leben – wenn du offen für Veränderung bist, kann Coaching dir helfen.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Wie viele Sitzungen sind nötig?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Das hängt von deinen Zielen und deiner Situation ab. Manche Klienten erleben nach einer einzigen PSYCH-K-Sitzung spürbare Veränderungen. Andere begleite ich über mehrere Monate. Im Erstgespräch besprechen wir gemeinsam, was sinnvoll ist – ohne unnötige Verpflichtungen.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Findet das Coaching online oder vor Ort statt?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Ich biete beides an. Online-Sitzungen funktionieren für Coaching und PSYCH-K sehr gut. Hypnosesitzungen empfehle ich bei Möglichkeit in Präsenz. Ich freue mich auf deine Anfrage – wir finden eine Lösung, die für dich passt.</p></div></div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="final-cta-bg"></div>
+    <div class="final-cta-content">
+      <div class="section-label" style="justify-content:center; margin-bottom:20px;"><span class="dot"></span> Vive Ahora – Lebe jetzt</div>
+      <h2>Der beste Moment für Veränderung<br />ist <em>jetzt</em>.</h2>
+      <p>Nicht morgen, nicht wenn die Zeit stimmt. Buche dein kostenloses Erstgespräch und machen wir gemeinsam den ersten Schritt.</p>
+      <a class="btn-primary" href="mailto:info@vive-ahora.ch">Kostenloses Erstgespräch buchen</a>
+      <p class="final-cta-contact">Oder ruf mich an: <a href="tel:+41786052221">078 605 22 21</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="footer-logo-dot"></span> Reto Bucher</div>
+        <div class="footer-tagline">vive ahora · lebe jetzt</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Angebote</h4><ul><li><a href="#methoden">Systemisches Coaching</a></li><li><a href="#methoden">PSYCH-K</a></li><li><a href="#methoden">Hypnose</a></li><li><a href="#methoden">Lebensberatung</a></li></ul></div>
+        <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#">Start</a></li><li><a href="#methoden">Methoden</a></li><li><a href="#faq">FAQ</a></li><li><a href="#termin">Erstgespräch</a></li></ul></div>
+        <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="mailto:info@vive-ahora.ch">info@vive-ahora.ch</a></li><li><a href="tel:+41786052221">078 605 22 21</a></li><li><a href="https://vive-ahora.ch" target="_blank" rel="noopener">vive-ahora.ch</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Reto Bucher · vive-ahora.ch · Alle Rechte vorbehalten</p>
+      <p>Schweiz</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    let currentSlide = 0;
+    const cards = document.querySelectorAll('.testimonial-card');
+    function slideTestimonials(dir) {
+      if (window.innerWidth <= 900) {
+        cards.forEach(c => c.style.display = 'none');
+        currentSlide = (currentSlide + dir + cards.length) % cards.length;
+        cards[currentSlide].style.display = 'block';
+      }
+    }
+    function resetTestimonials() {
+      if (window.innerWidth > 900) cards.forEach(c => c.style.display = '');
+    }
+    window.addEventListener('resize', resetTestimonials);
+
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 40 ? '0 2px 20px rgba(0,0,0,0.4)' : 'none';
+    });
+  </script>
+</body>
+</html>
