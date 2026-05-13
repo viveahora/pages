@@ -5,58 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Results Coaching 1:1 | Ihr Name</title>
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #000;
-      background: #fff;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
     ul, ol { list-style: none; }
-
     h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.0; letter-spacing: -0.02em; }
     h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; }
     h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.5rem; }
     p { font-size: 1rem; line-height: 1.7; color: inherit; }
-
     .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
     .section { padding: 80px 0; }
     .section--small { padding: 40px 0; }
-
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 1000; background: #000; height: 70px;
-      display: flex; align-items: center;
-    }
-    .nav__inner {
-      max-width: 1400px; margin: 0 auto; padding: 0 2rem;
-      width: 100%; display: flex; align-items: center; justify-content: space-between;
-    }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: #000; height: 70px; display: flex; align-items: center; }
+    .nav__inner { max-width: 1400px; margin: 0 auto; padding: 0 2rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
     .nav__logo { font-size: 1.1rem; font-weight: 900; letter-spacing: 0.12em; color: #fff; text-transform: uppercase; }
     .nav__links { display: flex; align-items: center; gap: 2rem; }
     .nav__links a { color: #fff; font-size: 0.9rem; font-weight: 500; opacity: 0.9; transition: opacity 0.2s; }
     .nav__links a:hover { opacity: 1; }
     .nav__actions { display: flex; align-items: center; gap: 1.5rem; }
     .nav__login { color: #fff; font-size: 0.9rem; font-weight: 500; }
-
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0.75rem 1.75rem; border-radius: 50px; font-size: 0.95rem;
-      font-weight: 700; cursor: pointer; border: none;
-      transition: all 0.2s ease; letter-spacing: 0.01em;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.75rem; border-radius: 50px; font-size: 0.95rem; font-weight: 700; cursor: pointer; border: none; transition: all 0.2s ease; letter-spacing: 0.01em; }
     .btn--primary { background: #fff; color: #000; }
     .btn--primary:hover { background: #f0f0f0; transform: translateY(-1px); }
     .btn--dark { background: #000; color: #fff; }
@@ -64,61 +34,28 @@
     .btn--outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
     .btn--outline-white:hover { background: rgba(255,255,255,0.1); }
     .btn--large { padding: 1rem 2.5rem; font-size: 1.05rem; }
-
-    /* HERO */
-    .hero {
-      background: #fff;
-      color: #111;
-      margin-top: 70px;
-      padding: 80px 0;
-    }
-    .hero__inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
-    }
-    .hero__title {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 900; line-height: 1.05;
-      letter-spacing: -0.02em; color: #111; margin-bottom: 1.5rem;
-    }
-    .hero__desc {
-      font-size: 1.05rem; line-height: 1.75;
-      color: #444; margin-bottom: 2rem; max-width: 500px;
-    }
-    .hero__social-proof {
-      display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
-    }
-    .hero__avatars { display: flex; }
-    .hero__avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 2px solid #fff; background: #ddd;
-      margin-left: -10px; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-    }
-    .hero__avatars .hero__avatar:first-child { margin-left: 0; }
-    .hero__rating { display: flex; flex-direction: column; gap: 0.15rem; }
-    .hero__stars { color: #f5a623; font-size: 1rem; letter-spacing: 0.05em; }
-    .hero__rating-text { font-size: 0.85rem; color: #555; font-weight: 500; }
-    .hero__image-wrap { border-radius: 24px; overflow: hidden; aspect-ratio: 4/3; }
-    .hero__image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    /* INTRO */
+    .hero { position: relative; min-height: 90vh; display: flex; align-items: flex-end; background: #000; color: #fff; overflow: hidden; margin-top: 70px; margin-left: 16px; margin-right: 16px; border-radius: 24px; }
+    .hero__bg { position: absolute; inset: 0; background-image: url('hero.jpg'); background-size: cover; background-position: center; opacity: 0.7; }
+    .hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 100%); }
+    .hero__content { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 2rem 5rem; width: 100%; display: grid; grid-template-columns: 1fr auto; align-items: flex-end; gap: 2rem; }
+    .hero__text { max-width: 720px; }
+    .hero__label { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; margin-bottom: 1.25rem; }
+    .hero__label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #ff9700; flex-shrink: 0; }
+    .hero__title { margin-bottom: 1.5rem; }
+    .hero__desc { font-size: 1.05rem; line-height: 1.7; max-width: 580px; margin-bottom: 2rem; opacity: 0.95; }
+    .hero__badge { background: rgba(0,0,0,0.85); border-radius: 12px; padding: 2rem; min-width: 220px; text-align: center; align-self: flex-end; }
+    .hero__badge-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; opacity: 0.8; margin-bottom: 0.5rem; }
+    .hero__badge-title { font-size: 2.5rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; color: #fff; }
     .intro { background: #fff; color: #000; }
     .intro__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .intro__title { font-size: clamp(1.8rem, 3.5vw, 3rem); }
     .intro__body p { font-size: 1.1rem; line-height: 1.75; color: #222; margin-bottom: 1.25rem; }
-
-    /* TICKER */
     .ticker { background: #fff; overflow: hidden; padding: 0; }
     .ticker__track { display: flex; gap: 0; animation: tickerScroll 30s linear infinite; width: max-content; }
     @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .ticker__item { position: relative; width: 320px; height: 240px; flex-shrink: 0; overflow: hidden; }
     .ticker__item img { width: 100%; height: 100%; object-fit: cover; }
     .ticker__item-label { position: absolute; bottom: 1.25rem; left: 1.25rem; color: #fff; font-size: 1rem; font-weight: 700; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
-
-    /* BENEFITS */
     .benefits { background: #fff; color: #000; text-align: center; }
     .section-label { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #000; margin-bottom: 1rem; }
     .section-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #000; flex-shrink: 0; }
@@ -130,8 +67,6 @@
     .benefit-card__icon { width: 56px; height: 56px; border-radius: 14px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
     .benefit-card__title { font-size: 1.1rem; font-weight: 800; }
     .benefit-card__desc { font-size: 0.95rem; color: #444; line-height: 1.65; }
-
-    /* FEATURE */
     .feature { background: #fff; color: #000; overflow: hidden; }
     .feature__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; min-height: 500px; }
     .feature__text { padding: 4rem 4rem 4rem 0; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
@@ -142,14 +77,10 @@
     .feature__badge-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: #000; margin-bottom: 0.3rem; }
     .feature__badge-title { font-size: 3rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em; color: #000; line-height: 0.9; }
     .feature__image { width: 100%; height: 400px; object-fit: cover; object-position: top center; }
-
-    /* CTA BANNER */
     .cta-banner { background: #ff9700; color: #000; padding: 60px 0; }
     .cta-banner__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
     .cta-banner__title { font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 900; line-height: 1.1; }
     .cta-banner__text { font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.65; }
-
-    /* TESTIMONIALS */
     .testimonials { background: #fff; color: #000; }
     .testimonials__header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
     .testimonials__title { font-size: clamp(2rem, 4vw, 3.5rem); }
@@ -163,8 +94,6 @@
     .testimonial-card__quote { font-size: 1.05rem; font-weight: 600; line-height: 1.5; color: #000; }
     .testimonial-card__author { font-size: 0.9rem; color: #666; }
     .testimonial-card__author strong { color: #000; }
-
-    /* FAQ */
     .faq { background: #fff; color: #000; }
     .faq__inner { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
     .faq__sidebar {}
@@ -181,12 +110,8 @@
     .faq__answer--open { max-height: 400px; }
     .faq__answer-inner { padding: 0 0 1.25rem; font-size: 0.95rem; color: #444; line-height: 1.7; }
     .faq__item--open .faq__icon { transform: rotate(45deg); }
-
-    /* FINAL CTA */
     .final-cta { background: #000; color: #fff; padding: 80px 0; text-align: center; }
     .final-cta__title { font-size: clamp(1.8rem, 3.5vw, 3rem); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-
-    /* FOOTER */
     .footer { background: #000; color: #fff; padding: 60px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); }
     .footer__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 3rem; }
     .footer__logo { font-size: 1rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
@@ -203,12 +128,10 @@
     .footer__social { display: flex; gap: 1rem; }
     .footer__social a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: all 0.2s; }
     .footer__social a:hover { border-color: #fff; color: #fff; }
-
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       .nav__links { display: none; }
-      .hero__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero__image-wrap { order: -1; }
+      .hero__content { grid-template-columns: 1fr; padding-bottom: 3rem; }
+      .hero__badge { display: none; }
       .intro__inner, .feature__inner, .cta-banner__inner, .faq__inner { grid-template-columns: 1fr; gap: 2rem; }
       .benefits__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .testimonials__grid { grid-template-columns: 1fr; }
@@ -241,30 +164,17 @@
   </header>
 
   <section class="hero">
-    <div class="hero__inner">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
       <div class="hero__text">
-        <h1 class="hero__title">Erreichen Sie Ihre größten Ziele schneller</h1>
-        <p class="hero__desc">
-          Nutzen Sie die Werkzeuge, Strategien und die Unterstützung eines
-          hochqualifizierten Results Coaches und erleben Sie massive Veränderungen
-          in Ihren Finanzen, Beziehungen und vielem mehr.
-        </p>
-        <div class="hero__social-proof">
-          <div class="hero__avatars">
-            <div class="hero__avatar">👩</div>
-            <div class="hero__avatar">👨</div>
-            <div class="hero__avatar">👩</div>
-            <div class="hero__avatar">👨</div>
-          </div>
-          <div class="hero__rating">
-            <div class="hero__stars">★★★★★</div>
-            <div class="hero__rating-text">4.9 von 5 (120+ Klienten)</div>
-          </div>
-        </div>
-        <a href="#contact" class="btn btn--dark btn--large">Vereinbaren Sie Ihren Termin</a>
+        <div class="hero__label">Results Coaching 1:1</div>
+        <h1 class="hero__title">Erreichen Sie Ihre<br>größten Ziele schneller</h1>
+        <p class="hero__desc">Nutzen Sie die Werkzeuge, Strategien und die Unterstützung eines hochqualifizierten Results Coaches und erleben Sie massive Veränderungen in Ihren Finanzen, Beziehungen und vielem mehr.</p>
+        <a href="#contact" class="btn btn--primary btn--large">Vereinbaren Sie Ihren Termin</a>
       </div>
-      <div class="hero__image-wrap">
-        <img src="hero.jpg" alt="Results Coaching" />
+      <div class="hero__badge">
+        <div class="hero__badge-label">IHR NAME</div>
+        <div class="hero__badge-title">COACHING</div>
       </div>
     </div>
   </section>
@@ -404,10 +314,7 @@
       var item = btn.closest('.faq__item');
       var answer = item.querySelector('.faq__answer');
       var isOpen = item.classList.contains('faq__item--open');
-      document.querySelectorAll('.faq__item--open').forEach(function(el) {
-        el.classList.remove('faq__item--open');
-        el.querySelector('.faq__answer').classList.remove('faq__answer--open');
-      });
+      document.querySelectorAll('.faq__item--open').forEach(function(el) { el.classList.remove('faq__item--open'); el.querySelector('.faq__answer').classList.remove('faq__answer--open'); });
       if (!isOpen) { item.classList.add('faq__item--open'); answer.classList.add('faq__answer--open'); }
     }
   </script>
