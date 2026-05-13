@@ -114,11 +114,14 @@
     }
 
     .nav__logo {
-      font-size: 1.1rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      color: #fff;
-      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__logo img {
+      height: 32px;
+      width: auto;
+      display: block;
     }
 
     .nav__links {
@@ -956,7 +959,9 @@
   ============================================ -->
   <header class="nav">
     <div class="nav__inner">
-      <a href="#" class="nav__logo">IHR NAME</a>
+      <a href="#" class="nav__logo">
+        <img src="logo.svg" alt="Logo" />
+      </a>
       <nav class="nav__links">
         <a href="#">Über mich</a>
         <a href="#">Coaching</a>
