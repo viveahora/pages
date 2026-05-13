@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40" fill="none">
+  <!-- Icon: small orange dot + circle -->
+  <circle cx="18" cy="20" r="12" stroke="#ff9700" stroke-width="2"/>
+  <circle cx="18" cy="20" r="4" fill="#ff9700"/>
+  <!-- Wordmark -->
+  <text x="38" y="26" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="900" letter-spacing="0.08em" fill="#ffffff" text-transform="uppercase">IHR NAME</text>
+</svg>
