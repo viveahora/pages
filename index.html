@@ -139,25 +139,14 @@
       transition: transform 2s cubic-bezier(0.4,0,0.2,1) 0.3s;
     }
     .process--animated .process__line-inner { transform: scaleX(1); }
-    .process__vtrack {
-      display: none; position: absolute;
-      left: 27px; top: 28px; bottom: 28px;
-      width: 2px; background: rgba(196,164,74,0.2); z-index: 0; overflow: hidden;
-    }
-    .process__vtrack-fill {
-      width: 100%; height: 100%; background: #C4A44A;
-      transform-origin: top; transform: scaleY(0);
-      transition: transform 2s cubic-bezier(0.4,0,0.2,1) 0.3s;
-    }
-    .process--animated .process__vtrack-fill { transform: scaleY(1); }
     .process__step {
       display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.25rem;
       opacity: 0; transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .process--animated .process__step:nth-child(3) { opacity:1; transform:translateY(0); transition-delay: 0.2s; }
-    .process--animated .process__step:nth-child(4) { opacity:1; transform:translateY(0); transition-delay: 0.6s; }
-    .process--animated .process__step:nth-child(5) { opacity:1; transform:translateY(0); transition-delay: 1.0s; }
+    .process--animated .process__step:nth-child(2) { opacity:1; transform:translateY(0); transition-delay: 0.2s; }
+    .process--animated .process__step:nth-child(3) { opacity:1; transform:translateY(0); transition-delay: 0.6s; }
+    .process--animated .process__step:nth-child(4) { opacity:1; transform:translateY(0); transition-delay: 1.0s; }
     .process__dot {
       width: 56px; height: 56px; border-radius: 50%;
       background: #C4A44A; display: flex; align-items: center; justify-content: center;
@@ -289,12 +278,8 @@
       .about__inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .testimonials__grid { grid-template-columns: 1fr; }
       .cta-banner__inner { flex-direction: column; text-align: center; }
-      .process__steps { grid-template-columns: 1fr; gap: 0; }
-      .process__line { display: none; }
-      .process__vtrack { display: block; }
-      .process__step { flex-direction: row; align-items: flex-start; text-align: left; gap: 1.5rem; padding-bottom: 2.5rem; }
-      .process__step:last-child { padding-bottom: 0; }
-      .process__step-body { flex: 1; }
+      .process__steps { grid-template-columns: 1fr; }
+      .process__step { flex-direction: row; align-items: flex-start; text-align: left; gap: 1.5rem; }
       .process__step-desc { max-width: none; }
     }
     @media (max-width: 600px) {
@@ -372,7 +357,6 @@
       <h2 class="process__title">In 3 Schritten zu deinem Ziel</h2>
       <div class="process__steps">
         <div class="process__line"><div class="process__line-inner"></div></div>
-        <div class="process__vtrack"><div class="process__vtrack-fill"></div></div>
         <div class="process__step">
           <div class="process__dot">01</div>
           <div class="process__step-body">
@@ -600,22 +584,6 @@
         });
       }, { threshold: 0.15 }).observe(processSection);
     }
-
-    function positionVTrack() {
-      const vtrack = document.querySelector('.process__vtrack');
-      if (!vtrack) return;
-      if (window.innerWidth > 900) { vtrack.style.top = ''; vtrack.style.bottom = ''; return; }
-      const steps = document.querySelectorAll('.process__step');
-      const container = vtrack.parentElement;
-      const containerTop = container.getBoundingClientRect().top;
-      const containerH = container.getBoundingClientRect().height;
-      const first = steps[0].querySelector('.process__dot').getBoundingClientRect();
-      const last = steps[steps.length - 1].querySelector('.process__dot').getBoundingClientRect();
-      vtrack.style.top = (first.top + first.height / 2 - containerTop) + 'px';
-      vtrack.style.bottom = (containerH - (last.top + last.height / 2 - containerTop)) + 'px';
-    }
-    positionVTrack();
-    window.addEventListener('resize', positionVTrack);
   </script>
 
 </body>
