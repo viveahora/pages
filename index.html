@@ -126,6 +126,24 @@
     .feature__badge-title { font-size: 3rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em; color: #fff; line-height: 0.9; }
     .feature__image { width: 100%; height: 400px; object-fit: cover; object-position: top center; }
 
+    /* ABOUT */
+    .about { background: #F8F7F4; color: #293238; }
+    .about__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about__photo-wrap { position: relative; }
+    .about__photo { width: 100%; border-radius: 16px; object-fit: cover; object-position: center top; display: block; }
+    .about__photo-placeholder {
+      width: 100%; aspect-ratio: 3/4; border-radius: 16px;
+      background: linear-gradient(160deg, #293238 0%, #3a4a52 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.3); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .about__content { display: flex; flex-direction: column; gap: 1.25rem; }
+    .about__title { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+    .about__text { font-size: 1rem; color: #374151; line-height: 1.75; }
+    .about__credentials { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
+    .about__credential { display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; font-weight: 700; color: #293238; }
+    .about__star { color: #C4A44A; font-size: 1.1rem; flex-shrink: 0; }
+
     /* CTA BANNER */
     .cta-banner { background: #C4A44A; color: #fff; padding: 60px 0; }
     .cta-banner__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
@@ -190,7 +208,7 @@
     @media (max-width: 900px) {
       .nav__links { display: none; }
       .hero__content { grid-template-columns: 1fr; padding-bottom: 3rem; }
-      .intro__inner, .feature__inner, .cta-banner__inner, .faq__inner { grid-template-columns: 1fr; gap: 2rem; }
+      .intro__inner, .feature__inner, .cta-banner__inner, .faq__inner, .about__inner { grid-template-columns: 1fr; gap: 2rem; }
       .benefits__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .testimonials__grid { grid-template-columns: 1fr; }
       .footer__grid { grid-template-columns: 1fr 1fr; }
@@ -227,8 +245,11 @@
       <div class="hero__text">
         <div class="hero__label">Results Coaching 1:1</div>
         <h1 class="hero__title">Erreiche deine<br>größten Ziele schneller</h1>
-        <p class="hero__desc">Nutze die Werkzeuge, Strategien und die Unterstützung eines hochqualifizierten Results Coaches und erlebe massive Veränderungen in deinen Finanzen, Beziehungen und vielem mehr.</p>
-        <a href="#contact" class="btn btn--primary btn--large">Vereinbare deinen Termin</a>
+        <p class="hero__desc">Gemeinsam entwickeln wir eine klare Strategie, die dich von wo du jetzt bist, dorthin bringt wo du wirklich sein willst — schneller als du es alleine schaffst.</p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
+          <a href="#ueber-mich" class="btn btn--outline-white btn--large">Über mich</a>
+        </div>
       </div>
     </div>
   </section>
@@ -237,10 +258,13 @@
   <section class="section intro">
     <div class="container">
       <div class="intro__inner">
-        <div><h2 class="intro__title">Erziele beständige und nachhaltige Ergebnisse</h2></div>
+        <div class="intro__title-wrap">
+          <h2 class="intro__title">Du weißt, was du willst — aber irgendetwas hält dich zurück.</h2>
+        </div>
         <div class="intro__body">
-          <p>Meine Coachingmethoden gehen weit über einfache Strategien und Mentoring-Techniken hinaus. Du gewinnst absolute Klarheit über deine Ziele, entwickelst einen Aktionsplan zu deren Erreichung und erhältst die nötige Verbindlichkeit und Dynamik, um Ergebnisse zu erzielen.</p>
-          <p>Ob Beruf oder Gesundheit, Finanzen oder Beziehungen – so verschaffst du dir den entscheidenden Vorteil für wirklich unglaubliche Veränderungen.</p>
+          <p>Du hast Ziele. Vielleicht sogar einen Plan. Aber zwischen dem, wo du heute stehst, und dem Leben, das du dir vorstellst, liegt eine Lücke — und die scheint sich einfach nicht zu schließen.</p>
+          <p>Du arbeitest hart, du gibst alles — und trotzdem kommt der Durchbruch nicht. Nicht weil dir etwas fehlt. Sondern weil niemand dir gezeigt hat, wie du dein volles Potenzial wirklich entfaltest.</p>
+          <p><strong>Genau da setze ich an.</strong></p>
         </div>
       </div>
     </div>
@@ -248,30 +272,54 @@
 
   <section class="ticker">
     <div class="ticker__track">
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=640&q=70" alt="Klare Ziele schaffen" /><span class="ticker__item-label">klare Ziele schaffen</span></div>
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=640&q=70" alt="Gesundheit und Fitness" /><span class="ticker__item-label">Gesundheit &amp; Fitness steigern</span></div>
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1529903384028-929ae5dccdf1?w=640&q=70" alt="Beziehungen aufbauen" /><span class="ticker__item-label">starke Beziehungen aufbauen</span></div>
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=640&q=70" alt="Finanzen verbessern" /><span class="ticker__item-label">Finanzen verbessern</span></div>
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=640&q=70" alt="Hindernisse überwinden" /><span class="ticker__item-label">Hindernisse beseitigen</span></div>
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=640&q=70" alt="Klare Ziele schaffen" /><span class="ticker__item-label">klare Ziele schaffen</span></div>
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=640&q=70" alt="Gesundheit und Fitness" /><span class="ticker__item-label">Gesundheit &amp; Fitness steigern</span></div>
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1529903384028-929ae5dccdf1?w=640&q=70" alt="Beziehungen aufbauen" /><span class="ticker__item-label">starke Beziehungen aufbauen</span></div>
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=640&q=70" alt="Finanzen verbessern" /><span class="ticker__item-label">Finanzen verbessern</span></div>
-      <div class="ticker__item"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=640&q=70" alt="Hindernisse überwinden" /><span class="ticker__item-label">Hindernisse beseitigen</span></div>
+      <div class="ticker__item"><img src="coaching1.jpg" alt="" onerror="this.parentElement.style.background='#e8e4df'"><span class="ticker__item-label">Klarheit</span></div>
+      <div class="ticker__item"><img src="coaching2.jpg" alt="" onerror="this.parentElement.style.background='#d4cfc9'"><span class="ticker__item-label">Fokus</span></div>
+      <div class="ticker__item"><img src="coaching3.jpg" alt="" onerror="this.parentElement.style.background='#c9c4be'"><span class="ticker__item-label">Strategie</span></div>
+      <div class="ticker__item"><img src="coaching4.jpg" alt="" onerror="this.parentElement.style.background='#bfbab4'"><span class="ticker__item-label">Wachstum</span></div>
+      <div class="ticker__item"><img src="coaching5.jpg" alt="" onerror="this.parentElement.style.background='#b5b0aa'"><span class="ticker__item-label">Erfolg</span></div>
+      <div class="ticker__item"><img src="coaching1.jpg" alt="" onerror="this.parentElement.style.background='#e8e4df'"><span class="ticker__item-label">Klarheit</span></div>
+      <div class="ticker__item"><img src="coaching2.jpg" alt="" onerror="this.parentElement.style.background='#d4cfc9'"><span class="ticker__item-label">Fokus</span></div>
+      <div class="ticker__item"><img src="coaching3.jpg" alt="" onerror="this.parentElement.style.background='#c9c4be'"><span class="ticker__item-label">Strategie</span></div>
+      <div class="ticker__item"><img src="coaching4.jpg" alt="" onerror="this.parentElement.style.background='#bfbab4'"><span class="ticker__item-label">Wachstum</span></div>
+      <div class="ticker__item"><img src="coaching5.jpg" alt="" onerror="this.parentElement.style.background='#b5b0aa'"><span class="ticker__item-label">Erfolg</span></div>
     </div>
   </section>
 
   <section class="section benefits">
     <div class="container">
       <div class="section-label section-label--center">Wichtigste Vorteile</div>
-      <h2 class="benefits__title">Durchbrechen, befreien</h2>
+      <h2 class="benefits__title">Was du durch Coaching gewinnst</h2>
       <div class="benefits__grid">
-        <div class="benefit-card"><div class="benefit-card__icon">☀️</div><h3 class="benefit-card__title">Gewinne Klarheit über dein Ziel</h3><p class="benefit-card__desc">Werde dir über die Ziele und Vorgaben im Klaren und konzentriere dich darauf, die dein Leben grundlegend verändern werden.</p></div>
-        <div class="benefit-card"><div class="benefit-card__icon">👤</div><h3 class="benefit-card__title">Werde eine effektivere Führungskraft</h3><p class="benefit-card__desc">Erwerbe die Werkzeuge, Fähigkeiten und das Selbstvertrauen, um andere zu inspirieren und zu befähigen.</p></div>
-        <div class="benefit-card"><div class="benefit-card__icon">🥊</div><h3 class="benefit-card__title">Gesundheits- und Fitnessziele erreichen</h3><p class="benefit-card__desc">Tanke neue Energie, verbessere deine psychische Verfassung und erziele die Ergebnisse, nach denen du gesucht hast.</p></div>
-        <div class="benefit-card"><div class="benefit-card__icon">🤝</div><h3 class="benefit-card__title">Belebe deine Beziehungen neu</h3><p class="benefit-card__desc">Überwinde deine Barrieren und entdecke, wie du tiefere Verbindungen zu anderen aufbauen kannst.</p></div>
-        <div class="benefit-card"><div class="benefit-card__icon">🚧</div><h3 class="benefit-card__title">Hindernisse beseitigen</h3><p class="benefit-card__desc">Lerne, wie du einschränkende Glaubenssätze, die dich bisher zurückgehalten haben, isolieren und neu formulieren kannst.</p></div>
-        <div class="benefit-card"><div class="benefit-card__icon">🗺️</div><h3 class="benefit-card__title">Erstelle eine Karte für die Zukunft</h3><p class="benefit-card__desc">Erstelle einen flexiblen, ergebnisorientierten Plan, um deine Ziele schneller zu erreichen.</p></div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon">🎯</div>
+          <div class="benefit-card__title">Kristallklare Richtung</div>
+          <p class="benefit-card__desc">Schluss mit dem Gefühl, im Kreis zu drehen. Du weißt genau, wohin du willst — und warum.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon">⚡</div>
+          <div class="benefit-card__title">Schnellere Ergebnisse</div>
+          <p class="benefit-card__desc">Mit einem klaren System und konkreten Schritten erreichst du in Monaten, wofür andere Jahre brauchen.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon">🧠</div>
+          <div class="benefit-card__title">Mindset-Transformation</div>
+          <p class="benefit-card__desc">Die größten Hindernisse sind oft im Kopf. Wir lösen Blockaden und stärken dein Selbstvertrauen nachhaltig.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon">📈</div>
+          <div class="benefit-card__title">Messbarer Fortschritt</div>
+          <p class="benefit-card__desc">Kein vages "Arbeite an dir selbst". Wir setzen konkrete Ziele und verfolgen deinen Fortschritt systematisch.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon">🤝</div>
+          <div class="benefit-card__title">Volle Verantwortlichkeit</div>
+          <p class="benefit-card__desc">Du hast jemanden in deiner Ecke, der dich fordert und fördert — auch wenn es unbequem wird.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon">🌱</div>
+          <div class="benefit-card__title">Nachhaltige Veränderung</div>
+          <p class="benefit-card__desc">Keine kurzfristigen Tricks. Wir schaffen Veränderungen, die dich dein ganzes Leben begleiten.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -280,17 +328,41 @@
     <div class="container">
       <div class="feature__inner">
         <div class="feature__text">
-          <h2 class="feature__title">Mit der richtigen Anleitung ist alles möglich</h2>
-          <p class="feature__desc">Wenn du Zugang zu denselben Techniken und Methoden wünschst, die für die weltbesten Athleten, Künstler und Geschäftsleute eingesetzt werden, ist ein Results Coach genau das Richtige für dich.</p>
-          <p class="feature__desc">Egal, ob du ein finanzielles Ziel erreichen, einen Lebenspartner finden oder etwas ganz anderes anstreben möchtest – ich helfe dir gerne dabei, die gewünschten Ergebnisse zu erzielen.</p>
+          <div class="section-label section-label--left">Die Methode</div>
+          <h2 class="feature__title">Coaching, das wirklich wirkt</h2>
+          <p class="feature__desc">Mein Ansatz kombiniert bewährte Coaching-Methoden mit modernen Erkenntnissen aus Neurowissenschaft und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben.</p>
+          <p class="feature__desc">In unseren 1:1-Sessions gehen wir tief. Wir finden heraus, was dich wirklich antreibt, was dich blockiert — und entwickeln einen massgeschneiderten Plan, der zu dir und deinem Leben passt.</p>
           <a href="#contact" class="btn btn--primary btn--large" style="align-self:flex-start;">Jetzt Termin vereinbaren</a>
         </div>
         <div class="feature__right">
           <div class="feature__badge">
-            <div class="feature__badge-label">IHR NAME</div>
-            <div class="feature__badge-title">COACHING</div>
+            <div class="feature__badge-label">Mein Ansatz</div>
+            <div class="feature__badge-title">Mind &<br>Method</div>
           </div>
-          <img class="feature__image" src="https://images.unsplash.com/photo-1601933470096-0e34634ffcde?w=800&q=80" alt="Coaching Session" />
+          <img src="feature.jpg" alt="Coaching Session" class="feature__image" onerror="this.style.background='#e8e4df'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="ueber-mich">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__photo-wrap">
+          <img src="reto-bucher.webp" alt="Reto Bucher" class="about__photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="about__photo-placeholder" style="display:none;">Foto folgt</div>
+        </div>
+        <div class="about__content">
+          <div class="section-label section-label--left">Über mich</div>
+          <h2 class="about__title">Dein Coach:<br>Reto Bucher</h2>
+          <p class="about__text"><strong>Reto Bucher</strong>, geboren 1975 in der Schweiz, ist zertifizierter Hypnosetherapeut und Motivationsredner im Bereich «Persönlichkeitsentwicklung und persönlichem Wohlbefinden».</p>
+          <p class="about__text">In über 10 Jahren Erfahrung hat er vielen Menschen geholfen, durch seine einzigartigen Fähigkeiten ihr volles Potenzial zu entfalten.</p>
+          <ul class="about__credentials">
+            <li class="about__credential"><span class="about__star">★</span><span>Hypnosetherapeut</span></li>
+            <li class="about__credential"><span class="about__star">★</span><span>Life-Coach</span></li>
+            <li class="about__credential"><span class="about__star">★</span><span>Experte für das Unterbewusstsein</span></li>
+            <li class="about__credential"><span class="about__star">★</span><span>Master in PSYCH-K®-Facilitation</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -313,14 +385,26 @@
       <div class="testimonials__header">
         <h2 class="testimonials__title">Was unsere Klienten sagen</h2>
         <div class="testimonials__nav">
-          <button class="slider-btn" id="prevBtn" aria-label="Zurück">&#8592;</button>
-          <button class="slider-btn" id="nextBtn" aria-label="Weiter">&#8594;</button>
+          <button class="slider-btn" onclick="slideTestimonials(-1)">&#8592;</button>
+          <button class="slider-btn" onclick="slideTestimonials(1)">&#8594;</button>
         </div>
       </div>
-      <div class="testimonials__grid" id="testimonialsGrid">
-        <div class="testimonial-card"><div class="testimonial-card__image-placeholder">👩</div><p class="testimonial-card__quote">„Dank des Coachings habe ich endlich die Klarheit gefunden, die ich jahrelang vermisst habe. Mein Umsatz hat sich in nur 6 Monaten verdoppelt."</p><p class="testimonial-card__author"><strong>Sandra K.</strong> — Unternehmerin</p></div>
-        <div class="testimonial-card"><div class="testimonial-card__image-placeholder">👨</div><p class="testimonial-card__quote">„Ich habe gelernt, meine Glaubenssätze zu überwinden und echte Ergebnisse zu erzielen. Das Coaching war ein absoluter Game-Changer."</p><p class="testimonial-card__author"><strong>Markus T.</strong> — Führungskraft</p></div>
-        <div class="testimonial-card"><div class="testimonial-card__image-placeholder">👩</div><p class="testimonial-card__quote">„Meine Work-Life-Balance hat sich komplett verändert. Ich bin produktiver als je zuvor und fühle mich gleichzeitig ausgeglichener."</p><p class="testimonial-card__author"><strong>Julia M.</strong> — Projektmanagerin</p></div>
+      <div class="testimonials__grid" id="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-card__image-placeholder">💬</div>
+          <p class="testimonial-card__quote">«Innerhalb von 3 Monaten habe ich mehr erreicht als in den letzten 3 Jahren. Reto hat mir geholfen, meine Blockaden zu durchbrechen.»</p>
+          <p class="testimonial-card__author"><strong>Sarah M.</strong> · Unternehmerin</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__image-placeholder">💬</div>
+          <p class="testimonial-card__quote">«Das Coaching hat mein Leben verändert. Ich habe endlich die Klarheit, die ich so lange gesucht habe.»</p>
+          <p class="testimonial-card__author"><strong>Michael K.</strong> · Führungskraft</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__image-placeholder">💬</div>
+          <p class="testimonial-card__quote">«Reto ist nicht einfach ein Coach — er ist ein Partner, der wirklich versteht, was dich antreibt und was dich aufhält.»</p>
+          <p class="testimonial-card__author"><strong>Anna L.</strong> · Selbstständige</p>
+        </div>
       </div>
     </div>
   </section>
@@ -331,14 +415,54 @@
         <div class="faq__sidebar">
           <div class="faq__sidebar-label">FAQ</div>
           <h2 class="faq__title">Häufig gestellte Fragen</h2>
-          <a href="mailto:hallo@ihrewebsite.de" class="faq__contact">Weitere Fragen? Kontakt aufnehmen &#8594;</a>
+          <a href="#contact" class="faq__contact">Weitere Fragen? Schreib mir →</a>
         </div>
         <div class="faq__list">
-          <div class="faq__item"><button class="faq__question" onclick="toggleFaq(this)">Was ist Results Coaching?<span class="faq__icon">+</span></button><div class="faq__answer"><div class="faq__answer-inner">Results Coaching ist ein intensives 1:1-Coaching-Programm, das dir hilft, konkrete und messbare Ergebnisse in allen Lebensbereichen zu erzielen – sei es Karriere, Finanzen, Gesundheit oder Beziehungen.</div></div></div>
-          <div class="faq__item"><button class="faq__question" onclick="toggleFaq(this)">Wie läuft eine Coaching-Session ab?<span class="faq__icon">+</span></button><div class="faq__answer"><div class="faq__answer-inner">Jede Session dauert 60 Minuten und findet per Videocall statt. Wir analysieren deine aktuelle Situation, identifizieren Hindernisse und entwickeln gemeinsam konkrete Schritte, um deine Ziele zu erreichen.</div></div></div>
-          <div class="faq__item"><button class="faq__question" onclick="toggleFaq(this)">Wie lange dauert ein Coaching-Programm?<span class="faq__icon">+</span></button><div class="faq__answer"><div class="faq__answer-inner">Die Programmlaufzeit richtet sich nach deinen Zielen. Die meisten Klienten starten mit einem 3-Monats-Programm und verlängern es nach den ersten sichtbaren Ergebnissen. Sprich mich für ein individuelles Angebot an.</div></div></div>
-          <div class="faq__item"><button class="faq__question" onclick="toggleFaq(this)">Für wen ist das Coaching geeignet?<span class="faq__icon">+</span></button><div class="faq__answer"><div class="faq__answer-inner">Das Coaching richtet sich an alle, die bereit sind, aktiv an sich zu arbeiten und echte Veränderungen anzustreben – ob Unternehmer, Führungskräfte, Angestellte oder Menschen in persönlichen Umbruchphasen.</div></div></div>
-          <div class="faq__item"><button class="faq__question" onclick="toggleFaq(this)">Was kostet das Coaching?<span class="faq__icon">+</span></button><div class="faq__answer"><div class="faq__answer-inner">Die Investition hängt vom gewählten Programm ab. Vereinbare zunächst ein kostenloses 30-minütiges Strategiegespräch, um gemeinsam zu besprechen, welches Paket am besten zu deinen Zielen passt.</div></div></div>
+          <div class="faq__item">
+            <button class="faq__question" onclick="toggleFaq(this)">
+              Für wen ist das Coaching geeignet?
+              <span class="faq__icon">+</span>
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">Das Coaching richtet sich an Menschen, die konkrete Ziele haben und bereit sind, aktiv an sich zu arbeiten. Egal ob du im Beruf weiterkommen, eine Beziehung verbessern oder dein Wohlbefinden steigern möchtest — wenn du wirklich etwas verändern willst, bist du hier richtig.</div>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" onclick="toggleFaq(this)">
+              Wie lange dauert ein Coaching-Prozess?
+              <span class="faq__icon">+</span>
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">Ein typischer Prozess umfasst 3 bis 6 Monate, je nach Zielsetzung und Fortschritt. Wir beginnen immer mit einem kostenlosen Erstgespräch, in dem wir gemeinsam schauen, was der richtige Rahmen für dich ist.</div>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" onclick="toggleFaq(this)">
+              Wie laufen die Sessions ab?
+              <span class="faq__icon">+</span>
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">Die Sessions finden online per Video-Call statt, dauern in der Regel 60 bis 90 Minuten und werden alle 1 bis 2 Wochen durchgeführt. Zwischen den Sessions hast du Aufgaben und kannst mich bei Fragen kontaktieren.</div>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" onclick="toggleFaq(this)">
+              Was kostet das Coaching?
+              <span class="faq__icon">+</span>
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">Die Investition hängt von deinen Zielen und der Dauer des Prozesses ab. Im kostenlosen Erstgespräch besprechen wir, was für dich sinnvoll ist — ohne Druck und ohne versteckte Kosten.</div>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" onclick="toggleFaq(this)">
+              Gibt es eine Garantie?
+              <span class="faq__icon">+</span>
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">Ich garantiere meinen vollen Einsatz und eine professionelle Begleitung. Die Veränderung selbst hängt von deiner Bereitschaft ab, aktiv mitzumachen. Wer sich wirklich einbringt, sieht Ergebnisse — das zeigen unsere Klienten immer wieder.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -346,8 +470,8 @@
 
   <section class="final-cta">
     <div class="container">
-      <h2 class="final-cta__title">Bist du bereit, dein Leben auf das nächste Level zu heben?</h2>
-      <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch vereinbaren</a>
+      <h2 class="final-cta__title">Bereit für den nächsten Schritt?</h2>
+      <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch sichern</a>
     </div>
   </section>
 
@@ -356,28 +480,42 @@
       <div class="footer__grid">
         <div>
           <div class="footer__logo">VIVA AHORA</div>
-          <p class="footer__tagline">Results Coaching für Menschen, die außergewöhnliche Ergebnisse anstreben.</p>
+          <p class="footer__tagline">Coaching & Hypnotherapie für dein volles Potenzial.</p>
         </div>
         <div>
-          <div class="footer__nav-title">Navigation</div>
-          <ul class="footer__nav-list"><li><a href="#">Über mich</a></li><li><a href="#">Coaching</a></li><li><a href="#">Ergebnisse</a></li><li><a href="#contact">Kontakt</a></li></ul>
+          <div class="footer__nav-title">Angebote</div>
+          <ul class="footer__nav-list">
+            <li><a href="#">Results Coaching 1:1</a></li>
+            <li><a href="#">Hypnotherapie</a></li>
+            <li><a href="#">PSYCH-K®</a></li>
+          </ul>
         </div>
         <div>
-          <div class="footer__nav-title">Leistungen</div>
-          <ul class="footer__nav-list"><li><a href="#">1:1 Coaching</a></li><li><a href="#">Strategiegespräch</a></li><li><a href="#">Online-Programme</a></li><li><a href="#">Workshops</a></li></ul>
+          <div class="footer__nav-title">Informationen</div>
+          <ul class="footer__nav-list">
+            <li><a href="#">Über mich</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
         </div>
         <div>
           <div class="footer__nav-title">Kontakt</div>
-          <ul class="footer__nav-list"><li><a href="mailto:hallo@ihrewebsite.de">hallo@ihrewebsite.de</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Instagram</a></li></ul>
+          <ul class="footer__nav-list">
+            <li><a href="mailto:hallo@vivaahora.com">hallo@vivaahora.com</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer__bottom">
-        <div class="footer__legal"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div>
-        <div class="footer__copy">&copy; 2026 Viva Ahora. Alle Rechte vorbehalten.</div>
+        <span class="footer__copy">© 2026 Viva Ahora. Alle Rechte vorbehalten.</span>
+        <div class="footer__legal">
+          <a href="#">Datenschutz</a>
+          <a href="#">Impressum</a>
+        </div>
         <div class="footer__social">
+          <a href="#" aria-label="Instagram">&#9654;</a>
           <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="YouTube">yt</a>
         </div>
       </div>
     </div>
@@ -385,14 +523,26 @@
 
   <script>
     function toggleFaq(btn) {
-      var item = btn.closest('.faq__item');
-      var answer = item.querySelector('.faq__answer');
-      var isOpen = item.classList.contains('faq__item--open');
-      document.querySelectorAll('.faq__item--open').forEach(function(el) {
+      const item = btn.closest('.faq__item');
+      const answer = item.querySelector('.faq__answer');
+      const isOpen = item.classList.contains('faq__item--open');
+      document.querySelectorAll('.faq__item--open').forEach(el => {
         el.classList.remove('faq__item--open');
         el.querySelector('.faq__answer').classList.remove('faq__answer--open');
       });
-      if (!isOpen) { item.classList.add('faq__item--open'); answer.classList.add('faq__answer--open'); }
+      if (!isOpen) {
+        item.classList.add('faq__item--open');
+        answer.classList.add('faq__answer--open');
+      }
+    }
+
+    let currentSlide = 0;
+    function slideTestimonials(dir) {
+      const grid = document.getElementById('testimonials-grid');
+      const cards = grid.children;
+      const total = cards.length;
+      currentSlide = (currentSlide + dir + total) % total;
+      grid.style.transform = `translateX(-${currentSlide * (100 / 3)}%)`;
     }
   </script>
 
