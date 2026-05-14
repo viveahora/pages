@@ -194,11 +194,14 @@
 
     /* FEATURE */
     .feature { background: #fff; }
-    .feature__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .feature__content { display: flex; flex-direction: column; gap: 1.25rem; }
+    .feature__inner { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr auto; gap: 0 5rem; }
+    .feature__top { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; gap: 1.25rem; }
+    .feature__bottom { grid-column: 1; grid-row: 2; display: flex; flex-direction: column; gap: 1.25rem; padding-top: 1.25rem; }
+    .feature__badges-wrap { grid-column: 1; grid-row: 3; padding-top: 1rem; }
+    .feature__image { grid-column: 2; grid-row: 1 / 4; border-radius: 16px; overflow: hidden; align-self: start; }
     .feature__title { color: #293238; }
     .feature__desc { font-size: 1.05rem; color: #374151; line-height: 1.8; }
-    .feature__badges { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+    .feature__badges { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .feature__badge { background: #F8F7F4; border-radius: 8px; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
     .feature__badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
     .feature__badge-label { font-size: 0.82rem; font-weight: 700; color: #293238; }
@@ -302,7 +305,11 @@
       .nav__links { display: none; }
       .intro__inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .benefits__grid { grid-template-columns: 1fr 1fr; }
-      .feature__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .feature__inner { display: flex; flex-direction: column; gap: 1.5rem; }
+      .feature__image { order: 2; }
+      .feature__top { order: 1; }
+      .feature__bottom { order: 3; padding-top: 0; }
+      .feature__badges-wrap { order: 4; padding-top: 0; }
       .about__inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .testimonials__grid { grid-template-columns: 1fr; }
       .cta-banner__inner { flex-direction: column; text-align: center; }
@@ -415,17 +422,21 @@
   <section class="section feature" id="methode">
     <div class="container">
       <div class="feature__inner">
-        <div class="feature__content">
+        <div class="feature__top">
           <div class="section-label">Die Methode</div>
           <h2 class="feature__title">Coaching, das wirklich wirkt</h2>
-          <p class="feature__desc">Mein Ansatz kombiniert bewährte Coaching-Methoden mit modernen Erkenntnissen aus Neurowissenschaft und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben.</p>
-          <p class="feature__desc">In unseren 1:1-Sessions gehen wir tief. Wir finden heraus, was dich wirklich antreibt, was dich blockiert — und entwickeln einen massgeschneiderten Plan, der zu dir und deinem Leben passt.</p>
-          <a href="#contact" class="btn btn--primary" style="align-self:flex-start;">Jetzt Termin vereinbaren</a>
         </div>
         <div class="feature__image">
           <img src="coaching-methode.webp" alt="Coaching Methode" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="feature__image-placeholder" style="display:none;">Bild folgt</div>
-          <div class="feature__badges" style="margin-top:1.5rem;">
+        </div>
+        <div class="feature__bottom">
+          <p class="feature__desc">Mein Ansatz kombiniert bewährte Coaching-Methoden mit modernen Erkenntnissen aus Neurowissenschaft und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben.</p>
+          <p class="feature__desc">In unseren 1:1-Sessions gehen wir tief. Wir finden heraus, was dich wirklich antreibt, was dich blockiert — und entwickeln einen massgeschneiderten Plan, der zu dir und deinem Leben passt.</p>
+          <a href="#contact" class="btn btn--primary" style="align-self:flex-start;">Jetzt Termin vereinbaren</a>
+        </div>
+        <div class="feature__badges-wrap">
+          <div class="feature__badges">
             <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">Hypnosetherapie</div></div>
             <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">PSYCH-K®</div></div>
             <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">Life Coaching</div></div>
