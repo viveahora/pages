@@ -35,8 +35,10 @@
       padding: 0 2rem; height: 64px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav__logo { font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
-    .nav__logo span { color: #C4A44A; }
+    .nav__logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav__logo img { height: 36px; width: auto; display: block; }
+    .nav__logo-text { font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+    .nav__logo-text span { color: #C4A44A; }
     .nav__links { display: flex; gap: 2rem; align-items: center; }
     .nav__links a { font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.7); transition: color 0.2s; }
     .nav__links a:hover { color: #fff; }
@@ -361,7 +363,10 @@
 
   <!-- NAV -->
   <nav class="nav">
-    <div class="nav__logo">Viva<span>Ahora</span></div>
+    <a href="#" class="nav__logo">
+      <img src="logo.svg" alt="ViveAhora">
+      <span class="nav__logo-text">Viva<span>Ahora</span></span>
+    </a>
     <div class="nav__links">
       <a href="#">Methode</a>
       <a href="#">Über mich</a>
