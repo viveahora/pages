@@ -351,7 +351,14 @@
     .pricing__cta--default:hover { border-color: #C4A44A; color: #C4A44A; }
     .pricing__cta--featured { background: #C4A44A; color: #fff; border: 2px solid #C4A44A; }
     .pricing__cta--featured:hover { background: #b8943e; border-color: #b8943e; }
-    .pricing__note { text-align: center; font-size: 0.85rem; color: #9CA3AF; margin-top: 2rem; }
+    .pricing__note { text-align: center; font-size: 0.85rem; color: #9CA3AF; margin-top: 1.25rem; }
+    .pricing__guarantee { display: flex; align-items: center; gap: 1.25rem; background: #fff; border: 2px solid #C4A44A; border-radius: 16px; padding: 1.5rem 2rem; margin-top: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .pricing__guarantee-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .pricing__guarantee-text strong { display: block; font-size: 1rem; font-weight: 800; color: #293238; margin-bottom: 0.25rem; }
+    .pricing__guarantee-text p { font-size: 0.9rem; color: #6B7280; line-height: 1.6; margin: 0; }
+    @media (max-width: 600px) {
+      .pricing__guarantee { flex-direction: column; text-align: center; padding: 1.25rem; }
+    }
     @media (max-width: 900px) {
       .pricing__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
     }
@@ -631,6 +638,13 @@
           <a href="#contact" class="pricing__cta pricing__cta--default">Termin vereinbaren</a>
         </div>
 
+      </div>
+      <div class="pricing__guarantee">
+        <div class="pricing__guarantee-icon">🛡️</div>
+        <div class="pricing__guarantee-text">
+          <strong>Zufriedenheitsgarantie nach der ersten Sitzung</strong>
+          <p>Wenn du nach unserer ersten gemeinsamen Sitzung nicht überzeugt bist, bekommst du dein Geld zurück — ohne Wenn und Aber.</p>
+        </div>
       </div>
       <p class="pricing__note">Alle Preise in CHF inkl. MwSt. · Kostenloses Erstgespräch (30 Min.) vor jeder Buchung möglich.</p>
     </div>
