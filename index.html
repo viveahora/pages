@@ -120,7 +120,7 @@
       background: #C4A44A;
       transform-origin: left;
       transform: scaleX(0);
-      transition: transform 1.2s cubic-bezier(0.4,0,0.2,1) 0.2s;
+      transition: transform 2s cubic-bezier(0.4,0,0.2,1) 0.3s;
     }
     .process--animated .process__line-inner { transform: scaleX(1); }
     .process__vtrack {
@@ -135,17 +135,17 @@
       width: 100%; height: 100%;
       background: #C4A44A;
       transform-origin: top; transform: scaleY(0);
-      transition: transform 1.2s cubic-bezier(0.4,0,0.2,1) 0.2s;
+      transition: transform 2s cubic-bezier(0.4,0,0.2,1) 0.3s;
     }
     .process--animated .process__vtrack-fill { transform: scaleY(1); }
     .process__step {
       display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.25rem;
       opacity: 0; transform: translateY(24px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .process--animated .process__step:nth-child(3) { opacity:1; transform:translateY(0); transition-delay: 0s; }
-    .process--animated .process__step:nth-child(4) { opacity:1; transform:translateY(0); transition-delay: 0.3s; }
-    .process--animated .process__step:nth-child(5) { opacity:1; transform:translateY(0); transition-delay: 0.6s; }
+    .process--animated .process__step:nth-child(3) { opacity:1; transform:translateY(0); transition-delay: 0.2s; }
+    .process--animated .process__step:nth-child(4) { opacity:1; transform:translateY(0); transition-delay: 0.6s; }
+    .process--animated .process__step:nth-child(5) { opacity:1; transform:translateY(0); transition-delay: 1.0s; }
     .process__dot {
       width: 56px; height: 56px; border-radius: 50%;
       background: #C4A44A; display: flex; align-items: center; justify-content: center;
@@ -560,7 +560,7 @@
               <span class="faq__icon">+</span>
             </button>
             <div class="faq__answer">
-              <div class="faq__answer-inner">Die Investition hängt von deinen Zielen und der Dauer des Prozesses ab. Im kostenlosen Erstgespräch besprechen wir, was für dich sinnvoll ist — ohne Druck und ohne versteckte Kosten.</div>
+              <div class="faq__answer-inner">Die Investition hängt von deinen Zielen und der Dauer des Prozesses ab. Im kostenloses Erstgespräch besprechen wir, was für dich sinnvoll ist — ohne Druck und ohne versteckte Kosten.</div>
             </div>
           </div>
           <div class="faq__item">
@@ -653,7 +653,7 @@
             entry.target.classList.add('process--animated');
           }
         });
-      }, { threshold: 0.25 }).observe(processSection);
+      }, { threshold: 0.15 }).observe(processSection);
     }
 
     let currentSlide = 0;
