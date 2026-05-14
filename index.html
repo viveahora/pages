@@ -8,968 +8,240 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    /* ============================================
-       RESET & BASE
-    ============================================ */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #374151;
-      background: #fff;
+      font-size: 16px; line-height: 1.6; color: #374151; background: #fff;
       -webkit-font-smoothing: antialiased;
     }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.0; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; }
+    h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.5rem; }
+    p { font-size: 1rem; line-height: 1.7; color: inherit; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 80px 0; }
+    .section--small { padding: 40px 0; }
 
-    ul, ol {
-      list-style: none;
-    }
-
-    /* ============================================
-       TYPOGRAPHY
-    ============================================ */
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 900;
-      line-height: 1.0;
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: inherit;
-    }
-
-    /* ============================================
-       LAYOUT HELPERS
-    ============================================ */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .section {
-      padding: 80px 0;
-    }
-
-    .section--small {
-      padding: 40px 0;
-    }
-
-    /* ============================================
-       NAVIGATION (dark theme)
-    ============================================ */
+    /* NAV */
     .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: #1C1C2E;
-      height: 70px;
-      display: flex;
-      align-items: center;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: #293238; height: 70px; display: flex; align-items: center;
     }
-
     .nav__inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width: 1400px; margin: 0 auto; padding: 0 2rem; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
     }
+    .nav__logo { display: flex; align-items: center; }
+    .nav__logo img { height: 32px; width: auto; display: block; }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__links a { color: #fff; font-size: 0.9rem; font-weight: 500; opacity: 0.9; transition: opacity 0.2s; }
+    .nav__links a:hover { opacity: 1; }
+    .nav__actions { display: flex; align-items: center; gap: 1.5rem; }
 
-    .nav__logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav__logo img {
-      height: 32px;
-      width: auto;
-      display: block;
-    }
-
-    .nav__links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .nav__links a {
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 500;
-      opacity: 0.9;
-      transition: opacity 0.2s;
-    }
-
-    .nav__links a:hover {
-      opacity: 1;
-    }
-
-    .nav__actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .nav__login {
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
+    /* BUTTONS */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.75rem;
-      border-radius: 50px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s ease;
-      letter-spacing: 0.01em;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.75rem 1.75rem; border-radius: 50px; font-size: 0.95rem;
+      font-weight: 700; cursor: pointer; border: none; transition: all 0.2s ease; letter-spacing: 0.01em;
     }
+    .btn--primary { background: #C4A44A; color: #fff; }
+    .btn--primary:hover { background: #b8973e; transform: translateY(-1px); }
+    .btn--dark { background: #293238; color: #fff; }
+    .btn--dark:hover { background: #3a4a52; transform: translateY(-1px); }
+    .btn--outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
+    .btn--outline-white:hover { background: rgba(255,255,255,0.1); }
+    .btn--large { padding: 1rem 2.5rem; font-size: 1.05rem; }
 
-    .btn--primary {
-      background: #C4A44A;
-      color: #fff;
-    }
-
-    .btn--primary:hover {
-      background: #b8973e;
-      transform: translateY(-1px);
-    }
-
-    .btn--dark {
-      background: #1C1C2E;
-      color: #fff;
-    }
-
-    .btn--dark:hover {
-      background: #2d2d44;
-      transform: translateY(-1px);
-    }
-
-    .btn--outline-white {
-      background: transparent;
-      color: #fff;
-      border: 2px solid #fff;
-    }
-
-    .btn--outline-white:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
-    .btn--large {
-      padding: 1rem 2.5rem;
-      font-size: 1.05rem;
-    }
-
-    /* ============================================
-       HERO SECTION (dark / fullscreen)
-    ============================================ */
-    .hero-wrapper {
-      background: #1C1C2E;
-      padding-top: 70px;
-      padding-left: 16px;
-      padding-right: 16px;
-      padding-bottom: 0;
-    }
-
+    /* HERO */
+    .hero-wrapper { background: #293238; padding-top: 70px; padding-left: 16px; padding-right: 16px; padding-bottom: 0; }
     .hero {
-      position: relative;
-      min-height: 90vh;
-      display: flex;
-      align-items: flex-end;
-      background: #1C1C2E;
-      color: #fff;
-      overflow: hidden;
-      border-radius: 24px;
+      position: relative; min-height: 90vh; display: flex; align-items: flex-end;
+      background: #293238; color: #fff; overflow: hidden; border-radius: 24px;
     }
-
     .hero__bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('hero.jpg');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.7;
+      position: absolute; inset: 0; background-image: url('hero.jpg');
+      background-size: cover; background-position: center; opacity: 0.7;
     }
-
     .hero__bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(0,0,0,0.7) 0%,
-        rgba(0,0,0,0.2) 60%,
-        rgba(0,0,0,0.1) 100%
-      );
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 100%);
     }
-
     .hero__content {
-      position: relative;
-      z-index: 1;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem 5rem;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: flex-end;
-      gap: 2rem;
+      position: relative; z-index: 1; max-width: 1400px; margin: 0 auto;
+      padding: 0 2rem 5rem; width: 100%; display: grid;
+      grid-template-columns: 1fr auto; align-items: flex-end; gap: 2rem;
     }
-
-    .hero__text {
-      max-width: 720px;
-    }
-
+    .hero__text { max-width: 720px; }
     .hero__label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #fff; margin-bottom: 1.25rem;
     }
-
     .hero__label::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #C4A44A;
-      flex-shrink: 0;
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: #C4A44A; flex-shrink: 0;
     }
+    .hero__title { margin-bottom: 1.5rem; }
+    .hero__desc { font-size: 1.05rem; line-height: 1.7; max-width: 580px; margin-bottom: 2rem; opacity: 0.95; }
 
-    .hero__title {
-      margin-bottom: 1.5rem;
-    }
+    /* INTRO */
+    .intro { background: #fff; color: #293238; }
+    .intro__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .intro__title { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+    .intro__body p { font-size: 1.1rem; line-height: 1.75; color: #374151; margin-bottom: 1.25rem; }
 
-    .hero__desc {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 580px;
-      margin-bottom: 2rem;
-      opacity: 0.95;
-    }
-
-    .hero__badge {
-      background: rgba(0,0,0,0.85);
-      border-radius: 12px;
-      padding: 2rem;
-      min-width: 220px;
-      text-align: center;
-      align-self: flex-end;
-    }
-
-    .hero__badge-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 700;
-      opacity: 0.8;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero__badge-title {
-      font-size: 2.5rem;
-      font-weight: 900;
-      font-style: italic;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      color: #fff;
-    }
-
-    /* ============================================
-       INTRO SECTION (white, 2-column)
-    ============================================ */
-    .intro {
-      background: #fff;
-      color: #1C1C2E;
-    }
-
-    .intro__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .intro__title {
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-    }
-
-    .intro__body p {
-      font-size: 1.1rem;
-      line-height: 1.75;
-      color: #374151;
-      margin-bottom: 1.25rem;
-    }
-
-    /* ============================================
-       IMAGE TICKER / SCROLL STRIP
-    ============================================ */
-    .ticker {
-      background: #fff;
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .ticker__track {
-      display: flex;
-      gap: 0;
-      animation: tickerScroll 30s linear infinite;
-      width: max-content;
-    }
-
-    @keyframes tickerScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    .ticker__item {
-      position: relative;
-      width: 320px;
-      height: 240px;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    .ticker__item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
+    /* TICKER */
+    .ticker { background: #fff; overflow: hidden; padding: 0; }
+    .ticker__track { display: flex; gap: 0; animation: tickerScroll 30s linear infinite; width: max-content; }
+    @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker__item { position: relative; width: 320px; height: 240px; flex-shrink: 0; overflow: hidden; }
+    .ticker__item img { width: 100%; height: 100%; object-fit: cover; }
     .ticker__item-label {
-      position: absolute;
-      bottom: 1.25rem;
-      left: 1.25rem;
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 700;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      position: absolute; bottom: 1.25rem; left: 1.25rem; color: #fff;
+      font-size: 1rem; font-weight: 700; text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
 
-    /* ============================================
-       BENEFITS SECTION (off-white, icon grid)
-    ============================================ */
-    .benefits {
-      background: #F8F7F4;
-      color: #1C1C2E;
-      text-align: center;
-    }
-
+    /* BENEFITS */
+    .benefits { background: #F8F7F4; color: #293238; text-align: center; }
     .section-label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #C4A44A;
-      margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #C4A44A; margin-bottom: 1rem;
     }
-
-    .section-label::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #C4A44A;
-      flex-shrink: 0;
-    }
-
-    .section-label--center {
-      justify-content: center;
-    }
-
-    .section-label--left {
-      justify-content: flex-start;
-    }
-
-    .benefits__title {
-      margin-bottom: 4rem;
-    }
-
-    .benefits__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      text-align: left;
-    }
-
-    .benefit-card {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
+    .section-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
+    .section-label--center { justify-content: center; }
+    .section-label--left { justify-content: flex-start; }
+    .benefits__title { margin-bottom: 4rem; }
+    .benefits__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; text-align: left; }
+    .benefit-card { display: flex; flex-direction: column; gap: 1rem; }
     .benefit-card__icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      background: #edecea;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
+      width: 56px; height: 56px; border-radius: 14px; background: #edecea;
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
     }
+    .benefit-card__title { font-size: 1.1rem; font-weight: 800; }
+    .benefit-card__desc { font-size: 0.95rem; color: #6B7280; line-height: 1.65; }
 
-    .benefit-card__title {
-      font-size: 1.1rem;
-      font-weight: 800;
-    }
+    /* FEATURE */
+    .feature { background: #fff; color: #293238; overflow: hidden; }
+    .feature__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; min-height: 500px; }
+    .feature__text { padding: 4rem 4rem 4rem 0; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
+    .feature__title { font-size: clamp(2rem, 3.5vw, 3rem); }
+    .feature__desc { font-size: 1rem; color: #374151; line-height: 1.75; }
+    .feature__right { position: relative; display: grid; grid-template-rows: auto 1fr; }
+    .feature__badge { background: #C4A44A; padding: 2.5rem; text-align: center; }
+    .feature__badge-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: #fff; opacity: 0.8; margin-bottom: 0.3rem; }
+    .feature__badge-title { font-size: 3rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em; color: #fff; line-height: 0.9; }
+    .feature__image { width: 100%; height: 400px; object-fit: cover; object-position: top center; }
 
-    .benefit-card__desc {
-      font-size: 0.95rem;
-      color: #6B7280;
-      line-height: 1.65;
-    }
+    /* CTA BANNER */
+    .cta-banner { background: #C4A44A; color: #fff; padding: 60px 0; }
+    .cta-banner__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .cta-banner__title { font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 900; line-height: 1.1; }
+    .cta-banner__text { font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.65; opacity: 0.9; }
 
-    /* ============================================
-       COACHING FEATURE (text + image, gold)
-    ============================================ */
-    .feature {
-      background: #fff;
-      color: #1C1C2E;
-      overflow: hidden;
-    }
-
-    .feature__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      align-items: stretch;
-      min-height: 500px;
-    }
-
-    .feature__text {
-      padding: 4rem 4rem 4rem 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    .feature__title {
-      font-size: clamp(2rem, 3.5vw, 3rem);
-    }
-
-    .feature__desc {
-      font-size: 1rem;
-      color: #374151;
-      line-height: 1.75;
-    }
-
-    .feature__right {
-      position: relative;
-      display: grid;
-      grid-template-rows: auto 1fr;
-    }
-
-    .feature__badge {
-      background: #C4A44A;
-      padding: 2.5rem;
-      text-align: center;
-    }
-
-    .feature__badge-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #fff;
-      opacity: 0.8;
-      margin-bottom: 0.3rem;
-    }
-
-    .feature__badge-title {
-      font-size: 3rem;
-      font-weight: 900;
-      font-style: italic;
-      text-transform: uppercase;
-      letter-spacing: -0.03em;
-      color: #fff;
-      line-height: 0.9;
-    }
-
-    .feature__image {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      object-position: top center;
-    }
-
-    /* ============================================
-       CTA BANNER (gold)
-    ============================================ */
-    .cta-banner {
-      background: #C4A44A;
-      color: #fff;
-      padding: 60px 0;
-    }
-
-    .cta-banner__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .cta-banner__title {
-      font-size: clamp(1.6rem, 3vw, 2.5rem);
-      font-weight: 900;
-      line-height: 1.1;
-    }
-
-    .cta-banner__text {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.65;
-      opacity: 0.9;
-    }
-
-    /* ============================================
-       TESTIMONIALS (white, card grid)
-    ============================================ */
-    .testimonials {
-      background: #fff;
-      color: #1C1C2E;
-    }
-
-    .testimonials__header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 3rem;
-    }
-
-    .testimonials__title {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-    }
-
-    .testimonials__nav {
-      display: flex;
-      gap: 0.75rem;
-    }
-
+    /* TESTIMONIALS */
+    .testimonials { background: #fff; color: #293238; }
+    .testimonials__header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
+    .testimonials__title { font-size: clamp(2rem, 4vw, 3.5rem); }
+    .testimonials__nav { display: flex; gap: 0.75rem; }
     .slider-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid #1C1C2E;
-      background: transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      transition: all 0.2s;
+      width: 48px; height: 48px; border-radius: 50%; border: 2px solid #293238;
+      background: transparent; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; transition: all 0.2s;
     }
-
-    .slider-btn:hover {
-      background: #1C1C2E;
-      color: #fff;
-    }
-
-    .testimonials__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      overflow: hidden;
-    }
-
-    .testimonial-card {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .testimonial-card__image {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 8px;
-      background: #ddd;
-    }
-
+    .slider-btn:hover { background: #293238; color: #fff; }
+    .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; overflow: hidden; }
+    .testimonial-card { display: flex; flex-direction: column; gap: 1rem; }
+    .testimonial-card__image { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; background: #ddd; }
     .testimonial-card__image-placeholder {
-      width: 100%;
-      height: 280px;
-      border-radius: 8px;
+      width: 100%; height: 280px; border-radius: 8px;
       background: linear-gradient(135deg, #e0e0e0, #c0c0c0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: #999;
+      display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #999;
     }
+    .testimonial-card__quote { font-size: 1.05rem; font-weight: 600; line-height: 1.5; color: #293238; }
+    .testimonial-card__author { font-size: 0.9rem; color: #6B7280; }
+    .testimonial-card__author strong { color: #293238; }
 
-    .testimonial-card__quote {
-      font-size: 1.05rem;
-      font-weight: 600;
-      line-height: 1.5;
-      color: #1C1C2E;
-    }
-
-    .testimonial-card__author {
-      font-size: 0.9rem;
-      color: #6B7280;
-    }
-
-    .testimonial-card__author strong {
-      color: #1C1C2E;
-    }
-
-    /* ============================================
-       FAQ SECTION (off-white, accordion)
-    ============================================ */
-    .faq {
-      background: #F8F7F4;
-      color: #1C1C2E;
-    }
-
-    .faq__inner {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
+    /* FAQ */
+    .faq { background: #F8F7F4; color: #293238; }
+    .faq__inner { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
     .faq__sidebar {}
-
     .faq__sidebar-label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #C4A44A;
-      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #C4A44A; margin-bottom: 1rem;
     }
-
-    .faq__sidebar-label::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #C4A44A;
-      flex-shrink: 0;
-    }
-
-    .faq__title {
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      margin-bottom: 2rem;
-    }
-
-    .faq__contact {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #C4A44A;
-      border-bottom: 2px solid #C4A44A;
-      padding-bottom: 2px;
-    }
-
-    .faq__list {}
-
-    .faq__item {
-      border-bottom: 1px solid #e0e0e0;
-    }
-
+    .faq__sidebar-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
+    .faq__title { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 2rem; }
+    .faq__contact { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; color: #C4A44A; border-bottom: 2px solid #C4A44A; padding-bottom: 2px; }
+    .faq__item { border-bottom: 1px solid #e0e0e0; }
     .faq__question {
-      width: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 0;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #1C1C2E;
-      text-align: left;
-      gap: 1rem;
-      transition: color 0.2s;
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 0; font-size: 1rem; font-weight: 700; color: #293238;
+      text-align: left; gap: 1rem; transition: color 0.2s;
     }
+    .faq__question:hover { color: #C4A44A; }
+    .faq__icon { font-size: 1.4rem; font-weight: 400; flex-shrink: 0; transition: transform 0.3s; }
+    .faq__answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+    .faq__answer--open { max-height: 400px; }
+    .faq__answer-inner { padding: 0 0 1.25rem; font-size: 0.95rem; color: #6B7280; line-height: 1.7; }
+    .faq__item--open .faq__icon { transform: rotate(45deg); }
 
-    .faq__question:hover {
-      color: #C4A44A;
-    }
+    /* FINAL CTA */
+    .final-cta { background: #293238; color: #fff; padding: 80px 0; text-align: center; }
+    .final-cta__title { font-size: clamp(1.8rem, 3.5vw, 3rem); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-    .faq__icon {
-      font-size: 1.4rem;
-      font-weight: 400;
-      flex-shrink: 0;
-      transition: transform 0.3s;
-    }
-
-    .faq__answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-    }
-
-    .faq__answer--open {
-      max-height: 400px;
-    }
-
-    .faq__answer-inner {
-      padding: 0 0 1.25rem;
-      font-size: 0.95rem;
-      color: #6B7280;
-      line-height: 1.7;
-    }
-
-    .faq__item--open .faq__icon {
-      transform: rotate(45deg);
-    }
-
-    /* ============================================
-       FINAL CTA (dark section)
-    ============================================ */
-    .final-cta {
-      background: #1C1C2E;
-      color: #fff;
-      padding: 80px 0;
-      text-align: center;
-    }
-
-    .final-cta__title {
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      margin-bottom: 2rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ============================================
-       FOOTER
-    ============================================ */
-    .footer {
-      background: #1C1C2E;
-      color: #fff;
-      padding: 60px 0 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .footer__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .footer__logo {
-      font-size: 1rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      color: #C4A44A;
-    }
-
-    .footer__tagline {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-    }
-
-    .footer__nav-title {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      color: rgba(255,255,255,0.5);
-    }
-
-    .footer__nav-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .footer__nav-list a {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.8);
-      transition: color 0.2s;
-    }
-
-    .footer__nav-list a:hover {
-      color: #C4A44A;
-    }
-
-    .footer__bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer__legal {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer__legal a {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.5);
-    }
-
-    .footer__legal a:hover {
-      color: #fff;
-    }
-
-    .footer__copy {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .footer__social {
-      display: flex;
-      gap: 1rem;
-    }
-
+    /* FOOTER */
+    .footer { background: #293238; color: #fff; padding: 60px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 3rem; }
+    .footer__logo { font-size: 1rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; color: #C4A44A; }
+    .footer__tagline { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .footer__nav-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; color: rgba(255,255,255,0.5); }
+    .footer__nav-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer__nav-list a { font-size: 0.9rem; color: rgba(255,255,255,0.8); transition: color 0.2s; }
+    .footer__nav-list a:hover { color: #C4A44A; }
+    .footer__bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .footer__legal { display: flex; gap: 1.5rem; }
+    .footer__legal a { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+    .footer__legal a:hover { color: #fff; }
+    .footer__copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+    .footer__social { display: flex; gap: 1rem; }
     .footer__social a {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      transition: all 0.2s;
+      width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: all 0.2s;
     }
+    .footer__social a:hover { border-color: #C4A44A; color: #C4A44A; }
 
-    .footer__social a:hover {
-      border-color: #C4A44A;
-      color: #C4A44A;
-    }
-
-    /* ============================================
-       RESPONSIVE
-    ============================================ */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .nav__links { display: none; }
-
-      .hero__content {
-        grid-template-columns: 1fr;
-        padding-bottom: 3rem;
-      }
-      .hero__badge { display: none; }
-
-      .intro__inner,
-      .feature__inner,
-      .cta-banner__inner,
-      .faq__inner {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .benefits__grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-      }
-
-      .testimonials__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer__grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .feature__text {
-        padding: 2rem 0;
-      }
+      .hero__content { grid-template-columns: 1fr; padding-bottom: 3rem; }
+      .intro__inner, .feature__inner, .cta-banner__inner, .faq__inner { grid-template-columns: 1fr; gap: 2rem; }
+      .benefits__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .testimonials__grid { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+      .feature__text { padding: 2rem 0; }
     }
-
     @media (max-width: 600px) {
-      .benefits__grid {
-        grid-template-columns: 1fr;
-      }
-      .footer__grid {
-        grid-template-columns: 1fr;
-      }
-      .testimonials__header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
+      .benefits__grid { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr; }
+      .testimonials__header { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ============================================
-       NAVIGATION
-  ============================================ -->
   <header class="nav">
     <div class="nav__inner">
-      <a href="#" class="nav__logo">
-        <img src="logo.svg" alt="Logo" />
-      </a>
+      <a href="#" class="nav__logo"><img src="logo.svg" alt="Logo" /></a>
       <nav class="nav__links">
         <a href="#">Über mich</a>
         <a href="#">Coaching</a>
@@ -982,10 +254,6 @@
     </div>
   </header>
 
-
-  <!-- ============================================
-       HERO
-  ============================================ -->
   <div class="hero-wrapper">
   <section class="hero">
     <div class="hero__bg"></div>
@@ -1004,10 +272,6 @@
   </section>
   </div>
 
-
-  <!-- ============================================
-       INTRO (2-column text)
-  ============================================ -->
   <section class="section intro">
     <div class="container">
       <div class="intro__inner">
@@ -1030,10 +294,6 @@
     </div>
   </section>
 
-
-  <!-- ============================================
-       IMAGE TICKER STRIP
-  ============================================ -->
   <section class="ticker">
     <div class="ticker__track">
       <div class="ticker__item">
@@ -1056,7 +316,6 @@
         <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=640&q=70" alt="Hindernisse überwinden" />
         <span class="ticker__item-label">Hindernisse beseitigen</span>
       </div>
-      <!-- Duplicate for seamless loop -->
       <div class="ticker__item">
         <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=640&q=70" alt="Klare Ziele schaffen" />
         <span class="ticker__item-label">klare Ziele schaffen</span>
@@ -1080,93 +339,52 @@
     </div>
   </section>
 
-
-  <!-- ============================================
-       BENEFITS / KEY ADVANTAGES
-  ============================================ -->
   <section class="section benefits">
     <div class="container">
       <div class="section-label section-label--center">Wichtigste Vorteile</div>
       <h2 class="benefits__title">Durchbrechen, befreien</h2>
       <div class="benefits__grid">
-
         <div class="benefit-card">
           <div class="benefit-card__icon">☀️</div>
           <h3 class="benefit-card__title">Gewinne Klarheit über dein Ziel</h3>
-          <p class="benefit-card__desc">
-            Werde dir über die Ziele und Vorgaben im Klaren und konzentriere dich
-            darauf, die dein Leben grundlegend verändern werden.
-          </p>
+          <p class="benefit-card__desc">Werde dir über die Ziele und Vorgaben im Klaren und konzentriere dich darauf, die dein Leben grundlegend verändern werden.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__icon">👤</div>
           <h3 class="benefit-card__title">Werde eine effektivere Führungskraft</h3>
-          <p class="benefit-card__desc">
-            Erwerbe die Werkzeuge, Fähigkeiten und das Selbstvertrauen,
-            um andere zu inspirieren und zu befähigen.
-          </p>
+          <p class="benefit-card__desc">Erwerbe die Werkzeuge, Fähigkeiten und das Selbstvertrauen, um andere zu inspirieren und zu befähigen.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__icon">🥊</div>
           <h3 class="benefit-card__title">Gesundheits- und Fitnessziele erreichen</h3>
-          <p class="benefit-card__desc">
-            Tanke neue Energie, verbessere deine psychische Verfassung und
-            erziele die Ergebnisse, nach denen du gesucht hast.
-          </p>
+          <p class="benefit-card__desc">Tanke neue Energie, verbessere deine psychische Verfassung und erziele die Ergebnisse, nach denen du gesucht hast.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__icon">🤝</div>
           <h3 class="benefit-card__title">Belebe deine Beziehungen neu</h3>
-          <p class="benefit-card__desc">
-            Überwinde deine Barrieren und entdecke, wie du tiefere Verbindungen
-            zu anderen aufbauen kannst.
-          </p>
+          <p class="benefit-card__desc">Überwinde deine Barrieren und entdecke, wie du tiefere Verbindungen zu anderen aufbauen kannst.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__icon">🚧</div>
           <h3 class="benefit-card__title">Hindernisse beseitigen</h3>
-          <p class="benefit-card__desc">
-            Lerne, wie du einschränkende Glaubenssätze, die dich bisher
-            zurückgehalten haben, isolieren und neu formulieren kannst.
-          </p>
+          <p class="benefit-card__desc">Lerne, wie du einschränkende Glaubenssätze, die dich bisher zurückgehalten haben, isolieren und neu formulieren kannst.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__icon">🗺️</div>
           <h3 class="benefit-card__title">Erstelle eine Karte für die Zukunft</h3>
-          <p class="benefit-card__desc">
-            Erstelle einen flexiblen, ergebnisorientierten Plan, um deine
-            Ziele schneller zu erreichen.
-          </p>
+          <p class="benefit-card__desc">Erstelle einen flexiblen, ergebnisorientierten Plan, um deine Ziele schneller zu erreichen.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ============================================
-       COACHING FEATURE (mit Badge + Bild)
-  ============================================ -->
   <section class="section feature">
     <div class="container">
       <div class="feature__inner">
         <div class="feature__text">
           <h2 class="feature__title">Mit der richtigen Anleitung ist alles möglich</h2>
-          <p class="feature__desc">
-            Wenn du Zugang zu denselben Techniken und Methoden wünschst,
-            die für die weltbesten Athleten, Künstler und Geschäftsleute eingesetzt
-            werden, ist ein Results Coach genau das Richtige für dich.
-          </p>
-          <p class="feature__desc">
-            Egal, ob du ein finanzielles Ziel erreichen, einen Lebenspartner finden
-            oder etwas ganz anderes anstreben möchtest – ich helfe dir gerne dabei,
-            die gewünschten Ergebnisse zu erzielen.
-          </p>
+          <p class="feature__desc">Wenn du Zugang zu denselben Techniken und Methoden wünschst, die für die weltbesten Athleten, Künstler und Geschäftsleute eingesetzt werden, ist ein Results Coach genau das Richtige für dich.</p>
+          <p class="feature__desc">Egal, ob du ein finanzielles Ziel erreichen, einen Lebenspartner finden oder etwas ganz anderes anstreben möchtest – ich helfe dir gerne dabei, die gewünschten Ergebnisse zu erzielen.</p>
           <a href="#contact" class="btn btn--dark btn--large" style="align-self:flex-start;">Jetzt Termin vereinbaren</a>
         </div>
         <div class="feature__right">
@@ -1174,45 +392,26 @@
             <div class="feature__badge-label">IHR NAME</div>
             <div class="feature__badge-title">COACHING</div>
           </div>
-          <img
-            class="feature__image"
-            src="https://images.unsplash.com/photo-1601933470096-0e34634ffcde?w=800&q=80"
-            alt="Coaching Session"
-          />
+          <img class="feature__image" src="https://images.unsplash.com/photo-1601933470096-0e34634ffcde?w=800&q=80" alt="Coaching Session" />
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============================================
-       CTA BANNER (gold)
-  ============================================ -->
   <section class="cta-banner" id="contact">
     <div class="container">
       <div class="cta-banner__inner">
         <div>
-          <h2 class="cta-banner__title">
-            Sichere dir ein kostenloses 30-minütiges Strategiegespräch
-          </h2>
+          <h2 class="cta-banner__title">Sichere dir ein kostenloses 30-minütiges Strategiegespräch</h2>
         </div>
         <div>
-          <p class="cta-banner__text">
-            Jetzt ist der richtige Zeitpunkt. Kontaktiere mich noch heute
-            für ein unverbindliches Erstgespräch.
-          </p>
-          <a href="mailto:hallo@ihrewebsite.de" class="btn btn--dark btn--large">
-            Vereinbare deinen Termin
-          </a>
+          <p class="cta-banner__text">Jetzt ist der richtige Zeitpunkt. Kontaktiere mich noch heute für ein unverbindliches Erstgespräch.</p>
+          <a href="mailto:hallo@ihrewebsite.de" class="btn btn--dark btn--large">Vereinbare deinen Termin</a>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============================================
-       TESTIMONIALS
-  ============================================ -->
   <section class="section testimonials">
     <div class="container">
       <div class="testimonials__header">
@@ -1223,164 +422,72 @@
         </div>
       </div>
       <div class="testimonials__grid" id="testimonialsGrid">
-
         <div class="testimonial-card">
           <div class="testimonial-card__image-placeholder">👩</div>
-          <p class="testimonial-card__quote">
-            „Dank des Coachings habe ich endlich die Klarheit gefunden, die ich
-            jahrelang vermisst habe. Mein Umsatz hat sich in nur 6 Monaten verdoppelt."
-          </p>
-          <p class="testimonial-card__author">
-            <strong>Sandra K.</strong> — Unternehmerin
-          </p>
+          <p class="testimonial-card__quote">„Dank des Coachings habe ich endlich die Klarheit gefunden, die ich jahrelang vermisst habe. Mein Umsatz hat sich in nur 6 Monaten verdoppelt."</p>
+          <p class="testimonial-card__author"><strong>Sandra K.</strong> — Unternehmerin</p>
         </div>
-
         <div class="testimonial-card">
           <div class="testimonial-card__image-placeholder">👨</div>
-          <p class="testimonial-card__quote">
-            „Ich habe gelernt, meine Glaubenssätze zu überwinden und echte
-            Ergebnisse zu erzielen. Das Coaching war ein absoluter Game-Changer."
-          </p>
-          <p class="testimonial-card__author">
-            <strong>Markus T.</strong> — Führungskraft
-          </p>
+          <p class="testimonial-card__quote">„Ich habe gelernt, meine Glaubenssätze zu überwinden und echte Ergebnisse zu erzielen. Das Coaching war ein absoluter Game-Changer."</p>
+          <p class="testimonial-card__author"><strong>Markus T.</strong> — Führungskraft</p>
         </div>
-
         <div class="testimonial-card">
           <div class="testimonial-card__image-placeholder">👩</div>
-          <p class="testimonial-card__quote">
-            „Meine Work-Life-Balance hat sich komplett verändert. Ich bin produktiver
-            als je zuvor und fühle mich gleichzeitig ausgeglichener."
-          </p>
-          <p class="testimonial-card__author">
-            <strong>Julia M.</strong> — Projektmanagerin
-          </p>
+          <p class="testimonial-card__quote">„Meine Work-Life-Balance hat sich komplett verändert. Ich bin produktiver als je zuvor und fühle mich gleichzeitig ausgeglichener."</p>
+          <p class="testimonial-card__author"><strong>Julia M.</strong> — Projektmanagerin</p>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ============================================
-       FAQ SECTION
-  ============================================ -->
   <section class="section faq" id="faq">
     <div class="container">
       <div class="faq__inner">
         <div class="faq__sidebar">
           <div class="faq__sidebar-label">FAQ</div>
           <h2 class="faq__title">Häufig gestellte Fragen</h2>
-          <a href="mailto:hallo@ihrewebsite.de" class="faq__contact">
-            Weitere Fragen? Kontakt aufnehmen &#8594;
-          </a>
+          <a href="mailto:hallo@ihrewebsite.de" class="faq__contact">Weitere Fragen? Kontakt aufnehmen &#8594;</a>
         </div>
         <div class="faq__list">
-
           <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Was ist Results Coaching?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">
-                Results Coaching ist ein intensives 1:1-Coaching-Programm, das dir
-                hilft, konkrete und messbare Ergebnisse in allen Lebensbereichen zu
-                erzielen – sei es Karriere, Finanzen, Gesundheit oder Beziehungen.
-              </div>
-            </div>
+            <button class="faq__question" onclick="toggleFaq(this)">Was ist Results Coaching?<span class="faq__icon">+</span></button>
+            <div class="faq__answer"><div class="faq__answer-inner">Results Coaching ist ein intensives 1:1-Coaching-Programm, das dir hilft, konkrete und messbare Ergebnisse in allen Lebensbereichen zu erzielen – sei es Karriere, Finanzen, Gesundheit oder Beziehungen.</div></div>
           </div>
-
           <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Wie läuft eine Coaching-Session ab?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">
-                Jede Session dauert 60 Minuten und findet per Videocall statt.
-                Wir analysieren deine aktuelle Situation, identifizieren Hindernisse
-                und entwickeln gemeinsam konkrete Schritte, um deine Ziele zu erreichen.
-              </div>
-            </div>
+            <button class="faq__question" onclick="toggleFaq(this)">Wie läuft eine Coaching-Session ab?<span class="faq__icon">+</span></button>
+            <div class="faq__answer"><div class="faq__answer-inner">Jede Session dauert 60 Minuten und findet per Videocall statt. Wir analysieren deine aktuelle Situation, identifizieren Hindernisse und entwickeln gemeinsam konkrete Schritte, um deine Ziele zu erreichen.</div></div>
           </div>
-
           <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Wie lange dauert ein Coaching-Programm?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">
-                Die Programmlaufzeit richtet sich nach deinen Zielen. Die meisten
-                Klienten starten mit einem 3-Monats-Programm und verlängern es nach
-                den ersten sichtbaren Ergebnissen. Sprich mich für ein
-                individuelles Angebot an.
-              </div>
-            </div>
+            <button class="faq__question" onclick="toggleFaq(this)">Wie lange dauert ein Coaching-Programm?<span class="faq__icon">+</span></button>
+            <div class="faq__answer"><div class="faq__answer-inner">Die Programmlaufzeit richtet sich nach deinen Zielen. Die meisten Klienten starten mit einem 3-Monats-Programm und verlängern es nach den ersten sichtbaren Ergebnissen. Sprich mich für ein individuelles Angebot an.</div></div>
           </div>
-
           <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Für wen ist das Coaching geeignet?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">
-                Das Coaching richtet sich an alle, die bereit sind, aktiv an sich
-                zu arbeiten und echte Veränderungen anzustreben – ob Unternehmer,
-                Führungskräfte, Angestellte oder Menschen in persönlichen
-                Umbruchphasen.
-              </div>
-            </div>
+            <button class="faq__question" onclick="toggleFaq(this)">Für wen ist das Coaching geeignet?<span class="faq__icon">+</span></button>
+            <div class="faq__answer"><div class="faq__answer-inner">Das Coaching richtet sich an alle, die bereit sind, aktiv an sich zu arbeiten und echte Veränderungen anzustreben – ob Unternehmer, Führungskräfte, Angestellte oder Menschen in persönlichen Umbruchphasen.</div></div>
           </div>
-
           <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Was kostet das Coaching?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">
-                Die Investition hängt vom gewählten Programm ab. Vereinbare
-                zunächst ein kostenloses 30-minütiges Strategiegespräch, um gemeinsam
-                zu besprechen, welches Paket am besten zu deinen Zielen passt.
-              </div>
-            </div>
+            <button class="faq__question" onclick="toggleFaq(this)">Was kostet das Coaching?<span class="faq__icon">+</span></button>
+            <div class="faq__answer"><div class="faq__answer-inner">Die Investition hängt vom gewählten Programm ab. Vereinbare zunächst ein kostenloses 30-minütiges Strategiegespräch, um gemeinsam zu besprechen, welches Paket am besten zu deinen Zielen passt.</div></div>
           </div>
-
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============================================
-       FINAL CTA (dark section)
-  ============================================ -->
   <section class="final-cta">
     <div class="container">
-      <h2 class="final-cta__title">
-        Bist du bereit, dein Leben auf das nächste Level zu heben?
-      </h2>
-      <a href="#contact" class="btn btn--primary btn--large">
-        Kostenloses Erstgespräch vereinbaren
-      </a>
+      <h2 class="final-cta__title">Bist du bereit, dein Leben auf das nächste Level zu heben?</h2>
+      <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch vereinbaren</a>
     </div>
   </section>
 
-
-  <!-- ============================================
-       FOOTER
-  ============================================ -->
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div>
           <div class="footer__logo">VIVA AHORA</div>
-          <p class="footer__tagline">
-            Results Coaching für Menschen, die außergewöhnliche Ergebnisse anstreben.
-          </p>
+          <p class="footer__tagline">Results Coaching für Menschen, die außergewöhnliche Ergebnisse anstreben.</p>
         </div>
         <div>
           <div class="footer__nav-title">Navigation</div>
@@ -1425,22 +532,15 @@
     </div>
   </footer>
 
-
-  <!-- ============================================
-       JAVASCRIPT
-  ============================================ -->
   <script>
-    /* FAQ accordion */
     function toggleFaq(btn) {
       var item = btn.closest('.faq__item');
       var answer = item.querySelector('.faq__answer');
       var isOpen = item.classList.contains('faq__item--open');
-
       document.querySelectorAll('.faq__item--open').forEach(function(el) {
         el.classList.remove('faq__item--open');
         el.querySelector('.faq__answer').classList.remove('faq__answer--open');
       });
-
       if (!isOpen) {
         item.classList.add('faq__item--open');
         answer.classList.add('faq__answer--open');
