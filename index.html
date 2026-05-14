@@ -30,68 +30,109 @@
 
     /* NAV */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: #293238; height: 70px; display: flex; align-items: center;
-    }
-    .nav__inner {
-      max-width: 1400px; margin: 0 auto; padding: 0 2rem; width: 100%;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: #293238; border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 2rem; height: 64px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav__logo { display: flex; align-items: center; }
-    .nav__logo img { height: 32px; width: auto; display: block; }
-    .nav__links { display: flex; align-items: center; gap: 2rem; }
-    .nav__links a { color: #fff; font-size: 0.9rem; font-weight: 500; opacity: 0.9; transition: opacity 0.2s; }
-    .nav__links a:hover { opacity: 1; }
-    .nav__actions { display: flex; align-items: center; gap: 1.5rem; }
+    .nav__logo { font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+    .nav__logo span { color: #C4A44A; }
+    .nav__links { display: flex; gap: 2rem; align-items: center; }
+    .nav__links a { font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.7); transition: color 0.2s; }
+    .nav__links a:hover { color: #fff; }
+    .nav__cta {
+      background: #C4A44A; color: #fff !important; padding: 0.5rem 1.25rem;
+      border-radius: 6px; font-weight: 700 !important; transition: background 0.2s !important;
+    }
+    .nav__cta:hover { background: #b8963e !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; background: #293238;
+      display: flex; align-items: center;
+      padding-top: 64px; position: relative; overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background-image: url('hero.jpg');
+      background-size: cover; background-position: center top;
+      opacity: 0.18;
+    }
+    .hero__content {
+      position: relative; z-index: 1;
+      max-width: 760px; padding: 80px 0;
+    }
+    .hero__eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #C4A44A; margin-bottom: 1.5rem;
+    }
+    .hero__eyebrow::before {
+      content: ''; display: block; width: 24px; height: 2px; background: #C4A44A;
+    }
+    .hero__title { color: #fff; margin-bottom: 1.5rem; }
+    .hero__title em { color: #C4A44A; font-style: normal; }
+    .hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.65);
+      max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;
+    }
+    .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .hero__trust {
+      margin-top: 4rem; display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+    .hero__trust-item {
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+    .hero__trust-num {
+      font-size: 1.8rem; font-weight: 900; color: #fff; line-height: 1;
+    }
+    .hero__trust-label {
+      font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.45);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
 
     /* BUTTONS */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0.75rem 1.75rem; border-radius: 50px; font-size: 0.95rem;
-      font-weight: 700; cursor: pointer; border: none; transition: all 0.2s ease; letter-spacing: 0.01em;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-family: inherit; font-weight: 700; border-radius: 8px;
+      border: none; cursor: pointer; transition: all 0.2s; text-decoration: none;
+      white-space: nowrap;
     }
     .btn--primary { background: #C4A44A; color: #fff; }
-    .btn--primary:hover { background: #b8973e; transform: translateY(-1px); }
-    .btn--dark { background: #293238; color: #fff; }
-    .btn--dark:hover { background: #3a4a52; transform: translateY(-1px); }
-    .btn--outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
-    .btn--outline-white:hover { background: rgba(255,255,255,0.1); }
-    .btn--large { padding: 1rem 2.5rem; font-size: 1.05rem; }
+    .btn--primary:hover { background: #b8963e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(196,164,74,0.35); }
+    .btn--ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.3); }
+    .btn--ghost:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.07); }
+    .btn--medium { font-size: 0.95rem; padding: 0.75rem 1.75rem; }
+    .btn--large { font-size: 1rem; padding: 1rem 2.25rem; }
 
-    /* HERO */
-    .hero-wrapper { background: #293238; padding-top: 70px; padding-left: 16px; padding-right: 16px; padding-bottom: 0; }
-    .hero {
-      position: relative; min-height: 90vh; display: flex; align-items: flex-end;
-      background: #293238; color: #fff; overflow: hidden; border-radius: 24px;
+    /* SECTION LABELS */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #C4A44A; margin-bottom: 1rem;
     }
-    .hero__bg {
-      position: absolute; inset: 0; background-image: url('hero.jpg');
-      background-size: cover; background-position: center; opacity: 0.7;
+    .section-label::before {
+      content: ''; display: block; width: 20px; height: 2px; background: #C4A44A;
     }
-    .hero__bg::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 100%);
-    }
-    .hero__content {
-      position: relative; z-index: 1; max-width: 1400px; margin: 0 auto;
-      padding: 0 2rem 5rem; width: 100%; display: grid;
-      grid-template-columns: 1fr auto; align-items: flex-end; gap: 2rem;
-    }
-    .hero__text { max-width: 720px; }
-    .hero__label {
-      display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem;
-      font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-      color: #fff; margin-bottom: 1.25rem;
-    }
-    .hero__label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
-    .hero__title { margin-bottom: 1.5rem; }
-    .hero__desc { font-size: 1.05rem; line-height: 1.7; max-width: 580px; margin-bottom: 2rem; opacity: 0.95; }
+    .section-label--center { display: flex; justify-content: center; }
+    .section-label--center::before { display: none; }
 
-    /* INTRO */
-    .intro { background: #fff; color: #293238; }
-    .intro__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .intro__title { font-size: clamp(1.8rem, 3.5vw, 3rem); }
-    .intro__body p { font-size: 1.1rem; line-height: 1.75; color: #374151; margin-bottom: 1.25rem; }
+    /* INTRO / PROBLEM */
+    .intro { background: #fff; }
+    .intro__inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .intro__left {}
+    .intro__title { color: #293238; margin-bottom: 1.5rem; }
+    .intro__text { color: #6B7280; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1rem; }
+    .intro__right { display: flex; flex-direction: column; gap: 1.25rem; }
+    .pain-card {
+      background: #F8F7F4; border-radius: 12px; padding: 1.25rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      border-left: 3px solid #C4A44A;
+    }
+    .pain-card__icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
+    .pain-card__text { font-size: 0.95rem; color: #374151; font-weight: 500; line-height: 1.55; }
 
     /* PROCESS */
     .process { background: #293238; color: #fff; }
@@ -105,35 +146,23 @@
       gap: 2rem;
     }
     .process__line {
-      position: absolute;
-      top: 27px;
-      left: calc(16.66% + 28px);
-      width: calc(66.66% - 56px);
-      height: 2px;
-      background: rgba(196,164,74,0.2);
-      z-index: 0;
-      overflow: hidden;
+      position: absolute; top: 27px;
+      left: calc(16.66% + 28px); width: calc(66.66% - 56px);
+      height: 2px; background: rgba(196,164,74,0.2); z-index: 0; overflow: hidden;
     }
     .process__line-inner {
-      height: 100%;
-      width: 100%;
-      background: #C4A44A;
-      transform-origin: left;
-      transform: scaleX(0);
+      height: 100%; width: 100%; background: #C4A44A;
+      transform-origin: left; transform: scaleX(0);
       transition: transform 2s cubic-bezier(0.4,0,0.2,1) 0.3s;
     }
     .process--animated .process__line-inner { transform: scaleX(1); }
     .process__vtrack {
-      display: none;
-      position: absolute;
+      display: none; position: absolute;
       left: 27px; top: 28px; bottom: 28px;
-      width: 2px;
-      background: rgba(196,164,74,0.2);
-      z-index: 0; overflow: hidden;
+      width: 2px; background: rgba(196,164,74,0.2); z-index: 0; overflow: hidden;
     }
     .process__vtrack-fill {
-      width: 100%; height: 100%;
-      background: #C4A44A;
+      width: 100%; height: 100%; background: #C4A44A;
       transform-origin: top; transform: scaleY(0);
       transition: transform 2s cubic-bezier(0.4,0,0.2,1) 0.3s;
     }
@@ -153,56 +182,76 @@
       position: relative; z-index: 1; flex-shrink: 0;
       box-shadow: 0 0 0 6px rgba(196,164,74,0.15);
     }
-    .process__step-tag {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: #C4A44A;
-    }
+    .process__step-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #C4A44A; }
     .process__step-title { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 0.25rem; }
     .process__step-desc { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 260px; }
 
     /* TICKER */
-    .ticker { background: #fff; overflow: hidden; padding: 0; }
-    .ticker__track { display: flex; gap: 0; animation: tickerScroll 30s linear infinite; width: max-content; }
-    @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .ticker__item { position: relative; width: 320px; height: 240px; flex-shrink: 0; overflow: hidden; }
+    .ticker { background: #293238; overflow: hidden; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .ticker__track {
+      display: flex; gap: 2rem; width: max-content;
+      animation: ticker-scroll 30s linear infinite;
+    }
+    .ticker__item {
+      width: 120px; height: 80px; border-radius: 8px; overflow: hidden; flex-shrink: 0;
+      background: rgba(255,255,255,0.05);
+    }
     .ticker__item img { width: 100%; height: 100%; object-fit: cover; }
-    .ticker__item-label { position: absolute; bottom: 1.25rem; left: 1.25rem; color: #fff; font-size: 1rem; font-weight: 700; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+    @keyframes ticker-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
 
     /* BENEFITS */
-    .benefits { background: #F8F7F4; color: #293238; text-align: center; }
-    .section-label { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #C4A44A; margin-bottom: 1rem; }
-    .section-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
-    .section-label--center { justify-content: center; }
-    .section-label--left { justify-content: flex-start; }
-    .benefits__title { margin-bottom: 4rem; }
-    .benefits__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; text-align: left; }
-    .benefit-card { display: flex; flex-direction: column; gap: 1rem; }
-    .benefit-card__icon { width: 56px; height: 56px; border-radius: 14px; background: #edecea; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
-    .benefit-card__title { font-size: 1.1rem; font-weight: 800; }
-    .benefit-card__desc { font-size: 0.95rem; color: #6B7280; line-height: 1.65; }
+    .benefits { background: #F8F7F4; }
+    .benefits__header { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
+    .benefits__header .section-label { justify-content: center; }
+    .benefits__header .section-label::before { display: none; }
+    .benefits__title { color: #293238; }
+    .benefits__grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .benefit-card {
+      background: #fff; border-radius: 16px; padding: 2rem;
+      border: 1px solid rgba(41,50,56,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(41,50,56,0.1); }
+    .benefit-card__icon { font-size: 2rem; margin-bottom: 1rem; }
+    .benefit-card__title { font-size: 1.05rem; font-weight: 800; color: #293238; margin-bottom: 0.5rem; }
+    .benefit-card__text { font-size: 0.9rem; color: #6B7280; line-height: 1.65; }
 
     /* FEATURE */
-    .feature { background: #fff; color: #293238; overflow: hidden; }
-    .feature__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; min-height: 500px; }
-    .feature__text { padding: 4rem 4rem 4rem 0; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
-    .feature__title { font-size: clamp(2rem, 3.5vw, 3rem); }
-    .feature__desc { font-size: 1rem; color: #374151; line-height: 1.75; }
-    .feature__right { position: relative; display: grid; grid-template-rows: auto 1fr; }
-    .feature__badge { background: #C4A44A; padding: 2.5rem; text-align: center; }
-    .feature__badge-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: #fff; opacity: 0.8; margin-bottom: 0.3rem; }
-    .feature__badge-title { font-size: 3rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em; color: #fff; line-height: 0.9; }
-    .feature__image { width: 100%; height: 400px; object-fit: cover; object-position: top center; }
+    .feature { background: #fff; }
+    .feature__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .feature__content { display: flex; flex-direction: column; gap: 1.25rem; }
+    .feature__title { color: #293238; }
+    .feature__desc { font-size: 1.05rem; color: #374151; line-height: 1.8; }
+    .feature__badges { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+    .feature__badge {
+      background: #F8F7F4; border-radius: 8px; padding: 0.6rem 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .feature__badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
+    .feature__badge-label { font-size: 0.82rem; font-weight: 700; color: #293238; }
+    .feature__image { border-radius: 16px; overflow: hidden; }
+    .feature__image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    .feature__image-placeholder {
+      width: 100%; aspect-ratio: 4/5; border-radius: 16px;
+      background: linear-gradient(160deg, #F8F7F4 0%, #e8e6e0 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: #9CA3AF; font-size: 0.85rem; font-weight: 600;
+    }
 
     /* ABOUT */
     .about { background: #F8F7F4; color: #293238; }
     .about__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .about__photo-wrap { position: relative; }
     .about__photo { width: 100%; border-radius: 16px; object-fit: cover; object-position: center top; display: block; }
     .about__photo-placeholder {
       width: 100%; aspect-ratio: 3/4; border-radius: 16px;
       background: linear-gradient(160deg, #293238 0%, #3a4a52 100%);
       display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.3); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); font-size: 0.85rem; font-weight: 600;
     }
     .about__content { display: flex; flex-direction: column; gap: 1.25rem; }
     .about__title { font-size: clamp(1.8rem, 3.5vw, 3rem); }
@@ -212,74 +261,88 @@
     .about__star { color: #C4A44A; font-size: 1.1rem; flex-shrink: 0; }
 
     /* CTA BANNER */
-    .cta-banner { background: #C4A44A; color: #fff; padding: 60px 0; }
-    .cta-banner__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .cta-banner__title { font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 900; line-height: 1.1; }
-    .cta-banner__text { font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.65; opacity: 0.9; }
+    .cta-banner { background: #C4A44A; }
+    .cta-banner__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .cta-banner__title { color: #fff; font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    .cta-banner__sub { color: rgba(255,255,255,0.8); font-size: 1rem; margin-top: 0.4rem; }
+    .btn--white { background: #fff; color: #C4A44A; }
+    .btn--white:hover { background: #f5f5f5; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
 
     /* TESTIMONIALS */
-    .testimonials { background: #fff; color: #293238; }
-    .testimonials__header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
-    .testimonials__title { font-size: clamp(2rem, 4vw, 3.5rem); }
-    .testimonials__nav { display: flex; gap: 0.75rem; }
-    .slider-btn { width: 48px; height: 48px; border-radius: 50%; border: 2px solid #293238; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.2s; }
-    .slider-btn:hover { background: #293238; color: #fff; }
-    .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; overflow: hidden; }
-    .testimonial-card { display: flex; flex-direction: column; gap: 1rem; }
-    .testimonial-card__image { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; background: #ddd; }
-    .testimonial-card__image-placeholder { width: 100%; height: 280px; border-radius: 8px; background: linear-gradient(135deg, #e0e0e0, #c0c0c0); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #999; }
-    .testimonial-card__quote { font-size: 1.05rem; font-weight: 600; line-height: 1.5; color: #293238; }
-    .testimonial-card__author { font-size: 0.9rem; color: #6B7280; }
-    .testimonial-card__author strong { color: #293238; }
+    .testimonials { background: #fff; }
+    .testimonials__header { text-align: center; margin-bottom: 3.5rem; }
+    .testimonials__header .section-label { justify-content: center; }
+    .testimonials__header .section-label::before { display: none; }
+    .testimonials__title { color: #293238; }
+    .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .testimonial-card {
+      background: #F8F7F4; border-radius: 16px; padding: 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .testimonial-card__stars { color: #C4A44A; font-size: 1rem; letter-spacing: 0.1em; }
+    .testimonial-card__text { font-size: 0.95rem; color: #374151; line-height: 1.7; font-style: italic; }
+    .testimonial-card__author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
+    .testimonial-card__avatar {
+      width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+      background: #293238;
+    }
+    .testimonial-card__avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testimonial-card__name { font-size: 0.9rem; font-weight: 700; color: #293238; }
+    .testimonial-card__role { font-size: 0.8rem; color: #6B7280; }
 
     /* FAQ */
-    .faq { background: #F8F7F4; color: #293238; }
-    .faq__inner { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
-    .faq__sidebar {}
-    .faq__sidebar-label { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #C4A44A; margin-bottom: 1rem; }
-    .faq__sidebar-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
-    .faq__title { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 2rem; }
-    .faq__contact { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; color: #C4A44A; border-bottom: 2px solid #C4A44A; padding-bottom: 2px; }
-    .faq__item { border-bottom: 1px solid #e0e0e0; }
-    .faq__question { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; font-size: 1rem; font-weight: 700; color: #293238; text-align: left; gap: 1rem; transition: color 0.2s; }
-    .faq__question:hover { color: #C4A44A; }
-    .faq__icon { font-size: 1.4rem; font-weight: 400; flex-shrink: 0; transition: transform 0.3s; }
-    .faq__answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
-    .faq__answer--open { max-height: 400px; }
-    .faq__answer-inner { padding: 0 0 1.25rem; font-size: 0.95rem; color: #6B7280; line-height: 1.7; }
+    .faq { background: #F8F7F4; }
+    .faq__header { text-align: center; margin-bottom: 3rem; }
+    .faq__header .section-label { justify-content: center; }
+    .faq__header .section-label::before { display: none; }
+    .faq__title { color: #293238; }
+    .faq__list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq__item {
+      background: #fff; border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(41,50,56,0.08);
+    }
+    .faq__question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1.25rem 1.5rem; background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 1rem; font-weight: 700; color: #293238; text-align: left;
+    }
+    .faq__icon { font-size: 1.2rem; flex-shrink: 0; transition: transform 0.25s; color: #C4A44A; }
     .faq__item--open .faq__icon { transform: rotate(45deg); }
+    .faq__answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 1.5rem; font-size: 0.95rem; color: #6B7280; line-height: 1.75;
+    }
+    .faq__item--open .faq__answer { max-height: 300px; padding: 0 1.5rem 1.25rem; }
 
     /* FINAL CTA */
-    .final-cta { background: #293238; color: #fff; padding: 80px 0; text-align: center; }
-    .final-cta__title { font-size: clamp(1.8rem, 3.5vw, 3rem); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .final-cta { background: #293238; text-align: center; }
+    .final-cta__eyebrow {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #C4A44A; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .final-cta__eyebrow::before, .final-cta__eyebrow::after {
+      content: ''; display: block; width: 24px; height: 2px; background: #C4A44A;
+    }
+    .final-cta__title { color: #fff; margin-bottom: 1rem; }
+    .final-cta__sub { color: rgba(255,255,255,0.55); font-size: 1.05rem; max-width: 480px; margin: 0 auto 2.5rem; }
 
     /* FOOTER */
-    .footer { background: #293238; color: #fff; padding: 60px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); }
-    .footer__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 3rem; }
-    .footer__logo { font-size: 1rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; color: #C4A44A; }
-    .footer__tagline { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
-    .footer__nav-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; color: rgba(255,255,255,0.5); }
-    .footer__nav-list { display: flex; flex-direction: column; gap: 0.5rem; }
-    .footer__nav-list a { font-size: 0.9rem; color: rgba(255,255,255,0.8); transition: color 0.2s; }
-    .footer__nav-list a:hover { color: #C4A44A; }
-    .footer__bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .footer__legal { display: flex; gap: 1.5rem; }
-    .footer__legal a { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
-    .footer__legal a:hover { color: #fff; }
-    .footer__copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
-    .footer__social { display: flex; gap: 1rem; }
-    .footer__social a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: all 0.2s; }
-    .footer__social a:hover { border-color: #C4A44A; color: #C4A44A; }
+    .footer {
+      background: #293238; border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 2rem 0; text-align: center;
+    }
+    .footer__text { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .nav__links { display: none; }
-      .hero__content { grid-template-columns: 1fr; padding-bottom: 3rem; }
-      .intro__inner, .feature__inner, .cta-banner__inner, .faq__inner, .about__inner { grid-template-columns: 1fr; gap: 2rem; }
-      .benefits__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .intro__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .benefits__grid { grid-template-columns: 1fr 1fr; }
+      .feature__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .feature__image { order: -1; }
+      .about__inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .testimonials__grid { grid-template-columns: 1fr; }
-      .footer__grid { grid-template-columns: 1fr 1fr; }
-      .feature__text { padding: 2rem 0; }
+      .cta-banner__inner { flex-direction: column; text-align: center; }
       .process__steps { grid-template-columns: 1fr; gap: 0; }
       .process__line { display: none; }
       .process__vtrack { display: block; }
@@ -290,60 +353,86 @@
     }
     @media (max-width: 600px) {
       .benefits__grid { grid-template-columns: 1fr; }
-      .footer__grid { grid-template-columns: 1fr; }
-      .testimonials__header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .hero__trust { gap: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <header class="nav">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo"><img src="logo.svg" alt="Logo" /></a>
-      <nav class="nav__links">
-        <a href="#">Über mich</a>
-        <a href="#">Coaching</a>
-        <a href="#">Ergebnisse</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div class="nav__actions">
-        <a href="#contact" class="btn btn--primary">Jetzt starten</a>
-      </div>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__logo">Viva<span>Ahora</span></div>
+    <div class="nav__links">
+      <a href="#">Methode</a>
+      <a href="#">Über mich</a>
+      <a href="#">FAQ</a>
+      <a href="#" class="nav__cta">Gespräch buchen</a>
     </div>
-  </header>
+  </nav>
 
-  <div class="hero-wrapper">
+  <!-- HERO -->
   <section class="hero">
     <div class="hero__bg"></div>
-    <div class="hero__content">
-      <div class="hero__text">
-        <div class="hero__label">Results Coaching 1:1</div>
-        <h1 class="hero__title">Erreiche deine<br>größten Ziele schneller</h1>
-        <p class="hero__desc">Gemeinsam entwickeln wir eine klare Strategie, die dich von wo du jetzt bist, dorthin bringt wo du wirklich sein willst — schneller als du es alleine schaffst.</p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
-          <a href="#ueber-mich" class="btn btn--outline-white btn--large">Über mich</a>
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__eyebrow">1:1 Coaching & Hypnosetherapie</div>
+        <h1 class="hero__title">Werde die beste<br>Version <em>von dir</em></h1>
+        <p class="hero__subtitle">Du weisst, was du willst — aber irgendetwas hält dich zurück. Mit gezieltem Coaching und Hypnosetherapie lösen wir genau das, was dich bisher blockiert hat.</p>
+        <div class="hero__actions">
+          <a href="mailto:hallo@ihrewebsite.de" class="btn btn--primary btn--large">Kostenloses Erstgespräch →</a>
+          <a href="#" class="btn btn--ghost btn--medium">Mehr erfahren</a>
+        </div>
+        <div class="hero__trust">
+          <div class="hero__trust-item">
+            <span class="hero__trust-num">10+</span>
+            <span class="hero__trust-label">Jahre Erfahrung</span>
+          </div>
+          <div class="hero__trust-item">
+            <span class="hero__trust-num">200+</span>
+            <span class="hero__trust-label">Zufriedene Klienten</span>
+          </div>
+          <div class="hero__trust-item">
+            <span class="hero__trust-num">100%</span>
+            <span class="hero__trust-label">Individuell</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  </div>
 
-  <section class="section intro">
+  <!-- INTRO / PROBLEM -->
+  <section class="section intro" id="problem">
     <div class="container">
       <div class="intro__inner">
-        <div class="intro__title-wrap">
-          <h2 class="intro__title">Du weißt, was du willst — aber irgendetwas hält dich zurück.</h2>
+        <div class="intro__left">
+          <div class="section-label section-label--left">Das Problem</div>
+          <h2 class="intro__title">Kennst du das?</h2>
+          <p class="intro__text">Du gibst alles — und trotzdem läuft etwas nicht rund. Du weisst, was du ändern solltest, aber die alten Muster holen dich immer wieder ein.</p>
+          <p class="intro__text">Das ist kein Zeichen von Schwäche. Es bedeutet nur, dass oberflächliche Tipps und Willenskraft allein nicht ausreichen. Was du brauchst, ist ein Ansatz, der an der Wurzel ansetzt.</p>
         </div>
-        <div class="intro__body">
-          <p>Du hast Ziele. Vielleicht sogar einen Plan. Aber zwischen dem, wo du heute stehst, und dem Leben, das du dir vorstellst, liegt eine Lücke — und die scheint sich einfach nicht zu schließen.</p>
-          <p>Du arbeitest hart, du gibst alles — und trotzdem kommt der Durchbruch nicht. Nicht weil dir etwas fehlt. Sondern weil niemand dir gezeigt hat, wie du dein volles Potenzial wirklich entfaltest.</p>
-          <p><strong>Genau da setze ich an.</strong></p>
+        <div class="intro__right">
+          <div class="pain-card">
+            <div class="pain-card__icon">😮‍💨</div>
+            <p class="pain-card__text">Du weisst, was du tun solltest — aber du tust es einfach nicht. Prokrastination, innere Blockaden, Selbstsabotage.</p>
+          </div>
+          <div class="pain-card">
+            <div class="pain-card__icon">🔁</div>
+            <p class="pain-card__text">Du wiederholst immer wieder dieselben Muster — in Beziehungen, im Job, in deinen Gewohnheiten.</p>
+          </div>
+          <div class="pain-card">
+            <div class="pain-card__icon">😶‍🌫️</div>
+            <p class="pain-card__text">Du hast das Gefühl, nicht wirklich du selbst zu sein — als würdest du eine Rolle spielen, statt authentisch zu leben.</p>
+          </div>
+          <div class="pain-card">
+            <div class="pain-card__icon">🎯</div>
+            <p class="pain-card__text">Du willst etwas verändern, weisst aber nicht wo anfangen — und jeder Versuch allein verpufft nach kurzer Zeit.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- PROCESS -->
   <section class="section process" id="prozess">
     <div class="container">
       <div class="section-label section-label--center">Der Weg</div>
@@ -379,81 +468,90 @@
     </div>
   </section>
 
-  <section class="ticker">
+  <!-- TICKER -->
+  <div class="ticker section--small">
     <div class="ticker__track">
-      <div class="ticker__item"><img src="coaching1.jpg" alt="" onerror="this.parentElement.style.background='#e8e4df'"><span class="ticker__item-label">Klarheit</span></div>
-      <div class="ticker__item"><img src="coaching2.jpg" alt="" onerror="this.parentElement.style.background='#d4cfc9'"><span class="ticker__item-label">Fokus</span></div>
-      <div class="ticker__item"><img src="coaching3.jpg" alt="" onerror="this.parentElement.style.background='#c9c4be'"><span class="ticker__item-label">Strategie</span></div>
-      <div class="ticker__item"><img src="coaching4.jpg" alt="" onerror="this.parentElement.style.background='#bfbab4'"><span class="ticker__item-label">Wachstum</span></div>
-      <div class="ticker__item"><img src="coaching5.jpg" alt="" onerror="this.parentElement.style.background='#b5b0aa'"><span class="ticker__item-label">Erfolg</span></div>
-      <div class="ticker__item"><img src="coaching1.jpg" alt="" onerror="this.parentElement.style.background='#e8e4df'"><span class="ticker__item-label">Klarheit</span></div>
-      <div class="ticker__item"><img src="coaching2.jpg" alt="" onerror="this.parentElement.style.background='#d4cfc9'"><span class="ticker__item-label">Fokus</span></div>
-      <div class="ticker__item"><img src="coaching3.jpg" alt="" onerror="this.parentElement.style.background='#c9c4be'"><span class="ticker__item-label">Strategie</span></div>
-      <div class="ticker__item"><img src="coaching4.jpg" alt="" onerror="this.parentElement.style.background='#bfbab4'"><span class="ticker__item-label">Wachstum</span></div>
-      <div class="ticker__item"><img src="coaching5.jpg" alt="" onerror="this.parentElement.style.background='#b5b0aa'"><span class="ticker__item-label">Erfolg</span></div>
+      <div class="ticker__item"><img src="coaching1.jpg" alt=""></div>
+      <div class="ticker__item"><img src="coaching2.jpg" alt=""></div>
+      <div class="ticker__item"><img src="coaching3.jpg" alt=""></div>
+      <div class="ticker__item"><img src="coaching4.jpg" alt=""></div>
+      <div class="ticker__item"><img src="coaching5.jpg" alt=""></div>
+      <div class="ticker__item"><img src="coaching1.jpg" alt=""></div>
+      <div class="ticker__item"><img src="coaching2.jpg" alt=""></div>
+      <div class="ticker__item"><img src="coaching3.jpg" alt=""></div>
+      <div class="ticker__item"><img src="coaching4.jpg" alt=""></div>
+      <div class="ticker__item"><img src="coaching5.jpg" alt=""></div>
     </div>
-  </section>
+  </div>
 
-  <section class="section benefits">
+  <!-- BENEFITS -->
+  <section class="section benefits" id="vorteile">
     <div class="container">
-      <div class="section-label section-label--center">Wichtigste Vorteile</div>
-      <h2 class="benefits__title">Was du durch Coaching gewinnst</h2>
+      <div class="benefits__header">
+        <div class="section-label">Was du gewinnst</div>
+        <h2 class="benefits__title">Dein Leben nach dem Coaching</h2>
+      </div>
       <div class="benefits__grid">
         <div class="benefit-card">
-          <div class="benefit-card__icon">🎯</div>
-          <div class="benefit-card__title">Kristallklare Richtung</div>
-          <p class="benefit-card__desc">Schluss mit dem Gefühl, im Kreis zu drehen. Du weißt genau, wohin du willst — und warum.</p>
+          <div class="benefit-card__icon">🧠</div>
+          <h3 class="benefit-card__title">Mentale Klarheit</h3>
+          <p class="benefit-card__text">Du weisst, wer du bist, was du willst — und warum. Keine innere Zerrissenheit mehr.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-card__icon">⚡</div>
-          <div class="benefit-card__title">Schnellere Ergebnisse</div>
-          <p class="benefit-card__desc">Mit einem klaren System und konkreten Schritten erreichst du in Monaten, wofür andere Jahre brauchen.</p>
+          <h3 class="benefit-card__title">Mehr Energie & Fokus</h3>
+          <p class="benefit-card__text">Du handelst statt zu zögern. Du nutzt deine Energie gezielt für das, was wirklich zählt.</p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-card__icon">🧠</div>
-          <div class="benefit-card__title">Mindset-Transformation</div>
-          <p class="benefit-card__desc">Die größten Hindernisse sind oft im Kopf. Wir lösen Blockaden und stärken dein Selbstvertrauen nachhaltig.</p>
+          <div class="benefit-card__icon">🔓</div>
+          <h3 class="benefit-card__title">Blockaden lösen</h3>
+          <p class="benefit-card__text">Die alten Muster, die dich seit Jahren bremsen, verlieren ihre Macht über dich.</p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-card__icon">📈</div>
-          <div class="benefit-card__title">Messbarer Fortschritt</div>
-          <p class="benefit-card__desc">Kein vages "Arbeite an dir selbst". Wir setzen konkrete Ziele und verfolgen deinen Fortschritt systematisch.</p>
+          <div class="benefit-card__icon">🎯</div>
+          <h3 class="benefit-card__title">Klare Ziele erreichen</h3>
+          <p class="benefit-card__text">Du setzt dir realistische Ziele und — was wichtiger ist — du erreichst sie auch.</p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-card__icon">🤝</div>
-          <div class="benefit-card__title">Volle Verantwortlichkeit</div>
-          <p class="benefit-card__desc">Du hast jemanden in deiner Ecke, der dich fordert und fördert — auch wenn es unbequem wird.</p>
+          <div class="benefit-card__icon">💪</div>
+          <h3 class="benefit-card__title">Echtes Selbstvertrauen</h3>
+          <p class="benefit-card__text">Nicht aufgesetzt, sondern tief verankert. Du vertraust dir und deinen Entscheidungen.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-card__icon">🌱</div>
-          <div class="benefit-card__title">Nachhaltige Veränderung</div>
-          <p class="benefit-card__desc">Keine kurzfristigen Tricks. Wir schaffen Veränderungen, die dich dein ganzes Leben begleiten.</p>
+          <h3 class="benefit-card__title">Nachhaltige Veränderung</h3>
+          <p class="benefit-card__text">Kein kurzfristiger Hype. Echte, dauerhafte Transformation, die in deinem Alltag sichtbar ist.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section feature">
+  <!-- FEATURE / METHOD -->
+  <section class="section feature" id="methode">
     <div class="container">
       <div class="feature__inner">
-        <div class="feature__text">
+        <div class="feature__content">
           <div class="section-label section-label--left">Die Methode</div>
           <h2 class="feature__title">Coaching, das wirklich wirkt</h2>
-          <p class="feature__desc">Mein Ansatz kombiniert bewährte Coaching-Methoden mit modernen Erkenntnissen aus Neurowissenschaft und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben.</p>
+          <p class="feature__desc">Mein Ansatz kombiniert bewährte Methoden mit modernen Erkenntnissen aus Neurowissenschaft, Epigenetik und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben. Dabei ist die Arbeit mit dem Unterbewusstsein essentiell für den Erfolg.</p>
           <p class="feature__desc">In unseren 1:1-Sessions gehen wir tief. Wir finden heraus, was dich wirklich antreibt, was dich blockiert — und entwickeln einen massgeschneiderten Plan, der zu dir und deinem Leben passt.</p>
           <a href="#contact" class="btn btn--primary btn--large" style="align-self:flex-start;">Jetzt Termin vereinbaren</a>
         </div>
-        <div class="feature__right">
-          <div class="feature__badge">
-            <div class="feature__badge-label">Mein Ansatz</div>
-            <div class="feature__badge-title">Mind &<br>Method</div>
+        <div class="feature__image">
+          <img src="feature.jpg" alt="Coaching Session" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="feature__image-placeholder" style="display:none;">Bild folgt</div>
+          <div class="feature__badges" style="margin-top:1.5rem;">
+            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">Hypnosetherapie</div></div>
+            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">PSYCH-K®</div></div>
+            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">Mein Ansatz</div></div>
+            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">NLP</div></div>
           </div>
-          <img src="feature.jpg" alt="Coaching Session" class="feature__image" onerror="this.style.background='#e8e4df'">
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section class="section about" id="ueber-mich">
     <div class="container">
       <div class="about__inner">
@@ -477,174 +575,125 @@
     </div>
   </section>
 
-  <section class="cta-banner" id="contact">
+  <!-- CTA BANNER -->
+  <section class="section cta-banner" id="contact">
     <div class="container">
       <div class="cta-banner__inner">
-        <div><h2 class="cta-banner__title">Sichere dir ein kostenloses 30-minütiges Strategiegespräch</h2></div>
         <div>
-          <p class="cta-banner__text">Jetzt ist der richtige Zeitpunkt. Kontaktiere mich noch heute für ein unverbindliches Erstgespräch.</p>
-          <a href="mailto:hallo@ihrewebsite.de" class="btn btn--dark btn--large">Vereinbare deinen Termin</a>
+          <h2 class="cta-banner__title">Bereit für den nächsten Schritt?</h2>
+          <p class="cta-banner__sub">30 Minuten. Kostenlos. Unverbindlich. Dein erster Schritt zur Veränderung.</p>
         </div>
+        <a href="mailto:hallo@ihrewebsite.de" class="btn btn--white btn--large">Jetzt Gespräch buchen →</a>
       </div>
     </div>
   </section>
 
-  <section class="section testimonials">
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials" id="testimonials">
     <div class="container">
       <div class="testimonials__header">
-        <h2 class="testimonials__title">Was unsere Klienten sagen</h2>
-        <div class="testimonials__nav">
-          <button class="slider-btn" onclick="slideTestimonials(-1)">&#8592;</button>
-          <button class="slider-btn" onclick="slideTestimonials(1)">&#8594;</button>
-        </div>
+        <div class="section-label">Stimmen</div>
+        <h2 class="testimonials__title">Was Klienten sagen</h2>
       </div>
-      <div class="testimonials__grid" id="testimonials-grid">
+      <div class="testimonials__grid">
         <div class="testimonial-card">
-          <div class="testimonial-card__image-placeholder">💬</div>
-          <p class="testimonial-card__quote">«Innerhalb von 3 Monaten habe ich mehr erreicht als in den letzten 3 Jahren. Reto hat mir geholfen, meine Blockaden zu durchbrechen.»</p>
-          <p class="testimonial-card__author"><strong>Sarah M.</strong> · Unternehmerin</p>
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">«Nach nur 3 Monaten habe ich endlich die Klarheit, die ich jahrelang gesucht habe. Reto hat mir geholfen, meine Blockaden zu lösen und wirklich voranzukommen.»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"></div>
+            <div>
+              <div class="testimonial-card__name">Sarah M.</div>
+              <div class="testimonial-card__role">Unternehmerin, Zürich</div>
+            </div>
+          </div>
         </div>
         <div class="testimonial-card">
-          <div class="testimonial-card__image-placeholder">💬</div>
-          <p class="testimonial-card__quote">«Das Coaching hat mein Leben verändert. Ich habe endlich die Klarheit, die ich so lange gesucht habe.»</p>
-          <p class="testimonial-card__author"><strong>Michael K.</strong> · Führungskraft</p>
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">«Ich war skeptisch gegenüber Hypnose — aber die Ergebnisse sprechen für sich. In wenigen Sessions habe ich mehr verändert als in Jahren alleine.»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"></div>
+            <div>
+              <div class="testimonial-card__name">Thomas K.</div>
+              <div class="testimonial-card__role">Manager, Basel</div>
+            </div>
+          </div>
         </div>
         <div class="testimonial-card">
-          <div class="testimonial-card__image-placeholder">💬</div>
-          <p class="testimonial-card__quote">«Reto ist nicht einfach ein Coach — er ist ein Partner, der wirklich versteht, was dich antreibt und was dich aufhält.»</p>
-          <p class="testimonial-card__author"><strong>Anna L.</strong> · Selbstständige</p>
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">«Das Coaching hat mein Leben verändert. Nicht dramatisch, aber tief. Ich bin heute authentischer, ruhiger und fokussierter als je zuvor.»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"></div>
+            <div>
+              <div class="testimonial-card__name">Lisa R.</div>
+              <div class="testimonial-card__role">Lehrerin, Bern</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section class="section faq" id="faq">
     <div class="container">
-      <div class="faq__inner">
-        <div class="faq__sidebar">
-          <div class="faq__sidebar-label">FAQ</div>
-          <h2 class="faq__title">Häufig gestellte Fragen</h2>
-          <a href="#contact" class="faq__contact">Weitere Fragen? Schreib mir →</a>
+      <div class="faq__header">
+        <div class="section-label">FAQ</div>
+        <h2 class="faq__title">Häufige Fragen</h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <button class="faq__question">Wie läuft das erste Gespräch ab? <span class="faq__icon">+</span></button>
+          <div class="faq__answer">Das erste Gespräch dauert ca. 30 Minuten und ist völlig kostenlos und unverbindlich. Wir schauen gemeinsam, wo du stehst, was du verändern möchtest — und ob wir zusammenpassen.</div>
         </div>
-        <div class="faq__list">
-          <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Für wen ist das Coaching geeignet?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">Das Coaching richtet sich an Menschen, die konkrete Ziele haben und bereit sind, aktiv an sich zu arbeiten. Egal ob du im Beruf weiterkommen, eine Beziehung verbessern oder dein Wohlbefinden steigern möchtest — wenn du wirklich etwas verändern willst, bist du hier richtig.</div>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Wie lange dauert ein Coaching-Prozess?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">Ein typischer Prozess umfasst 3 bis 6 Monate, je nach Zielsetzung und Fortschritt. Wir beginnen immer mit einem kostenlosen Erstgespräch, in dem wir gemeinsam schauen, was der richtige Rahmen für dich ist.</div>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Wie laufen die Sessions ab?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">Die Sessions finden online per Video-Call statt, dauern in der Regel 60 bis 90 Minuten und werden alle 1 bis 2 Wochen durchgeführt. Zwischen den Sessions hast du Aufgaben und kannst mich bei Fragen kontaktieren.</div>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Was kostet das Coaching?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">Die Investition hängt von deinen Zielen und der Dauer des Prozesses ab. Im kostenlosen Erstgespräch besprechen wir, was für dich sinnvoll ist — ohne Druck und ohne versteckte Kosten.</div>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__question" onclick="toggleFaq(this)">
-              Gibt es eine Garantie?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <div class="faq__answer-inner">Ich garantiere meinen vollen Einsatz und eine professionelle Begleitung. Die Veränderung selbst hängt von deiner Bereitschaft ab, aktiv mitzumachen. Wer sich wirklich einbringt, sieht Ergebnisse — das zeigen unsere Klienten immer wieder.</div>
-            </div>
-          </div>
+        <div class="faq__item">
+          <button class="faq__question">Was ist Hypnosetherapie genau? <span class="faq__icon">+</span></button>
+          <div class="faq__answer">Hypnosetherapie ist eine wissenschaftlich anerkannte Methode, bei der du in einen entspannten Bewusstseinszustand versetzt wirst. In diesem Zustand ist dein Unterbewusstsein zugänglicher für positive Veränderungen. Du bist dabei jederzeit bei vollem Bewusstsein und in Kontrolle.</div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">Wie viele Sessions brauche ich? <span class="faq__icon">+</span></button>
+          <div class="faq__answer">Das hängt von deinen Zielen und deiner Ausgangssituation ab. Viele Klienten sehen nach 3–5 Sessions deutliche Veränderungen. Ein typisches Programm umfasst 6–12 Sessions über 3–6 Monate.</div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">Findet das Coaching online oder vor Ort statt? <span class="faq__icon">+</span></button>
+          <div class="faq__answer">Beides ist möglich. Online-Sessions sind genau so effektiv wie persönliche Treffen. Für Hypnosetherapie empfehle ich jedoch, wenn möglich, persönliche Sessions.</div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">Was kostet das Coaching? <span class="faq__icon">+</span></button>
+          <div class="faq__answer">Die Preise besprechen wir individuell im Erstgespräch, da jedes Programm massgeschneidert ist. Das erste Gespräch ist kostenlos — buche es jetzt und lass uns schauen, was möglich ist.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="final-cta">
+  <!-- FINAL CTA -->
+  <section class="section final-cta">
     <div class="container">
-      <h2 class="final-cta__title">Bereit für den nächsten Schritt?</h2>
-      <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch sichern</a>
+      <div class="final-cta__eyebrow">Jetzt starten</div>
+      <h2 class="final-cta__title">Deine Veränderung beginnt heute.</h2>
+      <p class="final-cta__sub">Nicht morgen. Nicht «wenn die Zeit besser ist». Heute.</p>
+      <a href="mailto:hallo@ihrewebsite.de" class="btn btn--primary btn--large">Kostenloses Erstgespräch buchen →</a>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__logo">VIVA AHORA</div>
-          <p class="footer__tagline">Coaching & Hypnotherapie für dein volles Potenzial.</p>
-        </div>
-        <div>
-          <div class="footer__nav-title">Angebote</div>
-          <ul class="footer__nav-list">
-            <li><a href="#">Results Coaching 1:1</a></li>
-            <li><a href="#">Hypnotherapie</a></li>
-            <li><a href="#">PSYCH-K®</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__nav-title">Informationen</div>
-          <ul class="footer__nav-list">
-            <li><a href="#">Über mich</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__nav-title">Kontakt</div>
-          <ul class="footer__nav-list">
-            <li><a href="mailto:hallo@vivaahora.com">hallo@vivaahora.com</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span class="footer__copy">© 2026 Viva Ahora. Alle Rechte vorbehalten.</span>
-        <div class="footer__legal">
-          <a href="#">Datenschutz</a>
-          <a href="#">Impressum</a>
-        </div>
-        <div class="footer__social">
-          <a href="#" aria-label="Instagram">&#9654;</a>
-          <a href="#" aria-label="LinkedIn">in</a>
-        </div>
-      </div>
+      <p class="footer__text">© 2025 ViveAhora · Reto Bucher · Alle Rechte vorbehalten</p>
     </div>
   </footer>
 
   <script>
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq__item');
-      const answer = item.querySelector('.faq__answer');
-      const isOpen = item.classList.contains('faq__item--open');
-      document.querySelectorAll('.faq__item--open').forEach(el => {
-        el.classList.remove('faq__item--open');
-        el.querySelector('.faq__answer').classList.remove('faq__answer--open');
+    // FAQ accordion
+    document.querySelectorAll('.faq__question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq__item');
+        const isOpen = item.classList.contains('faq__item--open');
+        document.querySelectorAll('.faq__item--open').forEach(el => el.classList.remove('faq__item--open'));
+        if (!isOpen) item.classList.add('faq__item--open');
       });
-      if (!isOpen) {
-        item.classList.add('faq__item--open');
-        answer.classList.add('faq__answer--open');
-      }
-    }
+    });
 
+    // Process section animation
     const processSection = document.querySelector('.process');
     if (processSection) {
       new IntersectionObserver((entries) => {
@@ -671,15 +720,6 @@
     }
     positionVTrack();
     window.addEventListener('resize', positionVTrack);
-
-    let currentSlide = 0;
-    function slideTestimonials(dir) {
-      const grid = document.getElementById('testimonials-grid');
-      const cards = grid.children;
-      const total = cards.length;
-      currentSlide = (currentSlide + dir + total) % total;
-      grid.style.transform = `translateX(-${currentSlide * (100 / 3)}%)`;
-    }
   </script>
 
 </body>
