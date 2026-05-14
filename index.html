@@ -30,21 +30,21 @@
 
     /* NAV */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: #293238; border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 0 2rem; height: 64px;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: #293238; height: 70px; display: flex; align-items: center;
+    }
+    .nav__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 2rem; width: 100%;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav__logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-    .nav__logo img { height: 36px; width: auto; display: block; }
-    .nav__logo-text { font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
-    .nav__logo-text span { color: #C4A44A; }
-    .nav__links { display: flex; gap: 2rem; align-items: center; }
+    .nav__logo { display: flex; align-items: center; }
+    .nav__logo img { height: 32px; width: auto; display: block; }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
     .nav__links a { font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.7); transition: color 0.2s; }
     .nav__links a:hover { color: #fff; }
     .nav__cta {
       background: #C4A44A; color: #fff !important; padding: 0.5rem 1.25rem;
-      border-radius: 6px; font-weight: 700 !important; transition: background 0.2s !important;
+      border-radius: 6px; font-weight: 700 !important;
     }
     .nav__cta:hover { background: #b8963e !important; }
 
@@ -52,79 +52,63 @@
     .hero {
       min-height: 100vh; background: #293238;
       display: flex; align-items: center;
-      padding-top: 64px; position: relative; overflow: hidden;
+      padding-top: 70px; position: relative; overflow: hidden;
     }
     .hero__bg {
       position: absolute; inset: 0;
       background-image: url('hero.jpg');
       background-size: cover; background-position: center top;
-      opacity: 0.18;
+      opacity: 0.22;
     }
     .hero__content {
       position: relative; z-index: 1;
       max-width: 760px; padding: 80px 0;
     }
     .hero__eyebrow {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
       color: #C4A44A; margin-bottom: 1.5rem;
     }
     .hero__eyebrow::before {
-      content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A;
+      content: ''; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; display: block;
     }
-    .hero__title { color: #fff; margin-bottom: 1.5rem; }
-    .hero__title em { color: #C4A44A; font-style: normal; }
+    .hero__title { color: #fff; margin-bottom: 1.5rem; line-height: 1.0; }
+    .hero__title em { color: #C4A44A; font-style: normal; display: block; }
     .hero__subtitle {
-      font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.65);
-      max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;
+      font-size: clamp(1rem, 2vw, 1.15rem); color: rgba(255,255,255,0.65);
+      max-width: 540px; line-height: 1.75; margin-bottom: 2.5rem;
     }
     .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-    .hero__trust {
-      margin-top: 4rem; display: flex; gap: 2rem; flex-wrap: wrap;
-    }
-    .hero__trust-item {
-      display: flex; flex-direction: column; gap: 0.2rem;
-    }
-    .hero__trust-num {
-      font-size: 1.8rem; font-weight: 900; color: #fff; line-height: 1;
-    }
-    .hero__trust-label {
-      font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.45);
-      text-transform: uppercase; letter-spacing: 0.08em;
-    }
 
     /* BUTTONS */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-      font-family: inherit; font-weight: 700; border-radius: 8px;
-      border: none; cursor: pointer; transition: all 0.2s; text-decoration: none;
-      white-space: nowrap;
+      font-family: inherit; font-weight: 700; border-radius: 50px;
+      border: 2px solid transparent; cursor: pointer; transition: all 0.2s; text-decoration: none;
+      white-space: nowrap; font-size: 1rem; padding: 0.9rem 2rem;
     }
-    .btn--primary { background: #C4A44A; color: #fff; }
-    .btn--primary:hover { background: #b8963e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(196,164,74,0.35); }
-    .btn--ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.3); }
-    .btn--ghost:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.07); }
-    .btn--medium { font-size: 0.95rem; padding: 0.75rem 1.75rem; }
-    .btn--large { font-size: 1rem; padding: 1rem 2.25rem; }
+    .btn--primary { background: #C4A44A; color: #fff; border-color: #C4A44A; }
+    .btn--primary:hover { background: #b8963e; border-color: #b8963e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(196,164,74,0.35); }
+    .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); }
+    .btn--ghost:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.07); }
+    .btn--white { background: #fff; color: #C4A44A; border-color: #fff; }
+    .btn--white:hover { background: #f5f5f5; transform: translateY(-1px); }
+    .btn--large { font-size: 1.05rem; padding: 1rem 2.25rem; }
 
     /* SECTION LABELS */
     .section-label {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
       color: #C4A44A; margin-bottom: 1rem;
     }
     .section-label::before {
-      content: ''; display: block; width: 20px; height: 2px; background: #C4A44A;
+      content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A;
     }
-    .section-label--center { display: flex; justify-content: center; }
-    .section-label--center::before { display: none; }
+    .section-label--center { justify-content: center; }
 
     /* INTRO / PROBLEM */
     .intro { background: #fff; }
-    .intro__inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-    }
-    .intro__left {}
+    .intro__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .intro__title { color: #293238; margin-bottom: 1.5rem; }
     .intro__text { color: #6B7280; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1rem; }
     .intro__right { display: flex; flex-direction: column; gap: 1.25rem; }
@@ -139,13 +123,10 @@
     /* PROCESS */
     .process { background: #293238; color: #fff; }
     .process .section-label { color: #C4A44A; }
-    .process .section-label::before { background: #C4A44A; }
     .process__title { text-align: center; color: #fff; margin-bottom: 4rem; }
     .process__steps {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      position: relative; display: grid;
+      grid-template-columns: repeat(3, 1fr); gap: 2rem;
     }
     .process__line {
       position: absolute; top: 27px;
@@ -190,29 +171,16 @@
 
     /* TICKER */
     .ticker { background: #293238; overflow: hidden; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .ticker__track {
-      display: flex; gap: 2rem; width: max-content;
-      animation: ticker-scroll 30s linear infinite;
-    }
-    .ticker__item {
-      width: 120px; height: 80px; border-radius: 8px; overflow: hidden; flex-shrink: 0;
-      background: rgba(255,255,255,0.05);
-    }
+    .ticker__track { display: flex; gap: 2rem; width: max-content; animation: ticker-scroll 30s linear infinite; }
+    .ticker__item { width: 120px; height: 80px; border-radius: 8px; overflow: hidden; flex-shrink: 0; background: rgba(255,255,255,0.05); }
     .ticker__item img { width: 100%; height: 100%; object-fit: cover; }
-    @keyframes ticker-scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
+    @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* BENEFITS */
     .benefits { background: #F8F7F4; }
     .benefits__header { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
-    .benefits__header .section-label { justify-content: center; }
-    .benefits__header .section-label::before { display: none; }
     .benefits__title { color: #293238; }
-    .benefits__grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    }
+    .benefits__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .benefit-card {
       background: #fff; border-radius: 16px; padding: 2rem;
       border: 1px solid rgba(41,50,56,0.08);
@@ -230,10 +198,7 @@
     .feature__title { color: #293238; }
     .feature__desc { font-size: 1.05rem; color: #374151; line-height: 1.8; }
     .feature__badges { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
-    .feature__badge {
-      background: #F8F7F4; border-radius: 8px; padding: 0.6rem 1rem;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
+    .feature__badge { background: #F8F7F4; border-radius: 8px; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
     .feature__badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
     .feature__badge-label { font-size: 0.82rem; font-weight: 700; color: #293238; }
     .feature__image { border-radius: 16px; overflow: hidden; }
@@ -266,43 +231,27 @@
     .cta-banner { background: #C4A44A; }
     .cta-banner__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
     .cta-banner__title { color: #fff; font-size: clamp(1.5rem, 3vw, 2.2rem); }
-    .cta-banner__sub { color: rgba(255,255,255,0.8); font-size: 1rem; margin-top: 0.4rem; }
-    .btn--white { background: #fff; color: #C4A44A; }
-    .btn--white:hover { background: #f5f5f5; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .cta-banner__sub { color: rgba(255,255,255,0.85); font-size: 1rem; margin-top: 0.4rem; }
 
     /* TESTIMONIALS */
     .testimonials { background: #fff; }
     .testimonials__header { text-align: center; margin-bottom: 3.5rem; }
-    .testimonials__header .section-label { justify-content: center; }
-    .testimonials__header .section-label::before { display: none; }
     .testimonials__title { color: #293238; }
     .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .testimonial-card {
-      background: #F8F7F4; border-radius: 16px; padding: 2rem;
-      display: flex; flex-direction: column; gap: 1rem;
-    }
+    .testimonial-card { background: #F8F7F4; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
     .testimonial-card__stars { color: #C4A44A; font-size: 1rem; letter-spacing: 0.1em; }
     .testimonial-card__text { font-size: 0.95rem; color: #374151; line-height: 1.7; font-style: italic; }
     .testimonial-card__author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
-    .testimonial-card__avatar {
-      width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
-      background: #293238;
-    }
-    .testimonial-card__avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testimonial-card__avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #293238; }
     .testimonial-card__name { font-size: 0.9rem; font-weight: 700; color: #293238; }
     .testimonial-card__role { font-size: 0.8rem; color: #6B7280; }
 
     /* FAQ */
     .faq { background: #F8F7F4; }
     .faq__header { text-align: center; margin-bottom: 3rem; }
-    .faq__header .section-label { justify-content: center; }
-    .faq__header .section-label::before { display: none; }
     .faq__title { color: #293238; }
     .faq__list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
-    .faq__item {
-      background: #fff; border-radius: 12px; overflow: hidden;
-      border: 1px solid rgba(41,50,56,0.08);
-    }
+    .faq__item { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid rgba(41,50,56,0.08); }
     .faq__question {
       width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
       padding: 1.25rem 1.5rem; background: none; border: none; cursor: pointer;
@@ -319,20 +268,15 @@
     /* FINAL CTA */
     .final-cta { background: #293238; text-align: center; }
     .final-cta__eyebrow {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-      color: #C4A44A; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #C4A44A; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
     }
-    .final-cta__eyebrow::before, .final-cta__eyebrow::after {
-      content: ''; display: block; width: 24px; height: 2px; background: #C4A44A;
-    }
+    .final-cta__eyebrow::before, .final-cta__eyebrow::after { content: ''; display: block; width: 24px; height: 2px; background: #C4A44A; }
     .final-cta__title { color: #fff; margin-bottom: 1rem; }
     .final-cta__sub { color: rgba(255,255,255,0.55); font-size: 1.05rem; max-width: 480px; margin: 0 auto 2.5rem; }
 
     /* FOOTER */
-    .footer {
-      background: #293238; border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 2rem 0; text-align: center;
-    }
+    .footer { background: #293238; border-top: 1px solid rgba(255,255,255,0.08); padding: 2rem 0; text-align: center; }
     .footer__text { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
 
     /* RESPONSIVE */
@@ -355,7 +299,6 @@
     }
     @media (max-width: 600px) {
       .benefits__grid { grid-template-columns: 1fr; }
-      .hero__trust { gap: 1.5rem; }
     }
   </style>
 </head>
@@ -363,15 +306,14 @@
 
   <!-- NAV -->
   <nav class="nav">
-    <a href="#" class="nav__logo">
-      <img src="logo.svg" alt="ViveAhora">
-      <span class="nav__logo-text">Viva<span>Ahora</span></span>
-    </a>
-    <div class="nav__links">
-      <a href="#">Methode</a>
-      <a href="#">Über mich</a>
-      <a href="#">FAQ</a>
-      <a href="#" class="nav__cta">Gespräch buchen</a>
+    <div class="nav__inner">
+      <a href="#" class="nav__logo"><img src="logo.svg" alt="Logo" /></a>
+      <div class="nav__links">
+        <a href="#methode">Methode</a>
+        <a href="#ueber-mich">Über mich</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="nav__cta">Gespräch buchen</a>
+      </div>
     </div>
   </nav>
 
@@ -381,25 +323,11 @@
     <div class="container">
       <div class="hero__content">
         <div class="hero__eyebrow">Results Coaching 1:1</div>
-        <h1 class="hero__title">Erreiche deine größten Ziele <em>schneller</em></h1>
+        <h1 class="hero__title">Erreiche deine<br>größten Ziele schneller</h1>
         <p class="hero__subtitle">Gemeinsam entwickeln wir eine klare Strategie, die dich von wo du jetzt bist, dorthin bringt wo du wirklich sein willst — schneller als du es alleine schaffst.</p>
         <div class="hero__actions">
-          <a href="mailto:hallo@ihrewebsite.de" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
-          <a href="#ueber-mich" class="btn btn--ghost btn--medium">Über mich</a>
-        </div>
-        <div class="hero__trust">
-          <div class="hero__trust-item">
-            <span class="hero__trust-num">10+</span>
-            <span class="hero__trust-label">Jahre Erfahrung</span>
-          </div>
-          <div class="hero__trust-item">
-            <span class="hero__trust-num">200+</span>
-            <span class="hero__trust-label">Zufriedene Klienten</span>
-          </div>
-          <div class="hero__trust-item">
-            <span class="hero__trust-num">100%</span>
-            <span class="hero__trust-label">Individuell</span>
-          </div>
+          <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
+          <a href="#ueber-mich" class="btn btn--ghost">Über mich</a>
         </div>
       </div>
     </div>
@@ -410,7 +338,7 @@
     <div class="container">
       <div class="intro__inner">
         <div class="intro__left">
-          <div class="section-label section-label--left">Das Problem</div>
+          <div class="section-label">Das Problem</div>
           <h2 class="intro__title">Kennst du das?</h2>
           <p class="intro__text">Du gibst alles — und trotzdem läuft etwas nicht rund. Du weisst, was du ändern solltest, aber die alten Muster holen dich immer wieder ein.</p>
           <p class="intro__text">Das ist kein Zeichen von Schwäche. Es bedeutet nur, dass oberflächliche Tipps und Willenskraft allein nicht ausreichen. Was du brauchst, ist ein Ansatz, der an der Wurzel ansetzt.</p>
@@ -493,40 +421,16 @@
   <section class="section benefits" id="vorteile">
     <div class="container">
       <div class="benefits__header">
-        <div class="section-label">Was du gewinnst</div>
+        <div class="section-label section-label--center">Was du gewinnst</div>
         <h2 class="benefits__title">Dein Leben nach dem Coaching</h2>
       </div>
       <div class="benefits__grid">
-        <div class="benefit-card">
-          <div class="benefit-card__icon">🧠</div>
-          <h3 class="benefit-card__title">Mentale Klarheit</h3>
-          <p class="benefit-card__text">Du weisst, wer du bist, was du willst — und warum. Keine innere Zerrissenheit mehr.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-card__icon">⚡</div>
-          <h3 class="benefit-card__title">Mehr Energie & Fokus</h3>
-          <p class="benefit-card__text">Du handelst statt zu zögern. Du nutzt deine Energie gezielt für das, was wirklich zählt.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-card__icon">🔓</div>
-          <h3 class="benefit-card__title">Blockaden lösen</h3>
-          <p class="benefit-card__text">Die alten Muster, die dich seit Jahren bremsen, verlieren ihre Macht über dich.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-card__icon">🎯</div>
-          <h3 class="benefit-card__title">Klare Ziele erreichen</h3>
-          <p class="benefit-card__text">Du setzt dir realistische Ziele und — was wichtiger ist — du erreichst sie auch.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-card__icon">💪</div>
-          <h3 class="benefit-card__title">Echtes Selbstvertrauen</h3>
-          <p class="benefit-card__text">Nicht aufgesetzt, sondern tief verankert. Du vertraust dir und deinen Entscheidungen.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-card__icon">🌱</div>
-          <h3 class="benefit-card__title">Nachhaltige Veränderung</h3>
-          <p class="benefit-card__text">Kein kurzfristiger Hype. Echte, dauerhafte Transformation, die in deinem Alltag sichtbar ist.</p>
-        </div>
+        <div class="benefit-card"><div class="benefit-card__icon">🧠</div><h3 class="benefit-card__title">Mentale Klarheit</h3><p class="benefit-card__text">Du weisst, wer du bist, was du willst — und warum. Keine innere Zerrissenheit mehr.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">⚡</div><h3 class="benefit-card__title">Mehr Energie & Fokus</h3><p class="benefit-card__text">Du handelst statt zu zögern. Du nutzt deine Energie gezielt für das, was wirklich zählt.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">🔓</div><h3 class="benefit-card__title">Blockaden lösen</h3><p class="benefit-card__text">Die alten Muster, die dich seit Jahren bremsen, verlieren ihre Macht über dich.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">🎯</div><h3 class="benefit-card__title">Klare Ziele erreichen</h3><p class="benefit-card__text">Du setzt dir realistische Ziele und — was wichtiger ist — du erreichst sie auch.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">💪</div><h3 class="benefit-card__title">Echtes Selbstvertrauen</h3><p class="benefit-card__text">Nicht aufgesetzt, sondern tief verankert. Du vertraust dir und deinen Entscheidungen.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">🌱</div><h3 class="benefit-card__title">Nachhaltige Veränderung</h3><p class="benefit-card__text">Kein kurzfristiger Hype. Echte, dauerhafte Transformation, die in deinem Alltag sichtbar ist.</p></div>
       </div>
     </div>
   </section>
@@ -536,19 +440,19 @@
     <div class="container">
       <div class="feature__inner">
         <div class="feature__content">
-          <div class="section-label section-label--left">Die Methode</div>
+          <div class="section-label">Die Methode</div>
           <h2 class="feature__title">Coaching, das wirklich wirkt</h2>
-          <p class="feature__desc">Mein Ansatz kombiniert bewährte Methoden mit modernen Erkenntnissen aus Neurowissenschaft, Epigenetik und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben. Dabei ist die Arbeit mit dem Unterbewusstsein essentiell für den Erfolg.</p>
+          <p class="feature__desc">Mein Ansatz kombiniert bewährte Coaching-Methoden mit modernen Erkenntnissen aus Neurowissenschaft und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben.</p>
           <p class="feature__desc">In unseren 1:1-Sessions gehen wir tief. Wir finden heraus, was dich wirklich antreibt, was dich blockiert — und entwickeln einen massgeschneiderten Plan, der zu dir und deinem Leben passt.</p>
-          <a href="#contact" class="btn btn--primary btn--large" style="align-self:flex-start;">Jetzt Termin vereinbaren</a>
+          <a href="#contact" class="btn btn--primary" style="align-self:flex-start;">Jetzt Termin vereinbaren</a>
         </div>
         <div class="feature__image">
-          <img src="coaching-methode.webp" alt="Coaching Session" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <img src="feature.jpg" alt="Coaching Session" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="feature__image-placeholder" style="display:none;">Bild folgt</div>
           <div class="feature__badges" style="margin-top:1.5rem;">
             <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">Hypnosetherapie</div></div>
             <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">PSYCH-K®</div></div>
-            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">Mein Ansatz</div></div>
+            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">Life Coaching</div></div>
             <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">NLP</div></div>
           </div>
         </div>
@@ -565,7 +469,7 @@
           <div class="about__photo-placeholder" style="display:none;">Foto folgt</div>
         </div>
         <div class="about__content">
-          <div class="section-label section-label--left">Über mich</div>
+          <div class="section-label">Über mich</div>
           <h2 class="about__title">Dein Coach:<br>Reto Bucher</h2>
           <p class="about__text"><strong>Reto Bucher</strong>, geboren 1975 in der Schweiz, ist zertifizierter Hypnosetherapeut und Motivationsredner im Bereich «Persönlichkeitsentwicklung und persönlichem Wohlbefinden».</p>
           <p class="about__text">In über 10 Jahren Erfahrung hat er vielen Menschen geholfen, durch seine einzigartigen Fähigkeiten ihr volles Potenzial zu entfalten.</p>
@@ -588,16 +492,16 @@
           <h2 class="cta-banner__title">Bereit für den nächsten Schritt?</h2>
           <p class="cta-banner__sub">30 Minuten. Kostenlos. Unverbindlich. Dein erster Schritt zur Veränderung.</p>
         </div>
-        <a href="mailto:hallo@ihrewebsite.de" class="btn btn--white btn--large">Jetzt Gespräch buchen →</a>
+        <a href="mailto:hallo@viveahora.ch" class="btn btn--white btn--large">Jetzt Gespräch buchen →</a>
       </div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="section testimonials" id="testimonials">
+  <section class="section testimonials">
     <div class="container">
       <div class="testimonials__header">
-        <div class="section-label">Stimmen</div>
+        <div class="section-label section-label--center">Stimmen</div>
         <h2 class="testimonials__title">Was Klienten sagen</h2>
       </div>
       <div class="testimonials__grid">
@@ -606,10 +510,7 @@
           <p class="testimonial-card__text">«Nach nur 3 Monaten habe ich endlich die Klarheit, die ich jahrelang gesucht habe. Reto hat mir geholfen, meine Blockaden zu lösen und wirklich voranzukommen.»</p>
           <div class="testimonial-card__author">
             <div class="testimonial-card__avatar"></div>
-            <div>
-              <div class="testimonial-card__name">Sarah M.</div>
-              <div class="testimonial-card__role">Unternehmerin, Zürich</div>
-            </div>
+            <div><div class="testimonial-card__name">Sarah M.</div><div class="testimonial-card__role">Unternehmerin, Zürich</div></div>
           </div>
         </div>
         <div class="testimonial-card">
@@ -617,10 +518,7 @@
           <p class="testimonial-card__text">«Ich war skeptisch gegenüber Hypnose — aber die Ergebnisse sprechen für sich. In wenigen Sessions habe ich mehr verändert als in Jahren alleine.»</p>
           <div class="testimonial-card__author">
             <div class="testimonial-card__avatar"></div>
-            <div>
-              <div class="testimonial-card__name">Thomas K.</div>
-              <div class="testimonial-card__role">Manager, Basel</div>
-            </div>
+            <div><div class="testimonial-card__name">Thomas K.</div><div class="testimonial-card__role">Manager, Basel</div></div>
           </div>
         </div>
         <div class="testimonial-card">
@@ -628,10 +526,7 @@
           <p class="testimonial-card__text">«Das Coaching hat mein Leben verändert. Nicht dramatisch, aber tief. Ich bin heute authentischer, ruhiger und fokussierter als je zuvor.»</p>
           <div class="testimonial-card__author">
             <div class="testimonial-card__avatar"></div>
-            <div>
-              <div class="testimonial-card__name">Lisa R.</div>
-              <div class="testimonial-card__role">Lehrerin, Bern</div>
-            </div>
+            <div><div class="testimonial-card__name">Lisa R.</div><div class="testimonial-card__role">Lehrerin, Bern</div></div>
           </div>
         </div>
       </div>
@@ -642,7 +537,7 @@
   <section class="section faq" id="faq">
     <div class="container">
       <div class="faq__header">
-        <div class="section-label">FAQ</div>
+        <div class="section-label section-label--center">FAQ</div>
         <h2 class="faq__title">Häufige Fragen</h2>
       </div>
       <div class="faq__list">
@@ -676,7 +571,7 @@
       <div class="final-cta__eyebrow">Jetzt starten</div>
       <h2 class="final-cta__title">Deine Veränderung beginnt heute.</h2>
       <p class="final-cta__sub">Nicht morgen. Nicht «wenn die Zeit besser ist». Heute.</p>
-      <a href="mailto:hallo@ihrewebsite.de" class="btn btn--primary btn--large">Kostenloses Erstgespräch buchen →</a>
+      <a href="mailto:hallo@viveahora.ch" class="btn btn--primary btn--large">Kostenloses Erstgespräch buchen →</a>
     </div>
   </section>
 
@@ -688,7 +583,6 @@
   </footer>
 
   <script>
-    // FAQ accordion
     document.querySelectorAll('.faq__question').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq__item');
@@ -698,14 +592,11 @@
       });
     });
 
-    // Process section animation
     const processSection = document.querySelector('.process');
     if (processSection) {
       new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('process--animated');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('process--animated');
         });
       }, { threshold: 0.15 }).observe(processSection);
     }
