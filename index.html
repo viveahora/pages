@@ -560,7 +560,7 @@
               <span class="faq__icon">+</span>
             </button>
             <div class="faq__answer">
-              <div class="faq__answer-inner">Die Investition hängt von deinen Zielen und der Dauer des Prozesses ab. Im kostenloses Erstgespräch besprechen wir, was für dich sinnvoll ist — ohne Druck und ohne versteckte Kosten.</div>
+              <div class="faq__answer-inner">Die Investition hängt von deinen Zielen und der Dauer des Prozesses ab. Im kostenlosen Erstgespräch besprechen wir, was für dich sinnvoll ist — ohne Druck und ohne versteckte Kosten.</div>
             </div>
           </div>
           <div class="faq__item">
@@ -655,6 +655,22 @@
         });
       }, { threshold: 0.15 }).observe(processSection);
     }
+
+    function positionVTrack() {
+      const vtrack = document.querySelector('.process__vtrack');
+      if (!vtrack) return;
+      if (window.innerWidth > 900) { vtrack.style.top = ''; vtrack.style.bottom = ''; return; }
+      const steps = document.querySelectorAll('.process__step');
+      const container = vtrack.parentElement;
+      const containerTop = container.getBoundingClientRect().top;
+      const containerH = container.getBoundingClientRect().height;
+      const first = steps[0].querySelector('.process__dot').getBoundingClientRect();
+      const last = steps[steps.length - 1].querySelector('.process__dot').getBoundingClientRect();
+      vtrack.style.top = (first.top + first.height / 2 - containerTop) + 'px';
+      vtrack.style.bottom = (containerH - (last.top + last.height / 2 - containerTop)) + 'px';
+    }
+    positionVTrack();
+    window.addEventListener('resize', positionVTrack);
 
     let currentSlide = 0;
     function slideTestimonials(dir) {
