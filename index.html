@@ -59,18 +59,18 @@
     .btn--large { padding: 1rem 2.5rem; font-size: 1.05rem; }
 
     /* HERO */
-    .hero-wrapper { background: #293238; padding-top: 70px; padding-left: 16px; padding-right: 16px; padding-bottom: 0; }
+    .hero-wrapper { background: #293238; padding-top: 70px; padding-left: 16px; padding-right: 16px; padding-bottom: 24px; }
     .hero {
       position: relative; min-height: 90vh; display: flex; align-items: flex-end;
       background: #293238; color: #fff; overflow: hidden; border-radius: 24px;
     }
     .hero__bg {
       position: absolute; inset: 0; background-image: url('hero.jpg');
-      background-size: cover; background-position: center; opacity: 0.7;
+      background-size: cover; background-position: center; opacity: 0.92;
     }
     .hero__bg::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 100%);
+      background: linear-gradient(to right, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 100%);
     }
     .hero__content {
       position: relative; z-index: 1; max-width: 1400px; margin: 0 auto;
@@ -272,7 +272,10 @@
     .faq__item--open .faq__answer { max-height: 300px; padding: 0 1.5rem 1.25rem; }
 
     /* FINAL CTA */
-    .final-cta { background: #293238; text-align: center; }
+    .final-cta { position: relative; text-align: center; overflow: hidden; padding: 160px 0; }
+    .final-cta__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .final-cta__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); z-index: 1; }
+    .final-cta .container { position: relative; z-index: 2; }
     .final-cta__eyebrow {
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
       color: #C4A44A; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
@@ -282,8 +285,23 @@
     .final-cta__sub { color: rgba(255,255,255,0.55); font-size: 1.05rem; max-width: 480px; margin: 0 auto 2.5rem; }
 
     /* FOOTER */
-    .footer { background: #293238; border-top: 1px solid rgba(255,255,255,0.08); padding: 2rem 0; text-align: center; }
-    .footer__text { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
+    .footer { background: #293238; border-top: 1px solid rgba(255,255,255,0.08); padding: 2.5rem 0; }
+    .footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
+    .footer__brand { display: flex; align-items: center; gap: 0.5rem; }
+    .footer__brand-dot { width: 7px; height: 7px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
+    .footer__brand-name { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .footer__links { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+    .footer__link { font-size: 0.82rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .footer__link:hover { color: #C4A44A; }
+    .footer__copy { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
+    .footer__social { display: flex; align-items: center; gap: 0.75rem; }
+    .footer__social-link { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); text-decoration: none; transition: all 0.2s; }
+    .footer__social-link:hover { border-color: #C4A44A; color: #C4A44A; }
+    .footer__social-link svg { width: 16px; height: 16px; fill: currentColor; }
+    @media (max-width: 700px) {
+      .footer__inner { flex-direction: column; align-items: center; text-align: center; }
+      .footer__links { justify-content: center; }
+    }
 
     /* SECTION LABEL */
     .section-label {
@@ -323,7 +341,7 @@
     }
     @media (max-width: 600px) {
       .benefits__grid { grid-template-columns: 1fr; }
-      .hero-wrapper { padding-left: 8px; padding-right: 8px; }
+      .hero-wrapper { padding-left: 8px; padding-right: 8px; padding-bottom: 12px; }
     }
 
     /* PRICING */
@@ -351,7 +369,14 @@
     .pricing__cta--default:hover { border-color: #C4A44A; color: #C4A44A; }
     .pricing__cta--featured { background: #C4A44A; color: #fff; border: 2px solid #C4A44A; }
     .pricing__cta--featured:hover { background: #b8943e; border-color: #b8943e; }
-    .pricing__note { text-align: center; font-size: 0.85rem; color: #9CA3AF; margin-top: 2rem; }
+    .pricing__note { text-align: center; font-size: 0.85rem; color: #9CA3AF; margin-top: 1.25rem; }
+    .pricing__guarantee { display: flex; align-items: center; gap: 1.25rem; background: #fff; border: 2px solid #C4A44A; border-radius: 16px; padding: 1.5rem 2rem; margin-top: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .pricing__guarantee-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .pricing__guarantee-text strong { display: block; font-size: 1rem; font-weight: 800; color: #293238; margin-bottom: 0.25rem; }
+    .pricing__guarantee-text p { font-size: 0.9rem; color: #6B7280; line-height: 1.6; margin: 0; }
+    @media (max-width: 600px) {
+      .pricing__guarantee { flex-direction: column; text-align: center; padding: 1.25rem; }
+    }
     @media (max-width: 900px) {
       .pricing__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
     }
@@ -369,7 +394,7 @@
         <a href="#faq">FAQ</a>
       </div>
       <div class="nav__actions">
-        <a href="#contact" class="btn btn--primary">Gespräch buchen</a>
+        <a href="#contact" class="btn btn--primary">Jetzt starten</a>
       </div>
     </div>
   </nav>
@@ -380,13 +405,10 @@
       <div class="hero__bg"></div>
       <div class="hero__content">
         <div class="hero__text">
-          <div class="hero__label">Results Coaching 1:1</div>
+          <div class="hero__label">Ergebnisorientiertes Coaching</div>
           <h1 class="hero__title">Erreiche deine größten<br>Ziele <span style="color:#C4A44A">schneller</span></h1>
           <p class="hero__desc">Gemeinsam entwickeln wir eine klare Strategie, die dich von wo du jetzt bist, dorthin bringt wo du wirklich sein willst — schneller als du es alleine schaffst.</p>
-          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
-            <a href="#ueber-mich" class="btn btn--outline-white btn--large">Über mich</a>
-          </div>
+          <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
         </div>
       </div>
     </div>
@@ -461,7 +483,7 @@
           <div class="feature__image-placeholder" style="display:none;">Bild folgt</div>
         </div>
         <div class="feature__bottom">
-          <p class="feature__desc">Mein Ansatz kombiniert bewährte Coaching-Methoden mit modernen Erkenntnissen aus Neurowissenschaft und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben.</p>
+          <p class="feature__desc">Mein Ansatz kombiniert bewährte Methoden mit modernen Erkenntnissen aus Neurowissenschaft, Epigenetik und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben. Dabei ist die Arbeit mit dem Unterbewusstsein essentiell für den Erfolg.</p>
           <p class="feature__desc">In unseren 1:1-Sessions gehen wir tief. Wir finden heraus, was dich wirklich antreibt, was dich blockiert — und entwickeln einen massgeschneiderten Plan, der zu dir und deinem Leben passt.</p>
           <a href="#contact" class="btn btn--primary" style="align-self:flex-start;">Jetzt Termin vereinbaren</a>
         </div>
@@ -632,6 +654,13 @@
         </div>
 
       </div>
+      <div class="pricing__guarantee">
+        <div class="pricing__guarantee-icon">🛡️</div>
+        <div class="pricing__guarantee-text">
+          <strong>Zufriedenheitsgarantie nach der ersten Sitzung</strong>
+          <p>Wenn du nach unserer ersten gemeinsamen Sitzung nicht überzeugt bist, bekommst du dein Geld zurück — ohne Wenn und Aber.</p>
+        </div>
+      </div>
       <p class="pricing__note">Alle Preise in CHF inkl. MwSt. · Kostenloses Erstgespräch (30 Min.) vor jeder Buchung möglich.</p>
     </div>
   </section>
@@ -655,6 +684,10 @@
 
   <!-- FINAL CTA -->
   <section class="section final-cta">
+    <video class="final-cta__video" autoplay muted loop playsinline>
+      <source src="vive_ahora_cta.mp4" type="video/mp4">
+    </video>
+    <div class="final-cta__overlay"></div>
     <div class="container">
       <div class="final-cta__eyebrow">Jetzt starten</div>
       <h2 class="final-cta__title">Deine Veränderung beginnt heute.</h2>
@@ -666,7 +699,22 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p class="footer__text">© 2025 ViveAhora · Reto Bucher · Alle Rechte vorbehalten</p>
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__brand-dot"></span>
+          <span class="footer__brand-name">Vive Ahora · Reto Bucher</span>
+        </div>
+        <div class="footer__links">
+          <a href="/impressum.html" class="footer__link">Impressum</a>
+          <a href="/datenschutz.html" class="footer__link">Datenschutzrichtlinie</a>
+          <span class="footer__copy">© 2026 · Alle Rechte vorbehalten</span>
+        </div>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
