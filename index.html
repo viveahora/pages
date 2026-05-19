@@ -20,7 +20,7 @@
     ul, ol { list-style: none; }
 
     h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.0; letter-spacing: -0.02em; }
-    h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
     h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.5rem; }
     p { font-size: 1rem; line-height: 1.7; color: inherit; }
 
@@ -90,7 +90,7 @@
     /* INTRO */
     .intro { background: #fff; color: #293238; }
     .intro__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .intro__title { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+    .intro__title { font-size: clamp(2rem, 4vw, 3.5rem); }
     .intro__body p { font-size: 1.1rem; line-height: 1.75; color: #374151; margin-bottom: 1.25rem; }
 
     /* PROCESS */
@@ -160,6 +160,14 @@
     .process__step-title { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 0.25rem; }
     .process__step-desc { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 260px; }
 
+    /* TRUST BAR */
+    .trust-bar { background: #F8F7F4; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; overflow: hidden; padding: 18px 0; }
+    .trust-bar__track { display: flex; gap: 0; animation: trustScroll 28s linear infinite; width: max-content; }
+    .trust-bar__track:hover { animation-play-state: paused; }
+    .trust-bar__item { display: flex; align-items: center; gap: 0.6rem; padding: 0 3rem; white-space: nowrap; font-size: 0.88rem; font-weight: 600; color: #293238; letter-spacing: 0.03em; }
+    .trust-bar__dot { color: #C4A44A; font-size: 1rem; flex-shrink: 0; }
+    @keyframes trustScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
     /* TICKER */
     .ticker { background: #fff; overflow: hidden; padding: 0; }
     .ticker__track { display: flex; gap: 0; animation: tickerScroll 30s linear infinite; width: max-content; }
@@ -199,7 +207,7 @@
     .feature__bottom { grid-column: 1; grid-row: 2; display: flex; flex-direction: column; gap: 1.25rem; padding-top: 1.25rem; }
     .feature__badges-wrap { grid-column: 1; grid-row: 3; padding-top: 1rem; }
     .feature__image { grid-column: 2; grid-row: 1 / 4; border-radius: 16px; overflow: hidden; align-self: start; }
-    .feature__title { color: #293238; }
+    .feature__title { color: #293238; margin-bottom: 0; }
     .feature__desc { font-size: 1.05rem; color: #374151; line-height: 1.8; }
     .feature__badges { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .feature__badge { background: #F8F7F4; border-radius: 8px; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -225,7 +233,7 @@
       color: rgba(255,255,255,0.3); font-size: 0.85rem; font-weight: 600;
     }
     .about__content { display: flex; flex-direction: column; gap: 1.25rem; }
-    .about__title { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+    .about__title { font-size: clamp(2rem, 4vw, 3.5rem); }
     .about__text { font-size: 1rem; color: #374151; line-height: 1.75; }
     .about__credentials { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
     .about__credential { display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; font-weight: 700; color: #293238; }
@@ -243,19 +251,29 @@
     .testimonials { background: #fff; }
     .testimonials__header { text-align: center; margin-bottom: 3.5rem; }
     .testimonials__title { color: #293238; }
+    .testimonials__google-summary { display: inline-flex; align-items: center; gap: 1rem; background: #F8F7F4; border: 1px solid #E5E7EB; border-radius: 50px; padding: 0.6rem 1.25rem; margin-top: 1.25rem; }
+    .testimonials__google-logo { display: flex; align-items: center; }
+    .testimonials__google-score { font-size: 1rem; font-weight: 800; color: #293238; }
+    .testimonials__google-stars { color: #FBBC04; font-size: 0.95rem; letter-spacing: 0.05em; }
+    .testimonials__google-count { font-size: 0.82rem; color: #6B7280; }
     .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .testimonial-card { background: #F8F7F4; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
-    .testimonial-card__stars { color: #C4A44A; font-size: 1rem; letter-spacing: 0.1em; }
-    .testimonial-card__text { font-size: 0.95rem; color: #374151; line-height: 1.7; font-style: italic; }
+    .testimonial-card { background: #F8F7F4; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; border: 1px solid #E5E7EB; }
+    .testimonial-card__top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .testimonial-card__stars { color: #FBBC04; font-size: 1rem; letter-spacing: 0.1em; }
+    .testimonial-card__google-badge { display: flex; align-items: center; gap: 4px; opacity: 0.7; }
+    .testimonial-card__text { font-size: 0.95rem; color: #374151; line-height: 1.7; font-style: italic; flex: 1; }
     .testimonial-card__author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
-    .testimonial-card__avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #293238; }
+    .testimonial-card__avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #293238; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 700; color: #fff; }
     .testimonial-card__name { font-size: 0.9rem; font-weight: 700; color: #293238; }
-    .testimonial-card__role { font-size: 0.8rem; color: #6B7280; }
+    .testimonial-card__verified { font-size: 0.75rem; color: #6B7280; display: flex; align-items: center; gap: 3px; }
+    .testimonials__cta { text-align: center; margin-top: 2.5rem; }
+    .testimonials__cta a { font-size: 0.88rem; color: #6B7280; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .testimonials__cta a:hover { color: #293238; }
 
     /* FAQ */
     .faq { background: #F8F7F4; }
     .faq__header { text-align: center; margin-bottom: 3rem; }
-    .faq__title { color: #293238; }
+    .faq__title { color: #293238; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; }
     .faq__list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
     .faq__item { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid rgba(41,50,56,0.08); }
     .faq__question {
@@ -325,7 +343,7 @@
       .benefits__grid { grid-template-columns: 1fr 1fr; }
       .feature__inner { display: flex; flex-direction: column; gap: 1.5rem; }
       .feature__image { order: 2; }
-      .feature__top { order: 1; }
+      .feature__top { order: 1; text-align: center; align-items: center; }
       .feature__bottom { order: 3; padding-top: 0; }
       .feature__badges-wrap { order: 4; padding-top: 0; }
       .about__inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -341,13 +359,26 @@
     }
     @media (max-width: 600px) {
       .benefits__grid { grid-template-columns: 1fr; }
-      .hero-wrapper { padding-left: 8px; padding-right: 8px; padding-bottom: 12px; }
+      .hero-wrapper { padding-top: 80px; padding-left: 8px; padding-right: 8px; padding-bottom: 12px; }
+    }
+
+    /* FOR WHOM */
+    .forwhom { background: #F8F7F4; }
+    .forwhom__inner { max-width: 720px; margin: 0 auto; }
+    .forwhom__card { background: #fff; border-radius: 20px; border: 2px solid #E5E7EB; padding: 2.5rem 3rem; }
+    .forwhom__list { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; margin-top: 0; }
+    .forwhom__list li { display: flex; align-items: flex-start; gap: 1rem; font-size: 1.05rem; color: #374151; line-height: 1.6; }
+    .forwhom__check { width: 24px; height: 24px; border-radius: 50%; background: #C4A44A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+    .forwhom__check svg { width: 13px; height: 13px; stroke: #fff; stroke-width: 2.5; fill: none; }
+    @media (max-width: 600px) {
+      .forwhom__card { padding: 1.75rem 1.5rem; }
     }
 
     /* PRICING */
     .pricing { background: #F8F7F4; }
+    .pricing { background: #fff; }
     .pricing__header { text-align: center; margin-bottom: 3rem; }
-    .pricing__title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: #293238; margin-bottom: 0.75rem; }
+    .pricing__title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #293238; }
     .pricing__subtitle { font-size: 1.05rem; color: #6B7280; max-width: 480px; margin: 0 auto; line-height: 1.7; }
     .pricing__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; }
     .pricing__card { background: #fff; border-radius: 16px; padding: 2rem 1.75rem; border: 2px solid #E5E7EB; display: flex; flex-direction: column; gap: 1.25rem; transition: box-shadow 0.2s; }
@@ -394,7 +425,7 @@
         <a href="#faq">FAQ</a>
       </div>
       <div class="nav__actions">
-        <a href="#contact" class="btn btn--primary">Jetzt starten</a>
+        <a href="#contact" class="btn btn--primary">Kostenloses Erstgespräch</a>
       </div>
     </div>
   </nav>
@@ -411,6 +442,22 @@
           <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar__track">
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 10+ Jahre Erfahrung</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 1000+ begleitete Klienten</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Zertifizierter Hypnosetherapeut</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Spezialisiert auf Online-Sitzungen</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Master in PSYCH-K®</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 10+ Jahre Erfahrung</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 1000+ begleitete Klienten</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Zertifizierter Hypnosetherapeut</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Spezialisiert auf Online-Sitzungen</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Master in PSYCH-K®</div>
     </div>
   </div>
 
@@ -435,22 +482,6 @@
       </div>
     </div>
   </section>
-
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker__track">
-      <div class="ticker__item"><img src="coaching1.jpg" alt=""></div>
-      <div class="ticker__item"><img src="coaching2.jpg" alt=""></div>
-      <div class="ticker__item"><img src="coaching3.jpg" alt=""></div>
-      <div class="ticker__item"><img src="coaching4.jpg" alt=""></div>
-      <div class="ticker__item"><img src="coaching5.jpg" alt=""></div>
-      <div class="ticker__item"><img src="coaching1.jpg" alt=""></div>
-      <div class="ticker__item"><img src="coaching2.jpg" alt=""></div>
-      <div class="ticker__item"><img src="coaching3.jpg" alt=""></div>
-      <div class="ticker__item"><img src="coaching4.jpg" alt=""></div>
-      <div class="ticker__item"><img src="coaching5.jpg" alt=""></div>
-    </div>
-  </div>
 
   <!-- BENEFITS -->
   <section class="section benefits" id="vorteile">
@@ -485,7 +516,7 @@
         <div class="feature__bottom">
           <p class="feature__desc">Mein Ansatz kombiniert bewährte Methoden mit modernen Erkenntnissen aus Neurowissenschaft, Epigenetik und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben. Dabei ist die Arbeit mit dem Unterbewusstsein essentiell für den Erfolg.</p>
           <p class="feature__desc">In unseren 1:1-Sessions gehen wir tief. Wir finden heraus, was dich wirklich antreibt, was dich blockiert — und entwickeln einen massgeschneiderten Plan, der zu dir und deinem Leben passt.</p>
-          <a href="#contact" class="btn btn--primary" style="align-self:flex-start;">Jetzt Termin vereinbaren</a>
+          <a href="#contact" class="btn btn--primary" style="align-self:flex-start;">Jetzt Kostenloses Erstgespräch</a>
         </div>
         <div class="feature__badges-wrap">
           <div class="feature__badges">
@@ -567,7 +598,7 @@
           <h2 class="cta-banner__title">Bereit für den nächsten Schritt?</h2>
           <p class="cta-banner__sub">30 Minuten. Kostenlos. Unverbindlich. Dein erster Schritt zur Veränderung.</p>
         </div>
-        <a href="mailto:hallo@viveahora.ch" class="btn btn--white btn--large">Jetzt Gespräch buchen →</a>
+        <a href="mailto:hallo@viveahora.ch" class="btn btn--white btn--large">Kostenloses Erstgespräch</a>
       </div>
     </div>
   </section>
@@ -576,13 +607,109 @@
   <section class="section testimonials">
     <div class="container">
       <div class="testimonials__header">
-        <div class="section-label section-label--center">Stimmen</div>
+        <div class="section-label section-label--center">Kundenstimmen</div>
         <h2 class="testimonials__title">Was Klienten sagen</h2>
+        <div class="testimonials__google-summary">
+          <div class="testimonials__google-logo">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </div>
+          <span class="testimonials__google-score">5.0</span>
+          <span class="testimonials__google-stars">★★★★★</span>
+          <span class="testimonials__google-count">Google Bewertungen</span>
+        </div>
       </div>
       <div class="testimonials__grid">
-        <div class="testimonial-card"><div class="testimonial-card__stars">★★★★★</div><p class="testimonial-card__text">«Nach nur 3 Monaten habe ich endlich die Klarheit, die ich jahrelang gesucht habe. Reto hat mir geholfen, meine Blockaden zu lösen und wirklich voranzukommen.»</p><div class="testimonial-card__author"><div class="testimonial-card__avatar"></div><div><div class="testimonial-card__name">Sarah M.</div><div class="testimonial-card__role">Unternehmerin, Zürich</div></div></div></div>
-        <div class="testimonial-card"><div class="testimonial-card__stars">★★★★★</div><p class="testimonial-card__text">«Ich war skeptisch gegenüber Hypnose — aber die Ergebnisse sprechen für sich. In wenigen Sessions habe ich mehr verändert als in Jahren alleine.»</p><div class="testimonial-card__author"><div class="testimonial-card__avatar"></div><div><div class="testimonial-card__name">Thomas K.</div><div class="testimonial-card__role">Manager, Basel</div></div></div></div>
-        <div class="testimonial-card"><div class="testimonial-card__stars">★★★★★</div><p class="testimonial-card__text">«Das Coaching hat mein Leben verändert. Nicht dramatisch, aber tief. Ich bin heute authentischer, ruhiger und fokussierter als je zuvor.»</p><div class="testimonial-card__author"><div class="testimonial-card__avatar"></div><div><div class="testimonial-card__name">Lisa R.</div><div class="testimonial-card__role">Lehrerin, Bern</div></div></div></div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <div class="testimonial-card__google-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+          </div>
+          <p class="testimonial-card__text">«Hypnose — Reto hat mich sehr angenehm und professionell geführt. War eine tolle Erfahrung. Würde ich auf jeden Fall weiterempfehlen.»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background: #6B7280;">L</div>
+            <div>
+              <div class="testimonial-card__name">Luana Jordi</div>
+              <div class="testimonial-card__verified">✓ Verifizierte Google-Bewertung</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <div class="testimonial-card__google-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+          </div>
+          <p class="testimonial-card__text">«Reto ist nicht nur unglaublich nett – er versteht sein Handwerk! Ich hatte eine Hypnosesitzung mit ihm via Zoom und war wirklich beeindruckt. Er hat sich viel Zeit genommen, mir mit grossem Einfühlungsvermögen zugehört und mir sogar ein paar Wochen später eine kostenlose Folgesitzung angeboten. Die Erfahrung war durchweg positiv und sehr hilfreich für mich. Ich würde mich jederzeit wieder an Reto wenden und kann die Zusammenarbeit mit ihm uneingeschränkt empfehlen. Vielen Dank, Reto!»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background: none; padding: 0;"><img src="tonia-gerson.jpg" alt="Tonia Gerson" style="width:44px;height:44px;border-radius:50%;object-fit:cover;"></div>
+            <div>
+              <div class="testimonial-card__name">Tonia Gerson</div>
+              <div class="testimonial-card__verified">✓ Verifizierte Google-Bewertung</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <div class="testimonial-card__google-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+          </div>
+          <p class="testimonial-card__text">«Sehr angenehme, wertschätzende und authentische Begleitung. Die Hypnose war professionell und angenehm, Reto hat mich wunderbar respektvoll geführt — und der Erfolg begeistert mich. DANKE, kann ich von Herzen empfehlen! Liebe Grüsse aus der Schweiz.»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background: #E91E8C;">K</div>
+            <div>
+              <div class="testimonial-card__name">Karin Lütolf</div>
+              <div class="testimonial-card__verified">✓ Verifizierte Google-Bewertung</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="testimonials__cta">
+        <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Alle Bewertungen auf Google ansehen →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="section forwhom">
+    <div class="container">
+      <div class="forwhom__inner">
+        <h2 style="text-align:center; margin-bottom: 2rem;">Das Coaching ist für Dich geeignet, wenn:</h2>
+        <div class="forwhom__card">
+          <ul class="forwhom__list">
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du dich innerlich blockiert fühlst und trotz aller Bemühungen nicht weiterkommst.</span>
+            </li>
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du dich von alten Mustern, Glaubenssätzen oder Ängsten befreien möchtest.</span>
+            </li>
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du eine nachhaltige, tiefe Veränderung suchst — keine oberflächlichen Tipps.</span>
+            </li>
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du Klarheit über deine Ziele und den nächsten konkreten Schritt gewinnen willst.</span>
+            </li>
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du bereit bist, aktiv an dir zu arbeiten und wirklich etwas in deinem Leben zu verändern.</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -591,8 +718,8 @@
   <section class="section pricing" id="preise">
     <div class="container">
       <div class="pricing__header">
-        <div class="section-label section-label--center">Investition</div>
-        <h2 class="pricing__title">Transparent &amp; fair</h2>
+        <div class="section-label section-label--center">Transparent &amp; fair</div>
+        <h2 class="pricing__title">Preise</h2>
         <p class="pricing__subtitle">Wähle das Angebot, das zu deiner Situation passt. Alle Pakete beinhalten persönliche 1:1-Begleitung.</p>
       </div>
       <div class="pricing__grid">
@@ -611,7 +738,7 @@
             <li>Massgeschneidert auf dein Anliegen</li>
             <li>Online oder vor Ort</li>
           </ul>
-          <a href="#contact" class="pricing__cta pricing__cta--default">Termin vereinbaren</a>
+          <a href="#contact" class="pricing__cta pricing__cta--default">Kostenloses Erstgespräch</a>
         </div>
 
         <div class="pricing__card pricing__card--featured">
@@ -631,7 +758,7 @@
             <li>Online oder vor Ort</li>
             <li>10% Ersparnis gegenüber Einzelpreis</li>
           </ul>
-          <a href="#contact" class="pricing__cta pricing__cta--featured">Jetzt starten</a>
+          <a href="#contact" class="pricing__cta pricing__cta--featured">Kostenloses Erstgespräch</a>
         </div>
 
         <div class="pricing__card">
@@ -650,7 +777,7 @@
             <li>Online oder vor Ort</li>
             <li>15% Ersparnis gegenüber Einzelpreis</li>
           </ul>
-          <a href="#contact" class="pricing__cta pricing__cta--default">Termin vereinbaren</a>
+          <a href="#contact" class="pricing__cta pricing__cta--default">Kostenloses Erstgespräch</a>
         </div>
 
       </div>
@@ -692,7 +819,7 @@
       <div class="final-cta__eyebrow">Jetzt starten</div>
       <h2 class="final-cta__title">Deine Veränderung beginnt heute.</h2>
       <p class="final-cta__sub">Nicht morgen. Nicht «wenn die Zeit besser ist». Heute.</p>
-      <a href="mailto:hallo@viveahora.ch" class="btn btn--primary btn--large">Kostenloses Erstgespräch buchen →</a>
+      <a href="mailto:hallo@viveahora.ch" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
     </div>
   </section>
 
