@@ -160,6 +160,14 @@
     .process__step-title { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 0.25rem; }
     .process__step-desc { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 260px; }
 
+    /* TRUST BAR */
+    .trust-bar { background: #293238; border-top: 1px solid rgba(255,255,255,0.08); overflow: hidden; padding: 18px 0; }
+    .trust-bar__track { display: flex; gap: 0; animation: trustScroll 28s linear infinite; width: max-content; }
+    .trust-bar__track:hover { animation-play-state: paused; }
+    .trust-bar__item { display: flex; align-items: center; gap: 0.6rem; padding: 0 3rem; white-space: nowrap; font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.75); letter-spacing: 0.03em; }
+    .trust-bar__dot { color: #C4A44A; font-size: 1rem; flex-shrink: 0; }
+    @keyframes trustScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
     /* TICKER */
     .ticker { background: #fff; overflow: hidden; padding: 0; }
     .ticker__track { display: flex; gap: 0; animation: tickerScroll 30s linear infinite; width: max-content; }
@@ -421,6 +429,22 @@
           <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar__track">
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 10+ Jahre Erfahrung</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 1000+ begleitete Klienten</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Zertifizierter Hypnosetherapeut</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Spezialisiert auf Online-Sitzungen</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> PSYCH-K® zertifiziert</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 10+ Jahre Erfahrung</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 1000+ begleitete Klienten</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Zertifizierter Hypnosetherapeut</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Spezialisiert auf Online-Sitzungen</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> PSYCH-K® zertifiziert</div>
     </div>
   </div>
 
