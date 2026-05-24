@@ -253,6 +253,14 @@
     .cta-banner__sub { color: rgba(255,255,255,0.85); font-size: 1rem; margin-top: 0.4rem; }
     .btn--white { background: #fff; color: #C4A44A; }
     .btn--white:hover { background: #f5f5f5; transform: translateY(-1px); }
+    .btn--dark { background: #293238; color: #fff; }
+    .btn--dark:hover { background: #1e262b; transform: translateY(-1px); }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
+      70%  { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+    .btn--pulse { animation: pulse-ring 2s ease-out infinite; }
 
     /* TESTIMONIALS */
     .testimonials { background: #fff; }
@@ -605,7 +613,7 @@
           <h2 class="cta-banner__title">Bereit für den nächsten Schritt?</h2>
           <p class="cta-banner__sub">30 Minuten. Kostenlos. Unverbindlich. Dein erster Schritt zur Veränderung.</p>
         </div>
-        <a href="mailto:hallo@viveahora.ch" class="btn btn--white btn--large">Kostenloses Erstgespräch</a>
+        <a href="mailto:hallo@viveahora.ch" class="btn btn--dark btn--large btn--pulse">Kostenloses Erstgespräch</a>
       </div>
     </div>
   </section>
