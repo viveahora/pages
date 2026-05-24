@@ -181,6 +181,13 @@
       background: #F8F7F4; border-radius: 12px; padding: 1.25rem 1.5rem;
       display: flex; align-items: flex-start; gap: 1rem;
       border-left: 3px solid #C4A44A;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .pain-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .pain-card__icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
     .pain-card__text { font-size: 0.95rem; color: #374151; font-weight: 500; line-height: 1.55; }
@@ -880,6 +887,22 @@
     }
     positionVTrack();
     window.addEventListener('resize', positionVTrack);
+
+    // Scroll fade-in for pain cards
+    const painCards = document.querySelectorAll('.pain-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          const index = Array.from(painCards).indexOf(card);
+          setTimeout(() => {
+            card.classList.add('is-visible');
+          }, index * 150);
+          observer.unobserve(card);
+        }
+      });
+    }, { threshold: 0.15 });
+    painCards.forEach(card => observer.observe(card));
   </script>
 
 </body>
