@@ -3,416 +3,967 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reto Bucher | Coaching – Vive Ahora</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>Results Coaching 1:1 | Ihr Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px; line-height: 1.6; color: #374151; background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
 
-    :root {
-      --black: #1e2533;
-      --white: #ffffff;
-      --teal: #2a7fb5;
-      --teal-dark: #1e6a9a;
-      --gold: #b89030;
-      --gold-dark: #9a7828;
-      --gray-light: #f5f6f7;
-      --gray-mid: #888;
-      --gray-border: #dde1e7;
-      --text-dark: #1a1f2b;
-      --font: 'Inter', sans-serif;
+    h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.0; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+    h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.5rem; }
+    p { font-size: 1rem; line-height: 1.7; color: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 80px 0; }
+    .section--small { padding: 40px 0; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: #293238; height: 70px; display: flex; align-items: center;
+    }
+    .nav__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 2rem; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo { display: flex; align-items: center; }
+    .nav__logo img { height: 32px; width: auto; display: block; }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__links a { color: #fff; font-size: 0.9rem; font-weight: 500; opacity: 0.9; transition: opacity 0.2s; }
+    .nav__links a:hover { opacity: 1; }
+    .nav__actions { display: flex; align-items: center; gap: 1.5rem; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.75rem 1.75rem; border-radius: 50px; font-size: 0.95rem;
+      font-weight: 700; cursor: pointer; border: none; transition: all 0.2s ease; letter-spacing: 0.01em;
+    }
+    .btn--primary { background: #C4A44A; color: #fff; }
+    .btn--primary:hover { background: #b8973e; transform: translateY(-1px); }
+    .btn--dark { background: #293238; color: #fff; }
+    .btn--dark:hover { background: #3a4a52; transform: translateY(-1px); }
+    .btn--outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
+    .btn--outline-white:hover { background: rgba(255,255,255,0.1); }
+    .btn--large { padding: 1rem 2.5rem; font-size: 1.05rem; }
+
+    /* HERO */
+    .hero-wrapper { background: #293238; padding-top: 70px; padding-left: 16px; padding-right: 16px; padding-bottom: 24px; }
+    .hero {
+      position: relative; min-height: 90vh; display: flex; align-items: flex-end;
+      background: #293238; color: #fff; overflow: hidden; border-radius: 24px;
+    }
+    .hero__bg {
+      position: absolute; inset: 0; background-image: url('hero.jpg');
+      background-size: cover; background-position: center; opacity: 0.92;
+    }
+    .hero__bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 100%);
+    }
+    .hero__content {
+      position: relative; z-index: 1; max-width: 1400px; margin: 0 auto;
+      padding: 0 2rem 5rem; width: 100%; display: grid;
+      grid-template-columns: 1fr auto; align-items: flex-end; gap: 2rem;
+    }
+    .hero__text { max-width: 720px; }
+    .hero__label {
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #fff; margin-bottom: 1.25rem;
+    }
+    .hero__label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
+    .hero__title { margin-bottom: 1.5rem; }
+    .hero__desc { font-size: 1.05rem; line-height: 1.7; max-width: 580px; margin-bottom: 2rem; opacity: 0.95; }
+
+    /* INTRO */
+    .intro { background: #fff; color: #293238; }
+    .intro__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .intro__title { font-size: clamp(2rem, 4vw, 3.5rem); }
+    .intro__body p { font-size: 1.1rem; line-height: 1.75; color: #374151; margin-bottom: 1.25rem; }
+
+    /* PROCESS */
+    .process { background: #293238; color: #fff; }
+    .process .section-label { color: #C4A44A; }
+    .process .section-label::before { background: #C4A44A; }
+    .process__title { text-align: center; color: #fff; margin-bottom: 4rem; }
+    .process__steps {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .process__line {
+      position: absolute;
+      top: 27px;
+      left: calc(16.66% + 28px);
+      width: calc(66.66% - 56px);
+      height: 2px;
+      background: rgba(196,164,74,0.2);
+      z-index: 0;
+      overflow: hidden;
+    }
+    .process__line-inner {
+      height: 100%;
+      width: 100%;
+      background: #C4A44A;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 2s cubic-bezier(0.4,0,0.2,1) 0.3s;
+    }
+    .process--animated .process__line-inner { transform: scaleX(1); }
+    .process__vtrack {
+      display: none;
+      position: absolute;
+      left: 27px; top: 28px; bottom: 28px;
+      width: 2px;
+      background: rgba(196,164,74,0.2);
+      z-index: 0; overflow: hidden;
+    }
+    .process__vtrack-fill {
+      width: 100%; height: 100%;
+      background: #C4A44A;
+      transform-origin: top; transform: scaleY(0);
+      transition: transform 2s cubic-bezier(0.4,0,0.2,1) 0.3s;
+    }
+    .process--animated .process__vtrack-fill { transform: scaleY(1); }
+    .process__step {
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.25rem;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .process--animated .process__step:nth-child(3) { opacity:1; transform:translateY(0); transition-delay: 0.2s; }
+    .process--animated .process__step:nth-child(4) { opacity:1; transform:translateY(0); transition-delay: 0.6s; }
+    .process--animated .process__step:nth-child(5) { opacity:1; transform:translateY(0); transition-delay: 1.0s; }
+    .process__dot {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #C4A44A; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 900; color: #fff;
+      position: relative; z-index: 1; flex-shrink: 0;
+      box-shadow: 0 0 0 6px rgba(196,164,74,0.15);
+    }
+    .process__step-tag {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #C4A44A;
+    }
+    .process__step-title { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 0.25rem; }
+    .process__step-desc { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 260px; }
+
+    /* TRUST BAR */
+    .trust-bar { background: #F8F7F4; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; overflow: hidden; padding: 18px 0; }
+    .trust-bar__track { display: flex; gap: 0; animation: trustScroll 28s linear infinite; width: max-content; }
+    .trust-bar__track:hover { animation-play-state: paused; }
+    .trust-bar__item { display: flex; align-items: center; gap: 0.6rem; padding: 0 3rem; white-space: nowrap; font-size: 0.88rem; font-weight: 600; color: #293238; letter-spacing: 0.03em; }
+    .trust-bar__dot { color: #C4A44A; font-size: 1rem; flex-shrink: 0; }
+    @keyframes trustScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* TICKER */
+    .ticker { background: #fff; overflow: hidden; padding: 0; }
+    .ticker__track { display: flex; gap: 0; animation: tickerScroll 30s linear infinite; width: max-content; }
+    .ticker__item { width: 240px; height: 160px; flex-shrink: 0; overflow: hidden; }
+    .ticker__item img { width: 100%; height: 100%; object-fit: cover; }
+    @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* PAIN / INTRO CARDS */
+    .pain-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .pain-card {
+      background: #F8F7F4; border-radius: 12px; padding: 1.25rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      border-left: 3px solid #C4A44A;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .pain-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .pain-card__icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
+    .pain-card__text { font-size: 0.95rem; color: #374151; font-weight: 500; line-height: 1.55; }
+
+    /* BENEFITS */
+    .benefits { background: #F8F7F4; }
+    .benefits__header { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
+    .benefits__title { color: #293238; }
+    .benefits__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .benefit-card {
+      background: #fff; border-radius: 16px; padding: 2rem;
+      border: 1px solid rgba(41,50,56,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(41,50,56,0.1); }
+    .benefit-card__icon { font-size: 2rem; margin-bottom: 1rem; }
+    .benefit-card__title { font-size: 1.05rem; font-weight: 800; color: #293238; margin-bottom: 0.5rem; }
+    .benefit-card__text { font-size: 0.9rem; color: #6B7280; line-height: 1.65; }
+
+    /* FEATURE */
+    .feature { background: #fff; }
+    .feature__inner { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr auto; gap: 0 5rem; }
+    .feature__top { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; gap: 1.25rem; }
+    .feature__bottom { grid-column: 1; grid-row: 2; display: flex; flex-direction: column; gap: 1.25rem; padding-top: 1.25rem; }
+    .feature__badges-wrap { grid-column: 1; grid-row: 3; padding-top: 1rem; }
+    .feature__image { grid-column: 2; grid-row: 1 / 4; border-radius: 16px; overflow: hidden; align-self: start; position: relative; }
+    .feature__title { color: #293238; margin-bottom: 0; }
+    .feature__desc { font-size: 1.05rem; color: #374151; line-height: 1.8; }
+    .feature__badges { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .feature__badge { background: #F8F7F4; border-radius: 8px; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .feature__badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
+    .feature__badge-label { font-size: 0.82rem; font-weight: 700; color: #293238; }
+    .feature__image { border-radius: 16px; overflow: hidden; }
+    .feature__image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; transition: transform 1.2s ease; }
+    .feature__image.is-visible img { transform: scale(1.04); }
+    @keyframes shimmer-gold {
+      0%   { left: -80%; }
+      100% { left: 160%; }
+    }
+    .feature__image::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(196,164,74,0.3), transparent);
+      transform: skewX(-15deg);
+      pointer-events: none;
+    }
+    .feature__image.is-visible::after { animation: shimmer-gold 1.4s ease 0.2s forwards; }
+    .feature__image-overlay {
+      position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem;
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.6s ease 1s, transform 0.6s ease 1s;
+    }
+    .feature__image.is-visible .feature__image-overlay { opacity: 1; transform: translateY(0); }
+    .feature__image-tag {
+      background: rgba(41,50,56,0.82); color: #C4A44A;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 0.3rem 0.85rem; border-radius: 100px;
+      backdrop-filter: blur(6px); border: 1px solid rgba(196,164,74,0.4);
+    }
+    .feature__image-placeholder {
+      width: 100%; aspect-ratio: 4/5; border-radius: 16px;
+      background: linear-gradient(160deg, #F8F7F4 0%, #e8e6e0 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: #9CA3AF; font-size: 0.85rem; font-weight: 600;
     }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font); color: var(--text-dark); background: var(--white); overflow-x: hidden; }
+    /* ABOUT */
+    .about { background: #F8F7F4; color: #293238; }
+    .about__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about__photo { width: 100%; border-radius: 16px; object-fit: cover; object-position: center top; display: block; }
+    .about__photo-placeholder {
+      width: 100%; aspect-ratio: 3/4; border-radius: 16px;
+      background: linear-gradient(160deg, #293238 0%, #3a4a52 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.3); font-size: 0.85rem; font-weight: 600;
+    }
+    .about__content { display: flex; flex-direction: column; gap: 1.25rem; }
+    .about__title { font-size: clamp(2rem, 4vw, 3.5rem); }
+    .about__text { font-size: 1rem; color: #374151; line-height: 1.75; }
+    .about__credentials { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
+    .about__credential { display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; font-weight: 700; color: #293238; }
+    .about__star { color: #C4A44A; font-size: 1.1rem; flex-shrink: 0; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--black); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; }
-    .nav-logo { display: flex; align-items: center; gap: 10px; color: var(--white); font-size: 17px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
-    .nav-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
-    .nav-right { display: flex; align-items: center; gap: 24px; }
-    .nav-link { color: var(--white); text-decoration: none; font-size: 15px; font-weight: 500; opacity: 0.8; transition: opacity 0.2s; }
-    .nav-link:hover { opacity: 1; }
-    .nav-cta { background: var(--teal); color: var(--white); border: none; border-radius: 50px; padding: 10px 22px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
-    .nav-cta:hover { background: var(--teal-dark); }
+    /* CTA BANNER */
+    .cta-banner { background: #C4A44A; }
+    .cta-banner__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .cta-banner__title { color: #fff; font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    .cta-banner__sub { color: rgba(255,255,255,0.85); font-size: 1rem; margin-top: 0.4rem; }
+    .btn--white { background: #fff; color: #C4A44A; }
+    .btn--white:hover { background: #f5f5f5; transform: translateY(-1px); }
+    .btn--dark { background: #293238; color: #fff; }
+    .btn--dark:hover { background: #1e262b; transform: translateY(-1px); }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
+      70%  { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+    .btn--pulse { animation: pulse-ring 2s ease-out infinite; }
 
-    .hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; padding: 120px 60px 80px; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #1a2030 0%, #1e2840 35%, #243050 65%, #1a2030 100%); z-index: 0; }
-    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); }
-    .hero-bg::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 55%; background: linear-gradient(to top right, rgba(42,127,181,0.2) 0%, transparent 55%); }
-    .hero-glow { position: absolute; top: 20%; right: 15%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(184,144,48,0.15) 0%, transparent 70%); z-index: 0; }
-    .hero-content { position: relative; z-index: 1; max-width: 700px; }
-    .section-label { display: flex; align-items: center; gap: 10px; color: var(--white); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 20px; opacity: 0.9; }
-    .section-label .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-    .section-label.dark { color: var(--black); }
-    .section-label.dark .dot { background: var(--gold); }
-    .hero h1 { font-size: clamp(44px, 6vw, 82px); font-weight: 900; color: var(--white); line-height: 1.03; margin-bottom: 24px; letter-spacing: -0.025em; }
-    .hero h1 em { font-style: normal; color: var(--gold); }
-    .hero p { font-size: 18px; color: rgba(255,255,255,0.82); line-height: 1.65; max-width: 560px; margin-bottom: 36px; }
-    .hero-badge { position: absolute; bottom: 80px; right: 60px; background: rgba(0,0,0,0.75); border: 1px solid rgba(184,144,48,0.35); border-radius: 14px; padding: 28px 32px; text-align: center; z-index: 1; backdrop-filter: blur(12px); }
-    .hero-badge span { display: block; color: rgba(255,255,255,0.65); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
-    .hero-badge strong { display: block; color: var(--gold); font-size: 15px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.4; }
+    /* TESTIMONIALS */
+    .testimonials { background: #fff; }
+    .testimonials__header { text-align: center; margin-bottom: 3.5rem; }
+    .testimonials__title { color: #293238; }
+    .testimonials__google-summary { display: inline-flex; align-items: center; gap: 1rem; background: #F8F7F4; border: 1px solid #E5E7EB; border-radius: 50px; padding: 0.6rem 1.25rem; margin-top: 1.25rem; }
+    .testimonials__google-logo { display: flex; align-items: center; }
+    .testimonials__google-score { font-size: 1rem; font-weight: 800; color: #293238; }
+    .testimonials__google-stars { color: #FBBC04; font-size: 0.95rem; letter-spacing: 0.05em; }
+    .testimonials__google-count { font-size: 0.82rem; color: #6B7280; }
+    .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .testimonial-card { background: #F8F7F4; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; border: 1px solid #E5E7EB; }
+    .testimonial-card__top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .testimonial-card__stars { color: #FBBC04; font-size: 1rem; letter-spacing: 0.1em; }
+    .testimonial-card__google-badge { display: flex; align-items: center; gap: 4px; opacity: 0.7; }
+    .testimonial-card__text { font-size: 0.95rem; color: #374151; line-height: 1.7; font-style: italic; flex: 1; }
+    .testimonial-card__author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
+    .testimonial-card__avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #293238; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .testimonial-card__name { font-size: 0.9rem; font-weight: 700; color: #293238; }
+    .testimonial-card__verified { font-size: 0.75rem; color: #6B7280; display: flex; align-items: center; gap: 3px; }
+    .testimonials__cta { text-align: center; margin-top: 2.5rem; }
+    .testimonials__cta a { font-size: 0.88rem; color: #6B7280; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .testimonials__cta a:hover { color: #293238; }
 
-    .btn-primary { display: inline-block; background: var(--teal); color: var(--white); border: 2px solid var(--teal); border-radius: 50px; padding: 16px 32px; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.25s; }
-    .btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
-    .btn-white { display: inline-block; background: var(--white); color: var(--black); border: 2px solid var(--white); border-radius: 50px; padding: 16px 32px; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.25s; }
-    .btn-white:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+    /* FAQ */
+    .faq { background: #F8F7F4; }
+    .faq__header { text-align: center; margin-bottom: 3rem; }
+    .faq__title { color: #293238; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; }
+    .faq__list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq__item { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid rgba(41,50,56,0.08); }
+    .faq__question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1.25rem 1.5rem; background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 1rem; font-weight: 700; color: #293238; text-align: left;
+    }
+    .faq__icon { font-size: 1.2rem; flex-shrink: 0; transition: transform 0.25s; color: #C4A44A; }
+    .faq__item--open .faq__icon { transform: rotate(45deg); }
+    .faq__answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 1.5rem; font-size: 0.95rem; color: #6B7280; line-height: 1.75;
+    }
+    .faq__item--open .faq__answer { max-height: 300px; padding: 0 1.5rem 1.25rem; }
 
-    .intro { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
-    .intro h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
-    .intro h2 span { color: var(--gold); }
-    .intro-text p { font-size: 17px; line-height: 1.8; color: #333; margin-bottom: 20px; }
-    .intro-methods { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .method-tag { background: var(--gray-light); border: 1px solid var(--gray-border); border-radius: 50px; padding: 8px 18px; font-size: 13px; font-weight: 700; color: var(--text-dark); letter-spacing: 0.03em; }
+    /* FINAL CTA */
+    .final-cta { position: relative; text-align: center; overflow: hidden; padding: 160px 0; }
+    .final-cta__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .final-cta__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); z-index: 1; }
+    .final-cta .container { position: relative; z-index: 2; }
+    .final-cta__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #C4A44A; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+    }
+    .final-cta__eyebrow::before, .final-cta__eyebrow::after { content: ''; display: block; width: 24px; height: 2px; background: #C4A44A; }
+    .final-cta__title { color: #fff; margin-bottom: 1rem; }
+    .final-cta__sub { color: rgba(255,255,255,0.55); font-size: 1.05rem; max-width: 480px; margin: 0 auto 2.5rem; }
 
-    .tags-section { overflow: hidden; padding: 0 0 60px; border-bottom: 1px solid var(--gray-border); }
-    .tags-track { display: flex; animation: scrollLeft 22s linear infinite; width: max-content; }
-    .tags-track:hover { animation-play-state: paused; }
-    @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .tag-item { display: flex; align-items: center; gap: 16px; padding: 20px 40px; font-size: 16px; font-weight: 700; white-space: nowrap; color: var(--black); text-transform: uppercase; letter-spacing: 0.05em; }
-    .tag-item .tag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+    /* FOOTER */
+    .footer { background: #293238; border-top: 1px solid rgba(255,255,255,0.08); padding: 2.5rem 0; }
+    .footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
+    .footer__brand { display: flex; align-items: center; gap: 0.5rem; }
+    .footer__brand-dot { width: 7px; height: 7px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
+    .footer__brand-name { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .footer__links { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+    .footer__link { font-size: 0.82rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .footer__link:hover { color: #C4A44A; }
+    .footer__copy { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
+    .footer__social { display: flex; align-items: center; gap: 0.75rem; }
+    .footer__social-link { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); text-decoration: none; transition: all 0.2s; }
+    .footer__social-link:hover { border-color: #C4A44A; color: #C4A44A; }
+    .footer__social-link svg { width: 16px; height: 16px; fill: currentColor; }
+    @media (max-width: 700px) {
+      .footer__inner { flex-direction: column; align-items: center; text-align: center; }
+      .footer__links { justify-content: center; }
+    }
 
-    .image-cards { display: grid; grid-template-columns: repeat(5, 1fr); height: 340px; overflow: hidden; }
-    .image-card { position: relative; overflow: hidden; cursor: pointer; }
-    .image-card:hover .image-card-bg { transform: scale(1.06); }
-    .image-card-bg { width: 100%; height: 100%; transition: transform 0.4s ease; }
-    .card-grad-1 { background: linear-gradient(135deg, #1a2030, #2a7fb5); }
-    .card-grad-2 { background: linear-gradient(135deg, #1e2840, #1e6a9a); }
-    .card-grad-3 { background: linear-gradient(135deg, #2a2010, #b89030); }
-    .card-grad-4 { background: linear-gradient(135deg, #1a2030, #3a5f8a); }
-    .card-grad-5 { background: linear-gradient(135deg, #2a200a, #c4a030); }
-    .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 60%); display: flex; align-items: flex-end; padding: 24px; }
-    .card-overlay span { color: var(--white); font-size: 17px; font-weight: 800; line-height: 1.25; }
+    /* SECTION LABEL */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #C4A44A; margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: #C4A44A;
+    }
+    .section-label--center { justify-content: center; }
 
-    .about-strip { background: var(--black); padding: 80px 60px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
-    .about-strip-text h2 { font-size: clamp(30px, 3.5vw, 46px); font-weight: 900; color: var(--white); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 24px; }
-    .about-strip-text h2 em { font-style: normal; color: var(--gold); }
-    .about-strip-text p { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 16px; }
-    .about-strip-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-    .stat-box { border: 1px solid rgba(184,144,48,0.3); border-radius: 14px; padding: 28px 24px; text-align: center; }
-    .stat-box strong { display: block; font-size: 42px; font-weight: 900; color: var(--gold); letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px; }
-    .stat-box span { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; line-height: 1.4; }
-
-    .benefits { padding: 100px 60px; text-align: center; }
-    .benefits-label { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 20px; color: var(--black); }
-    .benefits-label .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
-    .benefits h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 16px; }
-    .benefits h2 em { font-style: normal; color: var(--gold); }
-    .benefits > p { font-size: 17px; color: #555; max-width: 560px; margin: 0 auto 60px; line-height: 1.65; }
-    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; text-align: left; }
-    .benefit-card { padding: 32px; border-radius: 16px; background: var(--gray-light); border: 1px solid transparent; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
-    .benefit-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(42,127,181,0.12); border-color: rgba(42,127,181,0.25); }
-    .benefit-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--white); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
-    .benefit-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 12px; line-height: 1.25; }
-    .benefit-card p { font-size: 15px; color: #555; line-height: 1.7; }
-
-    .methods { background: var(--gray-light); padding: 100px 60px; }
-    .methods-inner { max-width: 1100px; margin: 0 auto; }
-    .methods h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 12px; }
-    .methods > .methods-inner > p { font-size: 17px; color: #555; margin-bottom: 56px; max-width: 560px; line-height: 1.65; }
-    .methods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .method-card { background: var(--white); border-radius: 16px; padding: 36px 32px; border: 1px solid var(--gray-border); transition: box-shadow 0.2s, border-color 0.2s; }
-    .method-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); border-color: var(--teal); }
-    .method-number { font-size: 48px; font-weight: 900; color: rgba(184,144,48,0.2); line-height: 1; margin-bottom: 12px; letter-spacing: -0.03em; }
-    .method-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 14px; color: var(--black); }
-    .method-card p { font-size: 15px; color: #555; line-height: 1.7; }
-
-    .cta-banner { background: var(--teal); padding: 72px 80px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-    .cta-banner h2 { font-size: clamp(24px, 3.2vw, 40px); font-weight: 900; color: var(--white); max-width: 520px; line-height: 1.18; }
-    .cta-banner-right { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
-    .cta-banner-right p { color: rgba(255,255,255,0.88); font-size: 16px; text-align: right; max-width: 280px; line-height: 1.55; }
-
-    .testimonials { padding: 100px 60px; }
-    .testimonials-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; }
-    .testimonials-header h2 { font-size: clamp(34px, 4.5vw, 56px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
-    .testimonials-header h2 em { font-style: normal; color: var(--gold); }
-    .testimonials-nav { display: flex; gap: 12px; }
-    .nav-arrow { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--black); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; font-size: 18px; }
-    .nav-arrow:hover { background: var(--teal); border-color: var(--teal); color: var(--white); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .testimonial-card { border-radius: 18px; overflow: hidden; background: var(--gray-light); border: 1px solid var(--gray-border); transition: box-shadow 0.2s; }
-    .testimonial-card:hover { box-shadow: 0 12px 40px rgba(42,127,181,0.12); }
-    .testimonial-photo-placeholder { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 60px; }
-    .ph-1 { background: linear-gradient(135deg, #1e2840, #2a7fb5); }
-    .ph-2 { background: linear-gradient(135deg, #1a2030, #1e6a9a); }
-    .ph-3 { background: linear-gradient(135deg, #2a2010, #b89030); }
-    .testimonial-body { padding: 28px 24px; }
-    .stars { color: var(--gold); font-size: 16px; margin-bottom: 12px; letter-spacing: 2px; }
-    .testimonial-body blockquote { font-size: 16px; font-weight: 600; line-height: 1.6; color: var(--text-dark); margin-bottom: 16px; font-style: normal; }
-    .testimonial-body cite { font-size: 14px; color: var(--gray-mid); font-style: normal; font-weight: 500; }
-
-    .faq { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1.7fr; gap: 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
-    .faq-left .section-label { margin-bottom: 20px; }
-    .faq-left h2 { font-size: clamp(32px, 4vw, 50px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 24px; }
-    .faq-left p { font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 32px; }
-    .faq-left a { color: var(--teal); font-size: 15px; font-weight: 700; text-decoration: none; }
-    .faq-left a:hover { text-decoration: underline; }
-    .faq-list { display: flex; flex-direction: column; }
-    .faq-item { border-bottom: 1px solid var(--gray-border); }
-    .faq-question { width: 100%; background: none; border: none; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; text-align: left; font-size: 17px; font-weight: 600; cursor: pointer; color: var(--black); gap: 16px; }
-    .faq-question:hover { color: var(--teal); }
-    .faq-chevron { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; border: 2px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: transform 0.3s, background 0.2s, color 0.2s; }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--teal); border-color: var(--teal); color: var(--white); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-    .faq-item.open .faq-answer { max-height: 400px; }
-    .faq-answer p { padding: 0 0 22px; font-size: 15px; color: #555; line-height: 1.75; }
-
-    .final-cta { position: relative; min-height: 520px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 60px; overflow: hidden; }
-    .final-cta-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #151c2a 0%, #1e2840 50%, #151c2a 100%); }
-    .final-cta-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(42,127,181,0.18) 0%, transparent 70%); }
-    .final-cta-content { position: relative; z-index: 1; }
-    .final-cta-content h2 { font-size: clamp(30px, 5vw, 60px); font-weight: 900; color: var(--white); margin-bottom: 20px; letter-spacing: -0.025em; max-width: 720px; line-height: 1.1; }
-    .final-cta-content h2 em { font-style: normal; color: var(--gold); }
-    .final-cta-content p { font-size: 18px; color: rgba(255,255,255,0.72); margin-bottom: 36px; max-width: 500px; line-height: 1.65; }
-    .final-cta-contact { margin-top: 28px; font-size: 15px; color: rgba(255,255,255,0.5); }
-    .final-cta-contact a { color: var(--gold); text-decoration: none; font-weight: 600; }
-
-    footer { background: var(--black); color: var(--white); padding: 60px 60px 40px; }
-    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; gap: 40px; flex-wrap: wrap; }
-    .footer-logo { font-size: 17px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-    .footer-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
-    .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.45); font-style: italic; letter-spacing: 0.04em; }
-    .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
-    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; }
-    .footer-col a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--gold); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
-
-    @media (max-width: 1000px) {
-      .about-strip { grid-template-columns: 1fr; padding: 60px 30px; }
-      .about-strip-stats { grid-template-columns: 1fr 1fr; }
-      .methods-grid { grid-template-columns: 1fr; }
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero__content { grid-template-columns: 1fr; }
+      .hero__badge { display: none; }
     }
     @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .hero { padding: 100px 30px 60px; }
-      .hero-badge, .hero-glow { display: none; }
-      .intro { grid-template-columns: 1fr; gap: 32px; padding: 60px 30px; }
-      .image-cards { grid-template-columns: repeat(2, 1fr); height: auto; }
-      .image-card { height: 180px; }
-      .benefits { padding: 60px 30px; }
-      .benefits-grid { grid-template-columns: 1fr; }
-      .methods { padding: 60px 30px; }
-      .cta-banner { flex-direction: column; padding: 48px 30px; }
-      .cta-banner-right { align-items: flex-start; }
-      .cta-banner-right p { text-align: left; }
-      .testimonials { padding: 60px 30px; }
-      .testimonials-header { flex-direction: column; align-items: flex-start; gap: 24px; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .faq { grid-template-columns: 1fr; gap: 40px; padding: 60px 30px; }
-      .final-cta { padding: 80px 30px; }
-      footer { padding: 48px 30px 32px; }
-      .footer-top { flex-direction: column; }
-      .footer-links { gap: 32px; }
+      .nav__links { display: none; }
+      .intro__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .benefits__grid { grid-template-columns: 1fr 1fr; }
+      .feature__inner { display: flex; flex-direction: column; gap: 1.5rem; }
+      .feature__image { order: 2; }
+      .feature__top { order: 1; text-align: center; align-items: center; }
+      .feature__bottom { order: 3; padding-top: 0; }
+      .feature__badges-wrap { order: 4; padding-top: 0; }
+      .about__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .testimonials__grid { grid-template-columns: 1fr; }
+      .cta-banner__inner { flex-direction: column; text-align: center; }
+      .process__steps { grid-template-columns: 1fr; gap: 0; }
+      .process__line { display: none; }
+      .process__vtrack { display: block; }
+      .process__step { flex-direction: row; align-items: flex-start; text-align: left; gap: 1.5rem; padding-bottom: 2.5rem; }
+      .process__step:last-child { padding-bottom: 0; }
+      .process__step-body { flex: 1; }
+      .process__step-desc { max-width: none; }
+    }
+    @media (max-width: 600px) {
+      .benefits__grid { grid-template-columns: 1fr; }
+      .hero-wrapper { padding-top: 80px; padding-left: 8px; padding-right: 8px; padding-bottom: 12px; }
+    }
+
+    /* FOR WHOM */
+    .forwhom { background: #F8F7F4; }
+    .forwhom__inner { max-width: 720px; margin: 0 auto; }
+    .forwhom__card { background: #fff; border-radius: 20px; border: 2px solid #E5E7EB; padding: 2.5rem 3rem; }
+    .forwhom__list { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; margin-top: 0; }
+    .forwhom__list li { display: flex; align-items: flex-start; gap: 1rem; font-size: 1.05rem; color: #374151; line-height: 1.6; }
+    .forwhom__check { width: 24px; height: 24px; border-radius: 50%; background: #C4A44A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+    .forwhom__check svg { width: 13px; height: 13px; stroke: #fff; stroke-width: 2.5; fill: none; }
+    @media (max-width: 600px) {
+      .forwhom__card { padding: 1.75rem 1.5rem; }
+    }
+
+    /* PRICING */
+    .pricing { background: #F8F7F4; }
+    .pricing { background: #fff; }
+    .pricing__header { text-align: center; margin-bottom: 3rem; }
+    .pricing__title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #293238; }
+    .pricing__subtitle { font-size: 1.05rem; color: #6B7280; max-width: 480px; margin: 0 auto; line-height: 1.7; }
+    .pricing__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; }
+    .pricing__card { background: #fff; border-radius: 16px; padding: 2rem 1.75rem; border: 2px solid #E5E7EB; display: flex; flex-direction: column; gap: 1.25rem; transition: box-shadow 0.2s; }
+    .pricing__card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .pricing__card--featured { border-color: #C4A44A; position: relative; }
+    .pricing__badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #C4A44A; color: #fff; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 50px; white-space: nowrap; }
+    .pricing__name { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #C4A44A; }
+    .pricing__price { display: flex; align-items: flex-end; gap: 0.25rem; line-height: 1; }
+    .pricing__amount { font-size: 2.8rem; font-weight: 900; color: #293238; letter-spacing: -0.02em; }
+    .pricing__currency { font-size: 1.1rem; font-weight: 700; color: #293238; margin-bottom: 0.5rem; }
+    .pricing__original { font-size: 0.9rem; color: #9CA3AF; text-decoration: line-through; margin-left: 0.5rem; margin-bottom: 0.45rem; }
+    .pricing__duration { font-size: 0.88rem; color: #6B7280; }
+    .pricing__divider { border: none; border-top: 1px solid #E5E7EB; margin: 0; }
+    .pricing__features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; flex: 1; }
+    .pricing__features li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.92rem; color: #374151; line-height: 1.5; }
+    .pricing__features li::before { content: '✓'; color: #C4A44A; font-weight: 800; flex-shrink: 0; margin-top: 0.05rem; }
+    .pricing__cta { display: block; text-align: center; padding: 0.85rem 1.5rem; border-radius: 50px; font-size: 0.92rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+    .pricing__cta--default { background: #F8F7F4; color: #293238; border: 2px solid #E5E7EB; }
+    .pricing__cta--default:hover { border-color: #C4A44A; color: #C4A44A; }
+    .pricing__cta--featured { background: #C4A44A; color: #fff; border: 2px solid #C4A44A; }
+    .pricing__cta--featured:hover { background: #b8943e; border-color: #b8943e; }
+    .pricing__note { text-align: center; font-size: 0.85rem; color: #9CA3AF; margin-top: 1.25rem; }
+    .pricing__guarantee { display: flex; align-items: center; gap: 1.25rem; background: #fff; border: 2px solid #C4A44A; border-radius: 16px; padding: 1.5rem 2rem; margin-top: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .pricing__guarantee-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .pricing__guarantee-text strong { display: block; font-size: 1rem; font-weight: 800; color: #293238; margin-bottom: 0.25rem; }
+    .pricing__guarantee-text p { font-size: 0.9rem; color: #6B7280; line-height: 1.6; margin: 0; }
+    @media (max-width: 600px) {
+      .pricing__guarantee { flex-direction: column; text-align: center; padding: 1.25rem; }
+    }
+    @media (max-width: 900px) {
+      .pricing__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a class="nav-logo" href="#"><span class="nav-logo-dot"></span> Reto Bucher</a>
-    <div class="nav-right">
-      <a class="nav-link" href="#methoden">Methoden</a>
-      <a class="nav-link" href="#faq">FAQ</a>
-      <a class="nav-cta" href="#termin">Erstgespräch buchen</a>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo"><img src="logo.svg" alt="Logo" /></a>
+      <div class="nav__links">
+        <a href="#methode">Methode</a>
+        <a href="#ueber-mich">Über mich</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav__actions">
+        <a href="#contact" class="btn btn--primary">Kostenloses Erstgespräch</a>
+      </div>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="section-label"><span class="dot"></span> Coaching · PSYCH-K · Hypnose</div>
-      <h1>Lebe jetzt.<br /><em>Verändere</em><br />dein Leben.</h1>
-      <p>Mit systemischem Coaching, PSYCH-K und Hypnose begleite ich dich dabei, einschränkende Überzeugungen aufzulösen, innere Klarheit zu gewinnen und die Veränderungen zu schaffen, nach denen du dich wirklich sehnst.</p>
-      <a class="btn-primary" href="#termin">Kostenloses Erstgespräch vereinbaren</a>
+  <!-- HERO -->
+  <div class="hero-wrapper">
+    <div class="hero">
+      <div class="hero__bg"></div>
+      <div class="hero__content">
+        <div class="hero__text">
+          <div class="hero__label">Ergebnisorientiertes Coaching</div>
+          <h1 class="hero__title">Erreiche deine größten<br>Ziele <span style="color:#C4A44A">schneller</span></h1>
+          <p class="hero__desc">Gemeinsam entwickeln wir eine klare Strategie, die dich von wo du jetzt bist, dorthin bringt wo du wirklich sein willst — schneller als du es alleine schaffst.</p>
+          <a href="#contact" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
+        </div>
+      </div>
     </div>
-    <div class="hero-badge"><span>vive ahora</span><strong>Lebe<br />jetzt</strong></div>
-  </section>
+  </div>
 
-  <section>
-    <div class="intro">
-      <div><h2>Nachhaltige Veränderung beginnt <span>von innen</span></h2></div>
-      <div class="intro-text">
-        <p>Viele Menschen wissen, was sie wollen – aber irgendetwas hält sie zurück. Alte Muster, Glaubenssätze, die seit Jahren im Unterbewusstsein verankert sind, oder fehlende Klarheit über den nächsten Schritt. Genau hier setze ich an.</p>
-        <p>Als zertifizierter Coach begleite ich dich mit bewährten Methoden, die weit über reines Gespräch hinausgehen: Wir arbeiten auf der Ebene, auf der echte Veränderung entsteht – im Körper, im Geist und in deinen Überzeugungen.</p>
-        <div class="intro-methods">
-          <span class="method-tag">Systemisches Coaching</span>
-          <span class="method-tag">PSYCH-K</span>
-          <span class="method-tag">Hypnose</span>
-          <span class="method-tag">Lebensberatung</span>
-          <span class="method-tag">NLP</span>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar__track">
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 10+ Jahre Erfahrung</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 1000+ begleitete Klienten</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Zertifizierter Hypnosetherapeut</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Spezialisiert auf Online-Sitzungen</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Master in PSYCH-K®</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 10+ Jahre Erfahrung</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> 1000+ begleitete Klienten</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Zertifizierter Hypnosetherapeut</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Spezialisiert auf Online-Sitzungen</div>
+      <div class="trust-bar__item"><span class="trust-bar__dot">✦</span> Master in PSYCH-K®</div>
+    </div>
+  </div>
+
+  <!-- INTRO / PROBLEM -->
+  <section class="section intro" id="problem">
+    <div class="container">
+      <div class="intro__inner">
+        <div>
+          <div class="section-label">Das Problem</div>
+          <h2 class="intro__title">Kennst du das?</h2>
+          <div class="intro__body">
+            <p>Du gibst alles, und trotzdem läuft etwas nicht rund. Du weisst, was du ändern solltest, aber die alten Muster holen dich immer wieder ein.</p>
+            <p>Das ist kein Zeichen von Schwäche. Es bedeutet nur, dass oberflächliche Tipps und Willenskraft allein nicht ausreichen. Was du brauchst, ist eine Lösung, die an die Wurzel geht.</p>
+          </div>
+        </div>
+        <div class="pain-cards">
+          <div class="pain-card"><div class="pain-card__icon">😮‍💨</div><p class="pain-card__text">Du weisst, was du tun solltest, aber du tust es einfach nicht. Prokrastination, innere Blockaden, Selbstsabotage.</p></div>
+          <div class="pain-card"><div class="pain-card__icon">🔁</div><p class="pain-card__text">Du wiederholst immer wieder dieselben negativen Muster in Beziehungen, im Job und in deinen Gewohnheiten.</p></div>
+          <div class="pain-card"><div class="pain-card__icon">🫣</div><p class="pain-card__text">Du fühlst dich oft nicht gut genug, sagst Ja wenn du Nein meinst und fragst dich, wann du endlich aufhörst, dich für andere zu verbiegen.</p></div>
+          <div class="pain-card"><div class="pain-card__icon">⏳</div><p class="pain-card__text">Du willst etwas verändern, weisst aber nicht wo anfangen, und jeder Versuch scheitert nach kurzer Zeit.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="tags-section">
-    <div class="tags-track">
-      <div class="tag-item"><span class="tag-dot"></span> Glaubenssätze verändern</div>
-      <div class="tag-item"><span class="tag-dot"></span> Mehr Lebensfreude</div>
-      <div class="tag-item"><span class="tag-dot"></span> Berufliche Klarheit</div>
-      <div class="tag-item"><span class="tag-dot"></span> Tiefe Entspannung</div>
-      <div class="tag-item"><span class="tag-dot"></span> Beziehungen stärken</div>
-      <div class="tag-item"><span class="tag-dot"></span> Stress abbauen</div>
-      <div class="tag-item"><span class="tag-dot"></span> Ziele erreichen</div>
-      <div class="tag-item"><span class="tag-dot"></span> Innere Freiheit</div>
-      <div class="tag-item"><span class="tag-dot"></span> Glaubenssätze verändern</div>
-      <div class="tag-item"><span class="tag-dot"></span> Mehr Lebensfreude</div>
-      <div class="tag-item"><span class="tag-dot"></span> Berufliche Klarheit</div>
-      <div class="tag-item"><span class="tag-dot"></span> Tiefe Entspannung</div>
-      <div class="tag-item"><span class="tag-dot"></span> Beziehungen stärken</div>
-      <div class="tag-item"><span class="tag-dot"></span> Stress abbauen</div>
-      <div class="tag-item"><span class="tag-dot"></span> Ziele erreichen</div>
-      <div class="tag-item"><span class="tag-dot"></span> Innere Freiheit</div>
-    </div>
-  </div>
-
-  <div class="image-cards">
-    <div class="image-card"><div class="image-card-bg card-grad-1"></div><div class="card-overlay"><span>Innere Klarheit</span></div></div>
-    <div class="image-card"><div class="image-card-bg card-grad-2"></div><div class="card-overlay"><span>Beruf &amp; Karriere</span></div></div>
-    <div class="image-card"><div class="image-card-bg card-grad-3"></div><div class="card-overlay"><span>Beziehungen</span></div></div>
-    <div class="image-card"><div class="image-card-bg card-grad-4"></div><div class="card-overlay"><span>Gesundheit &amp; Wohlbefinden</span></div></div>
-    <div class="image-card"><div class="image-card-bg card-grad-5"></div><div class="card-overlay"><span>Persönlichkeit &amp; Wachstum</span></div></div>
-  </div>
-
-  <section class="about-strip">
-    <div class="about-strip-text">
-      <h2>Hinter <em>vive ahora</em> steckt<br />eine klare Überzeugung</h2>
-      <p>„Vive ahora“ – lebe jetzt. Nicht irgendwann, nicht wenn die Umstände stimmen. Echte Veränderung passiert im gegenwärtigen Moment. Als Coach begleite ich Menschen dabei, nicht nur Ziele zu formulieren, sondern die inneren Muster zu verändern, die sie bisher daran gehindert haben, diese zu leben.</p>
-      <p>Ich verbinde modernste Methoden wie PSYCH-K und Hypnose mit systemischem Denken und einer tiefen Überzeugung: Du hast alles, was du brauchst – manchmal braucht es nur jemanden, der dir hilft, es zu entdecken.</p>
-    </div>
-    <div class="about-strip-stats">
-      <div class="stat-box"><strong>100+</strong><span>begleitete Klienten</span></div>
-      <div class="stat-box"><strong>3</strong><span>bewährte Methoden</span></div>
-      <div class="stat-box"><strong>1:1</strong><span>persönliche Begleitung</span></div>
-      <div class="stat-box"><strong>CHF 0</strong><span>Erstgespräch kostenlos</span></div>
-    </div>
-  </section>
-
-  <section class="benefits">
-    <div class="benefits-label"><span class="dot"></span> Was du gewinnst</div>
-    <h2>Durchbrechen. Befreien.<br /><em>Wachsen.</em></h2>
-    <p>Jeder Mensch ist einzigartig. Doch diese sechs Bereiche verändern sich bei fast allen Klienten durch die Zusammenarbeit mit mir.</p>
-    <div class="benefits-grid">
-      <div class="benefit-card"><div class="benefit-icon">🎯</div><h3>Klarheit über deine Richtung</h3><p>Du erkennst, was du wirklich willst – und was dich bisher davon abgehalten hat. Mit Klarheit entsteht Entschlossenheit.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">🧠</div><h3>Limitierende Glaubenssätze auflösen</h3><p>Mit PSYCH-K und Hypnose arbeiten wir direkt im Unterbewusstsein, wo Überzeugungen verankert sind – und verändern sie nachhaltig.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">💼</div><h3>Berufliche Erfüllung finden</h3><p>Ob Neuorientierung, Führungsrolle oder unternehmerischer Schritt – du entwickelst Klarheit und den Mut, den nächsten Schritt zu gehen.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">❤️</div><h3>Tiefere Beziehungen erleben</h3><p>Kommunikation, Vertrauen und Nähe – in Partnerschaft, Familie und Freundschaft. Gesunde Beziehungen beginnen bei dir selbst.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">🌿</div><h3>Mehr Lebensfreude &amp; Energie</h3><p>Stress, innere Unruhe und Erschöpfung weichen einer neuen Leichtigkeit. Du lebst mehr im Einklang mit dir selbst.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">🗺️</div><h3>Einen klaren Plan für die Zukunft</h3><p>Aus dem Coaching gehst du nicht nur mit Einsichten, sondern mit konkreten nächsten Schritten – die du wirklich umsetzt.</p></div>
-    </div>
-  </section>
-
-  <section class="methods" id="methoden">
-    <div class="methods-inner">
-      <div class="section-label dark"><span class="dot"></span> Meine Methoden</div>
-      <h2>Wie wir gemeinsam arbeiten</h2>
-      <p>Ich setze auf Methoden, die nicht nur an der Oberfläche kratzen, sondern echte, dauerhafte Veränderung bewirken.</p>
-      <div class="methods-grid">
-        <div class="method-card"><div class="method-number">01</div><h3>Systemisches Coaching</h3><p>Im systemischen Coaching betrachten wir deine Situation ganzheitlich – Muster, Beziehungen, Rollen und Ressourcen. Durch gezielte Fragen und Perspektivwechsel entstehen neue Handlungsmöglichkeiten, die du vorher nicht gesehen hast. Du wirst nicht geführt, sondern befähigt, eigene Antworten zu finden.</p></div>
-        <div class="method-card"><div class="method-number">02</div><h3>PSYCH-K</h3><p>PSYCH-K ist eine wissenschaftlich fundierte Methode zur Veränderung einschränkender Glaubenssätze auf der Ebene des Unterbewusstseins. In einfachen, aber kraftvollen Prozessen werden negative Überzeugungen durch förderliche ersetzt – schnell, nachhaltig und ohne langes Analysieren. Die Ergebnisse sind oft verblüffend direkt.</p></div>
-        <div class="method-card"><div class="method-number">03</div><h3>Hypnose</h3><p>Hypnose ermöglicht einen direkten Zugang zum Unterbewusstsein, wo tief verwurzelte Muster, Ängste und Blockaden gespeichert sind. In einem Zustand tiefer Entspannung können alte Programme umprogrammiert werden. Hypnose ist sicher, respektvoll und wirkt dort, wo andere Methoden an ihre Grenzen stossen.</p></div>
+  <!-- BENEFITS -->
+  <section class="section benefits" id="vorteile">
+    <div class="container">
+      <div class="benefits__header">
+        <div class="section-label section-label--center">Was du gewinnst</div>
+        <h2 class="benefits__title">Dein Leben nach dem Coaching</h2>
+      </div>
+      <div class="benefits__grid">
+        <div class="benefit-card"><div class="benefit-card__icon">🧠</div><h3 class="benefit-card__title">Mentale Klarheit</h3><p class="benefit-card__text">Du weisst, wer du bist, was du willst und warum. Keine innere Zerrissenheit mehr.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">⚡</div><h3 class="benefit-card__title">Mehr Energie &amp; Fokus</h3><p class="benefit-card__text">Du handelst statt zu zögern. Du nutzt deine Energie gezielt für das, was wirklich zählt.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">🔓</div><h3 class="benefit-card__title">Blockaden lösen</h3><p class="benefit-card__text">Die alten Muster, die dich seit Jahren bremsen, verlieren ihre Macht über dich.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">🎯</div><h3 class="benefit-card__title">Klare Ziele erreichen</h3><p class="benefit-card__text">Du setzt dir realistische Ziele und erreichst sie auch.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">💪</div><h3 class="benefit-card__title">Echtes Selbstvertrauen</h3><p class="benefit-card__text">Nicht aufgesetzt, sondern tief verankert. Du vertraust dir und deinen Entscheidungen.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">🌱</div><h3 class="benefit-card__title">Nachhaltige Veränderung</h3><p class="benefit-card__text">Kein kurzfristiger Hype. Echte, dauerhafte Transformation, die in deinem Alltag sichtbar ist.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="cta-banner" id="termin">
-    <h2>Starte mit einem kostenlosen 30-minütigen Erstgespräch</h2>
-    <div class="cta-banner-right">
-      <p>Kein Druck, keine Verpflichtung. Wir schauen gemeinsam, ob wir zueinanderpassen und welche Richtung dein Weg nehmen soll.</p>
-      <a class="btn-white" href="mailto:info@vive-ahora.ch">Jetzt Termin vereinbaren</a>
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <div class="testimonials-header">
-      <h2>Was Klienten<br /><em>über mich sagen</em></h2>
-      <div class="testimonials-nav">
-        <button class="nav-arrow" onclick="slideTestimonials(-1)" aria-label="Zurück">&#8592;</button>
-        <button class="nav-arrow" onclick="slideTestimonials(1)" aria-label="Weiter">&#8594;</button>
+  <!-- FEATURE / METHOD -->
+  <section class="section feature" id="methode">
+    <div class="container">
+      <div class="feature__inner">
+        <div class="feature__top">
+          <div class="section-label">Die Methode</div>
+          <h2 class="feature__title">Coaching, das wirklich wirkt</h2>
+        </div>
+        <div class="feature__image">
+          <img src="coaching-methode.webp" alt="Coaching Methode" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="feature__image-placeholder" style="display:none;">Bild folgt</div>
+        </div>
+        <div class="feature__bottom">
+          <p class="feature__desc">Mein Ansatz kombiniert bewährte Methoden mit modernen Erkenntnissen aus Neurowissenschaft, Epigenetik und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben. Dabei ist die Arbeit mit dem Unterbewusstsein essentiell für den Erfolg.</p>
+          <p class="feature__desc">In unseren 1:1-Sessions gehen wir tief. Wir finden heraus, was dich wirklich antreibt, was dich blockiert — und entwickeln einen massgeschneiderten Plan, der zu dir und deinem Leben passt.</p>
+          <a href="#contact" class="btn btn--primary" style="align-self:flex-start;">Kostenloses Erstgespräch</a>
+        </div>
+        <div class="feature__badges-wrap">
+          <div class="feature__badges">
+            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">Hypnosetherapie</div></div>
+            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">PSYCH-K®</div></div>
+            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">Life Coaching</div></div>
+            <div class="feature__badge"><div class="feature__badge-dot"></div><div class="feature__badge-label">NLP</div></div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="testimonials-grid" id="testimonialsGrid">
-      <div class="testimonial-card"><div class="testimonial-photo-placeholder ph-1">👨‍💼</div><div class="testimonial-body"><div class="stars">★★★★★</div><blockquote>„Ich hätte nie gedacht, dass sich so viel in so kurzer Zeit verändern kann. Nach unserer Arbeit mit PSYCH-K war ein Glaubenssatz, der mich jahrelang begleitet hatte, einfach weg. Ich kann es kaum beschreiben – aber ich fühle es.“</blockquote><cite>Markus T., Unternehmer, Zürich</cite></div></div>
-      <div class="testimonial-card"><div class="testimonial-photo-placeholder ph-2">👩‍🏫</div><div class="testimonial-body"><div class="stars">★★★★★</div><blockquote>„Reto hat mir geholfen, endlich die Klarheit zu finden, die ich gesucht habe. Seine ruhige, empathische Art schafft einen Raum, in dem ich mich wirklich öffnen konnte. Das Coaching war ein Wendepunkt in meinem Leben.“</blockquote><cite>Sandra M., Lehrerin, Bern</cite></div></div>
-      <div class="testimonial-card"><div class="testimonial-photo-placeholder ph-3">👨‍💻</div><div class="testimonial-body"><div class="stars">★★★★★</div><blockquote>„Die Hypnosesitzung war eine der intensivsten und heilsamsten Erfahrungen meines Lebens. Reto begleitet professionell und einfühlsam. Meine Lebensqualität hat sich seitdem deutlich verbessert.“</blockquote><cite>Daniel K., IT-Berater, Basel</cite></div></div>
-    </div>
   </section>
 
-  <section class="faq" id="faq">
-    <div class="faq-left">
-      <div class="section-label dark"><span class="dot"></span> Häufige Fragen</div>
-      <h2>Du hast Fragen. Ich habe Antworten.</h2>
-      <p>Hier findest du Antworten auf die häufigsten Fragen rund um das Coaching, die Methoden und den Ablauf.</p>
-      <a href="mailto:info@vive-ahora.ch">Weitere Fragen? Schreib mir →</a>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Was passiert beim kostenlosen Erstgespräch?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Das Erstgespräch dauert rund 30 Minuten und ist vollständig kostenlos und unverbindlich. Wir lernen uns kennen, sprechen über deine aktuelle Situation und deine Ziele, und ich erkläre dir, wie eine Zusammenarbeit aussehen könnte. Am Ende entscheidest du, ob du weitermachen möchtest – ohne Druck.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Wie unterscheidet sich PSYCH-K von klassischem Coaching?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Klassisches Coaching arbeitet oft auf der bewussten Ebene – durch Gespräch, Reflexion und Planung. PSYCH-K geht tiefer: Es verändert Glaubenssätze direkt im Unterbewusstsein, wo ca. 95% unserer Entscheidungen und Reaktionen entstehen. Das macht es besonders effektiv bei hartnäckigen Mustern, die sich durch Gespräch allein nicht auflösen lassen.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Ist Hypnose sicher? Verliere ich die Kontrolle?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Hypnose ist völlig sicher. Du verlierst zu keinem Zeitpunkt die Kontrolle – du bist immer bewusst und kannst das Gespräch jederzeit beenden. Der Hypnosezustand ähnelt einem tiefen Entspannungszustand, wie du ihn vielleicht kurz vor dem Einschlafen kennst. Niemand kann in Hypnose zu etwas gezwungen werden, was er nicht will.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Für wen ist das Coaching geeignet?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Coaching ist für Menschen, die wissen, dass mehr möglich ist – und bereit sind, dafür etwas zu verändern. Es gibt keine spezifische Zielgruppe: Ob berufliche Neuorientierung, Beziehungsfragen, innere Blockaden oder das Gefühl, nicht wirklich zu leben – wenn du offen für Veränderung bist, kann Coaching dir helfen.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Wie viele Sitzungen sind nötig?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Das hängt von deinen Zielen und deiner Situation ab. Manche Klienten erleben nach einer einzigen PSYCH-K-Sitzung spürbare Veränderungen. Andere begleite ich über mehrere Monate. Im Erstgespräch besprechen wir gemeinsam, was sinnvoll ist – ohne unnötige Verpflichtungen.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Findet das Coaching online oder vor Ort statt?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Ich biete beides an. Online-Sitzungen funktionieren für Coaching und PSYCH-K sehr gut. Hypnosesitzungen empfehle ich bei Möglichkeit in Präsenz. Ich freue mich auf deine Anfrage – wir finden eine Lösung, die für dich passt.</p></div></div>
-    </div>
-  </section>
-
-  <section class="final-cta">
-    <div class="final-cta-bg"></div>
-    <div class="final-cta-content">
-      <div class="section-label" style="justify-content:center; margin-bottom:20px;"><span class="dot"></span> Vive Ahora – Lebe jetzt</div>
-      <h2>Der beste Moment für Veränderung<br />ist <em>jetzt</em>.</h2>
-      <p>Nicht morgen, nicht wenn die Zeit stimmt. Buche dein kostenloses Erstgespräch und machen wir gemeinsam den ersten Schritt.</p>
-      <a class="btn-primary" href="mailto:info@vive-ahora.ch">Kostenloses Erstgespräch buchen</a>
-      <p class="final-cta-contact">Oder ruf mich an: <a href="tel:+41786052221">078 605 22 21</a></p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo"><span class="footer-logo-dot"></span> Reto Bucher</div>
-        <div class="footer-tagline">vive ahora · lebe jetzt</div>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col"><h4>Angebote</h4><ul><li><a href="#methoden">Systemisches Coaching</a></li><li><a href="#methoden">PSYCH-K</a></li><li><a href="#methoden">Hypnose</a></li><li><a href="#methoden">Lebensberatung</a></li></ul></div>
-        <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#">Start</a></li><li><a href="#methoden">Methoden</a></li><li><a href="#faq">FAQ</a></li><li><a href="#termin">Erstgespräch</a></li></ul></div>
-        <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="mailto:info@vive-ahora.ch">info@vive-ahora.ch</a></li><li><a href="tel:+41786052221">078 605 22 21</a></li><li><a href="https://vive-ahora.ch" target="_blank" rel="noopener">vive-ahora.ch</a></li></ul></div>
+  <!-- PROCESS -->
+  <section class="section process" id="prozess">
+    <div class="container">
+      <div class="section-label section-label--center">Der Weg</div>
+      <h2 class="process__title">In 3 Schritten zu deinem Ziel</h2>
+      <div class="process__steps">
+        <div class="process__line"><div class="process__line-inner"></div></div>
+        <div class="process__vtrack"><div class="process__vtrack-fill"></div></div>
+        <div class="process__step">
+          <div class="process__dot">01</div>
+          <div class="process__step-body">
+            <div class="process__step-tag">Schritt 1</div>
+            <h3 class="process__step-title">Kostenloses Erstgespräch</h3>
+            <p class="process__step-desc">30 Minuten, unverbindlich. Wir schauen gemeinsam, wo du stehst, was du willst — und ob wir zusammenpassen.</p>
+          </div>
+        </div>
+        <div class="process__step">
+          <div class="process__dot">02</div>
+          <div class="process__step-body">
+            <div class="process__step-tag">Schritt 2</div>
+            <h3 class="process__step-title">Deine persönliche Strategie</h3>
+            <p class="process__step-desc">Gemeinsam entwickeln wir einen massgeschneiderten Plan — auf dich, deine Ziele und deinen Alltag abgestimmt.</p>
+          </div>
+        </div>
+        <div class="process__step">
+          <div class="process__dot">03</div>
+          <div class="process__step-body">
+            <div class="process__step-tag">Schritt 3</div>
+            <h3 class="process__step-title">Umsetzung &amp; Resultate</h3>
+            <p class="process__step-desc">In regelmässigen 1:1-Sessions arbeitest du gezielt an deinen Zielen — und siehst messbare Veränderungen.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Reto Bucher · vive-ahora.ch · Alle Rechte vorbehalten</p>
-      <p>Schweiz</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="ueber-mich">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__photo-wrap">
+          <img src="reto-bucher.webp" alt="Reto Bucher" class="about__photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="about__photo-placeholder" style="display:none;">Foto folgt</div>
+        </div>
+        <div class="about__content">
+          <div class="section-label">Über mich</div>
+          <h2 class="about__title">Dein Coach:<br>Reto Bucher</h2>
+          <p class="about__text"><strong>Reto Bucher</strong>, geboren 1975 in der Schweiz, ist zertifizierter Hypnosetherapeut und Coach im Bereich «Persönlichkeitsentwicklung und mentaler Gesundheit».</p>
+          <p class="about__text">In über 10 Jahren Erfahrung hat er vielen Menschen geholfen, durch seine einzigartigen Fähigkeiten ihr volles Potenzial zu entfalten.</p>
+          <ul class="about__credentials">
+            <li class="about__credential"><span class="about__star">★</span><span>Hypnosetherapeut</span></li>
+            <li class="about__credential"><span class="about__star">★</span><span>Life-Coach</span></li>
+            <li class="about__credential"><span class="about__star">★</span><span>Experte für das Unterbewusstsein</span></li>
+            <li class="about__credential"><span class="about__star">★</span><span>Master in PSYCH-K®-Facilitation</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="section cta-banner" id="contact">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <div>
+          <h2 class="cta-banner__title">Bereit für den nächsten Schritt?</h2>
+          <p class="cta-banner__sub">30 Minuten. Kostenlos. Unverbindlich. Dein erster Schritt zur Veränderung.</p>
+        </div>
+        <a href="mailto:hallo@viveahora.ch" class="btn btn--dark btn--large btn--pulse">Kostenloses Erstgespräch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="testimonials__header">
+        <div class="section-label section-label--center">Kundenstimmen</div>
+        <h2 class="testimonials__title">Was Klienten sagen</h2>
+        <div class="testimonials__google-summary">
+          <div class="testimonials__google-logo">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </div>
+          <span class="testimonials__google-score">5.0</span>
+          <span class="testimonials__google-stars">★★★★★</span>
+          <span class="testimonials__google-count">Google Bewertungen</span>
+        </div>
+      </div>
+      <div class="testimonials__grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <div class="testimonial-card__google-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+          </div>
+          <p class="testimonial-card__text">«Hypnose — Reto hat mich sehr angenehm und professionell geführt. War eine tolle Erfahrung. Würde ich auf jeden Fall weiterempfehlen.»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background: #6B7280;">L</div>
+            <div>
+              <div class="testimonial-card__name">Luana Jordi</div>
+              <div class="testimonial-card__verified">✓ Verifizierte Google-Bewertung</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <div class="testimonial-card__google-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+          </div>
+          <p class="testimonial-card__text">«Ich habe unglaubliche Unterstützung erfahren! Ein hervorragender Therapeut, der mir geholfen hat, meine Angstzustände zu bewältigen und das Zähneknirschen zu überwinden, mit dem ich jahrelang zu kämpfen hatte. Angesichts meiner Erfolge habe ich meine Mutter ermutigt, ebenfalls eine Sitzung bei ihm zu buchen. Die Nachsorge ist fantastisch; es ist weit mehr als nur eine Hypnosesitzung. Absolut empfehlenswert.»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background: #4285F4;">L</div>
+            <div>
+              <div class="testimonial-card__name">Lina Valdés</div>
+              <div class="testimonial-card__verified">✓ Verifizierte Google-Bewertung</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card"> Ich hatte eine Hypnosesitzung mit ihm via Zoom und war wirklich beeindruckt. Er hat sich viel Zeit genommen, mir mit grossem Einfühlungsvermögen zugehört und mir sogar ein paar Wochen später eine kostenlose Folgesitzung angeboten. Die Erfahrung war durchweg positiv und sehr hilfreich für mich. Ich würde mich jederzeit wieder an Reto wenden und kann die Zusammenarbeit mit ihm uneingeschränkt empfehlen. Vielen Dank, Reto!»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background: none; padding: 0;"><img src="tonia-gerson.jpg" alt="Tonia Gerson" style="width:44px;height:44px;border-radius:50%;object-fit:cover;"></div>
+            <div>
+              <div class="testimonial-card__name">Tonia Gerson</div>
+              <div class="testimonial-card__verified">✓ Verifizierte Google-Bewertung</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__top">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <div class="testimonial-card__google-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+          </div>
+          <p class="testimonial-card__text">«Sehr angenehme, wertschätzende und authentische Begleitung. Die Hypnose war professionell und angenehm, Reto hat mich wunderbar respektvoll geführt — und der Erfolg begeistert mich. DANKE, kann ich von Herzen empfehlen! Liebe Grüsse aus der Schweiz.»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background: #E91E8C;">K</div>
+            <div>
+              <div class="testimonial-card__name">Karin Lütolf</div>
+              <div class="testimonial-card__verified">✓ Verifizierte Google-Bewertung</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="testimonials__cta">
+        <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Alle Bewertungen auf Google ansehen →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="section forwhom">
+    <div class="container">
+      <div class="forwhom__inner">
+        <h2 style="text-align:center; margin-bottom: 3rem;">Das Coaching ist für Dich geeignet, wenn:</h2>
+        <div class="forwhom__card">
+          <ul class="forwhom__list">
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du dich innerlich blockiert fühlst und trotz aller Bemühungen nicht weiterkommst.</span>
+            </li>
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du dich von alten Mustern, Glaubenssätzen oder Ängsten befreien möchtest.</span>
+            </li>
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du eine nachhaltige, tiefe Veränderung suchst, die an der Ursache ansetzt und nicht an den Symptomen.</span>
+            </li>
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du dein Leben nach deinen Vorstellungen gestalten möchtest.</span>
+            </li>
+            <li>
+              <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
+              <span>Du bereit bist, aktiv an dir zu arbeiten und echte Veränderung in deinem Leben anzugehen.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section pricing" id="preise">
+    <div class="container">
+      <div class="pricing__header">
+        <div class="section-label section-label--center">Transparent &amp; fair</div>
+        <h2 class="pricing__title">Preise</h2>
+        <p class="pricing__subtitle">Wähle das Angebot, das zu deiner Situation passt. Alle Pakete beinhalten persönliche 1:1-Begleitung.</p>
+      </div>
+      <div class="pricing__grid">
+
+        <div class="pricing__card">
+          <div class="pricing__name">Einzelsitzung</div>
+          <div class="pricing__price">
+            <span class="pricing__currency">CHF</span>
+            <span class="pricing__amount">200</span>
+          </div>
+          <div class="pricing__duration">1 Sitzung · 60–90 Minuten</div>
+          <hr class="pricing__divider">
+          <ul class="pricing__features">
+            <li>Persönliche 1:1-Session</li>
+            <li>Systemisches Coaching, PSYCH-K® oder Hypnose</li>
+            <li>Massgeschneidert auf dein Anliegen</li>
+            <li>Online</li>
+          </ul>
+          <a href="#contact" class="pricing__cta pricing__cta--default">Kostenloses Erstgespräch</a>
+        </div>
+
+        <div class="pricing__card pricing__card--featured">
+          <div class="pricing__badge">Empfohlen</div>
+          <div class="pricing__name">Starter-Paket</div>
+          <div class="pricing__price">
+            <span class="pricing__currency">CHF</span>
+            <span class="pricing__amount">540</span>
+            <span class="pricing__original">600</span>
+          </div>
+          <div class="pricing__duration">3 Sitzungen · je 60–90 Minuten</div>
+          <hr class="pricing__divider">
+          <ul class="pricing__features">
+            <li>3 persönliche 1:1-Sessions</li>
+            <li>Alle Methoden kombinierbar</li>
+            <li>Roter Faden über mehrere Sitzungen</li>
+            <li>Online</li>
+            <li>10% Ersparnis gegenüber Einzelpreis</li>
+          </ul>
+          <a href="#contact" class="pricing__cta pricing__cta--featured">Kostenloses Erstgespräch</a>
+        </div>
+
+        <div class="pricing__card">
+          <div class="pricing__name">Transformation</div>
+          <div class="pricing__price">
+            <span class="pricing__currency">CHF</span>
+            <span class="pricing__amount">1'020</span>
+            <span class="pricing__original">1'200</span>
+          </div>
+          <div class="pricing__duration">6 Sitzungen · je 60–90 Minuten</div>
+          <hr class="pricing__divider">
+          <ul class="pricing__features">
+            <li>6 persönliche 1:1-Sessions</li>
+            <li>Tiefe, nachhaltige Veränderung</li>
+            <li>Alle Methoden kombinierbar</li>
+            <li>Online</li>
+            <li>15% Ersparnis gegenüber Einzelpreis</li>
+          </ul>
+          <a href="#contact" class="pricing__cta pricing__cta--default">Kostenloses Erstgespräch</a>
+        </div>
+
+      </div>
+      <div class="pricing__guarantee">
+        <div class="pricing__guarantee-icon">🛡️</div>
+        <div class="pricing__guarantee-text">
+          <strong>Zufriedenheitsgarantie nach der ersten Sitzung</strong>
+          <p>Wenn du nach unserer ersten gemeinsamen Sitzung nicht überzeugt bist, bekommst du dein Geld zurück — ohne Wenn und Aber.</p>
+        </div>
+      </div>
+      <p class="pricing__note">Alle Preise in CHF inkl. MwSt. · Kostenloses Erstgespräch (30 Min.) vor jeder Buchung möglich.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="faq__header">
+        <div class="section-label section-label--center">FAQ</div>
+        <h2 class="faq__title">Häufige Fragen</h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item"><button class="faq__question">Wie läuft das erste Gespräch ab? <span class="faq__icon">+</span></button><div class="faq__answer">Das erste Gespräch dauert ca. 30 Minuten und ist völlig kostenlos und unverbindlich. Wir schauen gemeinsam, wo du stehst, was du verändern möchtest — und ob wir zusammenpassen.</div></div>
+        <div class="faq__item"><button class="faq__question">Was ist Hypnosetherapie genau? <span class="faq__icon">+</span></button><div class="faq__answer">Hypnosetherapie ist eine wissenschaftlich anerkannte Methode, bei der du in einen entspannten Bewusstseinszustand versetzt wirst. In diesem Zustand ist dein Unterbewusstsein zugänglicher für positive Veränderungen. Du bist dabei jederzeit bei vollem Bewusstsein und in Kontrolle.</div></div>
+        <div class="faq__item"><button class="faq__question">Wie schnell werde ich Ergebnisse sehen? <span class="faq__icon">+</span></button><div class="faq__answer">Ergebnisorientiertes Coaching unterstützt dich dabei, positive Veränderungen zu erzielen und langfristiges, nachhaltiges Wachstum zu erreichen. Die Ergebnisse des Coachings hängen von deinen Zielen und Engagement ab. Viele Klienten berichten jedoch von ersten positiven Veränderungen bereits nach der ersten Sitzung. Ich erarbeite mit dir realistische Meilensteine und helfe dir, diese einfach zu erreichen.</div></div>
+        <div class="faq__item"><button class="faq__question">Wie viele Sessions brauche ich? <span class="faq__icon">+</span></button><div class="faq__answer">Das hängt von deinen Zielen und deiner Ausgangssituation ab. Viele Klienten sehen nach 3–4 Sessions deutliche Veränderungen. Ein typisches Programm umfasst 3–6 Sessions über 1–3 Monate.</div></div>
+        <div class="faq__item"><button class="faq__question">Findet das Coaching online statt? <span class="faq__icon">+</span></button><div class="faq__answer">Ja, alle Sessions finden online statt. Online-Coaching ist genau so effektiv wie persönliche Treffen – und du bist örtlich völlig flexibel.</div></div>
+        <div class="faq__item"><button class="faq__question">Was kostet das Coaching? <span class="faq__icon">+</span></button><div class="faq__answer">Die Preise besprechen wir individuell im Erstgespräch, da jedes Programm massgeschneidert ist. Das erste Gespräch ist kostenlos — buche es jetzt und lass uns schauen, was möglich ist.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section final-cta">
+    <video class="final-cta__video" autoplay muted loop playsinline>
+      <source src="vive_ahora_cta.mp4" type="video/mp4">
+    </video>
+    <div class="final-cta__overlay"></div>
+    <div class="container">
+      <div class="final-cta__eyebrow">Jetzt starten</div>
+      <h2 class="final-cta__title">Deine positive Veränderung beginnt heute.</h2>
+      <p class="final-cta__sub">Nicht morgen. Nicht «wenn die Zeit besser ist». Heute.</p>
+      <a href="mailto:hallo@viveahora.ch" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__brand-dot"></span>
+          <span class="footer__brand-name">Vive Ahora · Reto Bucher</span>
+        </div>
+        <div class="footer__links">
+          <a href="/impressum.html" class="footer__link">Impressum</a>
+          <a href="/datenschutz.html" class="footer__link">Datenschutzrichtlinie</a>
+          <span class="footer__copy">© 2026 · Alle Rechte vorbehalten</span>
+        </div>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    }
-
-    let currentSlide = 0;
-    const cards = document.querySelectorAll('.testimonial-card');
-    function slideTestimonials(dir) {
-      if (window.innerWidth <= 900) {
-        cards.forEach(c => c.style.display = 'none');
-        currentSlide = (currentSlide + dir + cards.length) % cards.length;
-        cards[currentSlide].style.display = 'block';
-      }
-    }
-    function resetTestimonials() {
-      if (window.innerWidth > 900) cards.forEach(c => c.style.display = '');
-    }
-    window.addEventListener('resize', resetTestimonials);
-
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      nav.style.boxShadow = window.scrollY > 40 ? '0 2px 20px rgba(0,0,0,0.4)' : 'none';
+    document.querySelectorAll('.faq__question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq__item');
+        const isOpen = item.classList.contains('faq__item--open');
+        document.querySelectorAll('.faq__item--open').forEach(el => el.classList.remove('faq__item--open'));
+        if (!isOpen) item.classList.add('faq__item--open');
+      });
     });
+
+    const processSection = document.querySelector('.process');
+    if (processSection) {
+      new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('process--animated');
+        });
+      }, { threshold: 0.15 }).observe(processSection);
+    }
+
+    function positionVTrack() {
+      const vtrack = document.querySelector('.process__vtrack');
+      if (!vtrack) return;
+      if (window.innerWidth > 900) { vtrack.style.top = ''; vtrack.style.bottom = ''; return; }
+      const steps = document.querySelectorAll('.process__step');
+      const container = vtrack.parentElement;
+      const containerTop = container.getBoundingClientRect().top;
+      const containerH = container.getBoundingClientRect().height;
+      const first = steps[0].querySelector('.process__dot').getBoundingClientRect();
+      const last = steps[steps.length - 1].querySelector('.process__dot').getBoundingClientRect();
+      vtrack.style.top = (first.top + first.height / 2 - containerTop) + 'px';
+      vtrack.style.bottom = (containerH - (last.top + last.height / 2 - containerTop)) + 'px';
+    }
+    positionVTrack();
+    window.addEventListener('resize', positionVTrack);
+
+    // Feature image: shimmer + zoom + overlay tags
+    const featureImg = document.querySelector('.feature__image');
+    if (featureImg) {
+      const featureObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            featureObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      featureObserver.observe(featureImg);
+    }
+
+    // Scroll fade-in for pain cards
+    const painCards = document.querySelectorAll('.pain-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          const index = Array.from(painCards).indexOf(card);
+          setTimeout(() => {
+            card.classList.add('is-visible');
+          }, index * 150);
+          observer.unobserve(card);
+        }
+      });
+    }, { threshold: 0.15 });
+    painCards.forEach(card => observer.observe(card));
   </script>
+
 </body>
 </html>
