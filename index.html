@@ -181,6 +181,13 @@
       background: #F8F7F4; border-radius: 12px; padding: 1.25rem 1.5rem;
       display: flex; align-items: flex-start; gap: 1rem;
       border-left: 3px solid #C4A44A;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .pain-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .pain-card__icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
     .pain-card__text { font-size: 0.95rem; color: #374151; font-weight: 500; line-height: 1.55; }
@@ -206,7 +213,7 @@
     .feature__top { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; gap: 1.25rem; }
     .feature__bottom { grid-column: 1; grid-row: 2; display: flex; flex-direction: column; gap: 1.25rem; padding-top: 1.25rem; }
     .feature__badges-wrap { grid-column: 1; grid-row: 3; padding-top: 1rem; }
-    .feature__image { grid-column: 2; grid-row: 1 / 4; border-radius: 16px; overflow: hidden; align-self: start; }
+    .feature__image { grid-column: 2; grid-row: 1 / 4; border-radius: 16px; overflow: hidden; align-self: start; position: relative; }
     .feature__title { color: #293238; margin-bottom: 0; }
     .feature__desc { font-size: 1.05rem; color: #374151; line-height: 1.8; }
     .feature__badges { display: flex; flex-wrap: wrap; gap: 0.75rem; }
@@ -214,7 +221,35 @@
     .feature__badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #C4A44A; flex-shrink: 0; }
     .feature__badge-label { font-size: 0.82rem; font-weight: 700; color: #293238; }
     .feature__image { border-radius: 16px; overflow: hidden; }
-    .feature__image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    .feature__image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; transition: transform 1.2s ease; }
+    .feature__image.is-visible img { transform: scale(1.04); }
+    @keyframes shimmer-gold {
+      0%   { left: -80%; }
+      100% { left: 160%; }
+    }
+    .feature__image::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(196,164,74,0.3), transparent);
+      transform: skewX(-15deg);
+      pointer-events: none;
+    }
+    .feature__image.is-visible::after { animation: shimmer-gold 1.4s ease 0.2s forwards; }
+    .feature__image-overlay {
+      position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem;
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.6s ease 1s, transform 0.6s ease 1s;
+    }
+    .feature__image.is-visible .feature__image-overlay { opacity: 1; transform: translateY(0); }
+    .feature__image-tag {
+      background: rgba(41,50,56,0.82); color: #C4A44A;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 0.3rem 0.85rem; border-radius: 100px;
+      backdrop-filter: blur(6px); border: 1px solid rgba(196,164,74,0.4);
+    }
     .feature__image-placeholder {
       width: 100%; aspect-ratio: 4/5; border-radius: 16px;
       background: linear-gradient(160deg, #F8F7F4 0%, #e8e6e0 100%);
@@ -246,6 +281,14 @@
     .cta-banner__sub { color: rgba(255,255,255,0.85); font-size: 1rem; margin-top: 0.4rem; }
     .btn--white { background: #fff; color: #C4A44A; }
     .btn--white:hover { background: #f5f5f5; transform: translateY(-1px); }
+    .btn--dark { background: #293238; color: #fff; }
+    .btn--dark:hover { background: #1e262b; transform: translateY(-1px); }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
+      70%  { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+    .btn--pulse { animation: pulse-ring 2s ease-out infinite; }
 
     /* TESTIMONIALS */
     .testimonials { background: #fff; }
@@ -469,15 +512,15 @@
           <div class="section-label">Das Problem</div>
           <h2 class="intro__title">Kennst du das?</h2>
           <div class="intro__body">
-            <p>Du gibst alles — und trotzdem läuft etwas nicht rund. Du weisst, was du ändern solltest, aber die alten Muster holen dich immer wieder ein.</p>
-            <p>Das ist kein Zeichen von Schwäche. Es bedeutet nur, dass oberflächliche Tipps und Willenskraft allein nicht ausreichen. Was du brauchst, ist ein Ansatz, der an der Wurzel ansetzt.</p>
+            <p>Du gibst alles, und trotzdem läuft etwas nicht rund. Du weisst, was du ändern solltest, aber die alten Muster holen dich immer wieder ein.</p>
+            <p>Das ist kein Zeichen von Schwäche. Es bedeutet nur, dass oberflächliche Tipps und Willenskraft allein nicht ausreichen. Was du brauchst, ist eine Lösung, die an die Wurzel geht.</p>
           </div>
         </div>
         <div class="pain-cards">
-          <div class="pain-card"><div class="pain-card__icon">😮‍💨</div><p class="pain-card__text">Du weisst, was du tun solltest — aber du tust es einfach nicht. Prokrastination, innere Blockaden, Selbstsabotage.</p></div>
-          <div class="pain-card"><div class="pain-card__icon">🔁</div><p class="pain-card__text">Du wiederholst immer wieder dieselben Muster — in Beziehungen, im Job, in deinen Gewohnheiten.</p></div>
-          <div class="pain-card"><div class="pain-card__icon">😶‍🌫️</div><p class="pain-card__text">Du hast das Gefühl, nicht wirklich du selbst zu sein — als würdest du eine Rolle spielen, statt authentisch zu leben.</p></div>
-          <div class="pain-card"><div class="pain-card__icon">🎯</div><p class="pain-card__text">Du willst etwas verändern, weisst aber nicht wo anfangen — und jeder Versuch allein verpufft nach kurzer Zeit.</p></div>
+          <div class="pain-card"><div class="pain-card__icon">😮‍💨</div><p class="pain-card__text">Du weisst, was du tun solltest, aber du tust es einfach nicht. Prokrastination, innere Blockaden, Selbstsabotage.</p></div>
+          <div class="pain-card"><div class="pain-card__icon">🔁</div><p class="pain-card__text">Du wiederholst immer wieder dieselben negativen Muster in Beziehungen, im Job und in deinen Gewohnheiten.</p></div>
+          <div class="pain-card"><div class="pain-card__icon">🫣</div><p class="pain-card__text">Du fühlst dich oft nicht gut genug, sagst Ja wenn du Nein meinst und fragst dich, wann du endlich aufhörst, dich für andere zu verbiegen.</p></div>
+          <div class="pain-card"><div class="pain-card__icon">⏳</div><p class="pain-card__text">Du willst etwas verändern, weisst aber nicht wo anfangen, und jeder Versuch scheitert nach kurzer Zeit.</p></div>
         </div>
       </div>
     </div>
@@ -491,10 +534,10 @@
         <h2 class="benefits__title">Dein Leben nach dem Coaching</h2>
       </div>
       <div class="benefits__grid">
-        <div class="benefit-card"><div class="benefit-card__icon">🧠</div><h3 class="benefit-card__title">Mentale Klarheit</h3><p class="benefit-card__text">Du weisst, wer du bist, was du willst — und warum. Keine innere Zerrissenheit mehr.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">🧠</div><h3 class="benefit-card__title">Mentale Klarheit</h3><p class="benefit-card__text">Du weisst, wer du bist, was du willst und warum. Keine innere Zerrissenheit mehr.</p></div>
         <div class="benefit-card"><div class="benefit-card__icon">⚡</div><h3 class="benefit-card__title">Mehr Energie &amp; Fokus</h3><p class="benefit-card__text">Du handelst statt zu zögern. Du nutzt deine Energie gezielt für das, was wirklich zählt.</p></div>
         <div class="benefit-card"><div class="benefit-card__icon">🔓</div><h3 class="benefit-card__title">Blockaden lösen</h3><p class="benefit-card__text">Die alten Muster, die dich seit Jahren bremsen, verlieren ihre Macht über dich.</p></div>
-        <div class="benefit-card"><div class="benefit-card__icon">🎯</div><h3 class="benefit-card__title">Klare Ziele erreichen</h3><p class="benefit-card__text">Du setzt dir realistische Ziele und — was wichtiger ist — du erreichst sie auch.</p></div>
+        <div class="benefit-card"><div class="benefit-card__icon">🎯</div><h3 class="benefit-card__title">Klare Ziele erreichen</h3><p class="benefit-card__text">Du setzt dir realistische Ziele und erreichst sie auch.</p></div>
         <div class="benefit-card"><div class="benefit-card__icon">💪</div><h3 class="benefit-card__title">Echtes Selbstvertrauen</h3><p class="benefit-card__text">Nicht aufgesetzt, sondern tief verankert. Du vertraust dir und deinen Entscheidungen.</p></div>
         <div class="benefit-card"><div class="benefit-card__icon">🌱</div><h3 class="benefit-card__title">Nachhaltige Veränderung</h3><p class="benefit-card__text">Kein kurzfristiger Hype. Echte, dauerhafte Transformation, die in deinem Alltag sichtbar ist.</p></div>
       </div>
@@ -516,7 +559,7 @@
         <div class="feature__bottom">
           <p class="feature__desc">Mein Ansatz kombiniert bewährte Methoden mit modernen Erkenntnissen aus Neurowissenschaft, Epigenetik und Psychologie. Wir arbeiten nicht nur an Strategien — wir verändern die Muster, die dich bisher aufgehalten haben. Dabei ist die Arbeit mit dem Unterbewusstsein essentiell für den Erfolg.</p>
           <p class="feature__desc">In unseren 1:1-Sessions gehen wir tief. Wir finden heraus, was dich wirklich antreibt, was dich blockiert — und entwickeln einen massgeschneiderten Plan, der zu dir und deinem Leben passt.</p>
-          <a href="#contact" class="btn btn--primary" style="align-self:flex-start;">Jetzt Kostenloses Erstgespräch</a>
+          <a href="#contact" class="btn btn--primary" style="align-self:flex-start;">Kostenloses Erstgespräch</a>
         </div>
         <div class="feature__badges-wrap">
           <div class="feature__badges">
@@ -577,7 +620,7 @@
         <div class="about__content">
           <div class="section-label">Über mich</div>
           <h2 class="about__title">Dein Coach:<br>Reto Bucher</h2>
-          <p class="about__text"><strong>Reto Bucher</strong>, geboren 1975 in der Schweiz, ist zertifizierter Hypnosetherapeut und Motivationsredner im Bereich «Persönlichkeitsentwicklung und persönlichem Wohlbefinden».</p>
+          <p class="about__text"><strong>Reto Bucher</strong>, geboren 1975 in der Schweiz, ist zertifizierter Hypnosetherapeut und Coach im Bereich «Persönlichkeitsentwicklung und mentaler Gesundheit».</p>
           <p class="about__text">In über 10 Jahren Erfahrung hat er vielen Menschen geholfen, durch seine einzigartigen Fähigkeiten ihr volles Potenzial zu entfalten.</p>
           <ul class="about__credentials">
             <li class="about__credential"><span class="about__star">★</span><span>Hypnosetherapeut</span></li>
@@ -598,7 +641,7 @@
           <h2 class="cta-banner__title">Bereit für den nächsten Schritt?</h2>
           <p class="cta-banner__sub">30 Minuten. Kostenlos. Unverbindlich. Dein erster Schritt zur Veränderung.</p>
         </div>
-        <a href="mailto:hallo@viveahora.ch" class="btn btn--white btn--large">Kostenloses Erstgespräch</a>
+        <a href="mailto:hallo@viveahora.ch" class="btn btn--dark btn--large btn--pulse">Kostenloses Erstgespräch</a>
       </div>
     </div>
   </section>
@@ -644,7 +687,17 @@
               <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
             </div>
           </div>
-          <p class="testimonial-card__text">«Reto ist nicht nur unglaublich nett – er versteht sein Handwerk! Ich hatte eine Hypnosesitzung mit ihm via Zoom und war wirklich beeindruckt. Er hat sich viel Zeit genommen, mir mit grossem Einfühlungsvermögen zugehört und mir sogar ein paar Wochen später eine kostenlose Folgesitzung angeboten. Die Erfahrung war durchweg positiv und sehr hilfreich für mich. Ich würde mich jederzeit wieder an Reto wenden und kann die Zusammenarbeit mit ihm uneingeschränkt empfehlen. Vielen Dank, Reto!»</p>
+          <p class="testimonial-card__text">«Ich habe unglaubliche Unterstützung erfahren! Ein hervorragender Therapeut, der mir geholfen hat, meine Angstzustände zu bewältigen und das Zähneknirschen zu überwinden, mit dem ich jahrelang zu kämpfen hatte. Angesichts meiner Erfolge habe ich meine Mutter ermutigt, ebenfalls eine Sitzung bei ihm zu buchen. Die Nachsorge ist fantastisch; es ist weit mehr als nur eine Hypnosesitzung. Absolut empfehlenswert.»</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background: #4285F4;">L</div>
+            <div>
+              <div class="testimonial-card__name">Lina Valdés</div>
+              <div class="testimonial-card__verified">✓ Verifizierte Google-Bewertung</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card"> Ich hatte eine Hypnosesitzung mit ihm via Zoom und war wirklich beeindruckt. Er hat sich viel Zeit genommen, mir mit grossem Einfühlungsvermögen zugehört und mir sogar ein paar Wochen später eine kostenlose Folgesitzung angeboten. Die Erfahrung war durchweg positiv und sehr hilfreich für mich. Ich würde mich jederzeit wieder an Reto wenden und kann die Zusammenarbeit mit ihm uneingeschränkt empfehlen. Vielen Dank, Reto!»</p>
           <div class="testimonial-card__author">
             <div class="testimonial-card__avatar" style="background: none; padding: 0;"><img src="tonia-gerson.jpg" alt="Tonia Gerson" style="width:44px;height:44px;border-radius:50%;object-fit:cover;"></div>
             <div>
@@ -685,7 +738,7 @@
   <section class="section forwhom">
     <div class="container">
       <div class="forwhom__inner">
-        <h2 style="text-align:center; margin-bottom: 2rem;">Das Coaching ist für Dich geeignet, wenn:</h2>
+        <h2 style="text-align:center; margin-bottom: 3rem;">Das Coaching ist für Dich geeignet, wenn:</h2>
         <div class="forwhom__card">
           <ul class="forwhom__list">
             <li>
@@ -698,15 +751,15 @@
             </li>
             <li>
               <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
-              <span>Du eine nachhaltige, tiefe Veränderung suchst — keine oberflächlichen Tipps.</span>
+              <span>Du eine nachhaltige, tiefe Veränderung suchst, die an der Ursache ansetzt und nicht an den Symptomen.</span>
             </li>
             <li>
               <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
-              <span>Du Klarheit über deine Ziele und den nächsten konkreten Schritt gewinnen willst.</span>
+              <span>Du dein Leben nach deinen Vorstellungen gestalten möchtest.</span>
             </li>
             <li>
               <div class="forwhom__check"><svg viewBox="0 0 12 10"><polyline points="1,5 4,9 11,1"/></svg></div>
-              <span>Du bereit bist, aktiv an dir zu arbeiten und wirklich etwas in deinem Leben zu verändern.</span>
+              <span>Du bereit bist, aktiv an dir zu arbeiten und echte Veränderung in deinem Leben anzugehen.</span>
             </li>
           </ul>
         </div>
@@ -736,7 +789,7 @@
             <li>Persönliche 1:1-Session</li>
             <li>Systemisches Coaching, PSYCH-K® oder Hypnose</li>
             <li>Massgeschneidert auf dein Anliegen</li>
-            <li>Online oder vor Ort</li>
+            <li>Online</li>
           </ul>
           <a href="#contact" class="pricing__cta pricing__cta--default">Kostenloses Erstgespräch</a>
         </div>
@@ -755,7 +808,7 @@
             <li>3 persönliche 1:1-Sessions</li>
             <li>Alle Methoden kombinierbar</li>
             <li>Roter Faden über mehrere Sitzungen</li>
-            <li>Online oder vor Ort</li>
+            <li>Online</li>
             <li>10% Ersparnis gegenüber Einzelpreis</li>
           </ul>
           <a href="#contact" class="pricing__cta pricing__cta--featured">Kostenloses Erstgespräch</a>
@@ -774,7 +827,7 @@
             <li>6 persönliche 1:1-Sessions</li>
             <li>Tiefe, nachhaltige Veränderung</li>
             <li>Alle Methoden kombinierbar</li>
-            <li>Online oder vor Ort</li>
+            <li>Online</li>
             <li>15% Ersparnis gegenüber Einzelpreis</li>
           </ul>
           <a href="#contact" class="pricing__cta pricing__cta--default">Kostenloses Erstgespräch</a>
@@ -802,8 +855,9 @@
       <div class="faq__list">
         <div class="faq__item"><button class="faq__question">Wie läuft das erste Gespräch ab? <span class="faq__icon">+</span></button><div class="faq__answer">Das erste Gespräch dauert ca. 30 Minuten und ist völlig kostenlos und unverbindlich. Wir schauen gemeinsam, wo du stehst, was du verändern möchtest — und ob wir zusammenpassen.</div></div>
         <div class="faq__item"><button class="faq__question">Was ist Hypnosetherapie genau? <span class="faq__icon">+</span></button><div class="faq__answer">Hypnosetherapie ist eine wissenschaftlich anerkannte Methode, bei der du in einen entspannten Bewusstseinszustand versetzt wirst. In diesem Zustand ist dein Unterbewusstsein zugänglicher für positive Veränderungen. Du bist dabei jederzeit bei vollem Bewusstsein und in Kontrolle.</div></div>
-        <div class="faq__item"><button class="faq__question">Wie viele Sessions brauche ich? <span class="faq__icon">+</span></button><div class="faq__answer">Das hängt von deinen Zielen und deiner Ausgangssituation ab. Viele Klienten sehen nach 3–5 Sessions deutliche Veränderungen. Ein typisches Programm umfasst 6–12 Sessions über 3–6 Monate.</div></div>
-        <div class="faq__item"><button class="faq__question">Findet das Coaching online oder vor Ort statt? <span class="faq__icon">+</span></button><div class="faq__answer">Beides ist möglich. Online-Sessions sind genau so effektiv wie persönliche Treffen. Für Hypnosetherapie empfehle ich jedoch, wenn möglich, persönliche Sessions.</div></div>
+        <div class="faq__item"><button class="faq__question">Wie schnell werde ich Ergebnisse sehen? <span class="faq__icon">+</span></button><div class="faq__answer">Ergebnisorientiertes Coaching unterstützt dich dabei, positive Veränderungen zu erzielen und langfristiges, nachhaltiges Wachstum zu erreichen. Die Ergebnisse des Coachings hängen von deinen Zielen und Engagement ab. Viele Klienten berichten jedoch von ersten positiven Veränderungen bereits nach der ersten Sitzung. Ich erarbeite mit dir realistische Meilensteine und helfe dir, diese einfach zu erreichen.</div></div>
+        <div class="faq__item"><button class="faq__question">Wie viele Sessions brauche ich? <span class="faq__icon">+</span></button><div class="faq__answer">Das hängt von deinen Zielen und deiner Ausgangssituation ab. Viele Klienten sehen nach 3–4 Sessions deutliche Veränderungen. Ein typisches Programm umfasst 3–6 Sessions über 1–3 Monate.</div></div>
+        <div class="faq__item"><button class="faq__question">Findet das Coaching online statt? <span class="faq__icon">+</span></button><div class="faq__answer">Ja, alle Sessions finden online statt. Online-Coaching ist genau so effektiv wie persönliche Treffen – und du bist örtlich völlig flexibel.</div></div>
         <div class="faq__item"><button class="faq__question">Was kostet das Coaching? <span class="faq__icon">+</span></button><div class="faq__answer">Die Preise besprechen wir individuell im Erstgespräch, da jedes Programm massgeschneidert ist. Das erste Gespräch ist kostenlos — buche es jetzt und lass uns schauen, was möglich ist.</div></div>
       </div>
     </div>
@@ -817,7 +871,7 @@
     <div class="final-cta__overlay"></div>
     <div class="container">
       <div class="final-cta__eyebrow">Jetzt starten</div>
-      <h2 class="final-cta__title">Deine Veränderung beginnt heute.</h2>
+      <h2 class="final-cta__title">Deine positive Veränderung beginnt heute.</h2>
       <p class="final-cta__sub">Nicht morgen. Nicht «wenn die Zeit besser ist». Heute.</p>
       <a href="mailto:hallo@viveahora.ch" class="btn btn--primary btn--large">Kostenloses Erstgespräch</a>
     </div>
@@ -879,6 +933,36 @@
     }
     positionVTrack();
     window.addEventListener('resize', positionVTrack);
+
+    // Feature image: shimmer + zoom + overlay tags
+    const featureImg = document.querySelector('.feature__image');
+    if (featureImg) {
+      const featureObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            featureObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      featureObserver.observe(featureImg);
+    }
+
+    // Scroll fade-in for pain cards
+    const painCards = document.querySelectorAll('.pain-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          const index = Array.from(painCards).indexOf(card);
+          setTimeout(() => {
+            card.classList.add('is-visible');
+          }, index * 150);
+          observer.unobserve(card);
+        }
+      });
+    }, { threshold: 0.15 });
+    painCards.forEach(card => observer.observe(card));
   </script>
 
 </body>
