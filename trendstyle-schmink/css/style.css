@@ -217,12 +217,18 @@ section { padding: 56px 0; }
 .course-image-card {
   background: var(--white);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 16px;
   box-shadow: var(--shadow);
   margin-bottom: 28px;
-  max-width: 400px;
+  max-width: 420px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.course-cover-img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
 }
 
 .course-image-placeholder {
