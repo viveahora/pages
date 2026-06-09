@@ -45,5 +45,29 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
     if (typeof fbq !== 'undefined') {
       fbq('track', 'InitiateCheckout');
     }
+    sendCAPIEvent('InitiateCheckout');
   });
 });
+
+// CAPI – serverseitiges Event senden
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? match[2] : undefined;
+}
+
+function sendCAPIEvent(eventName) {
+  fetch('/.netlify/functions/meta-capi', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      eventName,
+      sourceUrl: window.location.href,
+      clientUserAgent: navigator.userAgent,
+      fbp: getCookie('_fbp'),
+      fbc: getCookie('_fbc'),
+    }),
+  }).catch(() => {});
+}
+
+// PageView via CAPI beim Laden
+sendCAPIEvent('PageView');
