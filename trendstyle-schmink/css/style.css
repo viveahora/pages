@@ -756,8 +756,7 @@ section { padding: 56px 0; }
 }
 
 .fashion-reel {
-  background: #1a1a1a;
-  border-radius: var(--radius);
+  background: transparent;
 }
 
 .reel-grid {
