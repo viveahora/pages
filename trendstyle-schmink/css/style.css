@@ -18,6 +18,7 @@
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --radius: 16px;
+  --content-w: 720px;
   --shadow: 0 4px 24px rgba(0,0,0,0.08);
   --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
   --max-w: 640px;
@@ -1186,4 +1187,96 @@ section { padding: 56px 0; }
 
   .summary h2 { text-align: left; }
   .eyebrow-small { text-align: left; }
+}
+
+/* ═══════════════════════════════════════
+   DESKTOP CONTENT WIDTH
+   Bilder & Videos auf max 720px begrenzen
+═══════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  /* Videos zentriert, max 720px */
+  .hero-video,
+  .lesson-video-preview,
+  .wistia_embed {
+    max-width: var(--content-w);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Kurs-Cover Bild */
+  .course-image-card {
+    max-width: 560px;
+  }
+
+  /* Laptop-Screenshot & Plattform-Vorschau */
+  .mockup-card,
+  .course-platform-preview {
+    max-width: var(--content-w);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mockup-card img,
+  .course-platform-preview img {
+    max-width: 100%;
+    border-radius: var(--radius);
+  }
+
+  /* PDF Dokumentation */
+  .docs-card {
+    max-width: var(--content-w);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .docs-card img {
+    max-width: 100%;
+    border-radius: var(--radius);
+  }
+
+  /* Bonus Vorher/Nachher */
+  .before-after-mockup img {
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: var(--radius);
+  }
+
+  /* Regina Galerie */
+  .regina-img-placeholder {
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Fashion Reel */
+  .fashion-reel {
+    max-width: var(--content-w);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* Zusammenfassung Bild */
+  .summary-image {
+    max-width: var(--content-w);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Lesson-Liste schöner auf Desktop */
+  .lessons-intro {
+    max-width: var(--content-w);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lesson-list {
+    max-width: var(--content-w);
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
