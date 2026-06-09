@@ -756,9 +756,8 @@ section { padding: 56px 0; }
 }
 
 .fashion-reel {
-  border-radius: var(--radius);
-  overflow: hidden;
   background: #1a1a1a;
+  border-radius: var(--radius);
 }
 
 .reel-grid {
@@ -1203,9 +1202,11 @@ section { padding: 56px 0; }
     margin-right: auto;
   }
 
-  /* Fashion Reel – volle Breite im Grid */
+  /* Fashion Reel – volle Breite im Grid, kein overflow:hidden */
+  .fashion-reel,
   .fashion-reel .wistia_embed {
     max-width: 100% !important;
+    overflow: visible !important;
   }
 
   /* Kurs-Cover Bild */
@@ -1253,15 +1254,6 @@ section { padding: 56px 0; }
     max-width: 560px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  /* Fashion Reel */
-  .fashion-reel {
-    max-width: var(--content-w);
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: var(--radius);
-    overflow: hidden;
   }
 
   /* Zusammenfassung Bild */
