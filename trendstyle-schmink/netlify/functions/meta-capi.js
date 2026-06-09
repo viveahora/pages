@@ -45,6 +45,7 @@ exports.handler = async (event) => {
         user_data: userData,
       },
     ],
+    ...(process.env.META_TEST_EVENT_CODE && { test_event_code: process.env.META_TEST_EVENT_CODE }),
   });
 
   console.log('Sending CAPI event:', eventName, 'IP:', clientIp);
