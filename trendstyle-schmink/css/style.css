@@ -1197,11 +1197,15 @@ section { padding: 56px 0; }
 
   /* Videos zentriert, max 720px */
   .hero-video,
-  .lesson-video-preview,
-  .wistia_embed {
+  .lesson-video-preview {
     max-width: var(--content-w);
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /* Fashion Reel – volle Breite im Grid */
+  .fashion-reel .wistia_embed {
+    max-width: 100% !important;
   }
 
   /* Kurs-Cover Bild */
