@@ -1202,11 +1202,11 @@ section { padding: 56px 0; }
     margin-right: auto;
   }
 
-  /* Fashion Reel – volle Breite im Grid, kein overflow:hidden */
-  .fashion-reel,
-  .fashion-reel .wistia_embed {
-    max-width: 100% !important;
-    overflow: visible !important;
+  /* Fashion Reel – gleiche Breite wie Lektion-Vorschau Video */
+  .fashion-reel {
+    max-width: var(--content-w);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Kurs-Cover Bild */
