@@ -748,6 +748,7 @@ section { padding: 56px 0; }
   height: 320px;
   object-fit: cover;
   display: block;
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .slider-btn {
