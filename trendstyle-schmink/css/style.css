@@ -313,8 +313,18 @@ section { padding: 56px 0; }
 .mockup-card {
   background: var(--beige);
   border-radius: var(--radius);
-  padding: 28px 20px;
+  padding: 48px 40px 32px;
   margin-bottom: 28px;
+  text-align: center;
+}
+
+.mockup-card img {
+  width: 80%;
+  max-width: 560px;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
 
 .laptop-mockup {
