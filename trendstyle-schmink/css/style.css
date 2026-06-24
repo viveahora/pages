@@ -866,9 +866,14 @@ section { padding: 56px 0; }
 }
 
 .summary-image {
-  background: var(--beige);
   border-radius: var(--radius);
-  padding: 28px 20px;
+  overflow: hidden;
+}
+
+.summary-image img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
 }
 
 .devices-mockup {
