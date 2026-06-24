@@ -1,3 +1,35 @@
+// Image Slider
+const slider = document.querySelector('.slider');
+if (slider) {
+  const track = slider.querySelector('.slider-track');
+  const dots = slider.querySelectorAll('.dot');
+  const slides = slider.querySelectorAll('.slide');
+  let current = 0;
+  let autoplay;
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach(d => d.classList.remove('active'));
+    dots[current].classList.add('active');
+  }
+
+  slider.querySelector('.prev').addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+  slider.querySelector('.next').addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+  dots.forEach(dot => dot.addEventListener('click', () => { goTo(+dot.dataset.index); resetAutoplay(); }));
+
+  // Touch/Swipe
+  let startX = 0;
+  slider.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+  slider.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); resetAutoplay(); }
+  });
+
+  function resetAutoplay() { clearInterval(autoplay); autoplay = setInterval(() => goTo(current + 1), 4000); }
+  resetAutoplay();
+}
+
 // Accordion FAQ
 document.querySelectorAll('.accordion-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
