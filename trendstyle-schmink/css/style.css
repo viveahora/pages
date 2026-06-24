@@ -1247,15 +1247,25 @@ section { padding: 56px 0; }
   }
 
   .summary .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-    text-align: left;
+    display: block;
+    text-align: center;
   }
 
-  .summary h2 { text-align: left; }
-  .eyebrow-small { text-align: left; }
+  .summary h2 { text-align: center; }
+  .eyebrow-small { text-align: center; }
+
+  .summary-image {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    background: var(--beige);
+    border-radius: var(--radius);
+    padding: 40px;
+  }
+
+  .summary-image img {
+    width: 80%;
+    border-radius: 12px;
+  }
 }
 
 /* ═══════════════════════════════════════
