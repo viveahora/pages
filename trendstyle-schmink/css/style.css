@@ -68,6 +68,9 @@ section { padding: 56px 0; }
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
   text-align: center;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-primary {
