@@ -10,9 +10,9 @@
   --sage-light: #c4d0bb;
 
   /* Warm Rose (Highlights, Hover, Badges) */
-  --rose: #C4937A;
-  --rose-dark: #b07d65;
-  --rose-light: #e8c9b8;
+  --rose: #e2c6d2;
+  --rose-dark: #c9a8ba;
+  --rose-light: #f3e5ee;
 
   /* Hintergründe */
   --beige: #F5F0EB;
@@ -31,7 +31,7 @@
 
   /* Legacy (nicht mehr verwendet, aber für Kompatibilität) */
   --blue: #2563EB;
-  --gold: #C4937A;
+  --gold: #e2c6d2;
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --radius: 16px;
@@ -92,15 +92,15 @@ section { padding: 56px 0; }
 
 .btn-primary {
   background: var(--rose);
-  color: var(--white);
+  color: var(--walnut);
   padding: 18px 32px;
-  box-shadow: 0 4px 16px rgba(196,147,122,0.35);
+  box-shadow: 0 4px 16px rgba(226,198,210,0.45);
 }
 
 .btn-primary:hover {
   background: var(--rose-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(196,147,122,0.45);
+  box-shadow: 0 8px 24px rgba(226,198,210,0.6);
 }
 
 .btn-primary.large { padding: 20px 40px; font-size: 1.1rem; }
