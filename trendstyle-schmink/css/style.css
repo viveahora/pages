@@ -10,9 +10,9 @@
   --sage-light: #c4d0bb;
 
   /* Warm Rose (Highlights, Hover, Badges) */
-  --rose: #B5768A;
-  --rose-dark: #9d5e76;
-  --rose-light: #f0dce4;
+  --rose: #a8797b;
+  --rose-dark: #8f6163;
+  --rose-light: #f0dede;
 
   /* Hintergründe */
   --beige: #F5F0EB;
@@ -31,7 +31,7 @@
 
   /* Legacy (nicht mehr verwendet, aber für Kompatibilität) */
   --blue: #2563EB;
-  --gold: #B5768A;
+  --gold: #a8797b;
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --radius: 16px;
