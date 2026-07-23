@@ -71,15 +71,68 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// Meta Pixel – CTA Button Tracking
-document.querySelectorAll('.btn-primary').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'InitiateCheckout');
-    }
-    sendCAPIEvent('InitiateCheckout');
+// ═══════════════════════════════════════
+// COOKIE CONSENT & TRACKING
+// ═══════════════════════════════════════
+
+const CONSENT_KEY = 'ts_cookie_consent';
+
+function hasConsent() {
+  return localStorage.getItem(CONSENT_KEY) === 'accepted';
+}
+
+function loadMetaPixel() {
+  if (typeof fbq !== 'undefined') return;
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '453746324141769');
+  fbq('track', 'PageView');
+  sendCAPIEvent('PageView');
+}
+
+function initTracking() {
+  loadMetaPixel();
+
+  // CTA Button Tracking
+  document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+      sendCAPIEvent('InitiateCheckout');
+    });
   });
-});
+}
+
+// Cookie Banner
+const banner = document.getElementById('cookie-banner');
+
+function hideBanner() {
+  if (banner) banner.classList.add('hidden');
+}
+
+if (hasConsent()) {
+  hideBanner();
+  initTracking();
+} else if (localStorage.getItem(CONSENT_KEY) === 'declined') {
+  hideBanner();
+} else {
+  // Banner anzeigen
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'accepted');
+    hideBanner();
+    initTracking();
+  });
+
+  document.getElementById('cookie-decline').addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'declined');
+    hideBanner();
+  });
+}
 
 // CAPI – serverseitiges Event senden
 function getCookie(name) {
@@ -100,6 +153,3 @@ function sendCAPIEvent(eventName) {
     }),
   }).catch(() => {});
 }
-
-// PageView via CAPI beim Laden
-sendCAPIEvent('PageView');
