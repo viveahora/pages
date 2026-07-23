@@ -66,7 +66,7 @@ h2 {
   color: var(--walnut);
   text-align: center;
   margin-bottom: 28px;
-  max-width: 560px;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -508,7 +508,7 @@ section { padding: 56px 0; }
    DOCUMENTATION
 ═══════════════════════════════════════ */
 .documentation { text-align: center; }
-.documentation h2 { text-align: left; }
+.documentation h2 { text-align: center; }
 
 .docs-card {
   background: var(--beige);
@@ -674,7 +674,7 @@ section { padding: 56px 0; }
 /* ═══════════════════════════════════════
    TESTIMONIALS
 ═══════════════════════════════════════ */
-.testimonials h2 { text-align: left; margin-bottom: 32px; }
+.testimonials h2 { text-align: center; margin-bottom: 32px; }
 
 .reviews-grid {
   display: flex;
