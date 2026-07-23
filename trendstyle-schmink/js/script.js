@@ -134,6 +134,16 @@ if (hasConsent()) {
   });
 }
 
+// "Cookies verwalten" Link im Footer
+const cookieReset = document.getElementById('cookie-reset');
+if (cookieReset) {
+  cookieReset.addEventListener('click', (e) => {
+    e.preventDefault();
+    localStorage.removeItem(CONSENT_KEY);
+    if (banner) banner.classList.remove('hidden');
+  });
+}
+
 // CAPI – serverseitiges Event senden
 function getCookie(name) {
   const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
