@@ -1199,10 +1199,11 @@ section { padding: 56px 0; }
   left: 0;
   right: 0;
   z-index: 9999;
-  background: var(--walnut);
-  color: #fff;
+  background: #fdf6f0;
+  border-top: 1px solid var(--beige-dark);
+  color: var(--black);
   padding: 20px 24px;
-  box-shadow: 0 -4px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.08);
 }
 
 .cookie-banner.hidden { display: none; }
@@ -1218,11 +1219,11 @@ section { padding: 56px 0; }
 .cookie-text {
   font-size: 0.85rem;
   line-height: 1.55;
-  color: rgba(255,255,255,0.9);
+  color: var(--walnut);
 }
 
 .cookie-link {
-  color: var(--rose-light);
+  color: var(--rose);
   text-decoration: underline;
 }
 
@@ -1252,8 +1253,8 @@ section { padding: 56px 0; }
 
 .cookie-btn-decline {
   background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.4);
+  color: var(--walnut);
+  border: 1px solid var(--beige-dark);
 }
 
 @media (min-width: 600px) {
