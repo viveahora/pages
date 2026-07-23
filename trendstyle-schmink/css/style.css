@@ -162,10 +162,6 @@ section { padding: 56px 0; }
   line-height: 1.2;
   margin-bottom: 20px;
   color: var(--walnut);
-  text-align: center;
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero-subline {
