@@ -590,7 +590,7 @@ section { padding: 56px 0; }
 }
 
 .docs-text {
-  text-align: left;
+  text-align: left !important;
   margin-bottom: 32px;
   font-size: 1rem;
   line-height: 1.7;
