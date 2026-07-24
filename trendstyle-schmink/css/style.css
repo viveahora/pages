@@ -558,8 +558,8 @@ section { padding: 56px 0; }
 
 .problem-item {
   display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
   align-items: start;
   padding: 28px 0;
   border-bottom: 1px solid var(--beige-dark);
@@ -580,9 +580,9 @@ section { padding: 56px 0; }
 }
 
 .about-course .problem-number {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   opacity: 1;
-  padding-top: 6px;
+  padding-top: 4px;
 }
 
 .problem-body h3 {
