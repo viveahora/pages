@@ -171,6 +171,13 @@ section { padding: 56px 0; }
   color: var(--black);
 }
 
+.video-label {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
 .hero-video {
   margin-bottom: 28px;
   border-radius: var(--radius);
