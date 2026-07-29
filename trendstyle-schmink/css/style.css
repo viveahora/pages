@@ -403,7 +403,7 @@ section { padding: 56px 0; }
   background: var(--beige);
   border-radius: var(--radius);
   padding: 48px 40px 32px;
-  margin-bottom: 28px;
+  margin-bottom: 48px;
   text-align: center;
 }
 
@@ -466,7 +466,7 @@ section { padding: 56px 0; }
 
 .lessons-intro {
   text-align: left;
-  margin-bottom: 24px;
+  margin-bottom: 36px;
   font-size: 1rem;
   line-height: 1.7;
 }
@@ -474,11 +474,11 @@ section { padding: 56px 0; }
 .lesson-list {
   list-style: none;
   text-align: left;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .lesson-list li {
-  padding: 10px 0;
+  padding: 14px 0;
   border-bottom: 1px solid #ebebeb;
   font-size: 0.95rem;
   display: flex;
@@ -501,10 +501,15 @@ section { padding: 56px 0; }
   font-size: 0.85rem;
 }
 
+.lesson-video-preview {
+  margin-bottom: 48px;
+}
+
 .course-platform-preview {
   background: var(--beige);
   border-radius: var(--radius);
   padding: 24px;
+  margin-top: 8px;
 }
 
 .platform-mockup {
