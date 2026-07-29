@@ -783,7 +783,7 @@ section { padding: 56px 0; }
 /* ═══════════════════════════════════════
    TESTIMONIALS
 ═══════════════════════════════════════ */
-.testimonials h2 { text-align: center; margin-bottom: 32px; }
+.testimonials h2 { text-align: center; margin-bottom: 32px; max-width: 900px; }
 
 .cta-mid { text-align: center; padding: 60px 0; }
 .cta-mid h2 { margin-bottom: 12px; }
