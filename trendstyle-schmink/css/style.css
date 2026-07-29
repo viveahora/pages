@@ -1036,6 +1036,48 @@ section { padding: 56px 0; }
 }
 
 /* ═══════════════════════════════════════
+   FÜR WEN IST DAS NICHT?
+═══════════════════════════════════════ */
+.not-for { padding: 60px 0; }
+.not-for h2 { margin-bottom: 10px; }
+.not-for h2 em { font-style: italic; color: var(--rose); }
+.not-for-intro { color: var(--gray); font-size: 0.95rem; margin-bottom: 36px; text-align: center; }
+
+.not-for-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--beige-dark); }
+
+.not-for-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--beige-dark);
+  align-items: start;
+}
+
+.not-for-x {
+  font-size: 1.1rem;
+  color: var(--rose);
+  opacity: 0.7;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.not-for-item strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--black);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.not-for-item p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════
    SUMMARY
 ═══════════════════════════════════════ */
 .summary { text-align: center; }
