@@ -1096,12 +1096,13 @@ section { padding: 56px 0; }
 }
 
 .summary-headline {
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .summary-image {
   border-radius: var(--radius);
   overflow: hidden;
+  margin-bottom: 64px;
 }
 
 .summary-image img {
