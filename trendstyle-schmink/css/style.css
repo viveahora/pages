@@ -772,6 +772,10 @@ section { padding: 56px 0; }
 ═══════════════════════════════════════ */
 .testimonials h2 { text-align: center; margin-bottom: 32px; }
 
+.cta-mid { text-align: center; padding: 60px 0; }
+.cta-mid h2 { margin-bottom: 12px; }
+.cta-mid-sub { color: var(--gray); font-size: 1rem; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
 .reviews-grid {
   display: flex;
   flex-direction: column;
