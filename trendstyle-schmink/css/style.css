@@ -1504,7 +1504,7 @@ section { padding: 56px 0; }
 
   .course-image-card { margin: 0; }
 
-  .lessons h2 { max-width: 640px; margin-left: auto; margin-right: auto; }
+  .lessons h2 { max-width: 860px; margin-left: auto; margin-right: auto; }
 
   .lesson-list {
     display: grid;
