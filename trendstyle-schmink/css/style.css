@@ -609,7 +609,7 @@ section { padding: 56px 0; }
    DOCUMENTATION
 ═══════════════════════════════════════ */
 .documentation { text-align: center; }
-.documentation h2 { text-align: center; }
+.documentation h2 { text-align: center; max-width: 900px; }
 
 .docs-card {
   background: var(--beige);
@@ -701,7 +701,7 @@ section { padding: 56px 0; }
    BONUS
 ═══════════════════════════════════════ */
 .bonus { text-align: center; }
-.bonus h2 { margin-bottom: 28px; }
+.bonus h2 { margin-bottom: 28px; max-width: 900px; }
 .bonus h3 {
   font-family: var(--font-heading);
   font-size: 1.3rem;
