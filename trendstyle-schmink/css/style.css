@@ -1204,8 +1204,18 @@ section { padding: 56px 0; }
 
 .price-urgency {
   font-size: 0.9rem;
-  color: var(--gray);
-  margin-top: 4px;
+  color: var(--rose);
+  font-weight: 600;
+  margin-top: 6px;
+  letter-spacing: 0.01em;
+}
+
+.guarantee-note {
+  font-size: 0.9rem;
+  color: var(--walnut);
+  font-weight: 500;
+  margin-top: 16px;
+  margin-bottom: 24px;
 }
 
 .payment-icons {
