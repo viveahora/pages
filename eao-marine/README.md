@@ -53,10 +53,15 @@ Ken-Burns-Zoom, Wechsel alle 6s; Logik in `js/main.js`, Styling in
 `css/style.css` unter `.hero-slide`). Erwartet genau diese drei Dateien:
 
 ```
-assets/images/hero/hero-1-boot.jpg        Boot auf dem Wasser
-assets/images/hero/hero-2-cockpit.jpg     Cockpit-Detail mit Bedienelementen
-assets/images/hero/hero-3-produkte.jpg    Produktaufnahme (Keypads/Joystick)
+assets/images/hero/hero-1-boot.webp        Boot auf dem Wasser
+assets/images/hero/hero-2-cockpit.webp     Cockpit-Detail mit Bedienelementen
+assets/images/hero/hero-3-produkte.webp    Produktaufnahme (Keypads/Joystick)
 ```
+
+Format bewusst **WebP** (kleinere Dateigrösse bei gleicher Qualität,
+Browser-Support >97% — für diese B2B-Zielgruppe ohne JPG-Fallback
+ausreichend). JPG/PNG-Originale vor dem Ablegen zu WebP konvertieren,
+z.B. mit `cwebp original.jpg -q 82 -o hero-1-boot.webp`.
 
 Bis diese Dateien vorhanden sind, fällt der Bereich optisch auf den
 Gradient-Hintergrund von `.hero-media` zurück (kein kaputtes Bild-Icon).
