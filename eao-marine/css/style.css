@@ -258,7 +258,9 @@ h3 { font-size: 24px; line-height: 34px; }
   background: linear-gradient(160deg, #eceae5, #d8d5cf);
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 22px;
+  overflow: hidden;
 }
+.product-card-media img { width: 100%; height: 100%; object-fit: cover; }
 .product-card h3 { font-size: 21px; margin-bottom: 12px; }
 .product-card ul { list-style: none; }
 .product-card li {
@@ -304,7 +306,9 @@ h3 { font-size: 24px; line-height: 34px; }
 .feature-media {
   aspect-ratio: 4/3;
   background: linear-gradient(160deg, #232b3b, #3a4a68);
+  overflow: hidden;
 }
+.feature-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .feature-panel-body p { margin-bottom: 16px; font-size: 15px; }
 .feature-panel-body h4 { font-size: 18px; margin: 24px 0 14px; }
 .feature-panel-body ul { list-style: none; }
