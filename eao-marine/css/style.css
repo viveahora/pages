@@ -477,6 +477,7 @@ footer {
   .nav-toggle { display: block; order: -1; }
   .main-nav .wrap { height: 64px; }
   .logo-tag { display: none; }
+  .logo-mark-img { width: 80px; height: auto; }
   .problem-grid, .product-grid, .footer-grid { grid-template-columns: 1fr; }
   .feature-panel { padding: 28px; }
   .section { padding: 60px 0; }
