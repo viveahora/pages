@@ -136,7 +136,7 @@ h3 { font-size: 24px; line-height: 34px; }
 .logo { display: flex; flex-direction: column; align-items: flex-end; text-decoration: none; }
 .logo-mark { display: flex; align-items: center; gap: 6px; font-family: var(--font-sans); font-weight: 900; font-size: 22px; letter-spacing: 0.02em; color: var(--black); }
 .logo-mark .dot { width: 13px; height: 13px; background: var(--red); display: inline-block; }
-.logo-mark-img { height: 26px; width: auto; display: block; }
+.logo-mark-img { width: 90px; height: auto; display: block; }
 .logo-tag { font-size: 9px; letter-spacing: 0.03em; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
 
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
@@ -146,14 +146,14 @@ h3 { font-size: 24px; line-height: 34px; }
   width: 100%;
   aspect-ratio: 16 / 6.2;
   min-height: 320px;
-  background: linear-gradient(135deg, #1c2230 0%, #2b3550 45%, #3a4a68 100%);
+  background: var(--black);
   position: relative;
   overflow: hidden;
 }
 
 /* Hero-Slider: Cross-Fade + Ken-Burns. Slides ohne (noch fehlendes) Bild
-   fallen optisch auf den .hero-media-Gradient dahinter zurück, da
-   background-image bei 404 einfach nicht zeichnet. */
+   fallen optisch auf den .hero-media-Hintergrund (Schwarz) dahinter
+   zurück, da background-image bei 404 einfach nicht zeichnet. */
 .hero-slide {
   position: absolute;
   inset: 0;
@@ -176,7 +176,7 @@ h3 { font-size: 24px; line-height: 34px; }
   .hero-slide { animation: none !important; }
 }
 
-.hero-copy { padding: 60px 0 70px; }
+.hero-copy { padding: 110px 80px 90px; }
 .eyebrow {
   display: flex;
   align-items: center;
@@ -191,7 +191,13 @@ h3 { font-size: 24px; line-height: 34px; }
 .eyebrow .accent { color: var(--red); }
 .eyebrow .sep { color: var(--gray-border); }
 
-.hero-copy h1 { font-size: clamp(32px, 4.4vw, 56px); line-height: 1.12; max-width: 760px; }
+.hero-copy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.hero-copy h1 { font-size: clamp(32px, 4.4vw, 56px); line-height: 1.12; }
 .hero-copy .sub {
   font-family: var(--font-serif);
   font-style: italic;
@@ -199,17 +205,16 @@ h3 { font-size: 24px; line-height: 34px; }
   font-size: clamp(19px, 2.2vw, 26px);
   color: var(--text-muted);
   margin-top: 10px;
-  max-width: 700px;
 }
+.hero-copy-right { padding-top: 10px; }
 .hero-copy p.lead {
-  font-family: var(--font-sans);
-  font-weight: 300;
-  font-size: 18px;
-  letter-spacing: 0.53px;
-  color: var(--text-body);
-  max-width: 620px;
-  margin: 26px 0 32px;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-muted);
 }
+.hero-copy .btn-row { margin-top: 50px; }
 
 /* ---------- Generic section ---------- */
 .section { padding: 90px 0; }
@@ -383,6 +388,10 @@ h3 { font-size: 24px; line-height: 34px; }
   gap: 60px;
   align-items: start;
 }
+.contact-person { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.contact-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.contact-person strong { display: block; font-size: 15px; color: var(--black); }
+.contact-person span { display: block; font-size: 13.5px; color: var(--text-muted); margin-top: 2px; }
 .contact-info h2 { font-size: clamp(28px, 3.4vw, 38px); margin-bottom: 18px; }
 .contact-info p { color: var(--text-muted); margin-bottom: 26px; }
 .contact-detail { display: flex; gap: 14px; margin-bottom: 18px; font-size: 15px; }
@@ -468,10 +477,14 @@ footer {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .media-grid { grid-template-columns: repeat(2, 1fr); }
   .media-tile.wide { grid-column: span 1; }
+  .hero-copy { padding: 70px 40px 60px; }
+  .hero-copy-grid { grid-template-columns: 1fr; gap: 24px; }
+  .hero-copy-right { padding-top: 0; }
 }
 @media (max-width: 680px) {
   .wrap { padding: 0 22px; }
   .utility-bar { display: none; }
+  .hero-copy { padding: 50px 22px 50px; }
   .nav-links { position: fixed; inset: 84px 0 0 0; background: var(--white); flex-direction: column; align-items: flex-start; padding: 30px 22px; gap: 22px; transform: translateX(100%); transition: transform 0.25s ease; }
   .nav-links.open { transform: translateX(0); }
   .nav-toggle { display: block; order: -1; }
