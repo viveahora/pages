@@ -38,13 +38,14 @@ Guide selbst definierten Fallback-Stack (`Times New Roman`/Georgia bzw.
 `Helvetica Neue`/Arial), bis eine Kit-ID bzw. Lizenzdatei vorliegt.
 Sobald verfügbar: Typekit-`<link>` in `index.html` `<head>` ergänzen.
 
-## Platzhalter
+## Offene Inhalte
 
-Alle `[PLATZHALTER ...]`-Markierungen in `index.html` (Texte, Bilder,
-Videos, Kontaktdaten) sind Ausgangsbasis und durch finales Material zu
-ersetzen. Bild-/Video-Flächen sind aktuell CSS-Gradients — Original-
-Dateien nach `assets/images/` bzw. `assets/video/` legen und in den
-jeweiligen HTML-Kommentaren referenzieren.
+Die `[PLATZHALTER ...]`-Markierungen wurden aus `index.html` entfernt;
+Texte, Kontaktdaten und Bild-/Video-Flächen enthalten aktuell
+Arbeitstexte bzw. CSS-Gradients als Ausgangsbasis und sind durch
+finales Material zu ersetzen. Bild-/Video-Dateien nach
+`assets/images/` bzw. `assets/video/` legen und in den jeweiligen
+HTML-Kommentaren/`<img src>` referenzieren.
 
 ## Hero-Slider
 
