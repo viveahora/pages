@@ -51,9 +51,20 @@
 
 <!-- ============ HERO ============ -->
 <section>
-  <div class="hero-media">
-    <!-- [PLATZHALTER: Herobild – Cockpit eines Fischerboots mit EAO-Bedienelementen im Einsatz, Querformat, min. 1920×750px] -->
-    <div class="placeholder-tag"></div>
+  <div class="hero-media" id="heroSlider">
+    <!--
+      Hero-Bildslider: 3 Slides, Cross-Fade + Ken-Burns (siehe css/style.css
+      ".hero-slide" und js/main.js). Dateien unter genau diesen Pfaden
+      ablegen, sobald final:
+        assets/images/hero/hero-1-boot.jpg        (Boot auf dem Wasser)
+        assets/images/hero/hero-2-cockpit.jpg      (Cockpit-Detail mit Bedienelementen)
+        assets/images/hero/hero-3-produkte.jpg     (Produktaufnahme Keypads/Joystick)
+      Bis dahin zeigen die Slides einen Gradient-Platzhalter (kein <img src>
+      auf nicht existierende Datei, damit nichts kaputt gebrochen wirkt).
+    -->
+    <div class="hero-slide active" style="background-image:url('assets/images/hero/hero-1-boot.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/hero/hero-2-cockpit.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/hero/hero-3-produkte.jpg');"></div>
   </div>
   <div class="wrap hero-copy">
     <p class="eyebrow"><span class="accent">EAO</span><span class="sep">/</span>Marine Market</p>

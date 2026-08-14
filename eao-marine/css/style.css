@@ -149,7 +149,31 @@ h3 { font-size: 24px; line-height: 34px; }
   position: relative;
   overflow: hidden;
 }
-.hero-media .placeholder-tag { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+
+/* Hero-Slider: Cross-Fade + Ken-Burns. Slides ohne (noch fehlendes) Bild
+   fallen optisch auf den .hero-media-Gradient dahinter zurück, da
+   background-image bei 404 einfach nicht zeichnet. */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+  animation: heroKenBurns 9s ease-out forwards;
+  animation-play-state: paused;
+}
+.hero-slide.active {
+  opacity: 1;
+  animation-play-state: running;
+}
+@keyframes heroKenBurns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.09) translate(-1%, -1%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { animation: none !important; }
+}
 
 .hero-copy { padding: 60px 0 70px; }
 .eyebrow {

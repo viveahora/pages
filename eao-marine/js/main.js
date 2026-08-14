@@ -1,3 +1,22 @@
+// Hero-Slider: Cross-Fade + Ken-Burns, wechselt automatisch alle 6s
+const heroSlides = document.querySelectorAll('#heroSlider .hero-slide');
+if (heroSlides.length > 1) {
+  let heroIndex = 0;
+  setInterval(() => {
+    const current = heroSlides[heroIndex];
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+    const next = heroSlides[heroIndex];
+
+    current.classList.remove('active');
+
+    // Ken-Burns-Animation für den neuen Slide von vorn starten
+    next.style.animation = 'none';
+    void next.offsetWidth; // reflow erzwingen
+    next.style.animation = '';
+    next.classList.add('active');
+  }, 6000);
+}
+
 // Mobile Nav Toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');

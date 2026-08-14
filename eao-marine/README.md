@@ -46,6 +46,23 @@ ersetzen. Bild-/Video-Flächen sind aktuell CSS-Gradients — Original-
 Dateien nach `assets/images/` bzw. `assets/video/` legen und in den
 jeweiligen HTML-Kommentaren referenzieren.
 
+## Hero-Slider
+
+Der Hero-Bereich ist ein automatischer Bild-Slider (Cross-Fade + leichter
+Ken-Burns-Zoom, Wechsel alle 6s; Logik in `js/main.js`, Styling in
+`css/style.css` unter `.hero-slide`). Erwartet genau diese drei Dateien:
+
+```
+assets/images/hero/hero-1-boot.jpg        Boot auf dem Wasser
+assets/images/hero/hero-2-cockpit.jpg     Cockpit-Detail mit Bedienelementen
+assets/images/hero/hero-3-produkte.jpg    Produktaufnahme (Keypads/Joystick)
+```
+
+Bis diese Dateien vorhanden sind, fällt der Bereich optisch auf den
+Gradient-Hintergrund von `.hero-media` zurück (kein kaputtes Bild-Icon).
+Weitere Slides: einfach ein zusätzliches `<div class="hero-slide" ...>`
+in `index.html` ergänzen — der Slider erkennt die Anzahl automatisch.
+
 ## Kontaktformular
 
 Ist aktuell rein clientseitig (zeigt nur eine Erfolgsmeldung, sendet
