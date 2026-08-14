@@ -473,7 +473,9 @@ footer {
   .utility-bar { display: none; }
   .nav-links { position: fixed; inset: 84px 0 0 0; background: var(--white); flex-direction: column; align-items: flex-start; padding: 30px 22px; gap: 22px; transform: translateX(100%); transition: transform 0.25s ease; }
   .nav-links.open { transform: translateX(0); }
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; order: -1; }
+  .main-nav .wrap { height: 64px; }
+  .logo-tag { display: none; }
   .problem-grid, .product-grid, .footer-grid { grid-template-columns: 1fr; }
   .feature-panel { padding: 28px; }
   .section { padding: 60px 0; }
