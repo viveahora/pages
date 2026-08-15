@@ -4,7 +4,7 @@
 // [data-de-alt] / [data-de-aria-label] behandeln alt- bzw. aria-label-Attribute
 // separat, da diese nicht Teil von innerHTML sind.
 const LANG_STORAGE_KEY = 'eaoMarineLang';
-const langToggle = document.getElementById('langToggle');
+const langToggles = [document.getElementById('langToggle'), document.getElementById('langToggleMobile')].filter(Boolean);
 
 function setYear() {
   const yearEl = document.getElementById('year');
@@ -44,23 +44,23 @@ function applyLanguage(lang) {
     metaDesc.setAttribute('content', lang === 'de' ? metaDesc.dataset.de : metaDesc.dataset.en);
   }
 
-  if (langToggle) {
-    langToggle.textContent = lang === 'de' ? 'EN' : 'DE';
-    langToggle.setAttribute('aria-label', lang === 'de' ? 'Switch language to English' : 'Switch language to German');
-  }
+  langToggles.forEach((toggle) => {
+    toggle.textContent = lang === 'de' ? 'EN' : 'DE';
+    toggle.setAttribute('aria-label', lang === 'de' ? 'Switch language to English' : 'Switch language to German');
+  });
 
   setYear(); // die im Footer per innerHTML ersetzte #year-Span neu befüllen
   localStorage.setItem(LANG_STORAGE_KEY, lang);
 }
 
 let currentLang = localStorage.getItem(LANG_STORAGE_KEY) || 'en';
-if (langToggle) {
-  langToggle.addEventListener('click', (e) => {
+langToggles.forEach((toggle) => {
+  toggle.addEventListener('click', (e) => {
     e.preventDefault();
     currentLang = currentLang === 'en' ? 'de' : 'en';
     applyLanguage(currentLang);
   });
-}
+});
 applyLanguage(currentLang);
 
 // Hero-Slider: Cross-Fade + Ken-Burns, wechselt automatisch alle 6s
