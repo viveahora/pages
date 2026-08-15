@@ -82,6 +82,20 @@ if (heroSlides.length > 1) {
   }, 6000);
 }
 
+// Vorteile-Karten: Fade-in-up beim Reinscrollen (einmalig pro Karte)
+const advantageCards = document.querySelectorAll('.advantage-grid .problem-card');
+if (advantageCards.length) {
+  const advantageObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        advantageObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  advantageCards.forEach((card) => advantageObserver.observe(card));
+}
+
 // "Why EAO"-Video: startet automatisch, sobald der Bereich sichtbar wird
 const whyEaoVideo = document.getElementById('whyEaoVideo');
 if (whyEaoVideo) {
