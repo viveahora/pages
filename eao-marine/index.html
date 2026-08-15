@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EAO Marine | HMI Solutions for Fishing Boat &amp; Shipyard Applications</title>
-<meta name="description" content="Rugged control elements, keypads, and rotary cursor controllers from EAO for fishing boat and workboat cockpits." />
+<title data-de="EAO Marine | HMI-Lösungen für Fischerboot- &amp; Werftbau">EAO Marine | HMI Solutions for Fishing Boat &amp; Shipyard Applications</title>
+<meta name="description" content="Rugged control elements, keypads, and rotary cursor controllers from EAO for fishing boat and workboat cockpits." data-de="Robuste Bedienelemente, Keypads und Rotary Cursor Controller von EAO für Cockpits von Fischerbooten und Arbeitsschiffen." />
 <!--
   Schriftlizenzen: Original nutzt Adobe Typekit "Minion Pro" (Headlines) und
   die lizenzierte "Helvetica Neue LT W05_45 Light" (Fliesstext). Ohne Kunden-
@@ -12,6 +12,12 @@
   Guide selbst definierten Fallback-Stack zurück (siehe css/style.css).
   Sobald eine Typekit-Kit-ID vorliegt, hier ergänzen, z.B.:
   <link rel="stylesheet" href="https://use.typekit.net/xxxxxxx.css">
+
+  Sprachumschalter: alle übersetzbaren Elemente tragen ein "data-de"-Attribut
+  mit dem deutschen HTML-Fragment. js/main.js sichert beim ersten Aufruf das
+  bestehende (englische) innerHTML in "data-en" und tauscht bei Klick auf den
+  Umschalter (#langToggle) zwischen beiden. Elemente ohne data-de bleiben in
+  beiden Sprachen unverändert (z.B. Produktnamen, Markenclaim).
 -->
 <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -21,7 +27,7 @@
 <div class="utility-bar">
   <div class="wrap">
     <a href="#downloads">Downloads</a>
-    <a href="#">EN</a>
+    <a href="#" id="langToggle" aria-label="Switch language to German">DE</a>
   </div>
 </div>
 
@@ -30,17 +36,17 @@
   <div class="wrap">
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#vorteile">Advantages</a></li>
-        <li><a href="#produkt">Products</a></li>
-        <li><a href="#kontakt">Contact</a></li>
+        <li><a href="#vorteile" data-de="Vorteile">Advantages</a></li>
+        <li><a href="#produkt" data-de="Produkte">Products</a></li>
+        <li><a href="#kontakt" data-de="Kontakt">Contact</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
-    <a href="#" class="logo" aria-label="EAO Homepage">
+    <a href="#" class="logo" aria-label="EAO Homepage" data-de-aria-label="EAO Startseite">
       <img class="logo-mark-img" src="assets/images/logo/eao-logo.webp" alt="eao" />
       <span class="logo-tag">Your Expert Partner for <strong>Human Machine Interfaces</strong></span>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" data-de-aria-label="Menü öffnen">
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e32013" stroke-width="1.5"><line x1="2" y1="6" x2="22" y2="6"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="18" x2="22" y2="18"/></svg>
     </button>
   </div>
@@ -67,10 +73,10 @@
     <div class="hero-copy-grid">
       <div class="hero-copy-left">
         <h1>Series 09.</h1>
-        <p class="sub">Engineered for Fishing Boats Applications.</p>
+        <p class="sub" data-de="Entwickelt für den Einsatz auf Fischerbooten.">Engineered for Fishing Boats Applications.</p>
       </div>
       <div class="hero-copy-right">
-        <p class="lead">
+        <p class="lead" data-de="Entdecke die EAO Series 09 HMI-Komponenten &ndash; entwickelt für robuste, intuitive Bedienung in anspruchsvollen Marine- und Schifffahrtsumgebungen.">
           Discover EAO Series 09 HMI components, engineered for rugged, intuitive control in demanding marine and shipping environments.
         </p>
       </div>
@@ -82,7 +88,7 @@
 <section class="section" id="vorteile">
   <div class="wrap">
     <div class="section-head">
-      <h2>Advantages.</h2>
+      <h2 data-de="Vorteile.">Advantages.</h2>
     </div>
     <div class="problem-grid advantage-grid">
 
@@ -90,32 +96,32 @@
         <div class="problem-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </div>
-        <h3>Multi-Function Keypads</h3>
-        <p>Multi-function Series 09 keypads combine rotary control, push-button operation, and joystick functionality in a single compact HMI, helping reduce hardware while maximizing functionality.</p>
+        <h3 data-de="Multifunktions-Keypads">Multi-Function Keypads</h3>
+        <p data-de="Multifunktionale Series-09-Keypads vereinen Drehregler, Tastenbedienung und Joystick-Funktionalität in einem kompakten HMI &ndash; das reduziert die Hardware und maximiert gleichzeitig die Funktionalität.">Multi-function Series 09 keypads combine rotary control, push-button operation, and joystick functionality in a single compact HMI, helping reduce hardware while maximizing functionality.</p>
       </div>
 
       <div class="problem-card">
         <div class="problem-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
         </div>
-        <h3>RGB Status Feedback</h3>
-        <p>RGB‑illuminated actuators and indicators provide high‑visibility status feedback in low‑light and harsh maritime conditions.</p>
+        <h3 data-de="RGB-Statusanzeige">RGB Status Feedback</h3>
+        <p data-de="RGB-beleuchtete Bedienelemente und Anzeigen sorgen für gut sichtbares Status-Feedback bei schlechten Lichtverhältnissen und rauen maritimen Bedingungen.">RGB‑illuminated actuators and indicators provide high‑visibility status feedback in low‑light and harsh maritime conditions.</p>
       </div>
 
       <div class="problem-card">
         <div class="problem-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 16c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0M3 20c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0M12 3v9"/></svg>
         </div>
-        <h3>IP-Rated Sealed Switches</h3>
-        <p>IP‑rated, sealed switch components ensure long‑lasting performance in wet, saltwater, and high‑vibration marine environments.</p>
+        <h3 data-de="IP-geschützte, versiegelte Schalter">IP-Rated Sealed Switches</h3>
+        <p data-de="IP-geschützte, versiegelte Schalterkomponenten sorgen für langlebige Leistung in feuchten, salzwasserbelasteten und stark vibrierenden Marine-Umgebungen.">IP‑rated, sealed switch components ensure long‑lasting performance in wet, saltwater, and high‑vibration marine environments.</p>
       </div>
 
       <div class="problem-card">
         <div class="problem-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
-        <h3>Modular &amp; Customizable</h3>
-        <p>Modular, customizable Series 09 devices support tailored marine control panels from standard products to fully engineered solutions.</p>
+        <h3 data-de="Modular &amp; anpassbar">Modular &amp; Customizable</h3>
+        <p data-de="Modulare, anpassbare Series-09-Geräte unterstützen massgeschneiderte Marine-Bedienpanels &ndash; vom Standardprodukt bis zur vollständig kundenspezifischen Lösung.">Modular, customizable Series 09 devices support tailored marine control panels from standard products to fully engineered solutions.</p>
       </div>
 
     </div>
@@ -126,39 +132,39 @@
 <section class="section alt" id="produkt">
   <div class="wrap">
     <div class="section-head">
-      <h2>Series 09 Functions.</h2>
+      <h2 data-de="Series 09 Funktionen.">Series 09 Functions.</h2>
     </div>
     <div class="product-grid">
 
       <a class="product-card" href="#kontakt">
-        <div class="product-card-media"><img src="assets/images/keypad-cursor.webp" alt="EAO keypad and rotary cursor controller" /></div>
-        <h3>Rugged Cockpit Keypads</h3>
+        <div class="product-card-media"><img src="assets/images/keypad-cursor.webp" alt="EAO keypad and rotary cursor controller" data-de-alt="EAO Keypad und Rotary Cursor Controller" /></div>
+        <h3 data-de="Robuste Cockpit-Keypads">Rugged Cockpit Keypads</h3>
         <ul>
-          <li>IP67/IP68, permanently saltwater-resistant</li>
-          <li>Programmable RGB halo for status indication</li>
-          <li>Modular key assignment per ISO&nbsp;7000</li>
+          <li data-de="IP67/IP68, dauerhaft salzwasserfest">IP67/IP68, permanently saltwater-resistant</li>
+          <li data-de="Programmierbares RGB-Halo für Statusanzeige">Programmable RGB halo for status indication</li>
+          <li data-de="Modulare Tastenbelegung nach ISO&nbsp;7000">Modular key assignment per ISO&nbsp;7000</li>
         </ul>
         <span class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </a>
 
       <a class="product-card" href="#kontakt">
-        <div class="product-card-media"><img src="assets/images/custom-solutions.webp" alt="CAD development of a rotary cursor controller" /></div>
+        <div class="product-card-media"><img src="assets/images/custom-solutions.webp" alt="CAD development of a rotary cursor controller" data-de-alt="Entwicklung eines Rotary Cursor Controllers im CAD" /></div>
         <h3>Rotary Cursor Controller</h3>
         <ul>
-          <li>Precise navigation for multi-function displays</li>
-          <li>Tactile detent – operable with gloves</li>
-          <li>Durable, low-maintenance mechanics</li>
+          <li data-de="Präzise Navigation für Multifunktionsdisplays">Precise navigation for multi-function displays</li>
+          <li data-de="Spürbare Rastung &ndash; bedienbar mit Handschuhen">Tactile detent – operable with gloves</li>
+          <li data-de="Langlebige, wartungsarme Mechanik">Durable, low-maintenance mechanics</li>
         </ul>
         <span class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </a>
 
       <a class="product-card" href="#kontakt">
-        <div class="product-card-media"><img src="assets/images/keypad-wasserdicht.webp" alt="Waterproof EAO push button in wet conditions" /></div>
-        <h3>Waterproof Push Buttons</h3>
+        <div class="product-card-media"><img src="assets/images/keypad-wasserdicht.webp" alt="Waterproof EAO push button in wet conditions" data-de-alt="Wasserdichter Drucktaster von EAO im Einsatz bei Nässe" /></div>
+        <h3 data-de="Wasserdichte Drucktaster">Waterproof Push Buttons</h3>
         <ul>
-          <li>Wear-free reed contacts</li>
-          <li>Large actuation surface for fast response</li>
-          <li>Illuminated variants for night operation</li>
+          <li data-de="Verschleissfreie Reed-Kontakte">Wear-free reed contacts</li>
+          <li data-de="Grosse Betätigungsfläche für schnelle Reaktion">Large actuation surface for fast response</li>
+          <li data-de="Beleuchtete Varianten für Nachtfahrt">Illuminated variants for night operation</li>
         </ul>
         <span class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </a>
@@ -168,29 +174,29 @@
     <!-- Expandable deep-dive Panel -->
     <div class="feature-panel" style="margin-top:110px;">
       <div class="feature-panel-head">
-        <h3>What we can do in fishing boat.</h3>
+        <h3 data-de="Was wir für Fischerboote leisten können.">What we can do in fishing boat.</h3>
       </div>
       <div class="feature-panel-body" id="featureBody">
         <div class="feature-media feature-media-video">
           <video id="whyEaoVideo" src="assets/video/why-eao-fishing-boat.mp4" poster="assets/images/fishing-boat-danny.webp" muted loop playsinline preload="metadata"></video>
         </div>
         <div>
-          <p>Fishing boat manufacturers and shipyards around the world rely on EAO
+          <p data-de="Fischerboot-Hersteller und Werften verlassen sich weltweit auf EAO, wenn Bedienelemente unter widrigsten Bedingungen zuverlässig funktionieren müssen. Mit geschützter Kontakttechnologie, robusten Materialien und langer Lebensdauer reduzieren EAO-Komponenten Wartungsaufwand und Ausfallrisiko im Feld.">Fishing boat manufacturers and shipyards around the world rely on EAO
             when control elements need to perform reliably under the harshest conditions.
             With protected contact technology, rugged materials, and long service life,
             EAO components reduce maintenance effort and the risk of failure in the field.</p>
-          <h4>Advantages</h4>
+          <h4 data-de="Vorteile">Advantages</h4>
           <ul>
-            <li>Engineered for safety-critical applications with predictable switching behavior</li>
-            <li>Redundant contact options for safe system architectures</li>
-            <li>Clear tactile &amp; visual feedback reduces operating errors</li>
-            <li>Long mechanical/electrical lifespan – less maintenance</li>
-            <li>Rugged materials for continuous use at sea</li>
-            <li>Comprehensive documentation for approval &amp; certification</li>
+            <li data-de="Entwickelt für sicherheitskritische Anwendungen mit vorhersehbarem Schaltverhalten">Engineered for safety-critical applications with predictable switching behavior</li>
+            <li data-de="Redundante Kontaktoptionen für sichere Systemarchitekturen">Redundant contact options for safe system architectures</li>
+            <li data-de="Klares taktiles &amp; visuelles Feedback reduziert Bedienfehler">Clear tactile &amp; visual feedback reduces operating errors</li>
+            <li data-de="Lange mechanische/elektrische Lebensdauer &ndash; weniger Wartung">Long mechanical/electrical lifespan – less maintenance</li>
+            <li data-de="Robuste Materialien für den Dauereinsatz auf See">Rugged materials for continuous use at sea</li>
+            <li data-de="Umfassende Dokumentation für Zulassung &amp; Zertifizierung">Comprehensive documentation for approval &amp; certification</li>
           </ul>
-          <p class="cta-note"><strong>Contact EAO today to enhance the safety and reliability of your next application.</strong></p>
+          <p class="cta-note" data-de="<strong>Kontaktiere EAO, um dein nächstes Cockpit-Projekt sicherer und zuverlässiger zu machen.</strong>"><strong>Contact EAO today to enhance the safety and reliability of your next application.</strong></p>
           <div class="btn-row" style="margin-top:24px;">
-            <a href="#kontakt" class="btn"><span class="btn-label">Contact us</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
+            <a href="#kontakt" class="btn"><span class="btn-label" data-de="Kontakt aufnehmen">Contact us</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
           </div>
         </div>
       </div>
@@ -202,19 +208,19 @@
 <section class="section" id="referenzen">
   <div class="wrap">
     <div class="section-head">
-      <h2>Marine sectors we serve.</h2>
+      <h2 data-de="Im Einsatz auf See.">Marine sectors we serve.</h2>
     </div>
     <div class="media-grid">
       <div class="media-tile wide tall" id="videoTile">
         <video id="marineVideo" src="assets/video/marine-sectors.mp4" poster="assets/images/marine.webp" playsinline preload="metadata"></video>
         <div class="play-btn" id="videoPlayBtn"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg></div>
       </div>
-      <div class="media-tile wide"><img src="assets/images/boat-market-2.jpg" alt="Boat with passengers on calm water" /></div>
-      <div class="media-tile"><img src="assets/images/boat-market-1.jpg" alt="Boat on the water" /></div>
-      <div class="media-tile"><span class="label">Image: Night cruise</span></div>
+      <div class="media-tile wide"><img src="assets/images/boat-market-2.jpg" alt="Boat with passengers on calm water" data-de-alt="Boot mit Passagieren auf ruhigem Gewässer" /></div>
+      <div class="media-tile"><img src="assets/images/boat-market-1.jpg" alt="Boat on the water" data-de-alt="Boot auf dem Wasser" /></div>
+      <div class="media-tile"><span class="label" data-de="Bild: Nachtfahrt">Image: Night cruise</span></div>
     </div>
     <div class="btn-center">
-      <a href="#downloads" class="btn"><span class="btn-label">Go to downloads</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
+      <a href="#downloads" class="btn"><span class="btn-label" data-de="Zu den Downloads">Go to downloads</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -224,25 +230,25 @@
   <div class="wrap">
     <div class="contact-grid">
       <div class="contact-info">
-        <h2>Contact us. Talk to Dan DiGioia.</h2>
+        <h2 data-de="Kontakt. Sprich mit Dan DiGioia.">Contact us. Talk to Dan DiGioia.</h2>
         <div class="contact-person">
-          <img src="assets/images/danny.jpeg" alt="Danny, EAO marine contact" class="contact-photo" />
+          <img src="assets/images/danny.jpeg" alt="Danny, EAO marine contact" data-de-alt="Danny, Marine-Ansprechpartner bei EAO" class="contact-photo" />
           <div>
             <strong>Dan DiGioia</strong>
             <span>Product Marketing Director, EAO Corporation</span>
           </div>
         </div>
-        <p>Whether it's a concrete project or an initial inquiry – we help fishing boat manufacturers
+        <p data-de="Ob konkretes Projekt oder erste Anfrage &ndash; wir beraten Fischerboot-Hersteller und Werften bei der Auswahl der passenden HMI-Lösung.">Whether it's a concrete project or an initial inquiry – we help fishing boat manufacturers
           and shipyards choose the right HMI solution.</p>
 
         <div class="contact-detail">
-          <div><strong>Email</strong><a href="mailto:dan.digioia@eao.com">dan.digioia@eao.com</a></div>
+          <div><strong data-de="E-Mail">Email</strong><a href="mailto:dan.digioia@eao.com">dan.digioia@eao.com</a></div>
         </div>
         <div class="contact-detail">
-          <div><strong>Phone</strong><a href="tel:+12039514609">+1 203 951 4609</a></div>
+          <div><strong data-de="Telefon">Phone</strong><a href="tel:+12039514609">+1 203 951 4609</a></div>
         </div>
         <div class="contact-detail">
-          <div><strong>Address</strong>One Parrott Drive, Shelton, CT 06484</div>
+          <div><strong data-de="Adresse">Address</strong>One Parrott Drive, Shelton, CT 06484</div>
         </div>
       </div>
 
@@ -252,19 +258,19 @@
           <input type="text" id="name" name="name" required />
         </div>
         <div class="field">
-          <label for="company">Company / Shipyard *</label>
+          <label for="company" data-de="Firma / Werft *">Company / Shipyard *</label>
           <input type="text" id="company" name="company" required />
         </div>
         <div class="field">
-          <label for="email">Email *</label>
+          <label for="email" data-de="E-Mail *">Email *</label>
           <input type="email" id="email" name="email" required />
         </div>
         <div class="field">
-          <label for="message">Message *</label>
+          <label for="message" data-de="Nachricht *">Message *</label>
           <textarea id="message" name="message" required></textarea>
         </div>
-        <button type="submit" class="btn"><span class="btn-label">Send inquiry</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
-        <div class="form-success" id="formSuccess">Thank you for your inquiry – we'll be in touch shortly.</div>
+        <button type="submit" class="btn"><span class="btn-label" data-de="Anfrage senden">Send inquiry</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+        <div class="form-success" id="formSuccess" data-de="Danke für deine Anfrage &ndash; wir melden uns in Kürze.">Thank you for your inquiry – we'll be in touch shortly.</div>
       </form>
     </div>
   </div>
@@ -274,44 +280,44 @@
 <section class="section alt" id="faq">
   <div class="wrap" style="max-width:900px;">
     <div class="section-head left">
-      <h2>Frequently Asked Questions.</h2>
+      <h2 data-de="Häufige Fragen.">Frequently Asked Questions.</h2>
     </div>
 
     <div class="faq-list">
       <div class="faq-item open">
         <button class="faq-q">
-          <h3>What ingress protection rating do the controls have?</h3>
+          <h3 data-de="Welche Schutzklasse haben die Bedienelemente?">What ingress protection rating do the controls have?</h3>
           <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Depending on the series, components achieve IP66, IP67, or IP68 – suitable for continuous exposure to splashing water and brief submersion.</div></div>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Je nach Serie erreichen die Komponenten IP66, IP67 oder IP68 &ndash; geeignet für dauerhaften Kontakt mit Spritzwasser und kurzzeitiges Untertauchen.">Depending on the series, components achieve IP66, IP67, or IP68 – suitable for continuous exposure to splashing water and brief submersion.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">
-          <h3>Are custom legends/symbols possible?</h3>
+          <h3 data-de="Sind kundenspezifische Legenden/Symbole möglich?">Are custom legends/symbols possible?</h3>
           <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Yes, key assignment and labeling can be configured per ISO 7000 or to individual customer requirements.</div></div>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Ja, Tastenbelegung und Beschriftung lassen sich nach ISO 7000 oder individuellem Kundenwunsch konfigurieren.">Yes, key assignment and labeling can be configured per ISO 7000 or to individual customer requirements.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">
-          <h3>What is the minimum order quantity?</h3>
+          <h3 data-de="Wie hoch ist die Mindestabnahmemenge?">What is the minimum order quantity?</h3>
           <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Depends on the product and series scope – please coordinate with sales.</div></div>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Abhängig vom Produkt und Serienumfang &ndash; bitte mit Vertrieb abstimmen.">Depends on the product and series scope – please coordinate with sales.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">
-          <h3>Does EAO offer samples for test installations?</h3>
+          <h3 data-de="Bietet EAO Muster für Testinstallationen an?">Does EAO offer samples for test installations?</h3>
           <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Yes, sample parts for shipyard or boat integration can be requested via the contact form above.</div></div>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Ja, über das Kontaktformular oben können Musterteile für Werft- oder Bootsintegration angefragt werden.">Yes, sample parts for shipyard or boat integration can be requested via the contact form above.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">
-          <h3>Which standards/certifications are supported?</h3>
+          <h3 data-de="Welche Normen/Zertifizierungen werden unterstützt?">Which standards/certifications are supported?</h3>
           <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">E.g. DIN EN ISO 13849, CANopen Safety – full list in the technical downloads.</div></div>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Z.B. DIN EN ISO 13849, CANopen Safety &ndash; vollständige Liste in den technischen Downloads.">E.g. DIN EN ISO 13849, CANopen Safety – full list in the technical downloads.</div></div>
       </div>
     </div>
   </div>
@@ -322,12 +328,12 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>Products</h4>
+        <h4 data-de="Produkte">Products</h4>
         <ul>
           <li><a href="#produkt">Keypads</a></li>
           <li><a href="#produkt">Rotary Cursor Controller</a></li>
-          <li><a href="#produkt">Push Buttons</a></li>
-          <li><a href="#downloads">Configurator</a></li>
+          <li><a href="#produkt" data-de="Drucktaster">Push Buttons</a></li>
+          <li><a href="#downloads" data-de="Konfigurator">Configurator</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -352,8 +358,8 @@
         <ul>
           <li><a href="#downloads">Downloads</a></li>
           <li><a href="#kontakt">Contact</a></li>
-          <li><a href="#">Imprint</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#" data-de="Impressum">Imprint</a></li>
+          <li><a href="#" data-de="Datenschutz">Privacy Policy</a></li>
         </ul>
       </div>
       <div class="footer-social">
@@ -363,7 +369,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> EAO. Marine landing page, draft</span>
+      <span data-de="© <span id='year'></span> EAO. Marine Landingpage, Entwurf">© <span id="year"></span> EAO. Marine landing page, draft</span>
       <div class="footer-logo">
         <span class="logo-mark">eao<span class="dot"></span></span>
         <span class="logo-tag">Your Expert Partner for <strong>Human Machine Interfaces</strong></span>
