@@ -60,13 +60,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// Feature panel toggle (Warum EAO für den Marine-Markt?)
-const featureToggle = document.getElementById('featureToggle');
-const featureBody = document.getElementById('featureBody');
-featureToggle.addEventListener('click', () => {
-  featureBody.style.display = featureBody.style.display === 'none' ? 'grid' : 'none';
-});
-
 // Contact form (client-side mock — no backend wired up yet)
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
