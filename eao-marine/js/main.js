@@ -108,7 +108,8 @@ if (whyEaoVideo) {
   whyEaoObserver.observe(whyEaoVideo);
 }
 
-// Referenzen-Video: Play/Pause per Custom-Button
+// Referenzen-Video: startet automatisch als Loop, sobald die Kachel sichtbar wird;
+// Play-Btn bleibt als manuelle Pause/Resume-Kontrolle nutzbar
 const videoTile = document.getElementById('videoTile');
 const marineVideo = document.getElementById('marineVideo');
 const videoPlayBtn = document.getElementById('videoPlayBtn');
@@ -120,6 +121,14 @@ if (videoTile && marineVideo && videoPlayBtn) {
   marineVideo.addEventListener('play', () => videoTile.classList.add('playing'));
   marineVideo.addEventListener('pause', () => videoTile.classList.remove('playing'));
   marineVideo.addEventListener('ended', () => videoTile.classList.remove('playing'));
+
+  const marineObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) marineVideo.play();
+      else marineVideo.pause();
+    });
+  }, { threshold: 0.4 });
+  marineObserver.observe(marineVideo);
 }
 
 // Mobile Nav Toggle
