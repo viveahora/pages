@@ -51,12 +51,11 @@ HTML-Kommentaren/`<img src>` referenzieren.
 
 Der Hero-Bereich ist ein automatischer Bild-Slider (Cross-Fade + leichter
 Ken-Burns-Zoom, Wechsel alle 6s; Logik in `js/main.js`, Styling in
-`css/style.css` unter `.hero-slide`). Erwartet genau diese drei Dateien:
+`css/style.css` unter `.hero-slide`). Erwartet genau diese zwei Dateien:
 
 ```
 assets/images/hero/hero-1-boot.webp        Boot auf dem Wasser
 assets/images/hero/hero-2-cockpit.webp     Cockpit-Detail mit Bedienelementen
-assets/images/hero/hero-3-produkte.webp    Produktaufnahme (Keypads/Joystick)
 ```
 
 Format bewusst **WebP** (kleinere Dateigrösse bei gleicher Qualität,

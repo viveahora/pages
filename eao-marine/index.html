@@ -50,20 +50,18 @@
 <section>
   <div class="hero-media" id="heroSlider">
     <!--
-      Hero-Bildslider: 3 Slides, Cross-Fade + Ken-Burns (siehe css/style.css
+      Hero-Bildslider: 2 Slides, Cross-Fade + Ken-Burns (siehe css/style.css
       ".hero-slide" und js/main.js). Dateien unter genau diesen Pfaden
       ablegen, sobald final (als WebP – kleinere Dateigrösse bei gleicher
       Qualität, Browser-Support >97%, hier ohne JPG-Fallback bewusst
       weggelassen):
         assets/images/hero/hero-1-boot.webp        (Boot auf dem Wasser)
         assets/images/hero/hero-2-cockpit.webp     (Cockpit-Detail mit Bedienelementen)
-        assets/images/hero/hero-3-produkte.webp    (Produktaufnahme Keypads/Joystick)
       Bis dahin zeigen die Slides einen Gradient-Platzhalter (kein <img src>
       auf nicht existierende Datei, damit nichts kaputt gebrochen wirkt).
     -->
     <div class="hero-slide active" style="background-image:url('assets/images/hero/hero-1-boot.webp');"></div>
     <div class="hero-slide" style="background-image:url('assets/images/hero/hero-2-cockpit.webp');"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/hero/hero-3-produkte.webp');"></div>
   </div>
   <div class="wrap hero-copy">
     <div class="hero-copy-grid">
@@ -133,7 +131,7 @@
     <div class="product-grid">
 
       <a class="product-card" href="#kontakt">
-        <div class="product-card-media"><!-- Produktfoto Keypad --></div>
+        <div class="product-card-media"><img src="assets/images/keypad-cursor.webp" alt="EAO Keypad und Rotary Cursor Controller" /></div>
         <h3>Robuste Cockpit-Keypads</h3>
         <ul>
           <li>IP67/IP68, dauerhaft salzwasserfest</li>
@@ -144,7 +142,7 @@
       </a>
 
       <a class="product-card" href="#kontakt">
-        <div class="product-card-media"><!-- Produktfoto Rotary Cursor Controller --></div>
+        <div class="product-card-media"><img src="assets/images/custom-solutions.webp" alt="Entwicklung eines Rotary Cursor Controllers im CAD" /></div>
         <h3>Rotary Cursor Controller</h3>
         <ul>
           <li>Präzise Navigation für Multifunktionsdisplays</li>
@@ -170,7 +168,7 @@
     <!-- Expandable deep-dive Panel -->
     <div class="feature-panel" style="margin-top:110px;">
       <div class="feature-panel-head">
-        <h3>Why EAO Series 09 for the Fishing Boat Market?</h3>
+        <h3>What we can do in fishing boat.</h3>
       </div>
       <div class="feature-panel-body" id="featureBody">
         <div class="feature-media feature-media-video">
@@ -190,7 +188,7 @@
             <li>Robuste Materialien für den Dauereinsatz auf See</li>
             <li>Umfassende Dokumentation für Zulassung &amp; Zertifizierung</li>
           </ul>
-          <p><strong>Contact EAO today to enhance the safety and reliability of your next application.</strong></p>
+          <p class="cta-note"><strong>Contact EAO today to enhance the safety and reliability of your next application.</strong></p>
           <div class="btn-row" style="margin-top:24px;">
             <a href="#kontakt" class="btn"><span class="btn-label">Contact us</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
           </div>
@@ -226,7 +224,7 @@
   <div class="wrap">
     <div class="contact-grid">
       <div class="contact-info">
-        <h2>Sprich mit unserem Marine-Team.</h2>
+        <h2>Contact us. Sprich mit Dan DiGioia.</h2>
         <div class="contact-person">
           <img src="assets/images/danny.jpeg" alt="Danny, Marine-Ansprechpartner bei EAO" class="contact-photo" />
           <div>
@@ -276,7 +274,6 @@
 <section class="section alt" id="faq">
   <div class="wrap" style="max-width:900px;">
     <div class="section-head left">
-      <p class="eyebrow">FAQ</p>
       <h2>Häufige Fragen von Bootsbauern &amp; Werften.</h2>
     </div>
 
