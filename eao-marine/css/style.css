@@ -447,7 +447,7 @@ h3 { font-size: 24px; line-height: 34px; }
 .contact-photo { width: 136px; height: 136px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .contact-person strong { display: block; font-size: 15px; color: var(--black); }
 .contact-person span { display: block; font-size: 13.5px; color: var(--text-muted); margin-top: 2px; }
-.contact-info h2 { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; margin-bottom: 18px; }
+.contact-info h2 { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; margin-bottom: 34px; }
 .contact-info p { color: var(--text-muted); margin-bottom: 26px; }
 .contact-detail { display: flex; gap: 14px; margin-bottom: 18px; font-size: 15px; }
 .contact-detail strong { display: block; color: var(--black); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; }
@@ -540,7 +540,10 @@ footer {
   .wrap { padding: 0 22px; }
   .utility-bar { display: none; }
   .hero-copy { padding: 50px 22px 50px; }
+  .hero-copy h1, .hero-copy .sub { font-size: 32px; }
+  .section-head h2, .contact-info h2 { font-size: 28px; }
   .feature-panel-head { padding: 6px 46px 24px; }
+  .feature-panel-head h3 { font-size: 28px; }
   .nav-links { position: fixed; inset: 84px 0 0 0; background: var(--white); flex-direction: column; align-items: flex-start; padding: 30px 22px; gap: 22px; transform: translateX(100%); transition: transform 0.25s ease; }
   .nav-links.open { transform: translateX(0); }
   .nav-toggle { display: block; order: -1; }
