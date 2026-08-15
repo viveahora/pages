@@ -69,6 +69,21 @@ Gradient-Hintergrund von `.hero-media` zurück (kein kaputtes Bild-Icon).
 Weitere Slides: einfach ein zusätzliches `<div class="hero-slide" ...>`
 in `index.html` ergänzen — der Slider erkennt die Anzahl automatisch.
 
+## Referenzen-Video
+
+Die grosse Kachel im "Marine sectors we serve"-Grid ist ein
+`<video>`-Element mit eigenem Play/Pause-Button (Logik in
+`js/main.js`). Erwartet folgende Datei:
+
+```
+assets/video/marine-sectors.mp4
+```
+
+Bis die Datei vorliegt, zeigt die Kachel nur das Poster-Bild
+(`assets/images/marine.webp`) — der Play-Button ist sichtbar, startet
+aber kein Video. MP4 (H.264/AAC) ist die sicherste Wahl für
+Browser-Kompatibilität ohne zusätzliche Formate/Fallbacks.
+
 ## Kontaktformular
 
 Ist aktuell rein clientseitig (zeigt nur eine Erfolgsmeldung, sendet

@@ -17,6 +17,20 @@ if (heroSlides.length > 1) {
   }, 6000);
 }
 
+// Referenzen-Video: Play/Pause per Custom-Button
+const videoTile = document.getElementById('videoTile');
+const marineVideo = document.getElementById('marineVideo');
+const videoPlayBtn = document.getElementById('videoPlayBtn');
+if (videoTile && marineVideo && videoPlayBtn) {
+  videoPlayBtn.addEventListener('click', () => {
+    if (marineVideo.paused) marineVideo.play();
+    else marineVideo.pause();
+  });
+  marineVideo.addEventListener('play', () => videoTile.classList.add('playing'));
+  marineVideo.addEventListener('pause', () => videoTile.classList.remove('playing'));
+  marineVideo.addEventListener('ended', () => videoTile.classList.remove('playing'));
+}
+
 // Mobile Nav Toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
