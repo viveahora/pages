@@ -17,6 +17,18 @@ if (heroSlides.length > 1) {
   }, 6000);
 }
 
+// "Why EAO"-Video: startet automatisch, sobald der Bereich sichtbar wird
+const whyEaoVideo = document.getElementById('whyEaoVideo');
+if (whyEaoVideo) {
+  const whyEaoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) whyEaoVideo.play();
+      else whyEaoVideo.pause();
+    });
+  }, { threshold: 0.4 });
+  whyEaoObserver.observe(whyEaoVideo);
+}
+
 // Referenzen-Video: Play/Pause per Custom-Button
 const videoTile = document.getElementById('videoTile');
 const marineVideo = document.getElementById('marineVideo');

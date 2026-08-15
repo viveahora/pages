@@ -84,6 +84,29 @@ Bis die Datei vorliegt, zeigt die Kachel nur das Poster-Bild
 aber kein Video. MP4 (H.264/AAC) ist die sicherste Wahl für
 Browser-Kompatibilität ohne zusätzliche Formate/Fallbacks.
 
+**Hinweis Container-Format:** Falls die Datei direkt aus einer
+Video-App/Kamera exportiert wird, kann der Container als QuickTime
+(`ftyp: qt`) statt Standard-MP4 (`isom`) markiert sein — das führt bei
+manchen Browsern zu Wiedergabefehlern trotz gültigem H.264/AAC-Codec.
+Verlustfreier Fix: `ffmpeg -i input.mp4 -c copy -movflags +faststart -f mp4 output.mp4`.
+
+## "Why EAO"-Video
+
+Das Bild im "Why EAO for the Fishing Boat Market?"-Panel ist ein
+`<video>`-Element im Hochformat 4:5, das automatisch startet, sobald
+der Bereich in den sichtbaren Viewport scrollt (IntersectionObserver,
+Logik in `js/main.js`; pausiert wieder, wenn der Bereich den Viewport
+verlässt). Erwartet folgende Datei:
+
+```
+assets/video/why-eao-fishing-boat.mp4
+```
+
+Bis die Datei vorliegt, zeigt der Bereich das bisherige Foto
+(`assets/images/fishing-boat-danny.webp`) als Poster-Bild. Video ist
+stumm (`muted`) und in Dauerschleife (`loop`), damit Autoplay ohne
+Nutzerinteraktion in allen Browsern zuverlässig funktioniert.
+
 ## Kontaktformular
 
 Ist aktuell rein clientseitig (zeigt nur eine Erfolgsmeldung, sendet
