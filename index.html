@@ -633,9 +633,10 @@
       body: new URLSearchParams(new FormData(form)).toString()
     })
       .then(() => {
-        // TODO (Auftraggeber): Wistia-Video-URL hier eintragen, sobald bekannt
-        // window.location.href = 'WISTIA-VIDEO-URL';
         btn.textContent = '✓ Zugang erteilt — Video öffnen';
+        setTimeout(() => {
+          window.location.href = 'https://bluewin-160.wistia.com/s/ywefbqdyilznqld';
+        }, 900);
       })
       .catch(() => {
         btn.textContent = 'Fehler — bitte nochmal versuchen';

@@ -88,7 +88,7 @@ auf Netlify-Seite.
 | Hero-Titelbild Desktop | `.hero-bg` im `<style>`-Block | `lothar-hero-desktop.webp`, Querformat. Wirkt bei Lifestyle-/Freiheits-Motiven (Reisen, Golf, o.ä.) am stärksten. Bis dahin zeigt der Hero einen warmen Gradient. |
 | Hero-Titelbild Mobile | `.hero-bg` in der 640px-Media-Query | `lothar-hero-mobile.webp`, Hochformat, eigener Bildausschnitt (siehe Tabelle oben). |
 | Lothar-Foto | `<img src="lothar-foto.webp">` in der Über-Lothar-Section | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
-| **Wistia-Video-URL** | `handleSubmit()` im `<script>`-Block, Zeile mit `// window.location.href = 'WISTIA-VIDEO-URL';` | Noch einzutragen, sobald die Wistia-Link vorliegt — Zeile ist vorbereitet, nur auskommentiert |
+| Wistia-Video-URL | `handleSubmit()` im `<script>`-Block | Aktuell `https://bluewin-160.wistia.com/s/ywefbqdyilznqld` als **Platzhalter** eingetragen — vor dem echten Launch durch die finale Webinar-Video-URL ersetzen |
 | WhatsApp-Link | Ans Ende des Videos einbauen (nicht auf der Landing Page) | `https://wa.me/4179XXXXXXX` |
 | Meta Pixel ID | `<head>`, auskommentierter Block | Von Meta Business Manager |
 | Impressum/Datenschutz | Footer-Links `href="#"` | Gesetzliche Pflicht in DACH |
