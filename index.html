@@ -239,16 +239,8 @@
 
   /* ── About / Über Lothar ── */
   .about-inner { display: grid; grid-template-columns: 340px 1fr; gap: 64px; align-items: start; }
-  .about-photo { position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-card-lg); background: var(--sand-dark); overflow: visible; }
+  .about-photo { position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-card-lg); background: var(--sand-dark); }
   .about-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-card-lg); }
-  .about-badge {
-    position: absolute; bottom: -20px; left: 20px; background: var(--white);
-    border: 1.5px solid var(--border); border-radius: 14px; padding: 14px 18px;
-    box-shadow: 0 4px 32px rgba(60,56,52,0.12); display: flex; align-items: center; gap: 12px;
-  }
-  .about-badge-icon { width: 34px; height: 34px; border-radius: 10px; background: var(--green-soft); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
-  .about-badge strong { display: block; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 15px; color: var(--stone); line-height: 1.2; }
-  .about-badge span { display: block; font-size: 11px; color: var(--grey-light); margin-top: 2px; }
 
   .about-content .section-label { text-align: left; }
   .about-content h2 {
@@ -336,7 +328,6 @@
     .pain-cta-box { flex-direction: column; text-align: center; padding: 32px 28px; }
     .footer-top { flex-direction: column; align-items: flex-start; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
-    .about-badge { position: static; margin-top: -40px; margin-left: 20px; width: fit-content; }
     .nav .btn span.btn-text { display: none; }
     .nav .btn { padding: 11px 16px; }
   }
@@ -446,10 +437,6 @@
     <div class="about-photo">
       <!-- TODO (Auftraggeber): echtes Foto von Lothar hier einsetzen (Porträt, Format 3:4) -->
       <img src="lothar-foto.webp" alt="Lothar Pusch" loading="lazy" onerror="this.style.display='none'">
-      <div class="about-badge">
-        <span class="about-badge-icon">🌍</span>
-        <span><strong>40 Mio. €</strong><span>Netzwerk Jahresumsatz</span></span>
-      </div>
     </div>
     <div class="about-content">
       <span class="section-label">Über Lothar Pusch</span>
