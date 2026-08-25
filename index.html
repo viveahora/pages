@@ -315,7 +315,9 @@
   @media (max-width: 900px) {
     .about-inner, .reg-inner { grid-template-columns: 1fr; }
     .about-inner .about-photo { max-width: 340px; margin-bottom: 44px; }
-    .trust-bar-inner { flex-wrap: wrap; gap: 24px; }
+    .trust-bar-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 16px; }
+    .trust-stat { flex: none; }
+    .trust-stat strong { font-size: 22px; white-space: nowrap; }
     .trust-divider { display: none; }
     .learn-grid, .pain-grid { grid-template-columns: 1fr 1fr; }
     .steps-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -327,6 +329,7 @@
     .hero { min-height: auto; max-height: none; padding: 120px 0 48px; }
     .hero-bg { background-image: url('lothar-hero-mobile.webp'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%); }
     .hero-content h1 { font-size: 36px; letter-spacing: -1px; }
+    .trust-bar { padding: 36px 0; }
     .section-header h2 { font-size: 28px; }
     .learn-grid, .pain-grid { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: 1fr; }
