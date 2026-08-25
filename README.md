@@ -1,12 +1,14 @@
 # Plan F — Lothar Pusch Landing Page
 
 Eigenständiges, statisches Landingpage-Projekt (kein Build-Tool nötig).
-Webinar-Funnel: Meta Ad → Landing Page → 25-Min. Video → WhatsApp CTA zu Lothar.
+Webinar-Funnel: Meta Ad → Landing Page (`index.html`) → Anmeldung → Video-Training-Page
+(`training.html`, Wistia-Video eingebettet) → WhatsApp CTA zu Lothar.
 
 ## Struktur
 
 ```
-index.html                 Alle Sections inline (HTML + CSS + JS, keine externen Dateien ausser Google Fonts)
+index.html                 Landing Page — alles inline (HTML + CSS + JS, keine externen Dateien ausser Google Fonts)
+training.html               Zweite Seite nach der Anmeldung — eingebettetes Wistia-Video + WhatsApp-CTA + nächste Schritte
 lothar-hero-desktop.webp    Vom Auftraggeber zu ergänzen (Titelbild Hero, Desktop, Querformat)
 lothar-hero-mobile.webp     Vom Auftraggeber zu ergänzen (Titelbild Hero, Mobile, Hochformat)
 lothar-foto.webp            Vom Auftraggeber zu ergänzen (Porträt, Format 3:4, Über-Lothar-Section)
@@ -81,18 +83,38 @@ oder über einen Netlify-Forms-Webhook automatisch an Brevo weiterleiten (neuer 
 jeder Submission) — dafür ist keine Code-Änderung an dieser Seite nötig, nur ein Zap/Szenario
 auf Netlify-Seite.
 
+## Video-Training-Page (training.html)
+
+Nach erfolgreicher Anmeldung leitet `handleSubmit()` nicht mehr direkt zu Wistia weiter,
+sondern zu `training.html` — mit dem eingetragenen Vornamen als URL-Parameter
+(`training.html?name=Max`) für eine persönliche Begrüssung ("Schön, dass du da bist, Max!").
+Ohne Parameter (z.B. bei direktem Aufruf) zeigt die Seite einen neutralen Titel.
+
+Aufbau: Titel → eingebettetes Wistia-Video (offizieller `wistia-player`-Embed, Media-ID aus
+der gelieferten URL extrahiert) → WhatsApp-CTA-Button direkt darunter → kurze "Deine nächsten
+Schritte"-Liste (3 Punkte) → gleicher Footer wie die Landing Page (inkl. Facebook-Disclaimer,
+da auch diese Seite öffentlich erreichbar/crawlbar ist).
+
+Der WhatsApp-Button hat eine vorausgefüllte Nachricht ("Hallo Lothar, ich habe dein
+Video-Training gesehen und hätte gerne mehr Infos.") — Text lässt sich jederzeit anpassen oder
+entfernen (`href="https://wa.me/...?text=..."` im `<a class="btn">`-Tag).
+
+**Video ist aktuell ein Platzhalter:** eingebettet ist `https://bluewin-160.wistia.com/s/ywefbqdyilznqld`
+(vom Auftraggeber als Test-/Platzhalter-Video genannt). Vor dem echten Launch die Media-ID im
+`wistia-player`-Tag (`media-id="..."`) sowie im `<script src="https://fast.wistia.com/embed/...">`
+gegen die finale Webinar-Video-ID austauschen.
+
 ## Offene Punkte für den Auftraggeber
 
 | Was | Wo im Code | Details |
 |---|---|---|
-| Hero-Titelbild Desktop | `.hero-bg` im `<style>`-Block | `lothar-hero-desktop.webp`, Querformat. Wirkt bei Lifestyle-/Freiheits-Motiven (Reisen, Golf, o.ä.) am stärksten. Bis dahin zeigt der Hero einen warmen Gradient. |
-| Hero-Titelbild Mobile | `.hero-bg` in der 640px-Media-Query | `lothar-hero-mobile.webp`, Hochformat, eigener Bildausschnitt (siehe Tabelle oben). |
-| Lothar-Foto | `<img src="lothar-foto.webp">` in der Über-Lothar-Section | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
-| Wistia-Video-URL | `handleSubmit()` im `<script>`-Block | Aktuell `https://bluewin-160.wistia.com/s/ywefbqdyilznqld` als **Platzhalter** eingetragen — vor dem echten Launch durch die finale Webinar-Video-URL ersetzen |
-| WhatsApp-Link | Ans Ende des Videos einbauen (nicht auf der Landing Page) | `https://wa.me/4179XXXXXXX` |
-| Meta Pixel ID | `<head>`, auskommentierter Block | Von Meta Business Manager |
-| Impressum/Datenschutz | Footer-Links `href="#"` | Gesetzliche Pflicht in DACH |
-| og:image | `<head>`, Meta-Tag fehlt noch | 1200×630px. **Empfehlung:** hierfür JPG/PNG statt WebP verwenden — manche Social-Media-Crawler (u.a. ältere Facebook/Meta-Debugger-Fälle) lesen WebP für Link-Vorschaubilder unzuverlässig |
+| Hero-Titelbild Desktop | `.hero-bg` im `<style>`-Block (index.html) | `lothar-hero-desktop.webp`, Querformat. Wirkt bei Lifestyle-/Freiheits-Motiven (Reisen, Golf, o.ä.) am stärksten. Bis dahin zeigt der Hero einen warmen Gradient. |
+| Hero-Titelbild Mobile | `.hero-bg` in der 640px-Media-Query (index.html) | `lothar-hero-mobile.webp`, Hochformat, eigener Bildausschnitt (siehe Tabelle oben). |
+| Lothar-Foto | `<img src="lothar-foto.webp">` in der Über-Lothar-Section (index.html) | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
+| **Lothars WhatsApp-Nummer** | `training.html`, `.cta-block` — `href="https://wa.me/4179XXXXXXX?text=..."` | Aktuell **Platzhalter** — echte Nummer noch einzutragen |
+| Meta Pixel ID | `<head>` in index.html **und** training.html, auskommentierte Blöcke | Von Meta Business Manager. Empfehlung: `PageView` auf index.html, `Lead` auf training.html (Anmeldung ist dort tatsächlich abgeschlossen) |
+| Impressum/Datenschutz | Footer-Links `href="#"` in beiden Dateien | Gesetzliche Pflicht in DACH |
+| og:image | `<head>` in index.html, Meta-Tag fehlt noch | 1200×630px. **Empfehlung:** hierfür JPG/PNG statt WebP verwenden — manche Social-Media-Crawler (u.a. ältere Facebook/Meta-Debugger-Fälle) lesen WebP für Link-Vorschaubilder unzuverlässig |
 | Domain | Netlify-Dashboard | Erst bei explizitem Deploy-Auftrag |
 
 ## Deployment

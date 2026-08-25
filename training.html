@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dein Video-Training | Lothar Pusch – Plan F</title>
+<meta name="description" content="Dein kostenloses Video-Training von Lothar Pusch — schau es dir jetzt an.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231B7340'/%3E%3C/svg%3E">
+
+<!-- TODO (Auftraggeber): Meta Pixel Base Code hier einfügen (gleicher Block wie index.html),
+     plus fbq('track', 'Lead') auf dieser Seite feuern — hier ist die Anmeldung ja tatsächlich
+     abgeschlossen, nicht schon beim blossen Seitenaufruf der Landing Page. -->
+
+<style>
+  :root {
+    --white:        #FFFFFF;
+    --warm-white:   #FAFAF8;
+    --sand:         #F2EDE6;
+    --sand-dark:    #E8DFD5;
+    --stone:        #3C3834;
+    --stone-mid:    #5A5450;
+    --grey:         #6B6B6B;
+    --grey-light:   #A8A8A8;
+    --border:       #E5E0D9;
+    --green:        #1B7340;
+    --green-hover:  #155C33;
+    --green-soft:   #EBF5EF;
+    --green-border: #BEE0CB;
+    --dark-bg:      #1C1A18;
+    --footer-bg:    #3C3834;
+    --container-max: 1080px;
+    --container-padding: 32px;
+    --radius-card: 16px;
+    --radius-card-lg: 20px;
+    --radius-btn: 10px;
+    --radius-tag: 100px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--grey);
+    background: var(--warm-white);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { margin: 0; padding: 0; }
+
+  .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding); }
+
+  .tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--green-soft); color: var(--green);
+    border: 1px solid var(--green-border); border-radius: var(--radius-tag);
+    padding: 8px 16px; font-family: 'Inter', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--green); color: var(--white);
+    padding: 16px 32px; border-radius: var(--radius-btn); border: none;
+    font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 16px;
+    letter-spacing: -0.2px; cursor: pointer; transition: background .2s ease, transform .15s ease;
+  }
+  .btn:hover { background: var(--green-hover); }
+  .btn:active { transform: scale(0.98); }
+
+  /* ── Nav ── */
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--white); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: center; padding: 16px var(--container-padding); max-width: var(--container-max); margin: 0 auto; }
+  .logo { display: flex; align-items: center; gap: 10px; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 17px; color: var(--stone); }
+  .logo-dot { width: 9px; height: 9px; border-radius: 2.5px; background: var(--green); flex-shrink: 0; }
+
+  /* ── Watch Section ── */
+  .watch { padding: 72px 0 96px; }
+  .watch-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+  .watch-inner .tag { margin-bottom: 22px; }
+  .watch-inner h1 {
+    font-family: 'Manrope', sans-serif; font-weight: 800;
+    font-size: clamp(28px, 4vw, 42px); letter-spacing: -1.3px;
+    color: var(--stone); line-height: 1.15; margin: 0 0 14px;
+  }
+  .watch-inner .lead { font-size: 17px; color: var(--grey); line-height: 1.7; margin: 0 auto 40px; max-width: 560px; }
+
+  .video-frame {
+    position: relative; border-radius: var(--radius-card-lg); overflow: hidden;
+    border: 1.5px solid var(--border); box-shadow: 0 4px 32px rgba(60,56,52,0.12);
+    background: var(--dark-bg); margin-bottom: 40px;
+  }
+  wistia-player { display: block; width: 100%; border-radius: var(--radius-card-lg); }
+
+  .cta-block { margin-bottom: 56px; }
+  .cta-block .btn { width: 100%; max-width: 420px; }
+  .cta-note { font-size: 13px; color: var(--grey-light); margin: 14px 0 0; }
+
+  .next-steps { max-width: 560px; margin: 0 auto; text-align: left; }
+  .next-steps-label {
+    display: block; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--grey-light); margin-bottom: 24px;
+  }
+  .next-steps ol { list-style: none; display: flex; flex-direction: column; gap: 18px; counter-reset: step; }
+  .next-steps li { display: flex; align-items: flex-start; gap: 16px; counter-increment: step; }
+  .next-steps li::before {
+    content: counter(step); flex-shrink: 0; width: 32px; height: 32px; border-radius: 10px;
+    background: var(--green-soft); color: var(--green); display: flex; align-items: center; justify-content: center;
+    font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 14px; margin-top: 1px;
+  }
+  .next-steps p { margin: 0; font-size: 15px; color: var(--stone-mid); line-height: 1.6; padding-top: 5px; }
+
+  /* ── Footer ── */
+  .footer { background: var(--footer-bg); color: rgba(255,255,255,.7); padding: 64px 0 32px; }
+  .footer-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.1); margin-bottom: 24px; flex-wrap: wrap; gap: 20px; }
+  .footer .logo { color: var(--white); }
+  .footer-tagline { font-size: 13px; color: rgba(255,255,255,.4); margin: 6px 0 0; }
+  .footer-links { list-style: none; display: flex; gap: 28px; flex-wrap: wrap; }
+  .footer-links a { font-size: 14px; color: rgba(255,255,255,.6); transition: color .2s ease; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 12px; }
+  .fb-disclaimer { margin-top: 28px; font-size: 11px; line-height: 1.6; color: rgba(255,255,255,.28); }
+
+  /* ── Scroll Reveal ── */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1);
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: .15s; }
+  .reveal-delay-2 { transition-delay: .3s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  @media (max-width: 640px) {
+    :root { --container-padding: 20px; }
+    .watch { padding: 48px 0 64px; }
+    .watch-inner h1 { font-size: 26px; letter-spacing: -0.8px; }
+    .footer-top { flex-direction: column; align-items: flex-start; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo"><span class="logo-dot"></span> Lothar Pusch</a>
+  </div>
+</nav>
+
+<section class="watch">
+  <div class="container watch-inner">
+    <span class="tag"><span class="tag-dot"></span>Dein Zugang ist freigeschaltet</span>
+    <h1 id="watch-title">Dein Video-Training ist bereit.</h1>
+    <p class="lead">Schau dir das Training in Ruhe an. Am Ende weisst du genau, wie das System funktioniert — und was dein nächster Schritt sein könnte.</p>
+
+    <div class="video-frame reveal">
+      <script src="https://fast.wistia.com/player.js" async></script>
+      <script src="https://fast.wistia.com/embed/ywefbqdyilznqld.js" async type="module"></script>
+      <wistia-player media-id="ywefbqdyilznqld" aspect="1.7777777777777777"></wistia-player>
+    </div>
+
+    <div class="cta-block reveal reveal-delay-1">
+      <!-- TODO (Auftraggeber): Lothars echte WhatsApp-Nummer einsetzen (aktuell Platzhalter) -->
+      <a class="btn" href="https://wa.me/4179XXXXXXX?text=Hallo%20Lothar%2C%20ich%20habe%20dein%20Video-Training%20gesehen%20und%20h%C3%A4tte%20gerne%20mehr%20Infos." target="_blank" rel="noopener">Jetzt mit Lothar auf WhatsApp schreiben</a>
+      <p class="cta-note">Kein Verkaufsdruck — einfach ein persönliches Gespräch auf Augenhöhe.</p>
+    </div>
+
+    <div class="next-steps reveal reveal-delay-2">
+      <span class="next-steps-label">Deine nächsten Schritte</span>
+      <ol>
+        <li><p>Schau dir das Video-Training oben in Ruhe an (25 Min.).</p></li>
+        <li><p>Hast du Fragen? Schreib Lothar direkt über den WhatsApp-Button.</p></li>
+        <li><p>Ihr vereinbart gemeinsam ein persönliches Gespräch — ganz ohne Verpflichtung.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top reveal">
+      <div>
+        <a href="#" class="logo"><span class="logo-dot"></span> Lothar Pusch</a>
+        <p class="footer-tagline">Plan F · Dein Weg zur finanziellen Freiheit</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lothar Pusch. Alle Rechte vorbehalten.</span>
+    </div>
+    <p class="fb-disclaimer">Diese Website ist nicht Teil der Facebook-Website oder von Facebook Inc. Darüber hinaus wird diese Website in keiner Weise von Facebook unterstützt. Facebook ist eine Marke von Facebook, Inc. Diese Seite verwendet Remarketing-Pixel von Facebook, um unsere Besucher erneut anzusprechen.</p>
+  </div>
+</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get('name');
+  if (name) {
+    document.getElementById('watch-title').textContent = `Schön, dass du da bist, ${name}!`;
+  }
+
+  (function () {
+    const revealEls = document.querySelectorAll('.reveal');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      revealEls.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+  })();
+</script>
+
+</body>
+</html>

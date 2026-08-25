@@ -634,8 +634,10 @@
     })
       .then(() => {
         btn.textContent = '✓ Zugang erteilt — Video öffnen';
+        const vorname = form.querySelector('input[type="text"]').value.trim();
+        const query = vorname ? '?name=' + encodeURIComponent(vorname) : '';
         setTimeout(() => {
-          window.location.href = 'https://bluewin-160.wistia.com/s/ywefbqdyilznqld';
+          window.location.href = 'training.html' + query;
         }, 900);
       })
       .catch(() => {
