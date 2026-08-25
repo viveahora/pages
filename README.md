@@ -97,7 +97,14 @@ auf Netlify-Seite.
 
 ## Deployment
 
-**Noch nicht auf Netlify deployt** — aktuell nur als GitHub-Branch-Vorschau verfügbar.
-Erst nach expliziter Freigabe wird in den Netlify-Produktionsbranch gemerged. Netlify Forms
-(siehe oben) aktiviert sich automatisch mit dem ersten Deploy, kein Extra-Setup im
-Netlify-Dashboard nötig.
+**Live auf Netlify:** https://lothar-plan-f.netlify.app — Site `lothar-plan-f`, per
+Continuous Deployment direkt mit GitHub-Branch `claude/lothar-landingpage-468izq` verknüpft
+(Netlify-Dashboard → Project configuration → Branch to deploy). Netlify Forms ist aktiviert,
+das Formular `plan-f-anmeldung` wurde erfolgreich getestet.
+
+**Deploy-Policy (Stand 25.08.2026):** Um unnötige Netlify-Build-Minuten zu sparen, läuft
+**nicht** jeder Push automatisch live. Commits für normale Anpassungen (Text/Design/Layout)
+enthalten `[skip netlify]` in der Commit-Message — GitHub bekommt den Push, Netlify baut aber
+nicht. Ein Deploy wird nur ausgelöst, wenn der Auftraggeber explizit Bescheid gibt ("deploy
+das"/"push auf Netlify"), oder automatisch bei **funktionalen** Änderungen (Formular-Logik,
+Netlify-Forms-Konfig, Weiterleitungen), die ohne Live-Test wenig Sinn ergeben.
