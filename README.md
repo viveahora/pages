@@ -111,7 +111,7 @@ gegen die finale Webinar-Video-ID austauschen.
 | Hero-Titelbild Desktop | `.hero-bg` im `<style>`-Block (index.html) | `lothar-hero-desktop.webp`, Querformat. Wirkt bei Lifestyle-/Freiheits-Motiven (Reisen, Golf, o.ä.) am stärksten. Bis dahin zeigt der Hero einen warmen Gradient. |
 | Hero-Titelbild Mobile | `.hero-bg` in der 640px-Media-Query (index.html) | `lothar-hero-mobile.webp`, Hochformat, eigener Bildausschnitt (siehe Tabelle oben). |
 | Lothar-Foto | `<img src="lothar-foto.webp">` in der Über-Lothar-Section (index.html) | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
-| **Lothars WhatsApp-Nummer** | `training.html`, `.cta-block` — `href="https://wa.me/4179XXXXXXX?text=..."` | Aktuell **Platzhalter** — echte Nummer noch einzutragen |
+| ~~Lothars WhatsApp-Nummer~~ | `training.html`, `.cta-block` | ✅ Erledigt — `+41 76 604 78 54` eingetragen |
 | Meta Pixel ID | `<head>` in index.html **und** training.html, auskommentierte Blöcke | Von Meta Business Manager. Empfehlung: `PageView` auf index.html, `Lead` auf training.html (Anmeldung ist dort tatsächlich abgeschlossen) |
 | Impressum/Datenschutz | Footer-Links `href="#"` in beiden Dateien | Gesetzliche Pflicht in DACH |
 | og:image | `<head>` in index.html, Meta-Tag fehlt noch | 1200×630px. **Empfehlung:** hierfür JPG/PNG statt WebP verwenden — manche Social-Media-Crawler (u.a. ältere Facebook/Meta-Debugger-Fälle) lesen WebP für Link-Vorschaubilder unzuverlässig |
