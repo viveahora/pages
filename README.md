@@ -7,10 +7,20 @@ Webinar-Funnel: Meta Ad → Landing Page → 25-Min. Video → WhatsApp CTA zu L
 
 ```
 index.html        Alle Sections inline (HTML + CSS + JS, keine externen Dateien ausser Google Fonts)
-lothar-foto.jpg    Vom Auftraggeber zu ergänzen (Porträt, Format 3:4)
+lothar-hero.jpg    Vom Auftraggeber zu ergänzen (Titelbild Hero, Querformat, volle Breite)
+lothar-foto.jpg    Vom Auftraggeber zu ergänzen (Porträt, Format 3:4, Über-Lothar-Section)
 ```
 
 Einfach `index.html` im Browser öffnen — kein Server/Build nötig.
+
+## Hero-Aufbau
+
+Der Hero ist jetzt ein raumfüllendes Titelbild (volle Viewport-Höhe, Text unten links,
+dunkler Verlauf für Lesbarkeit) statt des ursprünglichen 2-Spalten-Layouts mit Formular —
+angelehnt an den Hero-Aufbau von `viveahora.github.io/pages` (Reto Bucher / vive ahora).
+Der CTA-Button scrollt per Anchor-Link zur Anmeldesektion (`#registrierung`), es gibt kein
+Formular mehr im Hero selbst. Fehlt `lothar-hero.jpg`, fällt der Hintergrund automatisch auf
+einen warmen Gradient zurück (kein kaputtes Bild-Icon) — CSS-Layer-Fallback, kein JS nötig.
 
 ## Meta-Compliance
 
@@ -31,6 +41,7 @@ der Verneinung auf der äusseren Seite) widersprach. Umgesetzt wurde stattdessen
 
 | Was | Wo im Code | Details |
 |---|---|---|
+| Hero-Titelbild | `.hero-bg` im `<style>`-Block (`background-image: url('lothar-hero.jpg')`) | Querformat, wirkt bei Lifestyle-/Freiheits-Motiven (Reisen, Golf, o.ä.) am stärksten. Bis dahin zeigt der Hero einen warmen Gradient. |
 | Lothar-Foto | `<img src="lothar-foto.jpg">` in der Über-Lothar-Section | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
 | Video-URL | `handleSubmit()` im `<script>`-Block | URL des Webinar-Videos (Vimeo/YouTube unlisted) |
 | E-Mail-Integration | `handleSubmit()` im `<script>`-Block | Mailchimp/ConvertKit API oder Netlify Forms |
