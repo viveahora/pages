@@ -6,10 +6,10 @@ Webinar-Funnel: Meta Ad → Landing Page → 25-Min. Video → WhatsApp CTA zu L
 ## Struktur
 
 ```
-index.html                Alle Sections inline (HTML + CSS + JS, keine externen Dateien ausser Google Fonts)
-lothar-hero-desktop.jpg    Vom Auftraggeber zu ergänzen (Titelbild Hero, Desktop, Querformat)
-lothar-hero-mobile.jpg     Vom Auftraggeber zu ergänzen (Titelbild Hero, Mobile, Hochformat)
-lothar-foto.jpg            Vom Auftraggeber zu ergänzen (Porträt, Format 3:4, Über-Lothar-Section)
+index.html                 Alle Sections inline (HTML + CSS + JS, keine externen Dateien ausser Google Fonts)
+lothar-hero-desktop.webp    Vom Auftraggeber zu ergänzen (Titelbild Hero, Desktop, Querformat)
+lothar-hero-mobile.webp     Vom Auftraggeber zu ergänzen (Titelbild Hero, Mobile, Hochformat)
+lothar-foto.webp            Vom Auftraggeber zu ergänzen (Porträt, Format 3:4, Über-Lothar-Section)
 ```
 
 Einfach `index.html` im Browser öffnen — kein Server/Build nötig.
@@ -23,24 +23,29 @@ scrollt per Anchor-Link zur Anmeldesektion (`#registrierung`), es gibt kein Form
 Hero selbst.
 
 Es werden **zwei separate Bilddateien** geladen — unter 640px Breite (Mobile) schaltet eine
-Media Query von `lothar-hero-desktop.jpg` auf `lothar-hero-mobile.jpg` um, damit der
+Media Query von `lothar-hero-desktop.webp` auf `lothar-hero-mobile.webp` um, damit der
 Bildausschnitt auf schmalen Screens nicht einfach nur zugeschnitten, sondern gezielt fürs
 Hochformat komponiert werden kann. Fehlt eine der beiden Dateien, fällt der Hintergrund
 automatisch auf einen warmen Gradient zurück (kein kaputtes Bild-Icon) — CSS-Layer-Fallback,
 kein JS nötig.
 
+Alle drei Bilder sind als **WebP** eingebunden (kleinere Dateigrösse bei gleicher Qualität,
+Browser-Support >97% — für diesen Funnel ohne JPG-Fallback ausreichend, kein `<picture>`-Tag
+nötig). Einfach unter genau diesen Dateinamen ins Repo-Root hochladen, keine Code-Änderung
+nötig.
+
 **Empfohlene Masse:**
 
 | Datei | Format | Grösse (empfohlen) | Hinweis |
 |---|---|---|---|
-| `lothar-hero-desktop.jpg` | Querformat, ca. 16:9–3:2 | 2400×1350px (min. 1920×1080px) | Motiv/Fokuspunkt eher rechts oder zentriert platzieren — der Text liegt unten links über einem dunklen Verlauf, der untere Bilddrittel darf ruhig etwas "leerer" sein |
-| `lothar-hero-mobile.jpg` | Hochformat, ca. 4:5–3:4 | 1080×1350px (min. 828×1035px) | Eigener Bildausschnitt statt einfach nur zugeschnittenes Desktop-Bild — Motiv zentriert, Kopf/Gesicht (falls Lothar im Bild) im oberen Drittel |
-| `lothar-foto.jpg` | Hochformat, exakt 3:4 | 900×1200px (min. 600×800px) | Porträt, freundlich, professionell — wird als `object-fit: cover` in eine 3:4-Fläche gesetzt |
+| `lothar-hero-desktop.webp` | Querformat, ca. 16:9–3:2 | 2400×1350px (min. 1920×1080px) | Motiv/Fokuspunkt eher rechts oder zentriert platzieren — der Text liegt unten links über einem dunklen Verlauf, der untere Bilddrittel darf ruhig etwas "leerer" sein |
+| `lothar-hero-mobile.webp` | Hochformat, ca. 4:5–3:4 | 1080×1350px (min. 828×1035px) | Eigener Bildausschnitt statt einfach nur zugeschnittenes Desktop-Bild — Motiv zentriert, Kopf/Gesicht (falls Lothar im Bild) im oberen Drittel |
+| `lothar-foto.webp` | Hochformat, exakt 3:4 | 900×1200px (min. 600×800px) | Porträt, freundlich, professionell — wird als `object-fit: cover` in eine 3:4-Fläche gesetzt |
 
-Format: JPG (q≈80–85%) ist für Fotos ausreichend; alle drei Dateien sollten unter ~400–600KB
-bleiben für schnelle Ladezeit. Beide Hero-Bilder sollten zueinander farblich/stilistisch
-konsistent sein (gleiches Motiv/Location, gleiche Bearbeitung), da sie je nach Bildschirmgrösse
-gegeneinander ausgetauscht werden.
+WebP-Qualität q≈80–85% ist für Fotos ausreichend; alle drei Dateien sollten unter ~250–400KB
+bleiben für schnelle Ladezeit (WebP ist bei gleicher Qualität ohnehin kleiner als JPG). Beide
+Hero-Bilder sollten zueinander farblich/stilistisch konsistent sein (gleiches Motiv/Location,
+gleiche Bearbeitung), da sie je nach Bildschirmgrösse gegeneinander ausgetauscht werden.
 
 ## Meta-Compliance
 
@@ -61,15 +66,15 @@ der Verneinung auf der äusseren Seite) widersprach. Umgesetzt wurde stattdessen
 
 | Was | Wo im Code | Details |
 |---|---|---|
-| Hero-Titelbild Desktop | `.hero-bg` im `<style>`-Block | `lothar-hero-desktop.jpg`, Querformat. Wirkt bei Lifestyle-/Freiheits-Motiven (Reisen, Golf, o.ä.) am stärksten. Bis dahin zeigt der Hero einen warmen Gradient. |
-| Hero-Titelbild Mobile | `.hero-bg` in der 640px-Media-Query | `lothar-hero-mobile.jpg`, Hochformat, eigener Bildausschnitt (siehe Tabelle oben). |
-| Lothar-Foto | `<img src="lothar-foto.jpg">` in der Über-Lothar-Section | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
+| Hero-Titelbild Desktop | `.hero-bg` im `<style>`-Block | `lothar-hero-desktop.webp`, Querformat. Wirkt bei Lifestyle-/Freiheits-Motiven (Reisen, Golf, o.ä.) am stärksten. Bis dahin zeigt der Hero einen warmen Gradient. |
+| Hero-Titelbild Mobile | `.hero-bg` in der 640px-Media-Query | `lothar-hero-mobile.webp`, Hochformat, eigener Bildausschnitt (siehe Tabelle oben). |
+| Lothar-Foto | `<img src="lothar-foto.webp">` in der Über-Lothar-Section | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
 | Video-URL | `handleSubmit()` im `<script>`-Block | URL des Webinar-Videos (Vimeo/YouTube unlisted) |
 | E-Mail-Integration | `handleSubmit()` im `<script>`-Block | Mailchimp/ConvertKit API oder Netlify Forms |
 | WhatsApp-Link | Ans Ende des Videos einbauen (nicht auf der Landing Page) | `https://wa.me/4179XXXXXXX` |
 | Meta Pixel ID | `<head>`, auskommentierter Block | Von Meta Business Manager |
 | Impressum/Datenschutz | Footer-Links `href="#"` | Gesetzliche Pflicht in DACH |
-| og:image | `<head>`, Meta-Tag fehlt noch | 1200×630px, Lothar-Foto oder professionelles Bild |
+| og:image | `<head>`, Meta-Tag fehlt noch | 1200×630px. **Empfehlung:** hierfür JPG/PNG statt WebP verwenden — manche Social-Media-Crawler (u.a. ältere Facebook/Meta-Debugger-Fälle) lesen WebP für Link-Vorschaubilder unzuverlässig |
 | Domain | Netlify-Dashboard | Erst bei explizitem Deploy-Auftrag |
 
 ## Deployment

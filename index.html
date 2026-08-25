@@ -137,10 +137,10 @@
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
-    /* TODO (Auftraggeber): lothar-hero-desktop.jpg = Titelbild (Querformat, z.B. Lothar unterwegs/Lifestyle).
-       Unter 640px wird stattdessen lothar-hero-mobile.jpg geladen (siehe Media Query unten).
+    /* TODO (Auftraggeber): lothar-hero-desktop.webp = Titelbild (Querformat, z.B. Lothar unterwegs/Lifestyle).
+       Unter 640px wird stattdessen lothar-hero-mobile.webp geladen (siehe Media Query unten).
        Fällt eine Datei weg/fehlt sie, greift automatisch der Gradient dahinter — kein kaputtes Bild-Icon. */
-    background-image: url('lothar-hero-desktop.jpg'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%);
+    background-image: url('lothar-hero-desktop.webp'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%);
     background-size: cover; background-position: center;
   }
   .hero-bg::after {
@@ -344,7 +344,7 @@
     :root { --container-padding: 20px; }
     section { padding: var(--section-padding-y-sm) 0; }
     .hero { min-height: auto; padding: 120px 0 48px; }
-    .hero-bg { background-image: url('lothar-hero-mobile.jpg'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%); }
+    .hero-bg { background-image: url('lothar-hero-mobile.webp'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%); }
     .hero-content h1 { font-size: 36px; letter-spacing: -1px; }
     .section-header h2 { font-size: 28px; }
     .learn-grid, .pain-grid { grid-template-columns: 1fr; }
@@ -470,7 +470,7 @@
   <div class="container about-inner">
     <div class="about-photo">
       <!-- TODO (Auftraggeber): echtes Foto von Lothar hier einsetzen (Porträt, Format 3:4) -->
-      <img src="lothar-foto.jpg" alt="Lothar Pusch" loading="lazy" onerror="this.style.display='none'">
+      <img src="lothar-foto.webp" alt="Lothar Pusch" loading="lazy" onerror="this.style.display='none'">
       <div class="about-badge">
         <span class="about-badge-icon">🌍</span>
         <span><strong>40 Mio. €</strong><span>Netzwerk Jahresumsatz</span></span>
