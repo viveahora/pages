@@ -254,8 +254,12 @@
   .fact-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--green-soft); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
   .fact-list p { margin: 0; font-size: 15px; color: var(--stone-mid); line-height: 1.6; padding-top: 6px; }
 
-  .quote-block { border-left: 3px solid var(--green); padding-left: 20px; margin-top: 8px; }
-  .quote-block p { font-style: italic; font-size: 17px; color: var(--stone-mid); line-height: 1.7; margin: 0 0 8px; }
+  .quote-block { margin: 56px auto 0; max-width: 480px; text-align: center; }
+  .quote-block::before {
+    content: ''; display: block; width: 40px; height: 3px;
+    background: var(--green); border-radius: 2px; margin: 0 auto 24px;
+  }
+  .quote-block p { font-style: italic; font-size: 18px; color: var(--stone-mid); line-height: 1.7; margin: 0 0 14px; }
   .quote-block cite { font-size: 14px; color: var(--grey-light); font-style: normal; font-weight: 600; }
 
   /* ── Second registration ── */
@@ -333,6 +337,7 @@
   @media (max-width: 640px) {
     :root { --container-padding: 20px; }
     section { padding: var(--section-padding-y-sm) 0; }
+    .quote-block { margin-top: 44px; }
     .hero { min-height: auto; max-height: none; padding: 120px 0 48px; }
     .hero-bg { background-image: url('lothar-hero-mobile.webp'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%); }
     .hero-content h1 { font-size: 36px; letter-spacing: -1px; }
