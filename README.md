@@ -62,6 +62,25 @@ was der eigenen Compliance-Regel (Abschnitt 2 des Briefings: dieses Wort nicht e
 der Verneinung auf der äusseren Seite) widersprach. Umgesetzt wurde stattdessen:
 "Transparent und ehrlich — keine versteckten Kosten, keine leeren Versprechen."
 
+## Anmeldeformular
+
+Das Formular in der Anmeldesektion (`#reg-form`) ist auf **Netlify Forms** verdrahtet:
+`name="plan-f-anmeldung"`, `data-netlify="true"`, ein verstecktes `form-name`-Feld und ein
+Honeypot-Feld (`bot-field`, per CSS unsichtbar) gegen Spam-Bots. Das JS in `handleSubmit()`
+schickt die Eingaben per `fetch()` an Netlify statt die Seite neu zu laden, und zeigt danach
+den Erfolgs-Zustand am Button.
+
+**Wichtig:** Netlify Forms funktioniert nur, sobald die Seite tatsächlich auf Netlify deployed
+ist — der Netlify-Build-Bot muss das Formular beim Build anhand von `data-netlify="true"` im
+HTML registrieren. Auf der reinen GitHub-Vorschau (`htmlpreview.github.io` o.ä.) läuft der
+`fetch()`-Aufruf ins Leere (404) — das ist vor dem ersten Netlify-Deploy normal, kein Bug.
+Nach dem Deploy tauchen Einträge im Netlify-Dashboard unter *Forms* auf.
+
+**Brevo-Anbindung (später):** Sobald ihr so weit seid, lässt sich Netlify Forms per Zapier/Make
+oder über einen Netlify-Forms-Webhook automatisch an Brevo weiterleiten (neuer Kontakt bei
+jeder Submission) — dafür ist keine Code-Änderung an dieser Seite nötig, nur ein Zap/Szenario
+auf Netlify-Seite.
+
 ## Offene Punkte für den Auftraggeber
 
 | Was | Wo im Code | Details |
@@ -69,8 +88,7 @@ der Verneinung auf der äusseren Seite) widersprach. Umgesetzt wurde stattdessen
 | Hero-Titelbild Desktop | `.hero-bg` im `<style>`-Block | `lothar-hero-desktop.webp`, Querformat. Wirkt bei Lifestyle-/Freiheits-Motiven (Reisen, Golf, o.ä.) am stärksten. Bis dahin zeigt der Hero einen warmen Gradient. |
 | Hero-Titelbild Mobile | `.hero-bg` in der 640px-Media-Query | `lothar-hero-mobile.webp`, Hochformat, eigener Bildausschnitt (siehe Tabelle oben). |
 | Lothar-Foto | `<img src="lothar-foto.webp">` in der Über-Lothar-Section | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
-| Video-URL | `handleSubmit()` im `<script>`-Block | URL des Webinar-Videos (Vimeo/YouTube unlisted) |
-| E-Mail-Integration | `handleSubmit()` im `<script>`-Block | Mailchimp/ConvertKit API oder Netlify Forms |
+| **Wistia-Video-URL** | `handleSubmit()` im `<script>`-Block, Zeile mit `// window.location.href = 'WISTIA-VIDEO-URL';` | Noch einzutragen, sobald die Wistia-Link vorliegt — Zeile ist vorbereitet, nur auskommentiert |
 | WhatsApp-Link | Ans Ende des Videos einbauen (nicht auf der Landing Page) | `https://wa.me/4179XXXXXXX` |
 | Meta Pixel ID | `<head>`, auskommentierter Block | Von Meta Business Manager |
 | Impressum/Datenschutz | Footer-Links `href="#"` | Gesetzliche Pflicht in DACH |
@@ -80,4 +98,6 @@ der Verneinung auf der äusseren Seite) widersprach. Umgesetzt wurde stattdessen
 ## Deployment
 
 **Noch nicht auf Netlify deployt** — aktuell nur als GitHub-Branch-Vorschau verfügbar.
-Erst nach expliziter Freigabe wird in den Netlify-Produktionsbranch gemerged.
+Erst nach expliziter Freigabe wird in den Netlify-Produktionsbranch gemerged. Netlify Forms
+(siehe oben) aktiviert sich automatisch mit dem ersten Deploy, kein Extra-Setup im
+Netlify-Dashboard nötig.

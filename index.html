@@ -178,6 +178,7 @@
   .form-card h3 { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.5px; color: var(--stone); margin: 0 0 10px; line-height: 1.25; }
   .form-card .desc { font-size: 15px; color: var(--grey); margin: 0 0 24px; line-height: 1.6; }
   .form-group { margin-bottom: 14px; }
+  .hp-field { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   .form-group input {
     width: 100%; padding: 14px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-btn);
     font-family: 'Inter', sans-serif; font-size: 15px; color: var(--stone); background: var(--warm-white);
@@ -521,7 +522,9 @@
       <span class="tag">✦ Gratis Zugang sichern</span>
       <h3>Jetzt kostenlos anmelden &amp; Video sofort anschauen</h3>
       <p class="desc">Trag dich ein und erhalte sofortigen Zugang zum Video-Training von Lothar Pusch.</p>
-      <form class="lead-form" id="reg-form">
+      <form class="lead-form" id="reg-form" name="plan-f-anmeldung" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="plan-f-anmeldung">
+        <p class="hp-field"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
         <div class="form-group">
           <input type="text" id="vorname2" name="vorname2" placeholder="Max" aria-label="Vorname" required>
         </div>
@@ -613,17 +616,32 @@
 
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
     btn.textContent = '✓ Zugang wird vorbereitet…';
     btn.disabled = true;
     btn.style.background = 'var(--green-hover)';
 
-    // TODO (Auftraggeber): Hier E-Mail-Integration einfügen (z.B. Mailchimp, ConvertKit, GetResponse)
-    // Für jetzt: Redirect oder Video-URL anzeigen
-    setTimeout(() => {
-      // window.location.href = 'VIDEO-URL';
-      btn.textContent = '✓ Zugang erteilt — Video öffnen';
-    }, 1200);
+    // Netlify Forms: nimmt Submissions nur entgegen, wenn die Seite auf Netlify
+    // deployed ist (der Build-Bot registriert das Formular anhand von
+    // data-netlify="true" im HTML). Auf der reinen GitHub-Vorschau läuft
+    // dieser fetch ins Leere (404) — das ist vor dem ersten Netlify-Deploy
+    // normal und kein Fehler im Code.
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+      .then(() => {
+        // TODO (Auftraggeber): Wistia-Video-URL hier eintragen, sobald bekannt
+        // window.location.href = 'WISTIA-VIDEO-URL';
+        btn.textContent = '✓ Zugang erteilt — Video öffnen';
+      })
+      .catch(() => {
+        btn.textContent = 'Fehler — bitte nochmal versuchen';
+        btn.disabled = false;
+        btn.style.background = '';
+      });
   }
 
   document.querySelectorAll('.lead-form').forEach(form => {
