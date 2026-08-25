@@ -99,10 +99,11 @@ Der WhatsApp-Button hat eine vorausgefüllte Nachricht ("Hallo Lothar, ich habe 
 Video-Training gesehen und hätte gerne mehr Infos.") — Text lässt sich jederzeit anpassen oder
 entfernen (`href="https://wa.me/...?text=..."` im `<a class="btn">`-Tag).
 
-**Video ist aktuell ein Platzhalter:** eingebettet ist `https://bluewin-160.wistia.com/s/ywefbqdyilznqld`
-(vom Auftraggeber als Test-/Platzhalter-Video genannt). Vor dem echten Launch die Media-ID im
-`wistia-player`-Tag (`media-id="..."`) sowie im `<script src="https://fast.wistia.com/embed/...">`
-gegen die finale Webinar-Video-ID austauschen.
+**Eingebettetes Video:** Media-ID `6k671balyz`, per offiziellem Wistia-Embed-Code vom
+Auftraggeber eingesetzt (inkl. Blur-Swatch-Ladeanimation, bis der Player geladen ist). Falls
+später ein anderes Video eingesetzt werden soll, drei Stellen anpassen: `media-id` im
+`wistia-player`-Tag, die Media-ID im `<script src="https://fast.wistia.com/embed/...">` und
+im CSS-Selektor `wistia-player[media-id='...']:not(:defined)`.
 
 ## Offene Punkte für den Auftraggeber
 

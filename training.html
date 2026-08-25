@@ -100,6 +100,10 @@
     background: var(--dark-bg); margin-bottom: 40px;
   }
   wistia-player { display: block; width: 100%; border-radius: var(--radius-card-lg); }
+  wistia-player[media-id='6k671balyz']:not(:defined) {
+    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/6k671balyz/swatch');
+    display: block; filter: blur(5px); padding-top: 56.25%;
+  }
 
   .cta-block { margin-bottom: 56px; }
   .cta-block .btn { width: 100%; max-width: 420px; }
@@ -168,8 +172,8 @@
 
     <div class="video-frame reveal">
       <script src="https://fast.wistia.com/player.js" async></script>
-      <script src="https://fast.wistia.com/embed/ywefbqdyilznqld.js" async type="module"></script>
-      <wistia-player media-id="ywefbqdyilznqld" aspect="1.7777777777777777"></wistia-player>
+      <script src="https://fast.wistia.com/embed/6k671balyz.js" async type="module"></script>
+      <wistia-player media-id="6k671balyz" aspect="1.7777777777777777"></wistia-player>
     </div>
 
     <div class="cta-block reveal reveal-delay-1">
