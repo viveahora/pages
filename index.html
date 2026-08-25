@@ -137,9 +137,10 @@
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
-    /* TODO (Auftraggeber): lothar-hero.jpg = Titelbild (Querformat, z.B. Lothar unterwegs/Lifestyle).
-       Fällt die Datei weg/fehlt sie, greift automatisch der Gradient dahinter — kein kaputtes Bild-Icon. */
-    background-image: url('lothar-hero.jpg'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%);
+    /* TODO (Auftraggeber): lothar-hero-desktop.jpg = Titelbild (Querformat, z.B. Lothar unterwegs/Lifestyle).
+       Unter 640px wird stattdessen lothar-hero-mobile.jpg geladen (siehe Media Query unten).
+       Fällt eine Datei weg/fehlt sie, greift automatisch der Gradient dahinter — kein kaputtes Bild-Icon. */
+    background-image: url('lothar-hero-desktop.jpg'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%);
     background-size: cover; background-position: center;
   }
   .hero-bg::after {
@@ -343,6 +344,7 @@
     :root { --container-padding: 20px; }
     section { padding: var(--section-padding-y-sm) 0; }
     .hero { min-height: auto; padding: 120px 0 48px; }
+    .hero-bg { background-image: url('lothar-hero-mobile.jpg'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%); }
     .hero-content h1 { font-size: 36px; letter-spacing: -1px; }
     .section-header h2 { font-size: 28px; }
     .learn-grid, .pain-grid { grid-template-columns: 1fr; }
