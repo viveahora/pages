@@ -323,10 +323,12 @@
   .bg-warm { background: var(--warm-white); }
   .bg-sand { background: var(--sand); }
 
+  .mobile-break { display: none; }
+
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .about-inner, .reg-inner { grid-template-columns: 1fr; }
-    .about-inner .about-photo { max-width: 340px; margin-bottom: 44px; }
+    .about-inner .about-photo { max-width: 340px; margin: 0 auto 24px; }
     .trust-bar-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 16px; }
     .trust-stat { flex: none; }
     .trust-stat strong { font-size: 22px; white-space: nowrap; }
@@ -338,6 +340,7 @@
   @media (max-width: 640px) {
     :root { --container-padding: 20px; }
     section { padding: var(--section-padding-y-sm) 0; }
+    .mobile-break { display: inline; }
     .quote-block { margin-top: 44px; }
     .hero { min-height: auto; max-height: none; padding: 120px 0 48px; }
     .hero-bg { background-image: url('lothar-hero-mobile.webp'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%); }
@@ -460,7 +463,7 @@
     </div>
     <div class="about-content reveal reveal-delay-1">
       <span class="section-label">Über Lothar Pusch</span>
-      <h2>Ich war genau dort, wo du heute bist.</h2>
+      <h2>Ich war genau dort,<br class="mobile-break"> wo du heute bist.</h2>
       <p class="intro">Mit 21 Jahren entschied ich mich, nie wieder für jemand anderen zu arbeiten. Ich hatte kein Kapital, keine Kontakte, keine Ahnung, nur den Wunsch nach einem selbstbestimmten Leben. Heute reise ich, wann ich will, arbeite dann, wenn ich Lust habe, und helfe anderen dabei, denselben Weg zu gehen.</p>
       <ul class="fact-list">
         <li><span class="fact-icon">🎓</span><p>Studium Wirtschaftsrecht: theoretische Grundlage, praktische Erfahrung entschied alles.</p></li>
