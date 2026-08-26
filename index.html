@@ -457,7 +457,7 @@
 <!-- ═══════════ ÜBER LOTHAR ═══════════ -->
 <section class="bg-white">
   <div class="container about-inner">
-    <div class="about-photo reveal">
+    <div class="about-photo">
       <!-- TODO (Auftraggeber): echtes Foto von Lothar hier einsetzen (Porträt, Format 3:4) -->
       <img src="lothar-foto.webp" alt="Lothar Pusch" loading="lazy" onerror="this.style.display='none'">
     </div>
@@ -673,6 +673,13 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     revealEls.forEach(el => observer.observe(el));
+
+    // Sicherheitsnetz: falls der Observer ein Element aus irgendeinem Grund
+    // nie als sichtbar erkennt (Timing, Layout-Edge-Cases o.ä.), spätestens
+    // nach 2.5s trotzdem einblenden statt dauerhaft unsichtbar zu lassen.
+    setTimeout(() => {
+      revealEls.forEach(el => el.classList.add('is-visible'));
+    }, 2500);
   })();
 </script>
 

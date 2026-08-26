@@ -238,6 +238,13 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     revealEls.forEach(el => observer.observe(el));
+
+    // Sicherheitsnetz: falls der Observer ein Element aus irgendeinem Grund
+    // nie als sichtbar erkennt (Timing, Layout-Edge-Cases o.ä.), spätestens
+    // nach 2.5s trotzdem einblenden statt dauerhaft unsichtbar zu lassen.
+    setTimeout(() => {
+      revealEls.forEach(el => el.classList.add('is-visible'));
+    }, 2500);
   })();
 </script>
 
