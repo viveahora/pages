@@ -213,7 +213,7 @@
   .trust-divider { width: 1px; align-self: stretch; background: var(--border); }
 
   /* ── Bild-Atempause ── */
-  .breather { position: relative; min-height: 480px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .breather { position: relative; min-height: 480px; display: flex; align-items: flex-start; justify-content: center; overflow: hidden; padding-top: 72px; }
   .breather-bg {
     position: absolute; left: 0; right: 0; top: -15%; height: 130%;
     background-image: url('breather-bg.webp'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%);
@@ -388,7 +388,7 @@
     :root { --container-padding: 20px; }
     section { padding: var(--section-padding-y-sm) 0; }
     .mobile-break { display: inline; }
-    .breather { min-height: 320px; }
+    .breather { min-height: 320px; padding-top: 40px; }
     .quote-block { margin-top: 64px; }
     .hero { min-height: auto; max-height: none; padding: 120px 0 48px; }
     .hero-bg { background-image: url('lothar-hero-mobile.webp'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%); }
