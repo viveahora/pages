@@ -9,9 +9,10 @@ Webinar-Funnel: Meta Ad → Landing Page (`index.html`) → Anmeldung → Video-
 ```
 index.html                 Landing Page — alles inline (HTML + CSS + JS, keine externen Dateien ausser Google Fonts)
 training.html               Zweite Seite nach der Anmeldung — eingebettetes Wistia-Video + WhatsApp-CTA + nächste Schritte
-lothar-hero-desktop.webp    Vom Auftraggeber zu ergänzen (Titelbild Hero, Desktop, Querformat)
-lothar-hero-mobile.webp     Vom Auftraggeber zu ergänzen (Titelbild Hero, Mobile, Hochformat)
-lothar-foto.webp            Vom Auftraggeber zu ergänzen (Porträt, Format 3:4, Über-Lothar-Section)
+lothar-hero-desktop.webp    Titelbild Hero, Desktop, Querformat (auch als Platzhalter-Textur für Pain-CTA & Bild-Atempause)
+lothar-hero-mobile.webp     Titelbild Hero, Mobile, Hochformat
+lothar-foto.webp            Porträt, Format 3:4, Über-Lothar-Section
+video-preview.webp          Vom Auftraggeber zu ergänzen (Standbild aus dem Video-Training, für die Anmeldesektion)
 ```
 
 Einfach `index.html` im Browser öffnen — kein Server/Build nötig.
@@ -105,6 +106,28 @@ später ein anderes Video eingesetzt werden soll, drei Stellen anpassen: `media-
 `wistia-player`-Tag, die Media-ID im `<script src="https://fast.wistia.com/embed/...">` und
 im CSS-Selektor `wistia-player[media-id='...']:not(:defined)`.
 
+## Emotionale Bild-Elemente
+
+Auf Wunsch drei zusätzliche Bildmomente ergänzt, damit die Seite neben Struktur/Farbkonzept
+auch emotional trägt — bewusst dosiert, nicht in jeder Section:
+
+1. **Pain-CTA-Banner** ("Für wen"-Section): der grüne Banner hat jetzt eine dezente Foto-Textur
+   im Hintergrund (`lothar-hero-desktop.webp`, 30% Deckkraft) unter einem grünen Verlauf —
+   bleibt markenkonform grün, wirkt aber weniger flach als reine Farbfläche.
+2. **Bild-Atempause** (`.breather`, neuer Block zwischen "Was du lernst" und "Für wen"): volle
+   Bildbreite, dunkel abgetönt, mit einer kurzen Zeile Text drüber ("Nicht mehr für andere
+   arbeiten. Sondern für dein eigenes Leben."). Nutzt aktuell ebenfalls `lothar-hero-desktop.webp`
+   als Platzhalter.
+3. **Video-Vorschaubild** in der zweiten Anmeldesektion, über dem Formular: dunkle Box mit
+   weissem Play-Icon, erwartet `video-preview.webp` (Standbild aus dem Video-Training, kein
+   Folien-/Bullet-Point-Screenshot — ein Frame mit Lothar selbst wirkt einladender). Fehlt die
+   Datei, zeigt die Box weiterhin den Play-Button auf dunklem Grund, kein kaputtes Bild-Icon.
+
+**Hinweis:** Punkt 1 und 2 nutzen aktuell provisorisch dasselbe Hero-Foto als Platzhalter, damit
+die Wirkung sofort sichtbar ist. Für den finalen Launch eigene, unterschiedliche Fotos einsetzen
+(einfach `lothar-hero-desktop.webp`-Referenzen in `.pain-cta-box::before` bzw. `.breather-bg`
+im `<style>`-Block auf neue Dateinamen ändern).
+
 ## Offene Punkte für den Auftraggeber
 
 | Was | Wo im Code | Details |
@@ -112,6 +135,8 @@ im CSS-Selektor `wistia-player[media-id='...']:not(:defined)`.
 | Hero-Titelbild Desktop | `.hero-bg` im `<style>`-Block (index.html) | `lothar-hero-desktop.webp`, Querformat. Wirkt bei Lifestyle-/Freiheits-Motiven (Reisen, Golf, o.ä.) am stärksten. Bis dahin zeigt der Hero einen warmen Gradient. |
 | Hero-Titelbild Mobile | `.hero-bg` in der 640px-Media-Query (index.html) | `lothar-hero-mobile.webp`, Hochformat, eigener Bildausschnitt (siehe Tabelle oben). |
 | Lothar-Foto | `<img src="lothar-foto.webp">` in der Über-Lothar-Section (index.html) | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
+| Video-Vorschaubild | `.video-preview img` in der zweiten Anmeldesektion (index.html) | `video-preview.webp`, Querformat 16:9. Standbild mit Lothar aus dem Training, kein Folien-Screenshot. Bis dahin zeigt die Box nur den Play-Button auf dunklem Grund. |
+| Eigene Fotos für Pain-CTA & Bild-Atempause | `.pain-cta-box::before` und `.breather-bg` im `<style>`-Block (index.html) | Aktuell provisorisch `lothar-hero-desktop.webp` als Platzhalter, siehe "Emotionale Bild-Elemente" oben |
 | ~~Lothars WhatsApp-Nummer~~ | `training.html`, `.cta-block` | ✅ Erledigt — `+41 76 604 78 54` eingetragen |
 | Meta Pixel ID | `<head>` in index.html **und** training.html, auskommentierte Blöcke | Von Meta Business Manager. Empfehlung: `PageView` auf index.html, `Lead` auf training.html (Anmeldung ist dort tatsächlich abgeschlossen) |
 | Impressum/Datenschutz | Footer-Links `href="#"` in beiden Dateien | Gesetzliche Pflicht in DACH |
