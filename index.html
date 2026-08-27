@@ -48,6 +48,7 @@
 
     /* Grün */
     --green:        #1B7340;
+    --green-light:  #249B5C;
     --green-hover:  #155C33;
     --green-soft:   #EBF5EF;
     --green-border: #BEE0CB;
@@ -111,16 +112,16 @@
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    background: var(--green); color: var(--white);
+    background: linear-gradient(135deg, var(--green-light) 0%, var(--green-hover) 100%); color: var(--white);
     padding: 15px 28px; border-radius: var(--radius-btn); border: none;
     font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px;
-    letter-spacing: -0.2px; cursor: pointer; transition: background .2s ease, transform .15s ease;
+    letter-spacing: -0.2px; cursor: pointer; transition: filter .2s ease, transform .15s ease;
   }
-  .btn:hover { background: var(--green-hover); }
+  .btn:hover { filter: brightness(0.93); }
   .btn:active { transform: scale(0.98); }
   .btn-block { width: 100%; }
   .btn-white { background: var(--white); color: var(--green); }
-  .btn-white:hover { background: var(--warm-white); }
+  .btn-white:hover { filter: none; background: var(--warm-white); }
   .btn:disabled { cursor: default; opacity: .9; }
 
   /* ── Nav ── */
@@ -566,7 +567,6 @@
       <p>Das Training ist kostenlos, unverbindlich und dauert 25 Minuten. Du entscheidest danach selbst, ob und wie du weitermachen möchtest.</p>
       <ul class="promise-list">
         <li><span class="check-icon">✓</span> Kein Eigenkapital, keine Investition: du riskierst nichts.</li>
-        <li><span class="check-icon">✓</span> Kein Verkaufsdruck: du entscheidest, ob du weitermachst.</li>
         <li><span class="check-icon">✓</span> Transparent und ehrlich: keine versteckten Kosten, keine leeren Versprechen.</li>
         <li><span class="check-icon">✓</span> Für alle geeignet, auch wenn du noch nie etwas in dieser Richtung gemacht hast.</li>
       </ul>
