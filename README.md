@@ -9,10 +9,11 @@ Webinar-Funnel: Meta Ad → Landing Page (`index.html`) → Anmeldung → Video-
 ```
 index.html                 Landing Page — alles inline (HTML + CSS + JS, keine externen Dateien ausser Google Fonts)
 training.html               Zweite Seite nach der Anmeldung — eingebettetes Wistia-Video + WhatsApp-CTA + nächste Schritte
-lothar-hero-desktop.webp    Titelbild Hero, Desktop, Querformat (auch als Platzhalter-Textur für Pain-CTA & Bild-Atempause)
+lothar-hero-desktop.webp    Titelbild Hero, Desktop, Querformat (auch als Platzhalter-Textur für Pain-CTA-Banner)
 lothar-hero-mobile.webp     Titelbild Hero, Mobile, Hochformat
 lothar-foto.webp            Porträt, Format 3:4, Über-Lothar-Section
 video-preview.webp          Standbild aus dem Video-Training, für die Anmeldesektion
+breather-bg.webp            Stimmungsbild für die Bild-Atempause zwischen "Was du lernst" und "Für wen"
 ```
 
 Einfach `index.html` im Browser öffnen — kein Server/Build nötig.
@@ -114,19 +115,22 @@ auch emotional trägt — bewusst dosiert, nicht in jeder Section:
 1. **Pain-CTA-Banner** ("Für wen"-Section): der grüne Banner hat jetzt eine dezente Foto-Textur
    im Hintergrund (`lothar-hero-desktop.webp`, 30% Deckkraft) unter einem grünen Verlauf —
    bleibt markenkonform grün, wirkt aber weniger flach als reine Farbfläche.
-2. **Bild-Atempause** (`.breather`, neuer Block zwischen "Was du lernst" und "Für wen"): volle
-   Bildbreite, dunkel abgetönt, mit einer kurzen Zeile Text drüber ("Nicht mehr für andere
-   arbeiten. Sondern für dein eigenes Leben."). Nutzt aktuell ebenfalls `lothar-hero-desktop.webp`
-   als Platzhalter.
+2. **Bild-Atempause** (`.breather`, voller Block zwischen "Was du lernst" und "Für wen"): eigenes
+   Foto `breather-bg.webp` (Hängematte/Berge, vom Auftraggeber geliefert), dunkel abgetönt, mit
+   einer kurzen Zeile Text drüber ("Nicht mehr für andere arbeiten. Sondern für dein eigenes
+   Leben."), plus dezentem Scroll-Parallax (siehe unten).
 3. **Video-Vorschaubild** in der zweiten Anmeldesektion, über dem Formular: dunkle Box mit
    weissem Play-Icon, erwartet `video-preview.webp` (Standbild aus dem Video-Training, kein
    Folien-/Bullet-Point-Screenshot — ein Frame mit Lothar selbst wirkt einladender). Fehlt die
    Datei, zeigt die Box weiterhin den Play-Button auf dunklem Grund, kein kaputtes Bild-Icon.
 
-**Hinweis:** Punkt 1 und 2 nutzen aktuell provisorisch dasselbe Hero-Foto als Platzhalter, damit
-die Wirkung sofort sichtbar ist. Für den finalen Launch eigene, unterschiedliche Fotos einsetzen
-(einfach `lothar-hero-desktop.webp`-Referenzen in `.pain-cta-box::before` bzw. `.breather-bg`
-im `<style>`-Block auf neue Dateinamen ändern).
+**Scroll-Parallax (Bild-Atempause):** `.breather-bg` verschiebt sich beim Scrollen leicht (±30px)
+über einen rAF-throttled Scroll-Listener, respektiert `prefers-reduced-motion`. Bewusst kein
+`background-attachment: fixed` (klassischer Parallax-Trick), da auf iOS Safari unzuverlässig.
+
+**Hinweis:** Punkt 1 (Pain-CTA-Banner) nutzt weiterhin provisorisch `lothar-hero-desktop.webp`
+als Platzhalter-Textur. Eigenes Foto dafür einfach in `.pain-cta-box::before` im `<style>`-Block
+referenzieren.
 
 ## Offene Punkte für den Auftraggeber
 
@@ -136,7 +140,8 @@ im `<style>`-Block auf neue Dateinamen ändern).
 | Hero-Titelbild Mobile | `.hero-bg` in der 640px-Media-Query (index.html) | `lothar-hero-mobile.webp`, Hochformat, eigener Bildausschnitt (siehe Tabelle oben). |
 | Lothar-Foto | `<img src="lothar-foto.webp">` in der Über-Lothar-Section (index.html) | Professionell, freundlich, Porträt-Format (3:4). Bis dahin zeigt die Section einen Sand-Platzhalter. |
 | ~~Video-Vorschaubild~~ | `.video-preview img` in der zweiten Anmeldesektion (index.html) | ✅ Erledigt — Screenshot aus dem Training eingesetzt |
-| Eigene Fotos für Pain-CTA & Bild-Atempause | `.pain-cta-box::before` und `.breather-bg` im `<style>`-Block (index.html) | Aktuell provisorisch `lothar-hero-desktop.webp` als Platzhalter, siehe "Emotionale Bild-Elemente" oben |
+| Eigenes Foto für Pain-CTA-Banner | `.pain-cta-box::before` im `<style>`-Block (index.html) | Aktuell provisorisch `lothar-hero-desktop.webp` als Platzhalter |
+| ~~Bild-Atempause~~ | `.breather-bg` im `<style>`-Block (index.html) | ✅ Erledigt — `breather-bg.webp` eingesetzt |
 | ~~Lothars WhatsApp-Nummer~~ | `training.html`, `.cta-block` | ✅ Erledigt — `+41 76 604 78 54` eingetragen |
 | Meta Pixel ID | `<head>` in index.html **und** training.html, auskommentierte Blöcke | Von Meta Business Manager. Empfehlung: `PageView` auf index.html, `Lead` auf training.html (Anmeldung ist dort tatsächlich abgeschlossen) |
 | Impressum/Datenschutz | Footer-Links `href="#"` in beiden Dateien | Gesetzliche Pflicht in DACH |
