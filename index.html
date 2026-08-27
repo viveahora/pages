@@ -185,9 +185,10 @@
   .play-icon {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,.94);
-    color: var(--green); display: flex; align-items: center; justify-content: center;
-    font-size: 18px; padding-left: 3px; box-shadow: 0 4px 20px rgba(0,0,0,.25);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,.25);
   }
+  .play-icon svg { width: 18px; height: 18px; margin-left: 3px; }
   .form-card h3 { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.5px; color: var(--stone); margin: 0 0 10px; line-height: 1.25; }
   .form-card .desc { font-size: 15px; color: var(--grey); margin: 0 0 24px; line-height: 1.6; }
   .form-group { margin-bottom: 14px; }
@@ -581,7 +582,7 @@
     <div class="form-card reveal reveal-delay-1">
       <div class="video-preview">
         <img src="video-preview.webp" alt="Vorschau aus dem Video-Training" loading="lazy" onerror="this.style.display='none'">
-        <span class="play-icon">▶</span>
+        <span class="play-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 4l14 8-14 8V4z" fill="var(--green)"/></svg></span>
       </div>
       <span class="tag">✦ Gratis Zugang sichern</span>
       <h3>Jetzt kostenlos anmelden &amp; Video sofort anschauen</h3>
