@@ -213,12 +213,13 @@
   .trust-divider { width: 1px; align-self: stretch; background: var(--border); }
 
   /* ── Bild-Atempause ── */
-  .breather { position: relative; min-height: 340px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .breather { position: relative; min-height: 480px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
   .breather-bg {
     /* TODO (Auftraggeber): eigenes Foto möglich, lothar-hero-desktop.webp ist aktuell Platzhalter */
-    position: absolute; inset: 0;
+    position: absolute; left: 0; right: 0; top: -15%; height: 130%;
     background-image: url('lothar-hero-desktop.webp'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%);
     background-size: cover; background-position: center;
+    will-change: transform;
   }
   .breather-bg::after { content: ''; position: absolute; inset: 0; background: rgba(28,26,24,.55); }
   .breather-text {
@@ -388,7 +389,7 @@
     :root { --container-padding: 20px; }
     section { padding: var(--section-padding-y-sm) 0; }
     .mobile-break { display: inline; }
-    .breather { min-height: 220px; }
+    .breather { min-height: 320px; }
     .quote-block { margin-top: 64px; }
     .hero { min-height: auto; max-height: none; padding: 120px 0 48px; }
     .hero-bg { background-image: url('lothar-hero-mobile.webp'), linear-gradient(135deg, #2B2620 0%, var(--dark-bg) 55%, #241F1A 100%); }
@@ -740,6 +741,33 @@
     setTimeout(() => {
       revealEls.forEach(el => el.classList.add('is-visible'));
     }, 2500);
+  })();
+
+  (function () {
+    const breather = document.querySelector('.breather');
+    const breatherBg = document.querySelector('.breather-bg');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!breather || !breatherBg || prefersReducedMotion) return;
+
+    let ticking = false;
+    function updateParallax() {
+      const rect = breather.getBoundingClientRect();
+      const viewportH = window.innerHeight;
+      if (rect.bottom > 0 && rect.top < viewportH) {
+        const progress = (viewportH - rect.top) / (viewportH + rect.height);
+        const offset = (progress - 0.5) * 60;
+        breatherBg.style.transform = `translateY(${offset}px)`;
+      }
+      ticking = false;
+    }
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateParallax();
   })();
 </script>
 
