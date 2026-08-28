@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="duoline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<path fill="none" stroke="#2B2E6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M15,2H6C4.895,2,4,2.895,4,4v16c0,1.105,0.895,2,2,2h12c1.105,0,2-0.895,2-2V7L15,2z"/>
+<g>
+	<path fill="none" stroke="#9852FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M14,8h-2c-1.105,0-2,0.895-2,2v0c0,1.105,0.895,2,2,2h0c1.105,0,2,0.895,2,2v0c0,1.105-0.895,2-2,2h-2"/>
+	
+		<line fill="none" stroke="#9852FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="12" y1="6" x2="12" y2="8"/>
+	
+		<line fill="none" stroke="#9852FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="12" y1="16" x2="12" y2="18"/>
+</g>
+</svg>
