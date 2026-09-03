@@ -18,6 +18,38 @@ breather-bg.webp            Stimmungsbild für die Bild-Atempause zwischen "Was 
 
 Einfach `index.html` im Browser öffnen — kein Server/Build nötig.
 
+## Bildwelt / Bildkonzept
+
+Roter Faden für alle Fotos auf der Seite (Hero, Bild-Atempause, Pain-CTA-Banner, künftige
+Ergänzungen). Als Konzept-Satz:
+
+> Menschen in selbstbestimmten Momenten in der Natur — nicht das Geld wird gezeigt, sondern
+> die Zeit, die es kauft.
+
+Plan F steht für Freiheit/Unabhängigkeit — primär die *emotionale* Freiheit (nicht mehr
+angestellt sein, selbstbestimmte Zeit haben), nicht die finanzielle Freiheit als Bildmotiv
+selbst. Entsprechend zeigen die Bilder **Zeit und Freiheit**, nie **Geld und Status**.
+
+**Merkmale, die die bisherigen Bilder (Hero, Atempause) bereits teilen:**
+- Draussen/Natur (Berge, Wald, See) — nie Büro, Innenraum, Bildschirm
+- Warmes, natürliches Licht (goldene Stunde), keine harte Studio-Ausleuchtung
+- Unstrukturierte, selbstbestimmte Zeit — sowohl Ruhemomente (Hängematte) als auch
+  Bewegungsmomente (Arm aus dem Autofenster), nie "Termine" oder Eile
+- Gedeckte, warme Farbgrading — kein knalliges Stockfoto-Blau
+
+**Filter für neue Bilder:**
+
+| ✅ Passt | ❌ Passt nicht |
+|---|---|
+| Draussen, natürliches Licht | Büro, Bildschirm, Meeting |
+| Echte Bewegung/Ruhe, candid statt gestellt | Gestelltes Lächeln direkt in die Kamera (Stock-Foto-Look) |
+| Warme, gedeckte Farbstimmung | Knallige/kalte Stockfoto-Farben |
+| Zeit & Freiheit als Motiv | Reichtums-Symbole: Yacht, Luxusuhr, Geldbündel, Privatjet, Sportwagen |
+
+Der letzte Punkt ist zusätzlich compliance-relevant (siehe Meta-Compliance oben): explizite
+Reichtums-/Einkommens-Symbolik in Bildern kann bei Meta-Ad-Reviews ähnlich problematisch
+auffallen wie entsprechende Textformulierungen.
+
 ## Hero-Aufbau
 
 Der Hero ist ein raumfüllendes Titelbild (volle Viewport-Höhe, Text unten links, dunkler
