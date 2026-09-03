@@ -32,6 +32,8 @@
     --green-hover:  #155C33;
     --green-soft:   #EBF5EF;
     --green-border: #BEE0CB;
+    --whatsapp-green: #25D366;
+    --whatsapp-green-hover: #1DA851;
     --dark-bg:      #1C1A18;
     --footer-bg:    #3C3834;
     --container-max: 1080px;
@@ -69,12 +71,12 @@
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    background: var(--green); color: var(--white);
+    background: var(--whatsapp-green); color: var(--white);
     padding: 16px 32px; border-radius: var(--radius-btn); border: none;
     font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 16px;
     letter-spacing: -0.2px; cursor: pointer; transition: background .2s ease, transform .15s ease;
   }
-  .btn:hover { background: var(--green-hover); }
+  .btn:hover { background: var(--whatsapp-green-hover); }
   .btn:active { transform: scale(0.98); }
 
   /* ── Nav ── */
@@ -105,15 +107,14 @@
     display: block; filter: blur(5px); padding-top: 56.25%;
   }
 
-  .cta-block { margin-bottom: 56px; }
   .cta-block .btn { width: 100%; max-width: 420px; }
   .cta-note { font-size: 13px; color: var(--grey-light); margin: 14px 0 0; }
 
-  .next-steps { max-width: 560px; margin: 0 auto; text-align: left; }
+  .next-steps { max-width: 560px; margin: 0 auto 56px; text-align: left; }
   .next-steps-label {
-    display: block; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700;
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--grey-light); margin-bottom: 24px;
+    display: block; text-align: center; font-family: 'Manrope', sans-serif; font-weight: 800;
+    font-size: clamp(28px, 4vw, 42px); letter-spacing: -1.3px;
+    color: var(--stone); margin-bottom: 24px;
   }
   .next-steps ol { list-style: none; display: flex; flex-direction: column; gap: 18px; counter-reset: step; }
   .next-steps li { display: flex; align-items: flex-start; gap: 16px; counter-increment: step; }
@@ -167,8 +168,8 @@
 <section class="watch">
   <div class="container watch-inner">
     <span class="tag"><span class="tag-dot"></span>Dein Zugang ist freigeschaltet</span>
-    <h1 id="watch-title">Dein Video-Training ist bereit.</h1>
-    <p class="lead">Schau dir das Training in Ruhe an. Am Ende weisst du genau, wie das System funktioniert und was dein nächster Schritt sein könnte.</p>
+    <h1 id="watch-title">Das könnte dein nächster Schritt sein.</h1>
+    <p class="lead">Schau dir das 25 Min. Video-Training in Ruhe an. Am Ende weisst du genau, wie das System zum Plan Freiheit funktioniert und was dein nächster Schritt sein könnte.</p>
 
     <div class="video-frame reveal">
       <script src="https://fast.wistia.com/player.js" async></script>
@@ -176,18 +177,17 @@
       <wistia-player media-id="rt0ws1y7o3" aspect="1.7777777777777777"><div class="wistia_preload_transcript_outer_wrapper" style="width: 100%; height: 100%; display:flex; justify-content:center; align-items: center; margin-top:-56.25%;"><div class="wistia_preload_transcript_inner_wrapper" style=" overflow: auto;"><p class="wistia_preload_transcript_text" aria-hidden="true" tabindex="-1" style="text-align: justify; font-size: 5px !important;">Herzlich Willkommen zu unserem Webinar. Du bist darauf aufmerksam geworden, wahrscheinlich über eine Werbekampagne von uns, über eine persönliche Weiterempfehlung oder hast dich auf die Suche gemacht und hast es zufällig gefunden. Es geht hier Unabhängigkeit und wie man das schafft, das werde ich dir heute zeigen. Mein Name ist Lothar Push und ich stelle mich dann hier noch in der weiteren Präsentation vor. Es sind fünfundzwanzig Minuten Dauer. In dem Webinar erfährst du, wie du online Geld verdienen kannst. Du benötigst kein Eigenkapital, kein Risiko, du musst nicht verkaufen, es ist für alle geeignet.</p></div></div></wistia-player>
     </div>
 
-    <div class="cta-block reveal reveal-delay-1">
-      <a class="btn" href="https://wa.me/41766047854?text=Hallo%20Lothar%2C%20ich%20habe%20dein%20Video-Training%20gesehen%20und%20h%C3%A4tte%20gerne%20mehr%20Infos." target="_blank" rel="noopener">Jetzt mit Lothar auf WhatsApp schreiben</a>
-      <p class="cta-note">Kein Verkaufsdruck, einfach ein persönliches Gespräch auf Augenhöhe.</p>
-    </div>
-
-    <div class="next-steps reveal reveal-delay-2">
+    <div class="next-steps reveal reveal-delay-1">
       <span class="next-steps-label">Deine nächsten Schritte</span>
       <ol>
-        <li><p>Schau dir das Video-Training oben in Ruhe an (25 Min.).</p></li>
         <li><p>Hast du Fragen? Schreib Lothar direkt über den WhatsApp-Button.</p></li>
         <li><p>Ihr vereinbart gemeinsam ein persönliches Gespräch, ganz ohne Verpflichtung.</p></li>
       </ol>
+    </div>
+
+    <div class="cta-block reveal reveal-delay-2">
+      <a class="btn" href="https://wa.me/41766047854?text=Hallo%20Lothar%2C%20ich%20habe%20dein%20Video-Training%20gesehen%20und%20h%C3%A4tte%20gerne%20mehr%20Infos." target="_blank" rel="noopener">Jetzt mit Lothar auf WhatsApp schreiben</a>
+      <p class="cta-note">kostenfrei · persönlich · unverbindlich</p>
     </div>
   </div>
 </section>
