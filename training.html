@@ -31,9 +31,8 @@
     --green:        #1B7340;
     --green-hover:  #155C33;
     --green-soft:   #EBF5EF;
+    --green-light:  #249B5C;
     --green-border: #BEE0CB;
-    --whatsapp-green: #25D366;
-    --whatsapp-green-hover: #1DA851;
     --dark-bg:      #1C1A18;
     --footer-bg:    #3C3834;
     --container-max: 1080px;
@@ -71,12 +70,12 @@
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    background: var(--whatsapp-green); color: var(--white);
+    background: linear-gradient(135deg, var(--green-light) 0%, var(--green-hover) 100%); color: var(--white);
     padding: 16px 32px; border-radius: var(--radius-btn); border: none;
     font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 16px;
-    letter-spacing: -0.2px; cursor: pointer; transition: background .2s ease, transform .15s ease;
+    letter-spacing: -0.2px; cursor: pointer; transition: filter .2s ease, transform .15s ease;
   }
-  .btn:hover { background: var(--whatsapp-green-hover); }
+  .btn:hover { filter: brightness(0.93); }
   .btn:active { transform: scale(0.98); }
 
   /* ── Nav ── */
