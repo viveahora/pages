@@ -115,14 +115,11 @@
     font-size: clamp(28px, 4vw, 42px); letter-spacing: -1.3px;
     color: var(--stone); margin-bottom: 24px;
   }
-  .next-steps ol { list-style: none; display: flex; flex-direction: column; gap: 18px; counter-reset: step; }
-  .next-steps li { display: flex; align-items: flex-start; gap: 16px; counter-increment: step; }
-  .next-steps li::before {
-    content: counter(step); flex-shrink: 0; width: 32px; height: 32px; border-radius: 10px;
-    background: var(--green-soft); color: var(--green); display: flex; align-items: center; justify-content: center;
-    font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 14px; margin-top: 1px;
-  }
-  .next-steps p { margin: 0; font-size: 15px; color: var(--stone-mid); line-height: 1.6; padding-top: 5px; }
+  .next-steps-intro { font-size: 15px; color: var(--stone-mid); line-height: 1.6; text-align: center; margin: 0 0 28px; }
+  .next-steps ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .next-steps li { display: flex; align-items: center; gap: 14px; }
+  .next-steps-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .next-steps p { margin: 0; font-size: 15px; color: var(--stone-mid); line-height: 1.6; }
 
   /* ── Footer ── */
   .footer { background: var(--footer-bg); color: rgba(255,255,255,.7); padding: 64px 0 32px; }
@@ -178,10 +175,13 @@
 
     <div class="next-steps reveal reveal-delay-1">
       <span class="next-steps-label">Deine nächsten Schritte</span>
-      <ol>
-        <li><p>Hast du Fragen? Schreib Lothar direkt über den WhatsApp-Button.</p></li>
-        <li><p>Ihr vereinbart gemeinsam ein persönliches Gespräch, ganz ohne Verpflichtung.</p></li>
-      </ol>
+      <p class="next-steps-intro">Schreibe mir einfach und unverbindlich eine WhatsApp-Nachricht mit dem Kennwort „Interesse" und ich nehme persönlich Kontakt zu dir auf.</p>
+      <ul>
+        <li><span class="next-steps-icon"><svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="var(--green-hover)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="12" cy="12" r="11"/><polyline fill="none" stroke="var(--green-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="7,12 11,16 18,8"/></svg></span><p>Du kannst ab sofort starten und erhältst Zugang zur Lernplattform mit allen Infos.</p></li>
+        <li><span class="next-steps-icon"><svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="var(--green-hover)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="12" cy="12" r="11"/><polyline fill="none" stroke="var(--green-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="7,12 11,16 18,8"/></svg></span><p>Du bekommst 1x pro Woche Live-Unterstützung per Zoom.</p></li>
+        <li><span class="next-steps-icon"><svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="var(--green-hover)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="12" cy="12" r="11"/><polyline fill="none" stroke="var(--green-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="7,12 11,16 18,8"/></svg></span><p>Du wirst Schritt für Schritt gecoacht.</p></li>
+        <li><span class="next-steps-icon"><svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="var(--green-hover)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="12" cy="12" r="11"/><polyline fill="none" stroke="var(--green-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="7,12 11,16 18,8"/></svg></span><p>Du verdienst deine erste Provision.</p></li>
+      </ul>
     </div>
 
     <div class="cta-block reveal reveal-delay-2">
@@ -196,7 +196,7 @@
     <div class="footer-top reveal">
       <div>
         <a href="#" class="logo"><span class="logo-dot"></span> Lothar Pusch</a>
-        <p class="footer-tagline">Plan F · Dein Weg zur finanziellen Freiheit</p>
+        <p class="footer-tagline">Plan F · Dein Weg zur Unabhängigkeit</p>
       </div>
       <ul class="footer-links">
         <li><a href="#">Impressum</a></li>
