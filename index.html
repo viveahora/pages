@@ -1,418 +1,387 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reto Bucher | Coaching – Vive Ahora</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-de="EAO Marine | HMI-Lösungen für Fischerboot- &amp; Werftbau">EAO Marine | HMI Solutions for Fishing Boat &amp; Shipyard Applications</title>
+<meta name="description" content="Rugged control elements, keypads, and rotary cursor controllers from EAO for fishing boat and workboat cockpits." data-de="Robuste Bedienelemente, Keypads und Rotary Cursor Controller von EAO für Cockpits von Fischerbooten und Arbeitsschiffen." />
+<!--
+  Schriftlizenzen: Original nutzt Adobe Typekit "Minion Pro" (Headlines) und
+  die lizenzierte "Helvetica Neue LT W05_45 Light" (Fliesstext). Ohne Kunden-
+  Kit-ID/Lizenzdatei greift diese Seite bewusst auf den vom Corporate-Design-
+  Guide selbst definierten Fallback-Stack zurück (siehe css/style.css).
+  Sobald eine Typekit-Kit-ID vorliegt, hier ergänzen, z.B.:
+  <link rel="stylesheet" href="https://use.typekit.net/xxxxxxx.css">
 
-    :root {
-      --black: #1e2533;
-      --white: #ffffff;
-      --teal: #2a7fb5;
-      --teal-dark: #1e6a9a;
-      --gold: #b89030;
-      --gold-dark: #9a7828;
-      --gray-light: #f5f6f7;
-      --gray-mid: #888;
-      --gray-border: #dde1e7;
-      --text-dark: #1a1f2b;
-      --font: 'Inter', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font); color: var(--text-dark); background: var(--white); overflow-x: hidden; }
-
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--black); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; }
-    .nav-logo { display: flex; align-items: center; gap: 10px; color: var(--white); font-size: 17px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
-    .nav-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
-    .nav-right { display: flex; align-items: center; gap: 24px; }
-    .nav-link { color: var(--white); text-decoration: none; font-size: 15px; font-weight: 500; opacity: 0.8; transition: opacity 0.2s; }
-    .nav-link:hover { opacity: 1; }
-    .nav-cta { background: var(--teal); color: var(--white); border: none; border-radius: 50px; padding: 10px 22px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
-    .nav-cta:hover { background: var(--teal-dark); }
-
-    .hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; padding: 120px 60px 80px; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #1a2030 0%, #1e2840 35%, #243050 65%, #1a2030 100%); z-index: 0; }
-    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); }
-    .hero-bg::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 55%; background: linear-gradient(to top right, rgba(42,127,181,0.2) 0%, transparent 55%); }
-    .hero-glow { position: absolute; top: 20%; right: 15%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(184,144,48,0.15) 0%, transparent 70%); z-index: 0; }
-    .hero-content { position: relative; z-index: 1; max-width: 700px; }
-    .section-label { display: flex; align-items: center; gap: 10px; color: var(--white); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 20px; opacity: 0.9; }
-    .section-label .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-    .section-label.dark { color: var(--black); }
-    .section-label.dark .dot { background: var(--gold); }
-    .hero h1 { font-size: clamp(44px, 6vw, 82px); font-weight: 900; color: var(--white); line-height: 1.03; margin-bottom: 24px; letter-spacing: -0.025em; }
-    .hero h1 em { font-style: normal; color: var(--gold); }
-    .hero p { font-size: 18px; color: rgba(255,255,255,0.82); line-height: 1.65; max-width: 560px; margin-bottom: 36px; }
-    .hero-badge { position: absolute; bottom: 80px; right: 60px; background: rgba(0,0,0,0.75); border: 1px solid rgba(184,144,48,0.35); border-radius: 14px; padding: 28px 32px; text-align: center; z-index: 1; backdrop-filter: blur(12px); }
-    .hero-badge span { display: block; color: rgba(255,255,255,0.65); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
-    .hero-badge strong { display: block; color: var(--gold); font-size: 15px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.4; }
-
-    .btn-primary { display: inline-block; background: var(--teal); color: var(--white); border: 2px solid var(--teal); border-radius: 50px; padding: 16px 32px; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.25s; }
-    .btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
-    .btn-white { display: inline-block; background: var(--white); color: var(--black); border: 2px solid var(--white); border-radius: 50px; padding: 16px 32px; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.25s; }
-    .btn-white:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
-
-    .intro { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
-    .intro h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
-    .intro h2 span { color: var(--gold); }
-    .intro-text p { font-size: 17px; line-height: 1.8; color: #333; margin-bottom: 20px; }
-    .intro-methods { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .method-tag { background: var(--gray-light); border: 1px solid var(--gray-border); border-radius: 50px; padding: 8px 18px; font-size: 13px; font-weight: 700; color: var(--text-dark); letter-spacing: 0.03em; }
-
-    .tags-section { overflow: hidden; padding: 0 0 60px; border-bottom: 1px solid var(--gray-border); }
-    .tags-track { display: flex; animation: scrollLeft 22s linear infinite; width: max-content; }
-    .tags-track:hover { animation-play-state: paused; }
-    @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .tag-item { display: flex; align-items: center; gap: 16px; padding: 20px 40px; font-size: 16px; font-weight: 700; white-space: nowrap; color: var(--black); text-transform: uppercase; letter-spacing: 0.05em; }
-    .tag-item .tag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
-
-    .image-cards { display: grid; grid-template-columns: repeat(5, 1fr); height: 340px; overflow: hidden; }
-    .image-card { position: relative; overflow: hidden; cursor: pointer; }
-    .image-card:hover .image-card-bg { transform: scale(1.06); }
-    .image-card-bg { width: 100%; height: 100%; transition: transform 0.4s ease; }
-    .card-grad-1 { background: linear-gradient(135deg, #1a2030, #2a7fb5); }
-    .card-grad-2 { background: linear-gradient(135deg, #1e2840, #1e6a9a); }
-    .card-grad-3 { background: linear-gradient(135deg, #2a2010, #b89030); }
-    .card-grad-4 { background: linear-gradient(135deg, #1a2030, #3a5f8a); }
-    .card-grad-5 { background: linear-gradient(135deg, #2a200a, #c4a030); }
-    .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 60%); display: flex; align-items: flex-end; padding: 24px; }
-    .card-overlay span { color: var(--white); font-size: 17px; font-weight: 800; line-height: 1.25; }
-
-    .about-strip { background: var(--black); padding: 80px 60px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
-    .about-strip-text h2 { font-size: clamp(30px, 3.5vw, 46px); font-weight: 900; color: var(--white); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 24px; }
-    .about-strip-text h2 em { font-style: normal; color: var(--gold); }
-    .about-strip-text p { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 16px; }
-    .about-strip-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-    .stat-box { border: 1px solid rgba(184,144,48,0.3); border-radius: 14px; padding: 28px 24px; text-align: center; }
-    .stat-box strong { display: block; font-size: 42px; font-weight: 900; color: var(--gold); letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px; }
-    .stat-box span { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; line-height: 1.4; }
-
-    .benefits { padding: 100px 60px; text-align: center; }
-    .benefits-label { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 20px; color: var(--black); }
-    .benefits-label .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
-    .benefits h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 16px; }
-    .benefits h2 em { font-style: normal; color: var(--gold); }
-    .benefits > p { font-size: 17px; color: #555; max-width: 560px; margin: 0 auto 60px; line-height: 1.65; }
-    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; text-align: left; }
-    .benefit-card { padding: 32px; border-radius: 16px; background: var(--gray-light); border: 1px solid transparent; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
-    .benefit-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(42,127,181,0.12); border-color: rgba(42,127,181,0.25); }
-    .benefit-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--white); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
-    .benefit-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 12px; line-height: 1.25; }
-    .benefit-card p { font-size: 15px; color: #555; line-height: 1.7; }
-
-    .methods { background: var(--gray-light); padding: 100px 60px; }
-    .methods-inner { max-width: 1100px; margin: 0 auto; }
-    .methods h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 12px; }
-    .methods > .methods-inner > p { font-size: 17px; color: #555; margin-bottom: 56px; max-width: 560px; line-height: 1.65; }
-    .methods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .method-card { background: var(--white); border-radius: 16px; padding: 36px 32px; border: 1px solid var(--gray-border); transition: box-shadow 0.2s, border-color 0.2s; }
-    .method-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); border-color: var(--teal); }
-    .method-number { font-size: 48px; font-weight: 900; color: rgba(184,144,48,0.2); line-height: 1; margin-bottom: 12px; letter-spacing: -0.03em; }
-    .method-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 14px; color: var(--black); }
-    .method-card p { font-size: 15px; color: #555; line-height: 1.7; }
-
-    .cta-banner { background: var(--teal); padding: 72px 80px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-    .cta-banner h2 { font-size: clamp(24px, 3.2vw, 40px); font-weight: 900; color: var(--white); max-width: 520px; line-height: 1.18; }
-    .cta-banner-right { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
-    .cta-banner-right p { color: rgba(255,255,255,0.88); font-size: 16px; text-align: right; max-width: 280px; line-height: 1.55; }
-
-    .testimonials { padding: 100px 60px; }
-    .testimonials-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; }
-    .testimonials-header h2 { font-size: clamp(34px, 4.5vw, 56px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
-    .testimonials-header h2 em { font-style: normal; color: var(--gold); }
-    .testimonials-nav { display: flex; gap: 12px; }
-    .nav-arrow { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--black); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; font-size: 18px; }
-    .nav-arrow:hover { background: var(--teal); border-color: var(--teal); color: var(--white); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .testimonial-card { border-radius: 18px; overflow: hidden; background: var(--gray-light); border: 1px solid var(--gray-border); transition: box-shadow 0.2s; }
-    .testimonial-card:hover { box-shadow: 0 12px 40px rgba(42,127,181,0.12); }
-    .testimonial-photo-placeholder { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 60px; }
-    .ph-1 { background: linear-gradient(135deg, #1e2840, #2a7fb5); }
-    .ph-2 { background: linear-gradient(135deg, #1a2030, #1e6a9a); }
-    .ph-3 { background: linear-gradient(135deg, #2a2010, #b89030); }
-    .testimonial-body { padding: 28px 24px; }
-    .stars { color: var(--gold); font-size: 16px; margin-bottom: 12px; letter-spacing: 2px; }
-    .testimonial-body blockquote { font-size: 16px; font-weight: 600; line-height: 1.6; color: var(--text-dark); margin-bottom: 16px; font-style: normal; }
-    .testimonial-body cite { font-size: 14px; color: var(--gray-mid); font-style: normal; font-weight: 500; }
-
-    .faq { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1.7fr; gap: 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
-    .faq-left .section-label { margin-bottom: 20px; }
-    .faq-left h2 { font-size: clamp(32px, 4vw, 50px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 24px; }
-    .faq-left p { font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 32px; }
-    .faq-left a { color: var(--teal); font-size: 15px; font-weight: 700; text-decoration: none; }
-    .faq-left a:hover { text-decoration: underline; }
-    .faq-list { display: flex; flex-direction: column; }
-    .faq-item { border-bottom: 1px solid var(--gray-border); }
-    .faq-question { width: 100%; background: none; border: none; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; text-align: left; font-size: 17px; font-weight: 600; cursor: pointer; color: var(--black); gap: 16px; }
-    .faq-question:hover { color: var(--teal); }
-    .faq-chevron { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; border: 2px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: transform 0.3s, background 0.2s, color 0.2s; }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--teal); border-color: var(--teal); color: var(--white); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-    .faq-item.open .faq-answer { max-height: 400px; }
-    .faq-answer p { padding: 0 0 22px; font-size: 15px; color: #555; line-height: 1.75; }
-
-    .final-cta { position: relative; min-height: 520px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 60px; overflow: hidden; }
-    .final-cta-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #151c2a 0%, #1e2840 50%, #151c2a 100%); }
-    .final-cta-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(42,127,181,0.18) 0%, transparent 70%); }
-    .final-cta-content { position: relative; z-index: 1; }
-    .final-cta-content h2 { font-size: clamp(30px, 5vw, 60px); font-weight: 900; color: var(--white); margin-bottom: 20px; letter-spacing: -0.025em; max-width: 720px; line-height: 1.1; }
-    .final-cta-content h2 em { font-style: normal; color: var(--gold); }
-    .final-cta-content p { font-size: 18px; color: rgba(255,255,255,0.72); margin-bottom: 36px; max-width: 500px; line-height: 1.65; }
-    .final-cta-contact { margin-top: 28px; font-size: 15px; color: rgba(255,255,255,0.5); }
-    .final-cta-contact a { color: var(--gold); text-decoration: none; font-weight: 600; }
-
-    footer { background: var(--black); color: var(--white); padding: 60px 60px 40px; }
-    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; gap: 40px; flex-wrap: wrap; }
-    .footer-logo { font-size: 17px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-    .footer-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
-    .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.45); font-style: italic; letter-spacing: 0.04em; }
-    .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
-    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; }
-    .footer-col a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--gold); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
-
-    @media (max-width: 1000px) {
-      .about-strip { grid-template-columns: 1fr; padding: 60px 30px; }
-      .about-strip-stats { grid-template-columns: 1fr 1fr; }
-      .methods-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .hero { padding: 100px 30px 60px; }
-      .hero-badge, .hero-glow { display: none; }
-      .intro { grid-template-columns: 1fr; gap: 32px; padding: 60px 30px; }
-      .image-cards { grid-template-columns: repeat(2, 1fr); height: auto; }
-      .image-card { height: 180px; }
-      .benefits { padding: 60px 30px; }
-      .benefits-grid { grid-template-columns: 1fr; }
-      .methods { padding: 60px 30px; }
-      .cta-banner { flex-direction: column; padding: 48px 30px; }
-      .cta-banner-right { align-items: flex-start; }
-      .cta-banner-right p { text-align: left; }
-      .testimonials { padding: 60px 30px; }
-      .testimonials-header { flex-direction: column; align-items: flex-start; gap: 24px; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .faq { grid-template-columns: 1fr; gap: 40px; padding: 60px 30px; }
-      .final-cta { padding: 80px 30px; }
-      footer { padding: 48px 30px 32px; }
-      .footer-top { flex-direction: column; }
-      .footer-links { gap: 32px; }
-    }
-  </style>
+  Sprachumschalter: alle übersetzbaren Elemente tragen ein "data-de"-Attribut
+  mit dem deutschen HTML-Fragment. js/main.js sichert beim ersten Aufruf das
+  bestehende (englische) innerHTML in "data-en" und tauscht bei Klick auf den
+  Umschalter (#langToggle) zwischen beiden. Elemente ohne data-de bleiben in
+  beiden Sprachen unverändert (z.B. Produktnamen, Markenclaim).
+-->
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <nav>
-    <a class="nav-logo" href="#"><span class="nav-logo-dot"></span> Reto Bucher</a>
-    <div class="nav-right">
-      <a class="nav-link" href="#methoden">Methoden</a>
-      <a class="nav-link" href="#faq">FAQ</a>
-      <a class="nav-cta" href="#termin">Erstgespräch buchen</a>
-    </div>
-  </nav>
+<!-- ============ UTILITY BAR ============ -->
+<div class="utility-bar">
+  <div class="wrap">
+    <a href="#downloads">Downloads</a>
+    <a href="#" id="langToggle" aria-label="Switch language to German">DE</a>
+  </div>
+</div>
 
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="section-label"><span class="dot"></span> Coaching · PSYCH-K · Hypnose</div>
-      <h1>Lebe jetzt.<br /><em>Verändere</em><br />dein Leben.</h1>
-      <p>Mit systemischem Coaching, PSYCH-K und Hypnose begleite ich dich dabei, einschränkende Überzeugungen aufzulösen, innere Klarheit zu gewinnen und die Veränderungen zu schaffen, nach denen du dich wirklich sehnst.</p>
-      <a class="btn-primary" href="#termin">Kostenloses Erstgespräch vereinbaren</a>
-    </div>
-    <div class="hero-badge"><span>vive ahora</span><strong>Lebe<br />jetzt</strong></div>
-  </section>
+<!-- ============ MAIN NAV ============ -->
+<header class="main-nav">
+  <div class="wrap">
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#vorteile" data-de="Vorteile">Advantages</a></li>
+        <li><a href="#produkt" data-de="Produkte">Products</a></li>
+        <li><a href="#kontakt" data-de="Kontakt">Contact</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li class="nav-lang-item"><a href="#" id="langToggleMobile" class="lang-toggle-mobile" aria-label="Switch language to German">DE</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="logo" aria-label="EAO Homepage" data-de-aria-label="EAO Startseite">
+      <img class="logo-mark-img" src="assets/images/logo/eao-logo.webp" alt="eao" />
+      <span class="logo-tag">Your Expert Partner for <strong>Human Machine Interfaces</strong></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" data-de-aria-label="Menü öffnen">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e32013" stroke-width="1.5"><line x1="2" y1="6" x2="22" y2="6"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="18" x2="22" y2="18"/></svg>
+    </button>
+  </div>
+</header>
 
-  <section>
-    <div class="intro">
-      <div><h2>Nachhaltige Veränderung beginnt <span>von innen</span></h2></div>
-      <div class="intro-text">
-        <p>Viele Menschen wissen, was sie wollen – aber irgendetwas hält sie zurück. Alte Muster, Glaubenssätze, die seit Jahren im Unterbewusstsein verankert sind, oder fehlende Klarheit über den nächsten Schritt. Genau hier setze ich an.</p>
-        <p>Als zertifizierter Coach begleite ich dich mit bewährten Methoden, die weit über reines Gespräch hinausgehen: Wir arbeiten auf der Ebene, auf der echte Veränderung entsteht – im Körper, im Geist und in deinen Überzeugungen.</p>
-        <div class="intro-methods">
-          <span class="method-tag">Systemisches Coaching</span>
-          <span class="method-tag">PSYCH-K</span>
-          <span class="method-tag">Hypnose</span>
-          <span class="method-tag">Lebensberatung</span>
-          <span class="method-tag">NLP</span>
+<!-- ============ HERO ============ -->
+<section>
+  <div class="hero-media" id="heroSlider">
+    <!--
+      Hero-Bildslider: 2 Slides, Cross-Fade + Ken-Burns (siehe css/style.css
+      ".hero-slide" und js/main.js). Dateien unter genau diesen Pfaden
+      ablegen, sobald final (als WebP – kleinere Dateigrösse bei gleicher
+      Qualität, Browser-Support >97%, hier ohne JPG-Fallback bewusst
+      weggelassen):
+        assets/images/hero/hero-1-boot.webp        (Boot auf dem Wasser)
+        assets/images/hero/hero-2-cockpit.webp     (Cockpit-Detail mit Bedienelementen)
+      Bis dahin zeigen die Slides einen Gradient-Platzhalter (kein <img src>
+      auf nicht existierende Datei, damit nichts kaputt gebrochen wirkt).
+    -->
+    <div class="hero-slide active" style="background-image:url('assets/images/hero/hero-1-boot.webp');"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/hero/hero-2-cockpit.webp');"></div>
+  </div>
+  <div class="wrap hero-copy">
+    <div class="hero-copy-grid">
+      <div class="hero-copy-left">
+        <h1>Series 09.</h1>
+        <p class="sub" data-de="Marinetaugliche HMI-Steuerungslösungen">Marine-Ready HMI Control Solutions</p>
+      </div>
+      <div class="hero-copy-right">
+        <p class="lead" data-de="Navigiere smarter mit den Series 09 HMI-Komponenten von EAO. Sie bieten robuste, intuitive Bedienung für anspruchsvolle Marine-Anwendungen &ndash; als vollständig konfigurierbare Multifunktionsgeräte reduzieren sie HMI-Komplexität und Kosten, indem sie mehrere Schalterfunktionen in einer vielseitigen Lösung vereinen.">
+          Navigate smarter with EAO's Series 09 HMI components. Delivering rugged, intuitive control for demanding marine applications, these fully configurable multifunction devices reduce HMI complexity and costs by combining multiple switch functions into one versatile solution.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VORTEILE ============ -->
+<section class="section" id="vorteile">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-de="Vorteile.">Advantages.</h2>
+    </div>
+    <div class="problem-grid advantage-grid">
+
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><line x1="3" y1="12" x2="21" y2="12"/><line x1="7" y1="12" x2="7" y2="6"/><circle cx="7" cy="4.3" r="1.5"/><line x1="12" y1="12" x2="12" y2="18"/><circle cx="12" cy="19.7" r="1.5"/><line x1="17" y1="12" x2="17" y2="6"/><circle cx="17" cy="4.3" r="1.5"/></svg>
+        </div>
+        <h3 data-de="CAN-Kommunikation">CAN Communication</h3>
+        <p data-de="Liefert effizientere Marine-Systeme durch reduzierte Verkabelung, vereinfachte Integration und höhere Design-Flexibilität.">Deliver more efficient marine systems with reduced wiring, simplified integration, and greater design flexibility.</p>
+      </div>
+
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <h3 data-de="Multifunktionsgeräte">Multi-Function Devices</h3>
+        <p data-de="Vereinfacht das Design von Marine-Systemen durch weniger Komponenten, Platzersparnis und eine optimierte Integration mit einer multifunktionalen HMI-Steuerungslösung.">Simplify marine system design by reducing components, saving space, and streamlining integration with a multifunction HMI control solution.</p>
+      </div>
+
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 16c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0M3 20c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0M12 3v9"/></svg>
+        </div>
+        <h3 data-de="IP-geschützte Versiegelung">IP-Rated Sealing</h3>
+        <p data-de="Entwickelt für zuverlässigen Betrieb, widerstandsfähig gegen Wassereintritt, Salz und raue Bedingungen auf See.">Designed to resist water ingress, salt, and harsh marine exposure for dependable operation.</p>
+      </div>
+
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 data-de="Modular &amp; anpassbar">Modular &amp; Customizable</h3>
+        <p data-de="Passt Bedienelemente, Beleuchtung und Interface-Layouts einfach an sich wandelnde Kunden- und Anwendungsanforderungen an.">Easily adapt controls, illumination, and interface layouts to meet evolving customer and application requirements.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUKT / LÖSUNG ============ -->
+<section class="section alt" id="produkt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-de="Series 09 Funktionen.">Series 09 Functions.</h2>
+    </div>
+    <div class="product-grid">
+
+      <a class="product-card" href="https://www.eao.com/en/series/09/series-09#clberq6ohxpej0at604l9sb60" target="_blank" rel="noopener noreferrer">
+        <div class="product-card-media"><img src="assets/images/keypad-marine-symbols-halo.webp" alt="EAO marine keypad with illuminated RGB halo and nautical symbols" data-de-alt="EAO Marine-Keypad mit beleuchtetem RGB-Halo und nautischen Symbolen" /></div>
+        <h3 data-de="Robuste Keypads und Cursor Controller">Rugged Keypads and Cursor Controllers</h3>
+        <ul>
+          <li data-de="IP67/IP6K9K-Abdichtung für Marine-Außenanwendungen">IP67/IP6K9K sealing for exterior marine applications</li>
+          <li data-de="Funktionale Sicherheit optional für kritische Steuerfunktionen">Available functional safety for critical control functions</li>
+          <li data-de="Anpassbare Layouts, Beschriftungen und Beleuchtung">Customizable layouts, legends, and illumination</li>
+          <li data-de="CAN-Kommunikation mit animierter Halo-LED-Anzeige">CAN communication with animated Halo LED indication</li>
+        </ul>
+        <span class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="product-card" href="https://www.eao.com/en/series/09/series-09#clbghafe15pf90btilxg8h9pe" target="_blank" rel="noopener noreferrer">
+        <div class="product-card-media"><img src="assets/images/custom-solutions.webp" alt="CAD development of a rotary cursor controller" data-de-alt="Entwicklung eines Rotary Cursor Controllers im CAD" /></div>
+        <h3 data-de="Kabinen-Keypads und Cursor Controller">In-Cabin keypads and Cursor Controllers</h3>
+        <ul>
+          <li data-de="Dynamische RGB-Halo-LED-Anzeige">Dynamic RGB Halo LED indication</li>
+          <li data-de="Modularer Aufbau in Automotive-Qualität">Automotive-grade modular construction</li>
+          <li data-de="Zuverlässiger Umweltschutz nach IP5K4">Reliable IP5K4 environmental protection</li>
+          <li data-de="Flexible Integration per CAN oder Festverdrahtung">Flexible CAN or hard-wired integration</li>
+        </ul>
+        <span class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="product-card" href="https://www.eao.com/en/series/09/series-09#cm9ihox0iettf07t58ruc6a67" target="_blank" rel="noopener noreferrer">
+        <div class="product-card-media"><img src="assets/images/keypad-wasserdicht.webp" alt="Waterproof EAO push button in wet conditions" data-de-alt="Wasserdichter Drucktaster von EAO im Einsatz bei Nässe" /></div>
+        <h3 data-de="Robuster Outdoor-Schalter">Rugged Outdoor Switch</h3>
+        <ul>
+          <li data-de="Verschleissfreie Reed-Kontakte für Millionen zuverlässige Betätigungen">Wear-free reed contacts for millions of reliable actuations</li>
+          <li data-de="Für langfristige Haltbarkeit in anspruchsvollen Marine-Umgebungen konzipiert">Built for long-term durability in challenging marine environments</li>
+          <li data-de="Flexible Betätiger- und Beschriftungsoptionen für schiffsspezifische Funktionen">Flexible actuator and marking options for vessel-specific functions</li>
+          <li data-de="Gleichbleibendes taktiles Feedback für intuitive Bedienung">Consistent tactile feedback for intuitive operation</li>
+        </ul>
+        <span class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+
+    </div>
+
+    <!-- Expandable deep-dive Panel -->
+    <div class="feature-panel" style="margin-top:110px;">
+      <div class="feature-panel-head">
+        <h3 data-de="Was wir für Fischerboote leisten können.">What we can do in fishing boat.</h3>
+      </div>
+      <div class="feature-panel-body" id="featureBody">
+        <div class="feature-media feature-media-video">
+          <video id="whyEaoVideo" src="assets/video/why-eao-fishing-boat.mp4" poster="assets/images/fishing-boat-danny.webp" muted loop playsinline preload="metadata"></video>
+        </div>
+        <div>
+          <p data-de="Fischerboot-Hersteller und Werften verlassen sich weltweit auf EAO, wenn Bedienelemente unter widrigsten Bedingungen zuverlässig funktionieren müssen. Mit geschützter Kontakttechnologie, robusten Materialien und langer Lebensdauer reduzieren EAO-Komponenten Wartungsaufwand und Ausfallrisiko im Feld.">Fishing boat manufacturers and shipyards around the world rely on EAO
+            when control elements need to perform reliably under the harshest conditions.
+            With protected contact technology, rugged materials, and long service life,
+            EAO components reduce maintenance effort and the risk of failure in the field.</p>
+          <h4 data-de="Vorteile">Advantages</h4>
+          <ul>
+            <li data-de="Entwickelt für sicherheitskritische Anwendungen mit vorhersehbarem Schaltverhalten">Engineered for safety-critical applications with predictable switching behavior</li>
+            <li data-de="Redundante Kontaktoptionen für sichere Systemarchitekturen">Redundant contact options for safe system architectures</li>
+            <li data-de="Klares taktiles &amp; visuelles Feedback reduziert Bedienfehler">Clear tactile &amp; visual feedback reduces operating errors</li>
+            <li data-de="Lange mechanische/elektrische Lebensdauer &ndash; weniger Wartung">Long mechanical/electrical lifespan – less maintenance</li>
+            <li data-de="Robuste Materialien für den Dauereinsatz auf See">Rugged materials for continuous use at sea</li>
+            <li data-de="Umfassende Dokumentation für Zulassung &amp; Zertifizierung">Comprehensive documentation for approval &amp; certification</li>
+          </ul>
+          <p class="cta-note" data-de="<strong>Kontaktiere EAO, um dein nächstes Cockpit-Projekt sicherer und zuverlässiger zu machen.</strong>"><strong>Contact EAO today to enhance the safety and reliability of your next application.</strong></p>
+          <div class="btn-row" style="margin-top:24px;">
+            <a href="#kontakt" class="btn"><span class="btn-label" data-de="Kontakt aufnehmen">Contact us</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="tags-section">
-    <div class="tags-track">
-      <div class="tag-item"><span class="tag-dot"></span> Glaubenssätze verändern</div>
-      <div class="tag-item"><span class="tag-dot"></span> Mehr Lebensfreude</div>
-      <div class="tag-item"><span class="tag-dot"></span> Berufliche Klarheit</div>
-      <div class="tag-item"><span class="tag-dot"></span> Tiefe Entspannung</div>
-      <div class="tag-item"><span class="tag-dot"></span> Beziehungen stärken</div>
-      <div class="tag-item"><span class="tag-dot"></span> Stress abbauen</div>
-      <div class="tag-item"><span class="tag-dot"></span> Ziele erreichen</div>
-      <div class="tag-item"><span class="tag-dot"></span> Innere Freiheit</div>
-      <div class="tag-item"><span class="tag-dot"></span> Glaubenssätze verändern</div>
-      <div class="tag-item"><span class="tag-dot"></span> Mehr Lebensfreude</div>
-      <div class="tag-item"><span class="tag-dot"></span> Berufliche Klarheit</div>
-      <div class="tag-item"><span class="tag-dot"></span> Tiefe Entspannung</div>
-      <div class="tag-item"><span class="tag-dot"></span> Beziehungen stärken</div>
-      <div class="tag-item"><span class="tag-dot"></span> Stress abbauen</div>
-      <div class="tag-item"><span class="tag-dot"></span> Ziele erreichen</div>
-      <div class="tag-item"><span class="tag-dot"></span> Innere Freiheit</div>
+<!-- ============ BILD / VIDEO GALERIE ============ -->
+<section class="section" id="referenzen">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-de="Im Einsatz auf See.">Marine sectors we serve.</h2>
+    </div>
+    <div class="media-grid">
+      <div class="media-tile wide tall" id="videoTile">
+        <video id="marineVideo" src="assets/video/marine-sectors.mp4" poster="assets/images/marine.webp" muted loop playsinline preload="metadata"></video>
+        <div class="play-btn" id="videoPlayBtn"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg></div>
+      </div>
+      <div class="media-tile wide"><img src="assets/images/boat-market-2.jpg" alt="Boat with passengers on calm water" data-de-alt="Boot mit Passagieren auf ruhigem Gewässer" /></div>
+      <div class="media-tile"><img src="assets/images/boat-market-1.jpg" alt="Boat on the water" data-de-alt="Boot auf dem Wasser" /></div>
+      <div class="media-tile"><img src="assets/images/deck-boat.webp" alt="Deck boat with passengers cruising on a lake" data-de-alt="Deckboot mit Passagieren auf einem See" /></div>
+    </div>
+    <div class="btn-center">
+      <a href="#downloads" class="btn"><span class="btn-label" data-de="Zu den Downloads">Go to downloads</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
     </div>
   </div>
+</section>
 
-  <div class="image-cards">
-    <div class="image-card"><div class="image-card-bg card-grad-1"></div><div class="card-overlay"><span>Innere Klarheit</span></div></div>
-    <div class="image-card"><div class="image-card-bg card-grad-2"></div><div class="card-overlay"><span>Beruf &amp; Karriere</span></div></div>
-    <div class="image-card"><div class="image-card-bg card-grad-3"></div><div class="card-overlay"><span>Beziehungen</span></div></div>
-    <div class="image-card"><div class="image-card-bg card-grad-4"></div><div class="card-overlay"><span>Gesundheit &amp; Wohlbefinden</span></div></div>
-    <div class="image-card"><div class="image-card-bg card-grad-5"></div><div class="card-overlay"><span>Persönlichkeit &amp; Wachstum</span></div></div>
+<!-- ============ KONTAKT ============ -->
+<section class="section" id="kontakt">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2 data-de="Kontakt. Sprich mit Dan DiGioia.">Contact us. Talk to Dan DiGioia.</h2>
+        <div class="contact-person">
+          <img src="assets/images/danny.jpeg" alt="Danny, EAO marine contact" data-de-alt="Danny, Marine-Ansprechpartner bei EAO" class="contact-photo" />
+          <div>
+            <strong>Dan DiGioia</strong>
+            <span>Product Marketing Director, EAO Corporation</span>
+          </div>
+        </div>
+        <p data-de="Ob konkretes Projekt oder erste Anfrage &ndash; wir beraten Fischerboot-Hersteller und Werften bei der Auswahl der passenden HMI-Lösung.">Whether it's a concrete project or an initial inquiry – we help fishing boat manufacturers
+          and shipyards choose the right HMI solution.</p>
+
+        <div class="contact-detail">
+          <div><strong data-de="E-Mail">Email</strong><a href="mailto:dan.digioia@eao.com">dan.digioia@eao.com</a></div>
+        </div>
+        <div class="contact-detail">
+          <div><strong data-de="Telefon">Phone</strong><a href="tel:+12039514609">+1 203 951 4609</a></div>
+        </div>
+        <div class="contact-detail">
+          <div><strong data-de="Adresse">Address</strong>One Parrott Drive, Shelton, CT 06484</div>
+        </div>
+      </div>
+
+      <form id="contactForm">
+        <div class="field">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="field">
+          <label for="company" data-de="Firma / Werft *">Company / Shipyard *</label>
+          <input type="text" id="company" name="company" required />
+        </div>
+        <div class="field">
+          <label for="email" data-de="E-Mail *">Email *</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="field">
+          <label for="message" data-de="Nachricht *">Message *</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn"><span class="btn-label" data-de="Anfrage senden">Send inquiry</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+        <div class="form-success" id="formSuccess" data-de="Danke für deine Anfrage &ndash; wir melden uns in Kürze.">Thank you for your inquiry – we'll be in touch shortly.</div>
+      </form>
+    </div>
   </div>
+</section>
 
-  <section class="about-strip">
-    <div class="about-strip-text">
-      <h2>Hinter <em>vive ahora</em> steckt<br />eine klare Überzeugung</h2>
-      <p>„Vive ahora“ – lebe jetzt. Nicht irgendwann, nicht wenn die Umstände stimmen. Echte Veränderung passiert im gegenwärtigen Moment. Als Coach begleite ich Menschen dabei, nicht nur Ziele zu formulieren, sondern die inneren Muster zu verändern, die sie bisher daran gehindert haben, diese zu leben.</p>
-      <p>Ich verbinde modernste Methoden wie PSYCH-K und Hypnose mit systemischem Denken und einer tiefen Überzeugung: Du hast alles, was du brauchst – manchmal braucht es nur jemanden, der dir hilft, es zu entdecken.</p>
+<!-- ============ FAQ ============ -->
+<section class="section alt" id="faq">
+  <div class="wrap" style="max-width:900px;">
+    <div class="section-head left">
+      <h2 data-de="Häufige Fragen.">Frequently Asked Questions.</h2>
     </div>
-    <div class="about-strip-stats">
-      <div class="stat-box"><strong>100+</strong><span>begleitete Klienten</span></div>
-      <div class="stat-box"><strong>3</strong><span>bewährte Methoden</span></div>
-      <div class="stat-box"><strong>1:1</strong><span>persönliche Begleitung</span></div>
-      <div class="stat-box"><strong>CHF 0</strong><span>Erstgespräch kostenlos</span></div>
-    </div>
-  </section>
 
-  <section class="benefits">
-    <div class="benefits-label"><span class="dot"></span> Was du gewinnst</div>
-    <h2>Durchbrechen. Befreien.<br /><em>Wachsen.</em></h2>
-    <p>Jeder Mensch ist einzigartig. Doch diese sechs Bereiche verändern sich bei fast allen Klienten durch die Zusammenarbeit mit mir.</p>
-    <div class="benefits-grid">
-      <div class="benefit-card"><div class="benefit-icon">🎯</div><h3>Klarheit über deine Richtung</h3><p>Du erkennst, was du wirklich willst – und was dich bisher davon abgehalten hat. Mit Klarheit entsteht Entschlossenheit.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">🧠</div><h3>Limitierende Glaubenssätze auflösen</h3><p>Mit PSYCH-K und Hypnose arbeiten wir direkt im Unterbewusstsein, wo Überzeugungen verankert sind – und verändern sie nachhaltig.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">💼</div><h3>Berufliche Erfüllung finden</h3><p>Ob Neuorientierung, Führungsrolle oder unternehmerischer Schritt – du entwickelst Klarheit und den Mut, den nächsten Schritt zu gehen.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">❤️</div><h3>Tiefere Beziehungen erleben</h3><p>Kommunikation, Vertrauen und Nähe – in Partnerschaft, Familie und Freundschaft. Gesunde Beziehungen beginnen bei dir selbst.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">🌿</div><h3>Mehr Lebensfreude &amp; Energie</h3><p>Stress, innere Unruhe und Erschöpfung weichen einer neuen Leichtigkeit. Du lebst mehr im Einklang mit dir selbst.</p></div>
-      <div class="benefit-card"><div class="benefit-icon">🗺️</div><h3>Einen klaren Plan für die Zukunft</h3><p>Aus dem Coaching gehst du nicht nur mit Einsichten, sondern mit konkreten nächsten Schritten – die du wirklich umsetzt.</p></div>
-    </div>
-  </section>
-
-  <section class="methods" id="methoden">
-    <div class="methods-inner">
-      <div class="section-label dark"><span class="dot"></span> Meine Methoden</div>
-      <h2>Wie wir gemeinsam arbeiten</h2>
-      <p>Ich setze auf Methoden, die nicht nur an der Oberfläche kratzen, sondern echte, dauerhafte Veränderung bewirken.</p>
-      <div class="methods-grid">
-        <div class="method-card"><div class="method-number">01</div><h3>Systemisches Coaching</h3><p>Im systemischen Coaching betrachten wir deine Situation ganzheitlich – Muster, Beziehungen, Rollen und Ressourcen. Durch gezielte Fragen und Perspektivwechsel entstehen neue Handlungsmöglichkeiten, die du vorher nicht gesehen hast. Du wirst nicht geführt, sondern befähigt, eigene Antworten zu finden.</p></div>
-        <div class="method-card"><div class="method-number">02</div><h3>PSYCH-K</h3><p>PSYCH-K ist eine wissenschaftlich fundierte Methode zur Veränderung einschränkender Glaubenssätze auf der Ebene des Unterbewusstseins. In einfachen, aber kraftvollen Prozessen werden negative Überzeugungen durch förderliche ersetzt – schnell, nachhaltig und ohne langes Analysieren. Die Ergebnisse sind oft verblüffend direkt.</p></div>
-        <div class="method-card"><div class="method-number">03</div><h3>Hypnose</h3><p>Hypnose ermöglicht einen direkten Zugang zum Unterbewusstsein, wo tief verwurzelte Muster, Ängste und Blockaden gespeichert sind. In einem Zustand tiefer Entspannung können alte Programme umprogrammiert werden. Hypnose ist sicher, respektvoll und wirkt dort, wo andere Methoden an ihre Grenzen stossen.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-banner" id="termin">
-    <h2>Starte mit einem kostenlosen 30-minütigen Erstgespräch</h2>
-    <div class="cta-banner-right">
-      <p>Kein Druck, keine Verpflichtung. Wir schauen gemeinsam, ob wir zueinanderpassen und welche Richtung dein Weg nehmen soll.</p>
-      <a class="btn-white" href="mailto:info@vive-ahora.ch">Jetzt Termin vereinbaren</a>
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <div class="testimonials-header">
-      <h2>Was Klienten<br /><em>über mich sagen</em></h2>
-      <div class="testimonials-nav">
-        <button class="nav-arrow" onclick="slideTestimonials(-1)" aria-label="Zurück">&#8592;</button>
-        <button class="nav-arrow" onclick="slideTestimonials(1)" aria-label="Weiter">&#8594;</button>
-      </div>
-    </div>
-    <div class="testimonials-grid" id="testimonialsGrid">
-      <div class="testimonial-card"><div class="testimonial-photo-placeholder ph-1">👨‍💼</div><div class="testimonial-body"><div class="stars">★★★★★</div><blockquote>„Ich hätte nie gedacht, dass sich so viel in so kurzer Zeit verändern kann. Nach unserer Arbeit mit PSYCH-K war ein Glaubenssatz, der mich jahrelang begleitet hatte, einfach weg. Ich kann es kaum beschreiben – aber ich fühle es.“</blockquote><cite>Markus T., Unternehmer, Zürich</cite></div></div>
-      <div class="testimonial-card"><div class="testimonial-photo-placeholder ph-2">👩‍🏫</div><div class="testimonial-body"><div class="stars">★★★★★</div><blockquote>„Reto hat mir geholfen, endlich die Klarheit zu finden, die ich gesucht habe. Seine ruhige, empathische Art schafft einen Raum, in dem ich mich wirklich öffnen konnte. Das Coaching war ein Wendepunkt in meinem Leben.“</blockquote><cite>Sandra M., Lehrerin, Bern</cite></div></div>
-      <div class="testimonial-card"><div class="testimonial-photo-placeholder ph-3">👨‍💻</div><div class="testimonial-body"><div class="stars">★★★★★</div><blockquote>„Die Hypnosesitzung war eine der intensivsten und heilsamsten Erfahrungen meines Lebens. Reto begleitet professionell und einfühlsam. Meine Lebensqualität hat sich seitdem deutlich verbessert.“</blockquote><cite>Daniel K., IT-Berater, Basel</cite></div></div>
-    </div>
-  </section>
-
-  <section class="faq" id="faq">
-    <div class="faq-left">
-      <div class="section-label dark"><span class="dot"></span> Häufige Fragen</div>
-      <h2>Du hast Fragen. Ich habe Antworten.</h2>
-      <p>Hier findest du Antworten auf die häufigsten Fragen rund um das Coaching, die Methoden und den Ablauf.</p>
-      <a href="mailto:info@vive-ahora.ch">Weitere Fragen? Schreib mir →</a>
-    </div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Was passiert beim kostenlosen Erstgespräch?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Das Erstgespräch dauert rund 30 Minuten und ist vollständig kostenlos und unverbindlich. Wir lernen uns kennen, sprechen über deine aktuelle Situation und deine Ziele, und ich erkläre dir, wie eine Zusammenarbeit aussehen könnte. Am Ende entscheidest du, ob du weitermachen möchtest – ohne Druck.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Wie unterscheidet sich PSYCH-K von klassischem Coaching?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Klassisches Coaching arbeitet oft auf der bewussten Ebene – durch Gespräch, Reflexion und Planung. PSYCH-K geht tiefer: Es verändert Glaubenssätze direkt im Unterbewusstsein, wo ca. 95% unserer Entscheidungen und Reaktionen entstehen. Das macht es besonders effektiv bei hartnäckigen Mustern, die sich durch Gespräch allein nicht auflösen lassen.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Ist Hypnose sicher? Verliere ich die Kontrolle?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Hypnose ist völlig sicher. Du verlierst zu keinem Zeitpunkt die Kontrolle – du bist immer bewusst und kannst das Gespräch jederzeit beenden. Der Hypnosezustand ähnelt einem tiefen Entspannungszustand, wie du ihn vielleicht kurz vor dem Einschlafen kennst. Niemand kann in Hypnose zu etwas gezwungen werden, was er nicht will.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Für wen ist das Coaching geeignet?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Coaching ist für Menschen, die wissen, dass mehr möglich ist – und bereit sind, dafür etwas zu verändern. Es gibt keine spezifische Zielgruppe: Ob berufliche Neuorientierung, Beziehungsfragen, innere Blockaden oder das Gefühl, nicht wirklich zu leben – wenn du offen für Veränderung bist, kann Coaching dir helfen.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Wie viele Sitzungen sind nötig?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Das hängt von deinen Zielen und deiner Situation ab. Manche Klienten erleben nach einer einzigen PSYCH-K-Sitzung spürbare Veränderungen. Andere begleite ich über mehrere Monate. Im Erstgespräch besprechen wir gemeinsam, was sinnvoll ist – ohne unnötige Verpflichtungen.</p></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Findet das Coaching online oder vor Ort statt?<span class="faq-chevron">▾</span></button><div class="faq-answer"><p>Ich biete beides an. Online-Sitzungen funktionieren für Coaching und PSYCH-K sehr gut. Hypnosesitzungen empfehle ich bei Möglichkeit in Präsenz. Ich freue mich auf deine Anfrage – wir finden eine Lösung, die für dich passt.</p></div></div>
-    </div>
-  </section>
-
-  <section class="final-cta">
-    <div class="final-cta-bg"></div>
-    <div class="final-cta-content">
-      <div class="section-label" style="justify-content:center; margin-bottom:20px;"><span class="dot"></span> Vive Ahora – Lebe jetzt</div>
-      <h2>Der beste Moment für Veränderung<br />ist <em>jetzt</em>.</h2>
-      <p>Nicht morgen, nicht wenn die Zeit stimmt. Buche dein kostenloses Erstgespräch und machen wir gemeinsam den ersten Schritt.</p>
-      <a class="btn-primary" href="mailto:info@vive-ahora.ch">Kostenloses Erstgespräch buchen</a>
-      <p class="final-cta-contact">Oder ruf mich an: <a href="tel:+41786052221">078 605 22 21</a></p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo"><span class="footer-logo-dot"></span> Reto Bucher</div>
-        <div class="footer-tagline">vive ahora · lebe jetzt</div>
+      <div class="faq-item open">
+        <button class="faq-q">
+          <h3 data-de="Welche Schutzklasse haben die Bedienelemente?">What ingress protection rating do the controls have?</h3>
+          <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Je nach Serie erreichen die Komponenten IP66, IP67 oder IP68 &ndash; geeignet für dauerhaften Kontakt mit Spritzwasser und kurzzeitiges Untertauchen.">Depending on the series, components achieve IP66, IP67, or IP68 – suitable for continuous exposure to splashing water and brief submersion.</div></div>
       </div>
-      <div class="footer-links">
-        <div class="footer-col"><h4>Angebote</h4><ul><li><a href="#methoden">Systemisches Coaching</a></li><li><a href="#methoden">PSYCH-K</a></li><li><a href="#methoden">Hypnose</a></li><li><a href="#methoden">Lebensberatung</a></li></ul></div>
-        <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#">Start</a></li><li><a href="#methoden">Methoden</a></li><li><a href="#faq">FAQ</a></li><li><a href="#termin">Erstgespräch</a></li></ul></div>
-        <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="mailto:info@vive-ahora.ch">info@vive-ahora.ch</a></li><li><a href="tel:+41786052221">078 605 22 21</a></li><li><a href="https://vive-ahora.ch" target="_blank" rel="noopener">vive-ahora.ch</a></li></ul></div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <h3 data-de="Sind kundenspezifische Legenden/Symbole möglich?">Are custom legends/symbols possible?</h3>
+          <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Ja, Tastenbelegung und Beschriftung lassen sich nach ISO 7000 oder individuellem Kundenwunsch konfigurieren.">Yes, key assignment and labeling can be configured per ISO 7000 or to individual customer requirements.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <h3 data-de="Wie hoch ist die Mindestabnahmemenge?">What is the minimum order quantity?</h3>
+          <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Abhängig vom Produkt und Serienumfang &ndash; bitte mit Vertrieb abstimmen.">Depends on the product and series scope – please coordinate with sales.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <h3 data-de="Bietet EAO Muster für Testinstallationen an?">Does EAO offer samples for test installations?</h3>
+          <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Ja, über das Kontaktformular oben können Musterteile für Werft- oder Bootsintegration angefragt werden.">Yes, sample parts for shipyard or boat integration can be requested via the contact form above.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <h3 data-de="Welche Normen/Zertifizierungen werden unterstützt?">Which standards/certifications are supported?</h3>
+          <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-de="Z.B. DIN EN ISO 13849, CANopen Safety &ndash; vollständige Liste in den technischen Downloads.">E.g. DIN EN ISO 13849, CANopen Safety – full list in the technical downloads.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 data-de="Produkte">Products</h4>
+        <ul>
+          <li><a href="#produkt">Keypads</a></li>
+          <li><a href="#produkt">Rotary Cursor Controller</a></li>
+          <li><a href="#produkt" data-de="Drucktaster">Push Buttons</a></li>
+          <li><a href="#downloads" data-de="Konfigurator">Configurator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Markets</h4>
+        <ul>
+          <li><a href="#">Marine</a></li>
+          <li><a href="#">Railway</a></li>
+          <li><a href="#">Heavy Duty Vehicles</a></li>
+          <li><a href="#">Machinery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>EAO Group</h4>
+        <ul>
+          <li><a href="#">About EAO</a></li>
+          <li><a href="#">Expertise</a></li>
+          <li><a href="#">EAO worldwide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#kontakt">Contact</a></li>
+          <li><a href="#" data-de="Impressum">Imprint</a></li>
+          <li><a href="#" data-de="Datenschutz">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.5-.4-5.2c-.3-.9-1-1.6-1.9-1.9C19 4.5 12 4.5 12 4.5s-7 0-8.7.4c-.9.3-1.6 1-1.9 1.9C1 8.5 1 12 1 12s0 3.5.4 5.2c.3.9 1 1.6 1.9 1.9 1.7.4 8.7.4 8.7.4s7 0 8.7-.4c.9-.3 1.6-1 1.9-1.9.4-1.7.4-5.2.4-5.2zM9.8 15.3V8.7l6 3.3-6 3.3z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.9 3.9 6 2.5 6S0 4.9 0 3.5 1.1 1 2.5 1s2.48 1.1 2.48 2.5zM.2 8.2H4.8V23H.2V8.2zM8.4 8.2h4.4v2h.06c.6-1.1 2.1-2.3 4.4-2.3 4.7 0 5.5 3.1 5.5 7.1V23H18v-6.9c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V23H8.4V8.2z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.1 0 4.1.06 1.1.05 1.8.22 2.4.46.7.27 1.2.6 1.7 1.1.5.5.9 1 1.1 1.7.24.6.4 1.3.46 2.4.05 1 .06 1.4.06 4.1s0 3.1-.06 4.1c-.05 1.1-.22 1.8-.46 2.4a4.5 4.5 0 0 1-1.1 1.7 4.5 4.5 0 0 1-1.7 1.1c-.6.24-1.3.4-2.4.46-1 .05-1.4.06-4.1.06s-3.1 0-4.1-.06c-1.1-.05-1.8-.22-2.4-.46a4.5 4.5 0 0 1-1.7-1.1 4.5 4.5 0 0 1-1.1-1.7c-.24-.6-.4-1.3-.46-2.4C2 15.1 2 14.7 2 12s0-3.1.06-4.1c.05-1.1.22-1.8.46-2.4.24-.7.6-1.2 1.1-1.7.5-.5 1-.9 1.7-1.1.6-.24 1.3-.4 2.4-.46C8.9 2 9.3 2 12 2zm0 1.8c-2.65 0-2.97 0-4.02.06-.87.04-1.34.18-1.65.3-.42.16-.72.36-1.03.67-.31.31-.5.6-.67 1.03-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s0 3.47.06 4.5c.04.87.18 1.34.3 1.65.16.42.36.72.67 1.03.31.31.6.5 1.03.67.31.12.78.26 1.65.3 1.05.05 1.37.06 4.02.06s2.97 0 4.02-.06c.87-.04 1.34-.18 1.65-.3.42-.16.72-.36 1.03-.67.31-.31.5-.6.67-1.03.12-.31.26-.78.3-1.65.05-1.03.06-1.35.06-4.5s0-3.47-.06-4.5c-.04-.87-.18-1.34-.3-1.65a2.7 2.7 0 0 0-.67-1.03 2.7 2.7 0 0 0-1.03-.67c-.31-.12-.78-.26-1.65-.3C14.97 3.8 14.65 3.8 12 3.8zm0 3.05a5.15 5.15 0 1 1 0 10.3 5.15 5.15 0 0 1 0-10.3zm0 1.8a3.35 3.35 0 1 0 0 6.7 3.35 3.35 0 0 0 0-6.7zm5.35-1.98a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Reto Bucher · vive-ahora.ch · Alle Rechte vorbehalten</p>
-      <p>Schweiz</p>
+      <span data-de="© <span id='year'></span> EAO. Marine Landingpage, Entwurf">© <span id="year"></span> EAO. Marine landing page, draft</span>
+      <div class="footer-logo">
+        <span class="logo-mark">eao<span class="dot"></span></span>
+        <span class="logo-tag">Your Expert Partner for <strong>Human Machine Interfaces</strong></span>
+      </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    }
-
-    let currentSlide = 0;
-    const cards = document.querySelectorAll('.testimonial-card');
-    function slideTestimonials(dir) {
-      if (window.innerWidth <= 900) {
-        cards.forEach(c => c.style.display = 'none');
-        currentSlide = (currentSlide + dir + cards.length) % cards.length;
-        cards[currentSlide].style.display = 'block';
-      }
-    }
-    function resetTestimonials() {
-      if (window.innerWidth > 900) cards.forEach(c => c.style.display = '');
-    }
-    window.addEventListener('resize', resetTestimonials);
-
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      nav.style.boxShadow = window.scrollY > 40 ? '0 2px 20px rgba(0,0,0,0.4)' : 'none';
-    });
-  </script>
+<script src="js/main.js"></script>
 </body>
 </html>
