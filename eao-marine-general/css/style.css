@@ -387,10 +387,17 @@ h3 { font-size: 24px; line-height: 34px; }
 .compare-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto;
   gap: 1px;
   background: var(--gray-border);
 }
-.compare-col { background: var(--white); padding: 30px 34px; }
+.compare-col {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / span 5;
+  background: var(--white);
+  padding: 30px 34px;
+}
 .compare-col-title {
   font-family: var(--font-serif);
   font-size: 21px;
@@ -401,14 +408,12 @@ h3 { font-size: 24px; line-height: 34px; }
 .compare-col-market .compare-col-title {
   color: var(--text-muted);
 }
-.compare-col-title .dot {
-  display: inline-block;
-  width: 8px; height: 8px;
-  background: var(--red);
-  margin-left: 8px;
-  vertical-align: middle;
+.compare-list {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 2 / span 4;
+  list-style: none;
 }
-.compare-list { list-style: none; }
 .compare-list li {
   display: flex;
   gap: 12px;
@@ -433,7 +438,6 @@ h3 { font-size: 24px; line-height: 34px; }
 .compare-col-eao .compare-list li span { color: var(--text-body); }
 .compare-col-market .compare-list li strong { color: var(--text-muted); }
 .compare-col-market .compare-list li span { color: var(--text-muted); }
-.compare-foot { margin: 20px 0 0; font-size: 12.5px; color: var(--text-muted); font-style: italic; }
 
 /* ---------- Media gallery ---------- */
 .media-grid {
@@ -616,7 +620,9 @@ footer {
 @media (max-width: 980px) {
   .problem-grid, .product-grid { grid-template-columns: 1fr 1fr; }
   .feature-panel-body { grid-template-columns: 1fr; }
-  .compare-columns { grid-template-columns: 1fr; }
+  .compare-columns { grid-template-columns: 1fr; grid-template-rows: none; }
+  .compare-col { grid-row: auto; grid-template-rows: none; display: block; }
+  .compare-list { grid-row: auto; display: block; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .media-grid { grid-template-columns: 1fr; height: auto; gap: 32px; }
