@@ -535,10 +535,6 @@ h3 { font-size: 24px; line-height: 34px; }
   gap: 60px;
   align-items: start;
 }
-.contact-person { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
-.contact-photo { width: 136px; height: 136px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
-.contact-person strong { display: block; font-size: 15px; color: var(--black); }
-.contact-person span { display: block; font-size: 13.5px; color: var(--text-muted); margin-top: 2px; }
 .contact-info p { color: var(--text-muted); margin-bottom: 26px; }
 .contact-detail { display: flex; gap: 14px; margin-bottom: 18px; font-size: 15px; }
 .contact-detail a { text-decoration: none; }
