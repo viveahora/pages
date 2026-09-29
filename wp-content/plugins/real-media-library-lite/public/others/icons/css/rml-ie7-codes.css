@@ -1,0 +1,12 @@
+.rmlicon-collection {
+    *zoom: expression(this.runtimeStyle[ "zoom"] = "1", this.innerHTML = " ");
+}
+.rmlicon-gallery {
+    *zoom: expression(this.runtimeStyle[ "zoom"] = "1", this.innerHTML = " ");
+}
+.rmlicon-share {
+    *zoom: expression(this.runtimeStyle[ "zoom"] = "1", this.innerHTML = " ");
+}
+.rmlicon-archive {
+    *zoom: expression(this.runtimeStyle[ "zoom"] = "1", this.innerHTML = " ");
+}
