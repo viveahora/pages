@@ -33,3 +33,13 @@ Zielgruppen: Sponsoren/Medien (professionell, Erfolge, Kontakt) und Teens 10–1
 
 Datenschutz (Jana ist minderjährig): Kontakt nur über Eltern/Management, keine
 Angaben zu Schule, Wohnort oder Trainingszeiten, Einverständnis für alle Fotos.
+
+## Inhalte (aus Instagram @itsjanajulia, Stand Oktober 2026)
+
+- Bio: «Jana Julia Kramer | Nachwuchsläuferin U12» · «Official profile | Managed exclusively by her parents»
+- 1'111 Follower, 23 Beiträge, Highlights: RUN · SWIM · MEDIA
+- Erfolge/Wettkämpfe 2026: Schweizermeisterin Mille Gruyère Swiss Final W10 1000 m ·
+  Regionalfinal Bern Mille Gruyère 1000 m · Siegerin Kantonalfinal Solothurn Swiss Athletics
+  Cross Cup · Neuer Bahnrekord · Aarauer Altstadtlauf · Buchsilauf · Intersport Ingold · Rennen in Deutschland
+- Eigene Slogans: «Little Steps. Big Dreams.» · «Just me & 1000 m.» · «on track» · «Wrong turn? NO! before the finish!»
+- Echtes Vereinsdress LV Langenthal: Navy/Blau mit gelben Streifen, pinke Socken als Akzent
