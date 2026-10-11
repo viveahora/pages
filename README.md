@@ -36,8 +36,9 @@ Angaben zu Schule, Wohnort oder Trainingszeiten, Einverständnis für alle Fotos
 
 ## Inhalte (aus Instagram @itsjanajulia, Stand Oktober 2026)
 
-- Bio: «Jana Julia Kramer | Nachwuchsläuferin U12» · «Official profile | Managed exclusively by her parents»
-- 1'111 Follower, 23 Beiträge, Highlights: RUN · SWIM · MEDIA
+- Bio: «Jana Julia Kramer | Nachwuchsläuferin U12» · «Official profile | Managed exclusively by her parents» ·
+  «Mille Gruyère Champion 2026 | 1000 m» · «Swiss Final Winner W10 '26» · «Track & XC»
+- 1'112 Follower, 23 Beiträge, Highlights: RUN · SWIM · MEDIA
 - Erfolge/Wettkämpfe 2026: Schweizermeisterin Mille Gruyère Swiss Final W10 1000 m ·
   Regionalfinal Bern Mille Gruyère 1000 m · Siegerin Kantonalfinal Solothurn Swiss Athletics
   Cross Cup · Neuer Bahnrekord · Aarauer Altstadtlauf · Buchsilauf · Intersport Ingold · Rennen in Deutschland
