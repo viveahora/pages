@@ -66,3 +66,23 @@ Navigation: Über mich · Erfolge · Running & Triathlon · Medien · Partner ·
 12. Footer — Impressum, Datenschutz, «Managed by her parents»
 
 Vorerst weggelassen: Rubrik «Sponsoring-Angebot» (noch nicht definiert).
+
+## Bilderliste (Upload nach `assets/images/`)
+
+Format: JPG/PNG in voller Auflösung. Dateinamen klein, ohne Leerzeichen/Umlaute.
+Komprimierung/WebP-Umwandlung erfolgt danach im Projekt.
+
+| Datei | Section | Format | Mindestgrösse |
+|---|---|---|---|
+| `hero-desktop.jpg` | Hero (Desktop) | Quer 16:9, Jana rechts, links Freiraum für Text | 2400 × 1350 |
+| `hero-mobile.jpg` | Hero (Handy) | Hoch 9:16, oben Freiraum für Text | 1080 × 1920 |
+| `about-portrait.jpg` | Meet Jana | Hoch 4:5, lachend, ruhiger Hintergrund | 1200 × 1500 |
+| `erfolg-swiss-final.jpg` | Erfolge | Quer 4:3, Siegerehrung/Medaille | 1600 × 1200 |
+| `erfolg-cross-cup.jpg` | Erfolge | Quer 4:3 | 1600 × 1200 |
+| `erfolg-bahnrekord.jpg` | Erfolge (optional) | Quer 4:3 | 1600 × 1200 |
+| `running.jpg` | Running & Triathlon | Hoch 4:5, Laufen in Action | 1200 × 1500 |
+| `triathlon.jpg` | Running & Triathlon | Hoch 4:5, Schwimmen oder Rad | 1200 × 1500 |
+| `galerie-01.jpg` … `galerie-12.jpg` | Galerie | gemischt hoch/quer | 1600 px lange Seite |
+| `medien-01.jpg` … | In den Medien | Quer 3:2, Foto/Screenshot des Artikels | 1200 × 800 |
+| `medien.txt` | In den Medien | pro Zeile: Zeitung · Titel · Datum · Link | – |
+| `logo-sponsor.svg` / `.png` | Partner | Logo Eistee-Sponsor, transparent | 800 px breit |
