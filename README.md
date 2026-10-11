@@ -43,3 +43,25 @@ Angaben zu Schule, Wohnort oder Trainingszeiten, Einverständnis für alle Fotos
   Cross Cup · Neuer Bahnrekord · Aarauer Altstadtlauf · Buchsilauf · Intersport Ingold · Rennen in Deutschland
 - Eigene Slogans: «Little Steps. Big Dreams.» · «Just me & 1000 m.» · «on track» · «Wrong turn? NO! before the finish!»
 - Echtes Vereinsdress LV Langenthal: Navy/Blau mit gelben Streifen, pinke Socken als Akzent
+
+## Struktur & Navigation (abgestimmt Oktober 2026)
+
+One-Page mit Anker-Navigation. **Grundsprache Deutsch**, englische Slogans/Akzente
+für jungen, coolen Look (z. B. «Meet Jana», «Little Steps. Big Dreams.»).
+
+Navigation: Über mich · Erfolge · Running & Triathlon · Medien · Partner · Kontakt (+ Instagram-Icon)
+
+1. Hero — Actionfoto, Name, «Run. Swim. Ride.», «Little Steps. Big Dreams ♡»
+2. Highlights-Leiste — 4 Kacheln (Schweizermeisterin, Cross-Cup-Siegerin SO, Bahnrekord, Follower)
+3. Meet Jana — Porträt, Text, Steckbrief, Zitat
+4. Erfolge — Zeitleiste Saison 2026
+5. Running & Triathlon — zwei Bildkacheln
+6. Galerie — Bildraster mit Lightbox
+7. In den Medien — Presseartikel-Karten
+8. Partner — Eistee-Sponsor + «Dein Logo hier?»
+9. Ziele 2027
+10. Follow the Journey — Instagram-Leiste @itsjanajulia
+11. Kontakt — über die Eltern, Formular
+12. Footer — Impressum, Datenschutz, «Managed by her parents»
+
+Vorerst weggelassen: Rubrik «Sponsoring-Angebot» (noch nicht definiert).
