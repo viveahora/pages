@@ -74,8 +74,8 @@ Komprimierung/WebP-Umwandlung erfolgt danach im Projekt.
 
 | Datei | Section | Format | Mindestgrösse |
 |---|---|---|---|
-| `hero/hero-desktop.jpg` | Hero (Desktop) | Quer 16:9, Jana rechts, links Freiraum für Text | 2400 × 1350 |
-| `hero/hero-mobile.jpg` | Hero (Handy) | Hoch 9:16, oben Freiraum für Text | 1080 × 1920 |
+| `hero/hero-desktop.webp` | Hero (Desktop) | 2667 × 1500, Jana rechts, Hintergrund links per KI erweitert (Jana = Originalpixel) | ✓ |
+| `hero/hero-mobile.webp` | Hero (Handy) | 805 × 2000, Originalfoto ohne KI, zweite Läuferin weggeschnitten | ✓ |
 | `about/about-portrait.jpg` | Meet Jana | Hoch 4:5, lachend, ruhiger Hintergrund | 1200 × 1500 |
 | `erfolge/erfolg-swiss-final.jpg` | Erfolge | Quer 4:3, Siegerehrung/Medaille | 1600 × 1200 |
 | `erfolge/erfolg-cross-cup.jpg` | Erfolge | Quer 4:3 | 1600 × 1200 |
