@@ -34,3 +34,16 @@ sharpened.save(out_path, 'JPEG', quality=92, optimize=True)
   dann Ergebnis-URL liegt auf `cloudfront.net` (von der eigenen Bash-Sandbox aus wegen
   Egress-Proxy-Policy nicht erreichbar) — Download-Link an User geben, der lädt die
   Datei direkt auf GitHub hoch.
+
+## YouTube-Videos herunterladen / importieren
+
+**Niemals** `yt-dlp` in der Higgsfield-Sandbox (`sandbox_exec`) für YouTube-Links
+verwenden — YouTube blockiert das zuverlässig mit "Sign in to confirm you're not
+a bot", auch mit verschiedenen `player_client`-Optionen (android, ios, tv, web_safari).
+
+**Stattdessen:** `mcp__vidIQ__vidiq_video_upload` mit dem YouTube-Link (watch,
+youtu.be, Shorts, live, embed) als `url`-Parameter. Das läuft asynchron (liefert
+`mcpJobId`), danach mit `mcp__vidIQ__vidiq_job_poll` pollen, bis `status` nicht
+mehr `inprogress` ist — Ergebnis enthält `uploadId` und eine gehostete `videoUrl`,
+die direkt in Higgsfield (`media_import_url`) oder andere Tools weitergereicht
+werden kann.
