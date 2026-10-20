@@ -350,20 +350,40 @@
 
       <form id="contactForm">
         <div class="field">
-          <label for="name">Name *</label>
-          <input type="text" id="name" name="name" required />
+          <label for="firstName" data-de="Vorname *">First Name *</label>
+          <input type="text" id="firstName" name="firstName" required />
         </div>
         <div class="field">
-          <label for="company" data-de="Firma / Werft *">Company / Shipyard *</label>
+          <label for="lastName" data-de="Nachname *">Last Name *</label>
+          <input type="text" id="lastName" name="lastName" required />
+        </div>
+        <div class="field">
+          <label for="company" data-de="Firma *">Company *</label>
           <input type="text" id="company" name="company" required />
+        </div>
+        <div class="field">
+          <label for="city" data-de="Stadt *">City *</label>
+          <input type="text" id="city" name="city" required />
+        </div>
+        <div class="field">
+          <label for="state" data-de="Bundesland / Staat *">State *</label>
+          <input type="text" id="state" name="state" required />
+        </div>
+        <div class="field">
+          <label for="zip" data-de="Postleitzahl *">Zip Code *</label>
+          <input type="text" id="zip" name="zip" required />
         </div>
         <div class="field">
           <label for="email" data-de="E-Mail *">Email *</label>
           <input type="email" id="email" name="email" required />
         </div>
         <div class="field">
-          <label for="message" data-de="Nachricht *">Message *</label>
-          <textarea id="message" name="message" required></textarea>
+          <label for="phone" data-de="Telefon">Phone</label>
+          <input type="tel" id="phone" name="phone" />
+        </div>
+        <div class="field">
+          <label for="jobFunction" data-de="Funktion">Job Function</label>
+          <input type="text" id="jobFunction" name="jobFunction" />
         </div>
         <button type="submit" class="btn"><span class="btn-label" data-de="Mit einem HMI-Experten sprechen">Talk to an HMI Expert</span><span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
         <div class="form-success" id="formSuccess" data-de="Danke für deine Anfrage &ndash; wir melden uns in Kürze.">Thank you for your inquiry – we'll be in touch shortly.</div>
