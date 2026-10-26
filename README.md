@@ -9,7 +9,7 @@ Eigenständiges, statisches Webseiten-Projekt (kein Build-Tool nötig).
 ├── css/style.css       Design-System (Farben, Typografie, Layout)
 ├── js/main.js          Interaktionen (Navigation etc.)
 └── assets/
-    ├── images/         Bilder, je Section ein Ordner (hero, about, erfolge, sport, galerie, medien, partner)
+    ├── images/         Bilder, je Section ein Ordner (hero, story, sports, highlights, next, partner, team, medien, instagram)
     └── video/          Videos
 ```
 
@@ -45,44 +45,56 @@ Angaben zu Schule, Wohnort oder Trainingszeiten, Einverständnis für alle Fotos
 - Eigene Slogans: «Little Steps. Big Dreams.» · «Just me & 1000 m.» · «on track» · «Wrong turn? NO! before the finish!»
 - Echtes Vereinsdress LV Langenthal: Navy/Blau mit gelben Streifen, pinke Socken als Akzent
 
-## Struktur & Navigation (abgestimmt Oktober 2026)
+## Struktur & Navigation (Version Auftraggeber, abgestimmt 26.10.2026)
 
-One-Page mit Anker-Navigation. **Grundsprache Deutsch**, englische Slogans/Akzente
-für jungen, coolen Look (z. B. «Meet Jana», «Little Steps. Big Dreams.»).
+Quelle: «JJK_Website_Texte» (Copy Master), Mockup des Auftraggebers, Wettkampfliste «2026-Plan».
+One-Page, Texte Deutsch, **Navigation & Überschriften Englisch**.
 
-Navigation: Über mich · Erfolge · Running & Triathlon · Medien · Partner · Kontakt (+ Instagram-Icon)
+Navigation: Home · My Story · My Sports · Highlights · Results · What's Next · Partners (+ Button «Meine Resultate ↓», Instagram)
 
-1. Hero — Actionfoto, Name, «Run. Swim. Ride.», «Little Steps. Big Dreams ♡»
-2. Highlights-Leiste — 4 Kacheln (Schweizermeisterin, Cross-Cup-Siegerin SO, Bahnrekord, Follower)
-3. Meet Jana — Porträt, Text, Steckbrief, Zitat
-4. Erfolge — Zeitleiste Saison 2026
-5. Running & Triathlon — zwei Bildkacheln
-6. Galerie — Bildraster mit Lightbox
-7. In den Medien — Presseartikel-Karten
-8. Partner — Eistee-Sponsor + «Dein Logo hier?»
-9. Ziele 2027
-10. Follow the Journey — Instagram-Leiste @itsjanajulia
-11. Kontakt — über die Eltern, Formular
-12. Footer — Impressum, Datenschutz, «Managed by her parents»
+1. Hero — «Small Steps. Big Dreams.», Name, Intro, Hinweis Elternbetreuung, «Run. Swim. Ride. ♡»
+2. Highlight-Statistik — Swiss Champion 2026 · PB 600 m 1:48.38 · Sieg trotz Sturz · Running & Triathlon
+3. My Sports — Running · Cross Country · Triathlon (je Verein + Link)
+4. My Story — Porträt + Text
+5. My Highlights 2026 — 3 Karten (Swiss Final · 600 m PB Zofingen · Bären GP)
+6. My Results — Kennzahl «20 Siege 2026» oberhalb; Tabelle aus Datendatei, neueste zuerst,
+   Filter Alle/Bahn/Strasse/Cross Country/Triathlon + Jahr; mobil als Karten.
+   Spalten: Datum · Anlass · Ort · Disziplin · Kategorie · Rang · Resultat-Link (**keine Zeit-Spalte**)
+7. What's Next — Back on Track 2027 · Triathlon 2027 + «Next Races» (angemeldete Rennen)
+8. Sponsors & Supporters — Sommertee.ch · Neven Lanz Immobilien · OKOA + Button «Partner werden?» (E-Mail an Eltern)
+9. My Team Behind the Scenes — Familie, LV Langenthal, TRI Team Oensingen
+10. Press & Media
+11. Follow my Journey — @itsjanajulia
+12. Footer + Impressum (Eltern als Betreiber)
 
-Vorerst weggelassen: Rubrik «Sponsoring-Angebot» (noch nicht definiert).
+Entscheide: Schwimmen Aarau (16.05.) wird als **Triathlon** geführt · Spalte «Betreuung» aus Excel
+wird **nicht** veröffentlicht · Galerie und Kontaktformular entfallen.
 
 ## Bilderliste (Upload nach `assets/images/<ordner>/`)
 
-Format: JPG/PNG in voller Auflösung. Dateinamen klein, ohne Leerzeichen/Umlaute.
-Komprimierung/WebP-Umwandlung erfolgt danach im Projekt.
+Format: WebP oder JPG, Qualität ca. 85 %. Dateinamen klein, ohne Leerzeichen/Umlaute.
+Bilder werden in Karten zugeschnitten (object-fit) → Jana mittig mit etwas Rand.
 
-| Datei | Section | Format | Mindestgrösse |
-|---|---|---|---|
-| `hero/hero-desktop.webp` | Hero (Desktop) | 2667 × 1500, Jana rechts, Hintergrund links per KI erweitert (Jana = Originalpixel) | ✓ |
-| `hero/hero-mobile.webp` | Hero (Handy) | 1200 × 2981 (Lanczos-hochskaliert), Originalfoto ohne KI, zweite Läuferin weggeschnitten | ✓ |
-| `about/about-portrait.jpg` | Meet Jana | Hoch 4:5, lachend, ruhiger Hintergrund | 1200 × 1500 |
-| `erfolge/erfolg-swiss-final.jpg` | Erfolge | Quer 4:3, Siegerehrung/Medaille | 1600 × 1200 |
-| `erfolge/erfolg-cross-cup.jpg` | Erfolge | Quer 4:3 | 1600 × 1200 |
-| `erfolge/erfolg-bahnrekord.jpg` | Erfolge (optional) | Quer 4:3 | 1600 × 1200 |
-| `sport/running.jpg` | Running & Triathlon | Hoch 4:5, Laufen in Action | 1200 × 1500 |
-| `sport/triathlon.jpg` | Running & Triathlon | Hoch 4:5, Schwimmen oder Rad | 1200 × 1500 |
-| `galerie/galerie-01.jpg` … `galerie-12.jpg` | Galerie | gemischt hoch/quer | 1600 px lange Seite |
-| `medien/medien-01.jpg` … | In den Medien | Quer 3:2, Foto/Screenshot des Artikels | 1200 × 800 |
-| `medien/medien.txt` | In den Medien | pro Zeile: Zeitung · Titel · Datum · Link | – |
-| `partner/logo-sponsor.svg` / `.png` | Partner | Logo Eistee-Sponsor, transparent | 800 px breit |
+| Datei | Section | Format | Mindestgrösse | Status |
+|---|---|---|---|---|
+| `hero/hero-desktop.webp` | Hero Desktop | 16:9 | 2400 × 1350 | ✓ |
+| `hero/hero-mobile.webp` | Hero Handy | Hochformat | 1080 breit | ✓ |
+| `story/story-portrait.webp` | My Story | 4:5 hoch | 1200 × 1500 | ✓ |
+| `sports/running.webp` | My Sports | 4:5 hoch | 1200 × 1500 | |
+| `sports/cross-country.webp` | My Sports | 4:5 hoch | 1200 × 1500 | |
+| `sports/triathlon.webp` | My Sports | 4:5 hoch | 1200 × 1500 | |
+| `highlights/swiss-final.webp` | Highlights | 3:2 quer | 1200 × 800 | |
+| `highlights/zofingen.webp` | Highlights | 3:2 quer | 1200 × 800 | |
+| `highlights/baeren-gp.webp` | Highlights | 3:2 quer | 1200 × 800 | |
+| `next/track-2027.webp` | What's Next | 4:3 quer | 1200 × 900 | |
+| `next/triathlon-2027.webp` | What's Next | 4:3 quer | 1200 × 900 | |
+| `partner/logo-sommertee.svg/.png` | Sponsors | Logo, transparent | 800 breit | |
+| `partner/logo-nevenlanz.svg/.png` | Sponsors | Logo, transparent | 800 breit | |
+| `partner/logo-okoa.svg/.png` | Sponsors | Logo, transparent | 800 breit | |
+| `partner/sommertee-produkt.png` | Sponsors (optional) | freigestellt, transparent | 800 hoch | |
+| `team/team-01.webp` (… `team-02`) | Team | 3:2 quer | 1200 × 800 | |
+| `team/logo-lv-langenthal.svg/.png` | Team | Logo, transparent | 800 breit | |
+| `team/logo-triteam-oensingen.svg/.png` | Team | Logo, transparent | 800 breit | |
+| `medien/medien-01.webp` … | Press & Media | 3:2 quer | 1200 × 800 | |
+| `medien/medien.txt` | Press & Media | Zeitung · Titel · Datum · Link | – | |
+| `instagram/insta-01.webp` … `insta-06.webp` | Follow my Journey | 1:1 | 1080 × 1080 | |
