@@ -77,24 +77,27 @@ Bilder werden in Karten zugeschnitten (object-fit) → Jana mittig mit etwas Ran
 
 | Datei | Section | Format | Mindestgrösse | Status |
 |---|---|---|---|---|
-| `hero/hero-desktop.webp` | Hero Desktop | 16:9 | 2400 × 1350 | ✓ |
-| `hero/hero-mobile.webp` | Hero Handy | Hochformat | 1080 breit | ✓ |
+| `hero/hero-desktop.webp` | Hero Desktop | 16:9, 3200 × 1800, KI-Hintergrund links, Jana = Originalpixel | 2400 × 1350 | ✓ |
+| `hero/hero-mobile.webp` | Hero Handy | 1200 × 2982, Original ohne KI | 1080 breit | ✓ |
 | `story/story-portrait.webp` | My Story | 4:5 hoch | 1200 × 1500 | ✓ |
-| `sports/running.webp` | My Sports | 4:5 hoch | 1200 × 1500 | |
-| `sports/cross-country.webp` | My Sports | 4:5 hoch | 1200 × 1500 | |
+| `sports/running.webp` | My Sports | 4:5 hoch | 1200 × 1500 | ✓ |
+| `sports/cross-country.webp` | My Sports | 4:5 hoch | 1200 × 1500 | ✓ |
 | `sports/triathlon.webp` | My Sports | 4:5 hoch | 1200 × 1500 | |
-| `highlights/swiss-final.webp` | Highlights | 3:2 quer | 1200 × 800 | |
-| `highlights/zofingen.webp` | Highlights | 3:2 quer | 1200 × 800 | |
-| `highlights/baeren-gp.webp` | Highlights | 3:2 quer | 1200 × 800 | |
-| `next/track-2027.webp` | What's Next | 4:3 quer | 1200 × 900 | |
+| `highlights/swiss-final.webp` | Highlights | 3:2 quer | 1200 × 800 | ✓ |
+| `highlights/zofingen.webp` | Highlights | 3:2 quer | 1200 × 800 | Platzhalter, Bild folgt |
+| `highlights/baeren-gp.webp` | Highlights | 3:2 quer | 1200 × 800 | ✓ |
+| `next/track-2027.webp` | What's Next | 4:3 quer | 1200 × 900 | ✓ |
 | `next/triathlon-2027.webp` | What's Next | 4:3 quer | 1200 × 900 | |
 | `partner/logo-sommertee.svg/.png` | Sponsors | Logo, transparent | 800 breit | |
 | `partner/logo-nevenlanz.svg/.png` | Sponsors | Logo, transparent | 800 breit | |
 | `partner/logo-okoa.svg/.png` | Sponsors | Logo, transparent | 800 breit | |
 | `partner/sommertee-produkt.png` | Sponsors (optional) | freigestellt, transparent | 800 hoch | |
-| `team/team-01.webp` (… `team-02`) | Team | 3:2 quer | 1200 × 800 | |
+| `team/team-01.webp`, `team-02.webp` | Team | 1:1 quadratisch | 1200 × 1200 | ✓ |
 | `team/logo-lv-langenthal.svg/.png` | Team | Logo, transparent | 800 breit | |
 | `team/logo-triteam-oensingen.svg/.png` | Team | Logo, transparent | 800 breit | |
-| `medien/medien-01.webp` … | Press & Media | 3:2 quer | 1200 × 800 | |
+| `medien/medien-01.webp` … `-03` | Press & Media | 3:2 quer | 1200 × 800 | ✓ |
 | `medien/medien.txt` | Press & Media | Zeitung · Titel · Datum · Link | – | |
-| `instagram/insta-01.webp` … `insta-06.webp` | Follow my Journey | 1:1 | 1080 × 1080 | |
+| `instagram/insta-01.webp` … `insta-06.webp` | Follow my Journey | 1:1 | 1080 × 1080 | ✓ |
+
+Offen (liefert Auftraggeber nach): Triathlon-Bilder (sports, next), Zofingen, Logos Sponsoren/Vereine,
+Pressetitel/-links. Quellbilder (36 Stück) liegen nicht im Repo (öffentlich) — nur freigegebene Zuschnitte.
