@@ -107,3 +107,26 @@ Pressetitel/-links. Quellbilder (36 Stück) liegen nicht im Repo (öffentlich) �
 - **My Sports – dunkle Karten** (Bild vollflächig, dunkler Verlauf, weisse Schrift): ersetzt am 02.11.2026
   durch «Weisse Karte, Bild oben». Gesichert im Commit `f03bbe4` auf Branch `jana-kramer`.
   Zurückholen: Block «MY SPORTS» in `css/style.css` aus diesem Commit übernehmen.
+
+## Offene Punkte / Backlog
+
+### Zum Schluss (wenn Design final): dezente Animationen
+Erst umsetzen, wenn das Design abgenommen ist. Vorher als Vergleich zeigen, dann live.
+Nur CSS + wenig JS, keine schweren Bibliotheken; `prefers-reduced-motion` respektieren (bereits vorhanden).
+
+Bereits vorhanden: Einblenden beim Scrollen, Hover-Lift der Karten, Header wird dunkel, Nav-Unterstrich.
+
+Ideen:
+- Hero-Einstieg: «Small Steps.» / «Big Dreams.» nacheinander; «Run. Swim. Ride.» wie von Hand gezeichnet
+- Zahlen zählen hoch (Siege, Podestplätze, Rennen, PB 1:48.38)
+- Gestaffeltes Einblenden der Karten pro Section
+- Leichter Parallax (Hero-Bild, Bergsilhouette)
+- Weicher Übergang beim Filtern der Resultate
+- Handschrift-Slogans «schreiben» sich beim ersten Erscheinen ein
+- Weiche Seitenwechsel Startseite ↔ Impressum (View Transitions)
+
+### Wartet auf Unterlagen
+- Triathlon-Bilder (My Sports, What's Next), Bild Zofingen (Highlights)
+- Logos Sommertee, Neven Lanz, OKOA, LV Langenthal, TRI Team Oensingen
+- Prüfung Zuordnung Bahn/Strasse, Pressetitel (3. Artikel) und Online-Links, Ort «Bleienbach»
+- Resultate 2025
