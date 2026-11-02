@@ -156,7 +156,7 @@ button, select { font: inherit; }
 .sports { background: var(--rose); }
 .sports-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 28px); }
 /* Variante A «Weisse Karte, Bild oben» (gewählt 02.11.2026).
-   Frühere dunkle Variante: Git-Tag «sports-dunkel-v1» (siehe README). */
+   Frühere dunkle Variante: Commit f03bbe4 (siehe README «Design-Varianten»). */
 .sport-card { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--white); color: var(--text); box-shadow: var(--shadow); display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s; }
 .sport-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(12, 28, 52, .16); }
 .sport-card > img, .sport-card > .ph { width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; }

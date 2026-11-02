@@ -105,5 +105,5 @@ Pressetitel/-links. Quellbilder (36 Stück) liegen nicht im Repo (öffentlich) �
 ## Design-Varianten (Archiv)
 
 - **My Sports – dunkle Karten** (Bild vollflächig, dunkler Verlauf, weisse Schrift): ersetzt am 02.11.2026
-  durch «Weisse Karte, Bild oben». Gesichert im Commit `f03bbe4` (Git-Tag `sports-dunkel-v1`).
+  durch «Weisse Karte, Bild oben». Gesichert im Commit `f03bbe4` auf Branch `jana-kramer`.
   Zurückholen: Block «MY SPORTS» in `css/style.css` aus diesem Commit übernehmen.
