@@ -125,6 +125,13 @@ Ideen:
 - Handschrift-Slogans «schreiben» sich beim ersten Erscheinen ein
 - Weiche Seitenwechsel Startseite ↔ Impressum (View Transitions)
 
+### Zum Schluss: Favicon im Design
+Aktuell provisorisch: «JJK» in Pink auf Nachtblau (inline SVG in `index.html` / `impressum.html`).
+Final gestalten im Stil der Seite (Barlow Condensed kursiv, Pink/Navy, evtl. Schweizer Kreuz oder Herz ♡),
+in allen nötigen Grössen: `favicon.svg`, `favicon.ico` (32 px), `apple-touch-icon.png` (180 px),
+Icons 192/512 px + `site.webmanifest`; dazu Vorschaubild für geteilte Links (`og-image`, 1200 × 630).
+Vorher 2–3 Varianten zur Auswahl zeigen.
+
 ### Wartet auf Unterlagen
 - Triathlon-Bilder (My Sports, What's Next), Bild Zofingen (Highlights)
 - Logos Sommertee, Neven Lanz, OKOA, LV Langenthal, TRI Team Oensingen
