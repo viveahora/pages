@@ -101,3 +101,9 @@ Bilder werden in Karten zugeschnitten (object-fit) → Jana mittig mit etwas Ran
 
 Offen (liefert Auftraggeber nach): Triathlon-Bilder (sports, next), Zofingen, Logos Sponsoren/Vereine,
 Pressetitel/-links. Quellbilder (36 Stück) liegen nicht im Repo (öffentlich) — nur freigegebene Zuschnitte.
+
+## Design-Varianten (Archiv)
+
+- **My Sports – dunkle Karten** (Bild vollflächig, dunkler Verlauf, weisse Schrift): ersetzt am 02.11.2026
+  durch «Weisse Karte, Bild oben». Gesichert im Commit `f03bbe4` (Git-Tag `sports-dunkel-v1`).
+  Zurückholen: Block «MY SPORTS» in `css/style.css` aus diesem Commit übernehmen.
