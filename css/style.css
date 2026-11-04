@@ -189,7 +189,7 @@ button, select { font: inherit; }
 /* =========================================================
    HIGHLIGHTS
    ========================================================= */
-.highlights { background: var(--paper); }
+.highlights { background: var(--rose); }
 .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 28px); }
 .hl-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
 .hl-media { position: relative; aspect-ratio: 3 / 2; }
