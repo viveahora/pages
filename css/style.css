@@ -142,7 +142,7 @@ button, select { font: inherit; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .stat { text-align: center; padding: 8px 18px; }
 .stat + .stat { border-left: 2px solid var(--rose); }
-.stat svg { width: 34px; height: 34px; color: var(--pink); margin: 0 auto 10px; display: block; }
+.stat svg { width: 48px; height: 48px; color: var(--pink); margin: 0 auto 14px; display: block; }
 .stat h2 { font: italic 800 1.35rem/1.05 var(--f-head); text-transform: uppercase; color: var(--navy); margin-bottom: .35em; }
 .stat-num { display: block; font-size: 1em; color: var(--pink-strong); margin-top: .1em; }
 .stat p { margin: 0; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
@@ -418,6 +418,7 @@ button, select { font: inherit; }
   .team-photos img:last-child { transform: translateY(16px); }
 }
 @media (max-width: 480px) {
+  .stat svg { width: 44px; height: 44px; margin-bottom: 12px; }
   .stats-grid { grid-template-columns: 1fr; }
   .stat + .stat { border-left: 0; border-top: 2px solid var(--rose); padding-top: 22px; }
   .hero-title { font-size: 3.3rem; }
