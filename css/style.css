@@ -112,7 +112,7 @@ button, select { font: inherit; }
 /* =========================================================
    HERO
    ========================================================= */
-.hero { position: relative; min-height: min(100svh, 920px); display: flex; align-items: center; color: #fff; background: var(--night); overflow: hidden; padding: calc(var(--header-h) + 40px) 0 120px; }
+.hero { position: relative; min-height: 90vh; min-height: 90svh; display: flex; align-items: center; color: #fff; background: var(--night); overflow: hidden; padding: calc(var(--header-h) + 40px) 0 72px; }
 .hero-bg, .hero-bg img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-bg img { object-fit: cover; object-position: 75% 30%; }
 .hero::before { /* Lesbarkeit links */
@@ -134,20 +134,17 @@ button, select { font: inherit; }
 .hero-script { position: absolute; z-index: 2; right: max(var(--gutter), calc((100vw - var(--wrap)) / 2)); top: 30%; font-size: clamp(2rem, 3.4vw, 3rem); color: #fff; transform: rotate(-8deg); line-height: 1.05; text-shadow: 0 2px 16px rgba(0,0,0,.35); margin: 0; }
 .hero-script .heart { color: var(--pink); }
 
-/* Pinsel-Kante */
-.edge { position: absolute; left: 0; bottom: -1px; width: 100%; height: clamp(40px, 6vw, 90px); z-index: 3; }
-.edge-white { fill: var(--white); }
 
 /* =========================================================
    STATS
    ========================================================= */
-.stats { background: var(--white); padding: 10px 0 56px; position: relative; z-index: 4; }
+.stats { background: var(--white); padding: 44px 0 52px; position: relative; z-index: 4; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .stat { text-align: center; padding: 8px 18px; }
 .stat + .stat { border-left: 2px solid var(--rose); }
 .stat svg { width: 34px; height: 34px; color: var(--pink); margin: 0 auto 10px; display: block; }
 .stat h2 { font: italic 800 1.35rem/1.05 var(--f-head); text-transform: uppercase; color: var(--navy); margin-bottom: .35em; }
-.stat-num { display: block; font-size: 1.6em; color: var(--pink-strong); margin-top: .05em; }
+.stat-num { display: block; font-size: 1em; color: var(--pink-strong); margin-top: .1em; }
 .stat p { margin: 0; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
 
 /* =========================================================
@@ -180,7 +177,7 @@ button, select { font: inherit; }
 /* =========================================================
    MY STORY
    ========================================================= */
-.story { background: var(--white); overflow: hidden; padding-bottom: clamp(120px, 14vw, 200px); }
+.story { background: var(--white); overflow: hidden; }
 .story-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 80px); align-items: center; position: relative; z-index: 1; }
 .story-photo { margin: 0; position: relative; }
 .story-photo img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
@@ -273,9 +270,10 @@ button, select { font: inherit; }
    ========================================================= */
 .partners { background: var(--white); }
 .partners .lead { margin-bottom: 32px; }
-.partner-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; display: flex; flex-direction: column; background: var(--white); transition: box-shadow .25s, transform .25s; }
+.partner-card { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; padding: 26px 24px; display: flex; flex-direction: column; background: var(--white); transition: box-shadow .25s, transform .25s; }
 .partner-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-.logo-ph { height: 96px; border: 2px dashed var(--line); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; font: italic 800 1.5rem/1 var(--f-head); text-transform: uppercase; color: var(--navy); margin-bottom: 18px; text-align: center; padding: 0 12px; }
+.partner-media { display: block; width: calc(100% + 48px); max-width: none; margin: -26px -24px 22px; aspect-ratio: 16 / 9; object-fit: cover; }
+.logo-ph { background: var(--rose); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; font: italic 800 1.5rem/1 var(--f-head); text-transform: uppercase; color: var(--navy); text-align: center; padding: 0 12px; }
 .logo-ph small { font: 600 .62rem/1 var(--f-body); letter-spacing: .14em; color: var(--muted); margin-top: 6px; }
 .partner-card h3 { font: 700 1.05rem/1.3 var(--f-body); color: var(--navy); }
 .partner-card .script { margin: .15em 0 .6em; }
@@ -314,14 +312,14 @@ button, select { font: inherit; }
    INSTAGRAM
    ========================================================= */
 .insta { background: var(--rose); padding: clamp(56px, 7vw, 88px) 0; }
-.insta-grid { display: grid; grid-template-columns: 260px 1fr; gap: 32px; align-items: center; }
+.insta-grid { display: grid; grid-template-columns: 280px 1fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
 .insta-icon { width: 46px; height: 46px; color: var(--pink); margin-bottom: 10px; }
 .insta .section-title { font-size: clamp(2.2rem, 4vw, 3rem); margin-bottom: .15em; }
 .handle { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--pink-strong); text-decoration: none; font-size: 1.05rem; }
 .handle:hover { text-decoration: underline; }
 .insta-text .small { margin-top: .6em; }
-.insta-photos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
-.insta-photos a { display: block; border-radius: 10px; overflow: hidden; }
+.insta-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.insta-photos a { display: block; border-radius: 14px; overflow: hidden; }
 .insta-photos img { aspect-ratio: 1; object-fit: cover; width: 100%; transition: transform .4s; }
 .insta-photos a:hover img { transform: scale(1.06); }
 
@@ -384,7 +382,7 @@ button, select { font: inherit; }
   .insta-photos { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 760px) {
-  .hero { align-items: flex-end; min-height: 100svh; padding-bottom: 96px; }
+  .hero { align-items: flex-end; min-height: 100vh; min-height: 100svh; padding-bottom: 56px; }
   .hero-bg img { object-position: 50% 15%; }
   .hero::before { background: linear-gradient(180deg, rgba(7,10,21,.45) 0%, rgba(7,10,21,0) 22%, rgba(7,10,21,.15) 42%, rgba(7,10,21,.88) 66%, rgba(7,10,21,.97) 100%); }
   .hero-script { display: none; }
