@@ -382,13 +382,15 @@ button, select { font: inherit; }
   .insta-photos { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 760px) {
-  .hero { align-items: flex-end; min-height: 100vh; min-height: 100svh; padding-bottom: 56px; }
-  .hero-bg img { object-position: 50% 15%; }
-  .hero::before { background: linear-gradient(180deg, rgba(7,10,21,.45) 0%, rgba(7,10,21,0) 22%, rgba(7,10,21,.15) 42%, rgba(7,10,21,.88) 66%, rgba(7,10,21,.97) 100%); }
+  .hero { align-items: flex-end; min-height: 100vh; min-height: 100svh; padding-bottom: 22px; }
+  .hero-bg img { object-position: 50% 10%; }
+  .hero::before { background: linear-gradient(180deg, rgba(7,10,21,.45) 0%, rgba(7,10,21,0) 20%, rgba(7,10,21,.1) 38%, rgba(7,10,21,.82) 56%, rgba(7,10,21,.96) 72%, rgba(7,10,21,.98) 100%); }
   .hero-script { display: none; }
-  .eyebrow { font-size: .68rem; letter-spacing: .14em; }
-  .hero-name { letter-spacing: .22em; }
-  .hero-intro { font-size: .95rem; }
+  .eyebrow { font-size: .68rem; letter-spacing: .14em; margin-bottom: .8em; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+  .hero-title { margin-bottom: .18em; }
+  .hero-name { letter-spacing: .22em; margin-bottom: .9em; }
+  .hero-intro { font-size: .95rem; margin-bottom: 1.3em; }
+  .parents-note { margin-top: 1.2em; }
   .kpis { width: 100%; }
   .kpi { flex: 1; min-width: 0; padding: 14px 8px; }
   .kpi-num { font-size: 2.4rem; }
@@ -421,4 +423,13 @@ button, select { font: inherit; }
   .hero-title { font-size: 3.3rem; }
   .brand-top { font-size: 1.35rem; }
   .footer-inner { grid-template-columns: 1fr auto; }
+}
+
+/* Kleine Handys (wenig Höhe): Hero-Text kompakter, damit er im dunklen Bereich bleibt */
+@media (max-width: 760px) and (max-height: 740px) {
+  .hero-title { font-size: 2.7rem; }
+  .hero-name { font-size: .95rem; margin-bottom: .7em; }
+  .hero-intro { font-size: .86rem; line-height: 1.5; margin-bottom: 1.1em; }
+  .hero .btn { padding: .85em 1.2em; font-size: .85rem; }
+  .parents-note { margin-top: .9em; font-size: .76rem; }
 }
