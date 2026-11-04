@@ -473,6 +473,20 @@ button, select { font: inherit; }
 /* Resultate beim Filtern */
 .anim .row-in { animation: jjk-fade .45s ease both; }
 
+/* Dezenter Zoom beim Darüberfahren für alle Kartenbilder (wie bei Instagram).
+   «scale» + passendes «clip-path», damit das Bild im Rahmen bleibt und nichts überlappt. */
+@media (hover: hover) {
+  .anim .sport-card > img, .anim .hl-media img, .anim .goal-card > img, .anim img.partner-media,
+  .anim .press-card img {
+    clip-path: inset(0); transition: scale .6s ease, clip-path .6s ease;
+  }
+  .anim .sport-card:hover > img, .anim .hl-card:hover .hl-media img, .anim .goal-card:hover > img,
+  .anim .partner-card:hover img.partner-media, .anim .press-card:hover img {
+    scale: 1.06; clip-path: inset(2.83%);
+  }
+  .anim .insta-photos img { transition: transform .6s ease; }
+}
+
 /* Hinweis-Badge (nur Vorschau) */
 .anim-badge { position: fixed; left: 16px; bottom: 16px; z-index: 80; background: var(--navy); color: #fff; font: 600 .75rem/1 var(--f-body); padding: 10px 14px; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
 .anim-badge span { color: var(--pink); margin-left: 6px; text-decoration: underline; }
