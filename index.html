@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#070A15">
   <link rel="preload" href="fonts/barlow-condensed-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <script>/* Animationen-Vorschau: aktiv mit ?animationen (siehe js/animations.js) */(function(){try{var q=location.search,k="jjk-anim";if(/[?&]animationen=0/.test(q))sessionStorage.removeItem(k);else if(/[?&]animationen/.test(q))sessionStorage.setItem(k,"1");if(sessionStorage.getItem(k)==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("anim");var s=document.createElement("style");s.textContent="@view-transition{navigation:auto}";document.head.appendChild(s);}}catch(e){}})();</script>
+  <script>/* Animationen aktivieren (ausser bei «Bewegung reduzieren») – siehe js/animations.js */try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("anim")}catch(e){}</script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23070A15'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='900' font-style='italic' font-size='15' text-anchor='middle' fill='%23F0508A'%3EJJK%3C/text%3E%3C/svg%3E">
 </head>

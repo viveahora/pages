@@ -111,11 +111,9 @@ Pressetitel/-links. Quellbilder (36 Stück) liegen nicht im Repo (öffentlich) �
 ## Offene Punkte / Backlog
 
 ### Zum Schluss (wenn Design final): dezente Animationen
-**Vorschau umgesetzt (04.11.2026):** nur sichtbar mit `?animationen` in der Adresse
-(z. B. https://jana-kramer.netlify.app/?animationen), ausschalten mit `?animationen=0`.
-Code: `js/animations.js` + Block «ANIMATIONEN – VORSCHAU» am Ende von `css/style.css`,
-Schalter als kleines Skript im `<head>` von `index.html`/`impressum.html`.
-Nach Freigabe: Schalter entfernen und Klasse `anim` fest setzen (Badge entfernen).
+**Umgesetzt und live (04.11.2026).** Code: `js/animations.js` + Block «ANIMATIONEN» am Ende von
+`css/style.css`; aktiviert über ein kleines Skript im `<head>` (Klasse `anim`), nicht bei «Bewegung reduzieren».
+Ausserdem: Zoom beim Darüberfahren für alle Kartenbilder (Team-Fotos ausgenommen).
 Erst umsetzen, wenn das Design abgenommen ist. Vorher als Vergleich zeigen, dann live.
 Nur CSS + wenig JS, keine schweren Bibliotheken; `prefers-reduced-motion` respektieren (bereits vorhanden).
 

@@ -1,6 +1,5 @@
 /*
-  Dezente Animationen — VORSCHAU
-  Aktiv nur mit ?animationen in der Adresse (bleibt für die Sitzung aktiv, ?animationen=0 schaltet aus).
+  Dezente Animationen (freigegeben 04.11.2026)
   Die Klasse «anim» auf <html> setzt das kleine Skript im <head>.
   Wer «Bewegung reduzieren» eingestellt hat, sieht keine Animationen.
 */
@@ -83,11 +82,4 @@
       });
     }).observe(tbody, { childList: true });
   }
-
-  /* Hinweis-Badge für die Vorschau */
-  var badge = document.createElement("a");
-  badge.className = "anim-badge";
-  badge.href = "?animationen=0";
-  badge.innerHTML = "✨ Animationen-Vorschau <span>ausschalten</span>";
-  document.body.appendChild(badge);
 })();
