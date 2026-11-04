@@ -386,7 +386,7 @@ button, select { font: inherit; }
   .hero { align-items: flex-end; min-height: 100vh; min-height: 100svh; padding-bottom: 22px; }
   .hero-bg img { object-position: 50% 10%; }
   .hero::before { background: linear-gradient(180deg, rgba(7,10,21,.45) 0%, rgba(7,10,21,0) 20%, rgba(7,10,21,.1) 38%, rgba(7,10,21,.82) 56%, rgba(7,10,21,.96) 72%, rgba(7,10,21,.98) 100%); }
-  .hero-script { display: none; }
+  .hero-script { right: auto; left: 18px; top: calc(var(--header-h) + 96px); font-size: 1.75rem; transform: rotate(-9deg); text-shadow: 0 2px 14px rgba(0,0,0,.55), 0 0 2px rgba(0,0,0,.35); }
   .eyebrow { font-size: .68rem; letter-spacing: .14em; margin-bottom: .8em; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
   .hero-title { margin-bottom: .18em; }
   .hero-name { letter-spacing: .22em; margin-bottom: .9em; }
