@@ -363,7 +363,7 @@ button, select { font: inherit; }
 }
 @media (max-width: 1060px) {
   .burger { display: block; }
-  .nav { position: fixed; inset: 0; background: var(--night); flex-direction: column; justify-content: center; gap: 28px; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+  .nav { position: fixed; inset: 0; height: 100vh; height: 100dvh; background: var(--night); flex-direction: column; justify-content: center; gap: 28px; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
   .nav.is-open { opacity: 1; visibility: visible; }
   .nav ul { flex-direction: column; align-items: center; gap: 18px; }
   .nav ul a { font: italic 800 2rem/1 var(--f-head); letter-spacing: .02em; }
