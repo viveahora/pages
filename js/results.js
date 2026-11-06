@@ -1,41 +1,69 @@
 /*
-  Wettkampfliste Jana Julia Kramer
-  Quelle: «2026-Plan» (Excel des Auftraggebers, Oktober 2026)
+  WETTKAMPFLISTE – Jana Julia Kramer
+  ===================================
+  Nur den Bereich zwischen den beiden ` (Backticks) bearbeiten. Pro Rennen EINE Zeile:
 
-  So wird gepflegt:
-  - Pro Rennen eine Zeile. Neue Rennen einfach ergänzen (Reihenfolge egal, sortiert wird automatisch).
-  - type: "bahn" | "strasse" | "cross" | "triathlon"
-  - rank: Zahl. Ohne rank + Datum in der Zukunft → erscheint unter «Next Races».
-  - link: offizieller Resultat-Link (leer lassen, falls keiner vorhanden).
-  - Die Zuordnung Bahn/Strasse ist ein Vorschlag (im Excel steht nur «Lauf») → bitte prüfen.
+    Datum | Anlass | Ort | Art | Distanz | Kategorie | Rang | Resultat-Link
+
+  - Datum:     TT.MM.JJJJ, z. B. 12.09.2026
+  - Art:       Bahn, Strasse, Cross oder Triathlon
+  - Rang:      nur die Zahl, z. B. 1  (leer lassen = angemeldet → erscheint unter «Next Races»)
+  - Link:      offizieller Resultat-Link (darf fehlen)
+  - Reihenfolge egal – die Website sortiert automatisch (neueste zuerst).
+  - Zeilen mit # am Anfang sind Notizen und werden ignoriert.
+  - Eine fehlerhafte Zeile wird einfach weggelassen, der Rest der Tabelle bleibt sichtbar.
+  - Bitte keine ` (Backticks) im Text verwenden.
 */
-window.RESULTS = [
-  { date: "2026-01-17", name: "Swiss Athletics Cross Cup – Kantonalfinal", place: "Welschenrohr", type: "cross", distance: "1'200 m", category: "U12", rank: 1, link: "https://my.raceresult.com/373129/results" },
-  { date: "2026-03-08", name: "Schweizer Meisterschaften Cross", place: "Langenthal", type: "cross", distance: "1'200 m", category: "U12", rank: 7, link: "https://trackmaxx.ch/results/?race=csm26&c=17a8d202-a042-41c4-8b38-49a560fd2910" },
-  { date: "2026-04-12", name: "Frühlingslauf Wiedlisbach", place: "Wiedlisbach", type: "strasse", distance: "1'050 m", category: "U12", rank: 1, link: "https://trackmaxx.ch/results/?race=flw26&c=f51424a5-f2cc-4a3b-88d4-9761515c77f0" },
-  { date: "2026-04-24", name: "Tüfelschluchtlauf", place: "Hägendorf", type: "strasse", distance: "1'200 m", category: "U12", rank: 1, link: "https://my.raceresult.com/375620/" },
-  { date: "2026-05-02", name: "Buchsilauf", place: "Herzogenbuchsee", type: "strasse", distance: "1'100 m", category: "U12", rank: 1, link: "https://my.raceresult.com/375634/results" },
-  { date: "2026-05-03", name: "Die schnällschte Oberaargauer (Qualifikation BE-Final)", place: "Langenthal", type: "bahn", distance: "1'000 m", category: "W10", rank: 1, link: "https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/" },
-  { date: "2026-05-09", name: "Grand-Prix von Bern (Bären GP)", place: "Bern", type: "strasse", distance: "1'600 m", category: "W11", rank: 1, link: "https://trackmaxx.ch/results/?race=gp26&c=f766d363-fe3e-42ba-ad61-a08c5accf9cd" },
-  { date: "2026-05-16", name: "Spezialisten-Meeting (Schwimmen)", place: "Aarau", type: "triathlon", distance: "50 m Schwimmen", category: "–", rank: 3, link: "" },
-  { date: "2026-05-23", name: "Mille Gruyère Regionalfinal Zürich", place: "Regensdorf", type: "bahn", distance: "1'000 m", category: "W10", rank: 1, link: "https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/" },
-  { date: "2026-05-25", name: "Pfingstlauf", place: "Niederbipp", type: "strasse", distance: "1'000 m", category: "U12", rank: 1, link: "https://my.raceresult.com/375071/results" },
-  { date: "2026-06-07", name: "Berner Meisterschaften Nachwuchs", place: "Thun", type: "bahn", distance: "1'000 m", category: "U12", rank: 1, link: "https://www.swiss-athletics.ch/wettkaempfe/resultate/bestenliste/bestenliste-wettkampf/?&mobile=false&blyear=2026&evt=a21aa-umhntv-mn7axdyn-1-mnwqwxnl-7flu&blcat=5c4o3k5m-d686mo-j986g2ie-1-j986g45m-bh&disci=5c4o3k5m-d686mo-j986g2ie-1-j986gc86-1oz&top=30" },
-  { date: "2026-06-21", name: "Aarauer Altstadtlauf", place: "Aarau", type: "strasse", distance: "1'200 m", category: "U12", rank: 1, link: "https://my.raceresult.com/348721/" },
-  { date: "2026-06-26", name: "Mille Gruyère BE-Final (Swiss Qualifiers)", place: "Langnau i.E.", type: "bahn", distance: "1'000 m", category: "W10", rank: 1, link: "https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/" },
-  { date: "2026-07-18", name: "Torrent Run", place: "Leukerbad", type: "strasse", distance: "1'800 m", category: "U12", rank: 1, link: "https://datasport.com/de/anlass/torrent-run-walk-2026/ranking/list/u12-maedchen" },
-  { date: "2026-07-18", name: "Trompeterlauf Bad Säckingen", place: "Bad Säckingen (DE)", type: "strasse", distance: "1'180 m", category: "U12", rank: 1, link: "https://datasport.com/de/anlass/trompeterlauf-bad-saeckingen-2026/ranking/list/weibliche-kinder-u12" },
-  { date: "2026-08-07", name: "Bleienbacher", place: "Bleienbach", type: "strasse", distance: "800 m", category: "U12", rank: 1, link: "https://my.raceresult.com/378390/results" },
-  { date: "2026-08-08", name: "Nachwuchsmeeting Zofingen", place: "Zofingen", type: "bahn", distance: "600 m", category: "U12", rank: 1, link: "https://slv.laportal.net/Competitions/CurrentList/1038382/20184" },
-  { date: "2026-08-14", name: "Born to Run", place: "Olten", type: "strasse", distance: "1'200 m", category: "U12", rank: 1, link: "https://my.raceresult.com/375624/results" },
-  { date: "2026-08-16", name: "Triathlon Tägerhard", place: "Tägerhard", type: "triathlon", distance: "Triathlon", category: "U14", rank: 3, link: "https://datasport.com/de/anlass/taegitri-2026/ranking/list/schueler-maedchen--85" },
-  { date: "2026-08-23", name: "Grosses Meeting für die Kleinen", place: "Bern", type: "bahn", distance: "1'000 m", category: "U12", rank: 1, link: "https://www.swiss-athletics.ch/wettkaempfe/resultate/bestenliste/bestenliste-wettkampf/?&mobile=false&blyear=2026&evt=a21aa-8zzu0-mqetbbtb-1-mqgcvdzn-4em7&blcat=5c4o3k5m-d686mo-j986g2ie-1-j986g45m-bh&disci=5c4o3k5m-d686mo-j986g2ie-1-j986gc86-1oz&top=30" },
-  { date: "2026-09-05", name: "Burgdorfer Stadtlauf", place: "Burgdorf", type: "strasse", distance: "1'480 m", category: "U12", rank: 1, link: "https://datasport.com/de/anlass/burgdorfer-stadtlauf-2026/ranking/list/runnerinnen--69" },
-  { date: "2026-09-12", name: "Mille Gruyère Schweizer Final", place: "Muttenz", type: "bahn", distance: "1'000 m", category: "W10", rank: 1, link: "https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/" },
-  { date: "2026-09-26", name: "Meeting Jeunesse", place: "Sierre", type: "bahn", distance: "1'000 m", category: "U12", rank: 1, link: "https://www.swiss-athletics.ch/wettkaempfe/resultate/bestenliste/bestenliste-wettkampf/?&mobile=false&blyear=2026&evt=a21aa-9y4ifn-msnafjt7-1-mspneg4f-89am&blcat=5c4o3k5m-d686mo-j986g2ie-1-j986g45m-bh&disci=5c4o3k5m-d686mo-j986g2ie-1-j986gc86-1oz&top=30" },
+window.RESULTS_TEXT = `
+17.01.2026 | Swiss Athletics Cross Cup – Kantonalfinal | Welschenrohr | Cross | 1'200 m | U12 | 1 | https://my.raceresult.com/373129/results
+08.03.2026 | Schweizer Meisterschaften Cross | Langenthal | Cross | 1'200 m | U12 | 7 | https://trackmaxx.ch/results/?race=csm26&c=17a8d202-a042-41c4-8b38-49a560fd2910
+12.04.2026 | Frühlingslauf Wiedlisbach | Wiedlisbach | Strasse | 1'050 m | U12 | 1 | https://trackmaxx.ch/results/?race=flw26&c=f51424a5-f2cc-4a3b-88d4-9761515c77f0
+24.04.2026 | Tüfelschluchtlauf | Hägendorf | Strasse | 1'200 m | U12 | 1 | https://my.raceresult.com/375620/
+02.05.2026 | Buchsilauf | Herzogenbuchsee | Strasse | 1'100 m | U12 | 1 | https://my.raceresult.com/375634/results
+03.05.2026 | Die schnällschte Oberaargauer (Qualifikation BE-Final) | Langenthal | Bahn | 1'000 m | W10 | 1 | https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/
+09.05.2026 | Grand-Prix von Bern (Bären GP) | Bern | Strasse | 1'600 m | W11 | 1 | https://trackmaxx.ch/results/?race=gp26&c=f766d363-fe3e-42ba-ad61-a08c5accf9cd
+16.05.2026 | Spezialisten-Meeting (Schwimmen) | Aarau | Triathlon | 50 m Schwimmen | – | 3
+23.05.2026 | Mille Gruyère Regionalfinal Zürich | Regensdorf | Bahn | 1'000 m | W10 | 1 | https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/
+25.05.2026 | Pfingstlauf | Niederbipp | Strasse | 1'000 m | U12 | 1 | https://my.raceresult.com/375071/results
+07.06.2026 | Berner Meisterschaften Nachwuchs | Thun | Bahn | 1'000 m | U12 | 1 | https://www.swiss-athletics.ch/wettkaempfe/resultate/bestenliste/bestenliste-wettkampf/?&mobile=false&blyear=2026&evt=a21aa-umhntv-mn7axdyn-1-mnwqwxnl-7flu&blcat=5c4o3k5m-d686mo-j986g2ie-1-j986g45m-bh&disci=5c4o3k5m-d686mo-j986g2ie-1-j986gc86-1oz&top=30
+21.06.2026 | Aarauer Altstadtlauf | Aarau | Strasse | 1'200 m | U12 | 1 | https://my.raceresult.com/348721/
+26.06.2026 | Mille Gruyère BE-Final (Swiss Qualifiers) | Langnau i.E. | Bahn | 1'000 m | W10 | 1 | https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/
+18.07.2026 | Torrent Run | Leukerbad | Strasse | 1'800 m | U12 | 1 | https://datasport.com/de/anlass/torrent-run-walk-2026/ranking/list/u12-maedchen
+18.07.2026 | Trompeterlauf Bad Säckingen | Bad Säckingen (DE) | Strasse | 1'180 m | U12 | 1 | https://datasport.com/de/anlass/trompeterlauf-bad-saeckingen-2026/ranking/list/weibliche-kinder-u12
+07.08.2026 | Bleienbacher | Bleienbach | Strasse | 800 m | U12 | 1 | https://my.raceresult.com/378390/results
+08.08.2026 | Nachwuchsmeeting Zofingen | Zofingen | Bahn | 600 m | U12 | 1 | https://slv.laportal.net/Competitions/CurrentList/1038382/20184
+14.08.2026 | Born to Run | Olten | Strasse | 1'200 m | U12 | 1 | https://my.raceresult.com/375624/results
+16.08.2026 | Triathlon Tägerhard | Tägerhard | Triathlon | Triathlon | U14 | 3 | https://datasport.com/de/anlass/taegitri-2026/ranking/list/schueler-maedchen--85
+23.08.2026 | Grosses Meeting für die Kleinen | Bern | Bahn | 1'000 m | U12 | 1 | https://www.swiss-athletics.ch/wettkaempfe/resultate/bestenliste/bestenliste-wettkampf/?&mobile=false&blyear=2026&evt=a21aa-8zzu0-mqetbbtb-1-mqgcvdzn-4em7&blcat=5c4o3k5m-d686mo-j986g2ie-1-j986g45m-bh&disci=5c4o3k5m-d686mo-j986g2ie-1-j986gc86-1oz&top=30
+05.09.2026 | Burgdorfer Stadtlauf | Burgdorf | Strasse | 1'480 m | U12 | 1 | https://datasport.com/de/anlass/burgdorfer-stadtlauf-2026/ranking/list/runnerinnen--69
+12.09.2026 | Mille Gruyère Schweizer Final | Muttenz | Bahn | 1'000 m | W10 | 1 | https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/
+26.09.2026 | Meeting Jeunesse | Sierre | Bahn | 1'000 m | U12 | 1 | https://www.swiss-athletics.ch/wettkaempfe/resultate/bestenliste/bestenliste-wettkampf/?&mobile=false&blyear=2026&evt=a21aa-9y4ifn-msnafjt7-1-mspneg4f-89am&blcat=5c4o3k5m-d686mo-j986g2ie-1-j986g45m-bh&disci=5c4o3k5m-d686mo-j986g2ie-1-j986gc86-1oz&top=30
 
-  // Angemeldet (noch ohne Resultat)
-  { date: "2026-11-07", name: "Langenthaler Stadtlauf", place: "Langenthal", type: "strasse", distance: "900 m", category: "U12" },
-  { date: "2026-11-21", name: "Basler Stadtlauf", place: "Basel", type: "strasse", distance: "1'000 m", category: "U13" },
-  { date: "2026-12-13", name: "Zürcher Silvesterlauf", place: "Zürich", type: "strasse", distance: "1'600 m", category: "U14" }
-];
+# Angemeldet (noch ohne Rang) – erscheinen automatisch unter «Next Races»
+07.11.2026 | Langenthaler Stadtlauf | Langenthal | Strasse | 900 m | U12
+21.11.2026 | Basler Stadtlauf | Basel | Strasse | 1'000 m | U13
+13.12.2026 | Zürcher Silvesterlauf | Zürich | Strasse | 1'600 m | U14
+`;
+
+/* ---------- Ab hier nichts ändern ---------- */
+(function () {
+  var TYPES = { bahn: "bahn", strasse: "strasse", "straße": "strasse", cross: "cross", "cross country": "cross", triathlon: "triathlon" };
+  var out = [], bad = [];
+  String(window.RESULTS_TEXT || "").split(/\r?\n/).forEach(function (raw, i) {
+    var line = raw.trim();
+    if (!line || line.charAt(0) === "#") return;
+    var c = line.split("|").map(function (s) { return s.trim(); });
+    var d = (c[0] || "").match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+    var type = TYPES[(c[3] || "").toLowerCase()];
+    var rank = c[6] ? parseInt(c[6], 10) : undefined;
+    var okDate = d && +d[2] >= 1 && +d[2] <= 12 && +d[1] >= 1 && +d[1] <= 31;
+    if (c.length < 6 || !okDate || !c[1] || !type || (c[6] && isNaN(rank))) { bad.push("Zeile " + (i + 1) + ": " + line); return; }
+    out.push({
+      date: d[3] + "-" + ("0" + d[2]).slice(-2) + "-" + ("0" + d[1]).slice(-2),
+      name: c[1], place: c[2] || "", type: type, distance: c[4] || "", category: c[5] || "",
+      rank: rank, link: /^https?:\/\//.test(c[7] || "") ? c[7] : ""
+    });
+  });
+  if (bad.length && window.console) console.warn("Wettkampfliste – diese Zeilen wurden übersprungen:\n" + bad.join("\n"));
+  window.RESULTS = out;
+})();
