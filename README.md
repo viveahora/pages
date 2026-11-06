@@ -102,6 +102,14 @@ Bilder werden in Karten zugeschnitten (object-fit) → Jana mittig mit etwas Ran
 Offen (liefert Auftraggeber nach): Triathlon-Bilder (sports, next), Zofingen, Logos Sponsoren/Vereine,
 Pressetitel/-links. Quellbilder (36 Stück) liegen nicht im Repo (öffentlich) — nur freigegebene Zuschnitte.
 
+## Sicherungspunkte (zum Zurückkehren)
+
+| Datum | Commit | Stand |
+|---|---|---|
+| 06.11.2026 | `9c48020` | **Stand vor Feedback-Runde 2**: alle Korrekturen Runde 1, Animationen live, Handy-Menü-Fix, neue Resultat-Liste (eine Zeile pro Rennen). Entspricht dem ZIP-Paket «Jana-Julia-Kramer-Website» für David. |
+
+Zurückholen: Dateien aus dem genannten Commit wiederherstellen (ganz oder einzelne Sections).
+
 ## Design-Varianten (Archiv)
 
 - **My Sports – dunkle Karten** (Bild vollflächig, dunkler Verlauf, weisse Schrift): ersetzt am 02.11.2026
