@@ -39,10 +39,24 @@ window.RESULTS_TEXT = `
 12.09.2026 | Mille Gruyère Schweizer Final | Muttenz | Bahn | 1'000 m | W10 | 1 | https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/
 26.09.2026 | Meeting Jeunesse | Sierre | Bahn | 1'000 m | U12 | 1 | https://www.swiss-athletics.ch/wettkaempfe/resultate/bestenliste/bestenliste-wettkampf/?&mobile=false&blyear=2026&evt=a21aa-9y4ifn-msnafjt7-1-mspneg4f-89am&blcat=5c4o3k5m-d686mo-j986g2ie-1-j986g45m-bh&disci=5c4o3k5m-d686mo-j986g2ie-1-j986gc86-1oz&top=30
 
+25.10.2026 | Swiss Minimarathon Alpnach | Alpnach | Strasse | 2'195 m | U12 | 1 | https://trackmaxx.ch/results/?race=scm26&c=13d336a7-b945-41a9-8c4f-62e8de35de4a
+
 # Angemeldet (noch ohne Rang) – erscheinen automatisch unter «Next Races»
-07.11.2026 | Langenthaler Stadtlauf | Langenthal | Strasse | 900 m | U12
-21.11.2026 | Basler Stadtlauf | Basel | Strasse | 1'000 m | U13
-13.12.2026 | Zürcher Silvesterlauf | Zürich | Strasse | 1'600 m | U14
+07.11.2026 | Langenthaler Stadtlauf | Langenthal | Strasse | 1'250 m | U12
+21.11.2026 | Basler Stadtlauf | Basel | Strasse | 1'000 m | U12
+29.11.2026 | Wisacher Cross Regensdorf | Regensdorf | Cross | 2'000 m | U12
+13.12.2026 | Zürcher Silvesterlauf | Zürich | Strasse | 1'600 m | U12
+
+# ===== Saison 2025 (Kategorie U10) =====
+22.05.2025 | Pho3nix Kids Triathlon by Nicola Spirig | Sursee | Triathlon | Triathlon | U10 | 1 | https://trackmaxx.ch/events/kidstri/results/?race=NS25-SUR&list=cert&racenumber=82
+16.08.2025 | Pho3nix Kids Triathlon by Nicola Spirig | Balsthal | Triathlon | Triathlon | U10 | 1 | https://trackmaxx.ch/events/kidstri/results/?race=NS25-BAL&list=cert&racenumber=59
+23.08.2025 | Kids-Aquathlon Zürich | Zürich | Triathlon | Aquathlon | U10 | 1 | https://my.raceresult.com/348778/results
+06.09.2025 | PowerKids Duathlon | Zofingen | Triathlon | Duathlon | U10 | 1 | https://my.raceresult.com/354247/results
+20.09.2025 | Willisauer Lauf | Willisau | Strasse | 900 m | U10 | 2 | https://datasport.com/de/anlass/willisauer-lauf-2025/ranking/list/maedchen-u10
+19.10.2025 | Muttenzer Herbstlauf | Muttenz | Strasse | 900 m | U10 | 1 | https://my.raceresult.com/345163/results
+08.11.2025 | Langenthaler Stadtlauf | Langenthal | Strasse | 1'250 m | U10 | 1 | https://results.datasport.com/race/langenthaler-stadtlauf-2025/ranking/list/1-25-km-piccolas-maedchen--69
+22.11.2025 | Basler Stadtlauf | Basel | Strasse | 1'000 m | U10 | 3 | https://datasport.com/live/ranking/?racenr=27111
+06.12.2025 | Chlauslauf Härkingen | Härkingen | Strasse | 1'100 m | U10 | 1 | https://my.raceresult.com/326406/results
 `;
 
 /* ---------- Ab hier nichts ändern ---------- */

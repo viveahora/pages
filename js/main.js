@@ -110,7 +110,7 @@
     setKpi("races", byYear.length);
     setKpi("year", state.year === "all" ? "" : state.year);
   }
-  function setKpi(k, v) { var el = document.querySelector('[data-kpi="' + k + '"]'); if (el) el.textContent = v; }
+  function setKpi(k, v) { var el = document.querySelector('[data-kpi="' + k + '"]'); if (el) { el.textContent = v; el.setAttribute("data-v", v); } }
 
   document.querySelectorAll(".chip").forEach(function (btn) {
     btn.addEventListener("click", function () {

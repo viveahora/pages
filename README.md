@@ -143,8 +143,12 @@ in allen nötigen Grössen: `favicon.svg`, `favicon.ico` (32 px), `apple-touch-i
 Icons 192/512 px + `site.webmanifest`; dazu Vorschaubild für geteilte Links (`og-image`, 1200 × 630).
 Vorher 2–3 Varianten zur Auswahl zeigen.
 
-### Wartet auf Unterlagen
-- Triathlon-Bilder (My Sports, What's Next), Bild Zofingen (Highlights)
-- Logos Sommertee, Neven Lanz, OKOA, LV Langenthal, TRI Team Oensingen
-- Prüfung Zuordnung Bahn/Strasse, Pressetitel (3. Artikel) und Online-Links, Ort «Bleienbach»
-- Resultate 2025
+### Feedback-Runde 2 (06.11.2026) – erledigt
+Triathlon-, Cross-, Zofingen- und What's-Next-Bilder, Vereins- und Gönner-Logos, Sponsor/Gönner-Aufteilung,
+Resultate 2025 + Swiss Minimarathon + Wisacher Cross, Presse 2025, Impressum (Social Media, Hosting, Bildnachweise).
+Back on Track 2027: bewusst Originalfoto statt KI-Montage mit Sommertee-Flasche.
+
+### Noch offen
+- Pressetitel/Zeitung 2025 (Langenthaler Stadtlauf) bestätigen – aktuell beschreibender Titel «Regionalzeitung»
+- Sommertee-Logo (aktuell Produktfoto)
+- Favicon + Vorschaubild für geteilte Links; Livegang (Sperre aufheben, Domain, Search Console, cookielose Statistik)

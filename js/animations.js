@@ -32,12 +32,13 @@
 
   /* 2) Zahlen zählen hoch: Kennzahlen bei den Resultaten */
   var kpis = document.querySelector(".kpis");
-  if (kpis) kpis.querySelectorAll(".kpi-num").forEach(function (el) { el.setAttribute("data-target", el.textContent); el.textContent = "0"; });
+  if (kpis) kpis.querySelectorAll(".kpi-num").forEach(function (el) { el.textContent = "0"; });
   once(kpis, function () {
     kpis.querySelectorAll(".kpi-num").forEach(function (el) {
-      var target = parseInt(el.textContent !== "0" ? el.textContent : el.getAttribute("data-target"), 10);
+      var target = parseInt(el.getAttribute("data-v"), 10);
       if (isNaN(target)) return;
-      tween(1300, function (p) { el.textContent = Math.round(target * p); });
+      // stoppt, sobald sich der Wert ändert (z. B. andere Saison gewählt)
+      tween(1300, function (p) { if (el.getAttribute("data-v") === String(target)) el.textContent = Math.round(target * p); });
     });
   });
 

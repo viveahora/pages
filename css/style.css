@@ -284,6 +284,21 @@ button, select { font: inherit; }
 .partner-card p:not(.script) { font-size: .9rem; color: var(--text); }
 .text-link { margin-top: auto; display: inline-flex; align-items: center; gap: 6px; color: var(--pink-strong); font-weight: 700; font-size: .88rem; text-decoration: none; }
 .text-link:hover { text-decoration: underline; }
+/* Sponsor (gross) + Gönner (Logos) */
+.partner-group { font: 600 .78rem/1 var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 8px 0 16px; display: flex; align-items: center; gap: 12px; }
+.partner-group::before { content: ""; width: 28px; height: 3px; background: var(--pink); }
+.sponsor-card { display: grid; grid-template-columns: 1.15fr 1fr; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--white); box-shadow: var(--shadow); margin-bottom: 40px; }
+.sponsor-media { width: 100%; height: 100%; min-height: 300px; object-fit: cover; }
+.sponsor-body { padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; justify-content: center; }
+.sponsor-body h3 { font: italic 800 clamp(1.8rem, 3vw, 2.4rem)/1 var(--f-head); text-transform: uppercase; color: var(--navy); }
+.sponsor-body .script { margin: .25em 0 .7em; }
+.sponsor-body p:not(.script) { font-size: .95rem; }
+.sponsor-body .text-link { margin-top: .4em; }
+.donors { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2.4vw, 28px); }
+.donor-card { display: flex; align-items: center; gap: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); padding: 22px 26px; text-decoration: none; color: var(--text); transition: box-shadow .25s, transform .25s; }
+.donor-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.donor-card img { flex: none; width: 150px; height: 70px; object-fit: contain; }
+.donor-card p { margin: 0; font-size: .9rem; line-height: 1.5; }
 .become-partner { margin-top: 32px; background: var(--navy); color: #fff; border-radius: var(--radius); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; position: relative; overflow: hidden; }
 .become-partner h3 { font: italic 800 2rem/1 var(--f-head); text-transform: uppercase; margin-bottom: .3em; }
 .become-partner h3::after { content: " ♡"; color: var(--pink); font-family: var(--f-body); font-size: .7em; }
@@ -295,7 +310,10 @@ button, select { font: inherit; }
 .team { background: var(--rose); }
 .team-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
 .team .section-title .pink { display: inline; font-size: 1em; }
-.clubs { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.clubs { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.club-logo { display: inline-flex; align-items: center; justify-content: center; background: var(--white); border: 1.5px solid var(--line); border-radius: 14px; height: 120px; min-width: 150px; padding: 14px 22px; transition: border-color .2s, transform .2s; }
+.club-logo:hover { border-color: var(--pink); transform: translateY(-2px); }
+.club-logo img { max-height: 92px; max-width: 190px; width: auto; }
 .club-badge { background: var(--white); border: 1.5px solid var(--line); border-radius: 999px; padding: 9px 18px; font-weight: 700; font-size: .85rem; color: var(--navy); text-decoration: none; }
 .club-badge:hover { border-color: var(--pink); color: var(--pink-strong); }
 .team-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -306,7 +324,8 @@ button, select { font: inherit; }
    PRESS
    ========================================================= */
 .press { background: var(--white); }
-.press .cards-3 { margin-top: 28px; }
+.press .cards-4 { margin-top: 28px; }
+.cards-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 24px); }
 .press-card { border-radius: var(--radius); overflow: hidden; background: var(--paper); border: 1px solid var(--line); }
 .press-card img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
 .press-card h3 { font: 700 1.02rem/1.35 var(--f-body); color: var(--navy); padding: 18px 20px 0; }
@@ -370,6 +389,7 @@ button, select { font: inherit; }
   body.nav-open { overflow: hidden; }
 
   .next-grid { grid-template-columns: 1fr 1fr; }
+  .cards-4 { grid-template-columns: repeat(2, 1fr); }
   .next-intro { grid-column: 1 / -1; }
   .footer-inner { grid-template-columns: 1fr auto; }
   .footer-text { grid-column: 1 / -1; grid-row: 2; }
@@ -380,6 +400,9 @@ button, select { font: inherit; }
   .stat:nth-child(3) { border-left: 0; }
   .sports-grid, .cards-3 { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
   .story-grid, .team-grid { grid-template-columns: 1fr; }
+  .sponsor-card { grid-template-columns: 1fr; }
+  .sponsor-media { min-height: 0; aspect-ratio: 16 / 9; height: auto; }
+  .donors { grid-template-columns: 1fr; }
   .story-photo { max-width: 420px; }
   .results-head { grid-template-columns: 1fr; align-items: start; }
   .insta-grid { grid-template-columns: 1fr; }
@@ -418,6 +441,12 @@ button, select { font: inherit; }
   .results-table tbody tr:hover td { background: none; }
 
   .next-grid { grid-template-columns: 1fr; }
+  .cards-4 { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
+  .donor-card { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .clubs { flex-wrap: nowrap; }
+  .club-logo { flex: 1; min-width: 0; height: 104px; padding: 12px; }
+  .club-logo img { max-height: 76px; max-width: 100%; }
+  .donor-card img { width: 140px; height: 56px; object-position: left center; }
   .become-partner { padding: 24px; }
   .team-photos img:last-child { transform: translateY(16px); }
 }
@@ -482,12 +511,12 @@ button, select { font: inherit; }
 /* Dezenter Zoom beim Darüberfahren für alle Kartenbilder (wie bei Instagram).
    «scale» + passendes «clip-path», damit das Bild im Rahmen bleibt und nichts überlappt. */
 @media (hover: hover) {
-  .anim .sport-card > img, .anim .hl-media img, .anim .goal-card > img, .anim img.partner-media,
+  .anim .sport-card > img, .anim .hl-media img, .anim .goal-card > img, .anim .sponsor-media,
   .anim .press-card img {
     clip-path: inset(0); transition: scale .6s ease, clip-path .6s ease;
   }
   .anim .sport-card:hover > img, .anim .hl-card:hover .hl-media img, .anim .goal-card:hover > img,
-  .anim .partner-card:hover img.partner-media, .anim .press-card:hover img {
+  .anim .sponsor-card:hover .sponsor-media, .anim .press-card:hover img {
     scale: 1.06; clip-path: inset(2.83%);
   }
   .anim .insta-photos img { transition: transform .6s ease; }
