@@ -1,2 +1,18 @@
+# ============================================================
+#  SUCHMASCHINEN-SCHALTER
+#  Solange die folgenden zwei Zeilen aktiv sind, nimmt Google die Seite NICHT auf.
+#  Zum offiziellen Start (auf Davids Netlify / eigener Domain): die zwei Zeilen
+#  direkt unter dieser Box löschen. Sonst nichts ändern.
+# ============================================================
 /*
-  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  X-Robots-Tag: noindex, nofollow
+
+# Sicherheit
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+# Schnelleres Laden: Schriften lange im Browser behalten
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -140,6 +140,14 @@ Triathlon-, Cross-, Zofingen- und What's-Next-Bilder, Vereins- und Gönner-Logos
 Resultate 2025 + Swiss Minimarathon + Wisacher Cross, Presse 2025, Impressum (Social Media, Hosting, Bildnachweise).
 Back on Track 2027: bewusst Originalfoto statt KI-Montage mit Sommertee-Flasche.
 
+### SEO / Google (vorbereitet 13.11.2026)
+- Meta-Description, Canonical, Open-Graph-Vorschau (`assets/images/og-image.jpg`, 1200 × 630), strukturierte Daten
+  (JSON-LD: WebSite + Person, bewusst ohne Geburtsdatum/Adresse), `sitemap.xml`, `robots.txt` (erlaubt), `llms.txt` (für KI-Suche)
+- Ziel-Adresse überall: `https://jana-julia-kramer.netlify.app` – bei anderer Domain in index.html, impressum.html,
+  sitemap.xml, robots.txt, llms.txt ersetzen
+- **Einziger verbleibender Schalter:** `_headers` (X-Robots-Tag noindex) – erst auf Davids finaler Adresse entfernen,
+  danach Google Search Console einrichten und Sitemap einreichen
+
 ### Noch offen
 - Pressetitel/Zeitung 2025 (Langenthaler Stadtlauf) bestätigen – aktuell beschreibender Titel «Regionalzeitung»
 - Sommertee-Logo (aktuell Produktfoto)
