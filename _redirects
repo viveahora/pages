@@ -1,0 +1,6 @@
+# Alle Nebenadressen dauerhaft (301) auf die Hauptdomain janajulia.com weiterleiten
+https://janajulia.ch/*           https://janajulia.com/:splat  301!
+https://www.janajulia.ch/*       https://janajulia.com/:splat  301!
+http://janajulia.ch/*            https://janajulia.com/:splat  301!
+http://www.janajulia.ch/*        https://janajulia.com/:splat  301!
+https://www.janajulia.com/*      https://janajulia.com/:splat  301!

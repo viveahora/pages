@@ -143,8 +143,9 @@ Back on Track 2027: bewusst Originalfoto statt KI-Montage mit Sommertee-Flasche.
 ### SEO / Google (vorbereitet 13.11.2026)
 - Meta-Description, Canonical, Open-Graph-Vorschau (`assets/images/og-image.jpg`, 1200 × 630), strukturierte Daten
   (JSON-LD: WebSite + Person, bewusst ohne Geburtsdatum/Adresse), `sitemap.xml`, `robots.txt` (erlaubt), `llms.txt` (für KI-Suche)
-- Ziel-Adresse überall: `https://jana-julia-kramer.netlify.app` – bei anderer Domain in index.html, impressum.html,
-  sitemap.xml, robots.txt, llms.txt ersetzen
+- Hauptdomain: **`https://janajulia.com`** (in index.html, impressum.html, sitemap.xml, robots.txt, llms.txt)
+- Zusatzdomain **`janajulia.ch`** (+ www-Varianten) leitet per `_redirects` dauerhaft (301) auf janajulia.com weiter.
+  In Netlify: janajulia.com als *Primary domain*, janajulia.ch als *Domain alias* hinzufügen.
 - **Einziger verbleibender Schalter:** `_headers` (X-Robots-Tag noindex) – erst auf Davids finaler Adresse entfernen,
   danach Google Search Console einrichten und Sitemap einreichen
 
