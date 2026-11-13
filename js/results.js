@@ -39,10 +39,10 @@ window.RESULTS_TEXT = `
 12.09.2026 | Mille Gruyère Schweizer Final | Muttenz | Bahn | 1'000 m | W10 | 1 | https://www.mille-gruyere.ch/fuer-teilnehmer/ergebnisse/live-resultate/
 26.09.2026 | Meeting Jeunesse | Sierre | Bahn | 1'000 m | U12 | 1 | https://www.swiss-athletics.ch/wettkaempfe/resultate/bestenliste/bestenliste-wettkampf/?&mobile=false&blyear=2026&evt=a21aa-9y4ifn-msnafjt7-1-mspneg4f-89am&blcat=5c4o3k5m-d686mo-j986g2ie-1-j986g45m-bh&disci=5c4o3k5m-d686mo-j986g2ie-1-j986gc86-1oz&top=30
 
+07.11.2026 | Langenthaler Stadtlauf | Langenthal | Strasse | 1'250 m | U12 | 1 | https://datasport.com/de/anlass/langenthaler-stadtlauf-2026/ranking/list/1-25-km-kids-maedchen
 25.10.2026 | Swiss Minimarathon Alpnach | Alpnach | Strasse | 2'195 m | U12 | 1 | https://trackmaxx.ch/results/?race=scm26&c=13d336a7-b945-41a9-8c4f-62e8de35de4a
 
 # Angemeldet (noch ohne Rang) – erscheinen automatisch unter «Next Races»
-07.11.2026 | Langenthaler Stadtlauf | Langenthal | Strasse | 1'250 m | U12
 21.11.2026 | Basler Stadtlauf | Basel | Strasse | 1'000 m | U12
 29.11.2026 | Wisacher Cross Regensdorf | Regensdorf | Cross | 2'000 m | U12
 13.12.2026 | Zürcher Silvesterlauf | Zürich | Strasse | 1'600 m | U12

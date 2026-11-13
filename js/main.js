@@ -139,3 +139,56 @@
     }).join("");
   }
 })();
+
+/* ---------- Lightbox für Zeitungsartikel ---------- */
+(function () {
+  "use strict";
+  var box = document.getElementById("lightbox");
+  if (!box) return;
+  var items = Array.prototype.slice.call(document.querySelectorAll(".press-zoom"));
+  var img = box.querySelector(".lb-img"), cap = box.querySelector(".lb-cap");
+  var btnClose = box.querySelector(".lb-close"), btnPrev = box.querySelector(".lb-prev"), btnNext = box.querySelector(".lb-next");
+  var current = -1, lastFocus = null;
+
+  function show(i) {
+    current = (i + items.length) % items.length;
+    var it = items[current], card = it.closest(".press-card");
+    var title = card.querySelector("h3"), meta = card.querySelector(".meta");
+    img.src = it.getAttribute("data-full");
+    img.alt = it.querySelector("img").alt;
+    cap.innerHTML = "<strong>" + (title ? title.textContent : "") + "</strong>" + (meta ? "<span>" + meta.textContent + "</span>" : "");
+    var single = items.length < 2; btnPrev.hidden = single; btnNext.hidden = single;
+  }
+  function open(i) {
+    lastFocus = document.activeElement;
+    show(i);
+    box.hidden = false;
+    requestAnimationFrame(function () { box.classList.add("is-open"); });
+    document.body.classList.add("lb-open");
+    btnClose.focus();
+  }
+  function close() {
+    box.classList.remove("is-open");
+    document.body.classList.remove("lb-open");
+    box.hidden = true; img.removeAttribute("src"); current = -1;
+    if (lastFocus) lastFocus.focus();
+  }
+
+  items.forEach(function (it, i) { it.addEventListener("click", function () { open(i); }); });
+  btnClose.addEventListener("click", close);
+  btnPrev.addEventListener("click", function (e) { e.stopPropagation(); show(current - 1); });
+  btnNext.addEventListener("click", function (e) { e.stopPropagation(); show(current + 1); });
+  // Klick ins Feld (ausserhalb des Bildes) schliesst
+  box.addEventListener("click", function (e) { if (e.target === box || e.target.classList.contains("lb-figure")) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (box.hidden) return;
+    if (e.key === "Escape") { e.preventDefault(); close(); }
+    else if (e.key === "ArrowRight") show(current + 1);
+    else if (e.key === "ArrowLeft") show(current - 1);
+    else if (e.key === "Tab") { // Fokus im Overlay halten
+      var f = [btnClose, btnPrev, btnNext].filter(function (b) { return !b.hidden; });
+      var idx = f.indexOf(document.activeElement);
+      e.preventDefault(); f[(idx + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+})();
